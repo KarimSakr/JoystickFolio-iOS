@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
         return field
     }()
     
+    //MARK: - Login Button
     private let loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Log in", for: .normal)
@@ -54,6 +55,7 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    //MARK: - Create Account Button
     private let createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create an account?", for: .normal)
