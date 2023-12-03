@@ -78,6 +78,12 @@ class LoginViewController: UIViewController {
         return gradient
     }()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 50.0)
+        return label
+    }()
+    
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,9 +104,13 @@ class LoginViewController: UIViewController {
         view.addSubview(loginButton)
         view.addSubview(createAccountButton)
         
-        //MARK: - Add Gradient to Header
+        //MARK: - Add Subviews to Header
         gradientLayer.frame = headerView.bounds
         headerView.layer.addSublayer(gradientLayer)
+        headerView.addSubview(titleLabel)
+
+        
+        animateTitle()
     }
     
     //MARK: - ViewDidLayoutSubViews
@@ -148,6 +158,23 @@ class LoginViewController: UIViewController {
     
     //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
+        
+    }
+    
+    private func animateTitle() {
+        titleLabel.text = ""
+        var charIndex = 0.0
+        let titleText = "JoystickFolio"
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
+                self.titleLabel.text?.append(letter)
+                self.titleLabel.frame = CGRect(x: (self.view.width/2) - (CGFloat(self.titleLabel.text?.count ?? 0) * 11),
+                                               y: self.view.top,
+                                               width: self.headerView.width,
+                                               height: self.headerView.height)
+            }
+            charIndex += 1
+        }
         
     }
 }
