@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Create an account?", for: .normal)
         button.layer.masksToBounds = true
-        button.setTitleColor(.gray, for: .normal)
+        button.setTitleColor(.label , for: .normal)
         return button
     }()
     
@@ -66,23 +66,23 @@ class LoginViewController: UIViewController {
     private let headerView: UIView = {
         let header = UIView()
         header.clipsToBounds = true
-        
-        header.backgroundColor = .purpleApp
-        // Create the gradient layer
-//        let gradient = CAGradientLayer()
-//        gradient.frame = header.bounds
-//        gradient.colors = [UIColor.black.cgColor, UIColor.red.cgColor]
-//        
-//        header.layer.addSublayer(gradient)
-        
         return header
     }()
-
+    
+    //MARK: - Gradien Layer
+    private let gradientLayer: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.purpleApp.cgColor, UIColor.pinkApp.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        return gradient
+    }()
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK: - Add Targets (Buttons)
         loginButton.addTarget(self,
                               action: #selector(didTapLoginButton),
                               for: .touchUpInside)
@@ -91,21 +91,28 @@ class LoginViewController: UIViewController {
                               action: #selector(didTapCreateAccountButton),
                               for: .touchUpInside)
         
+        //MARK: - Add Subviews
         view.addSubview(headerView)
         view.addSubview(usernameField)
         view.addSubview(passwordField)
         view.addSubview(loginButton)
         view.addSubview(createAccountButton)
-        // Do any additional setup after loading the view.
+        
+        //MARK: - Add Gradient to Header
+        gradientLayer.frame = headerView.bounds
+        headerView.layer.addSublayer(gradientLayer)
     }
     
     //MARK: - ViewDidLayoutSubViews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         headerView.frame = CGRect(x: 0,
                                   y: 0.0,
                                   width: view.width,
                                   height: view.height / 3.0)
+        
+        headerView.layer.sublayers?.first?.frame = headerView.bounds
         
         usernameField.frame = CGRect(x: 25,
                                      y: headerView.bottom + 40,
