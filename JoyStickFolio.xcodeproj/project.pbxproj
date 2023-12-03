@@ -62,7 +62,6 @@
 				7F063B5E2B1CC9620075B6A7 /* Views */,
 				7F063B5F2B1CC96B0075B6A7 /* Controllers */,
 				7F063B602B1CCA170075B6A7 /* Utils */,
-				7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */,
 				7F063B522B1CBAC40075B6A7 /* Assets.xcassets */,
 				7F063B572B1CBAC40075B6A7 /* Info.plist */,
 			);
@@ -79,7 +78,7 @@
 		7F063B5E2B1CC9620075B6A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F063B4F2B1CBAC20075B6A7 /* Main.storyboard */,
+				7F063B622B1CD7780075B6A7 /* Storyboards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +104,15 @@
 				7F063B4D2B1CBAC20075B6A7 /* HomeViewController.swift */,
 			);
 			path = "Main Controllers";
+			sourceTree = "<group>";
+		};
+		7F063B622B1CD7780075B6A7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */,
+				7F063B4F2B1CBAC20075B6A7 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
