@@ -54,6 +54,14 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let createAccountButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Create an account?", for: .normal)
+        button.layer.masksToBounds = true
+        button.setTitleColor(.gray, for: .normal)
+        return button
+    }()
+    
     //MARK: - Header
     private let headerView: UIView = {
         let header = UIView()
@@ -79,10 +87,15 @@ class LoginViewController: UIViewController {
                               action: #selector(didTapLoginButton),
                               for: .touchUpInside)
         
+        createAccountButton.addTarget(self,
+                              action: #selector(didTapCreateAccountButton),
+                              for: .touchUpInside)
+        
         view.addSubview(headerView)
         view.addSubview(usernameField)
         view.addSubview(passwordField)
         view.addSubview(loginButton)
+        view.addSubview(createAccountButton)
         // Do any additional setup after loading the view.
     }
     
@@ -109,13 +122,28 @@ class LoginViewController: UIViewController {
                                    width: view.width - 50,
                                    height: 52)
         
+        createAccountButton.frame = CGRect(x: 25,
+                                           y: loginButton.bottom + 10,
+                                           width: view.width - 50,
+                                           height: 52)
+        
     }
     
+    
+    //MARK: - didTapCreateAccountButton
+    @objc private func didTapCreateAccountButton() {
+        let vc = RegisterationViewController()
+        vc.title = "Create Account"
+        vc.isModalInPresentation = true
+        present(UINavigationController(rootViewController: vc), animated: true)
+    }
+    
+    
+    //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
         
     }
 }
-
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

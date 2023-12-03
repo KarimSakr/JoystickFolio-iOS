@@ -15,6 +15,7 @@
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
 		7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */; };
 		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
+		7F6FFE802B1D2A0900D89F92 /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegisterationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7F6FFE7F2B1D2A0900D89F92 /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */,
+				7F6FFE7F2B1D2A0900D89F92 /* RegisterationViewController.swift */,
 			);
 			path = "Auth Controllers";
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
+				7F6FFE802B1D2A0900D89F92 /* RegisterationViewController.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
