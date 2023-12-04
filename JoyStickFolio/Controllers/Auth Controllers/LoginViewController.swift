@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.layer.masksToBounds = true
-        field.layer.cornerRadius = 8.0
+        field.layer.cornerRadius = Constants.cornerRadius
         field.backgroundColor = .secondarySystemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.layer.masksToBounds = true
-        field.layer.cornerRadius = 8.0
+        field.layer.cornerRadius = Constants.cornerRadius
         field.backgroundColor = .secondarySystemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Log in", for: .normal)
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = 8.0
+        button.layer.cornerRadius = Constants.cornerRadius
         button.backgroundColor = .accent
         button.setTitleColor(.white, for: .normal)
         return button
@@ -153,7 +153,6 @@ class LoginViewController: UIViewController {
     @objc private func didTapCreateAccountButton() {
         let vc = RegisterationViewController()
         vc.title = "Create Account"
-        vc.isModalInPresentation = true
         present(UINavigationController(rootViewController: vc), animated: true)
     }
     
