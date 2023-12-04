@@ -82,6 +82,7 @@ class LoginViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 50.0)
         return label
     }()
@@ -169,7 +170,7 @@ class LoginViewController: UIViewController {
         for letter in titleText {
             Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
                 self.titleLabel.text?.append(letter)
-                self.titleLabel.frame = CGRect(x: (self.view.width/2) - (CGFloat(self.titleLabel.text?.count ?? 0) * 11),
+                self.titleLabel.frame = CGRect(x: .zero,
                                                y: self.view.top,
                                                width: self.headerView.width,
                                                height: self.headerView.height)
