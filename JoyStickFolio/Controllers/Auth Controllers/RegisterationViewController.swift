@@ -12,12 +12,11 @@ class RegisterationViewController: UIViewController {
     //MARK: - Login Process
     private let processes = RegisterationProcessData.allProcesses
     private var index: Int = 0
-    
-    private var titleText   = ""
-    private var placeholder = ""
-    private var buttonTitle = ""
-    
     private var progressValue = 0.0
+    
+    //MARK: - Classes
+    private let validator = AuthValidator()
+    private let animator = TextAnimator()
     
     
     //MARK: - titleLabel
@@ -86,7 +85,7 @@ class RegisterationViewController: UIViewController {
         view.addSubview(titleLabel)
         
         titleLabel.text? = ""
-        TextAnimator().animateTitle(text: processes[index].title) { letter in
+        animator.animateTitle(text: processes[index].title) { letter in
             self.titleLabel.text?.append(letter)
             self.titleLabel.frame = CGRect(x: .zero,
                                            y: self.textField.top - 200,
@@ -124,7 +123,32 @@ class RegisterationViewController: UIViewController {
     
     @objc private func buttonPressed() {
         
+        
         if processes.last != processes[index] {
+            
+            switch processes[index].process {
+                
+            case .enterFullName:
+                guard validator.isFullNameValid(textField: textField.text ?? "") else {
+                    return
+                }
+            case .enterEmail:
+                guard validator.isEmailValid(textField: textField.text ?? "") else {
+                    return
+                }
+            case .enterUsername:
+                guard validator.isUsernameValid(textField: textField.text ?? "") else {
+                    return
+                }
+            case .enterPassword:
+                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: textField.text ?? "") else {
+                    return
+                }
+            case .confirm:
+                // API Call
+                break
+            }
+            
             index += 1
             progressValue += 1.0 / Double(processes.count - 1)
             
@@ -135,7 +159,7 @@ class RegisterationViewController: UIViewController {
             progressBarView.progress = Float(progressValue)
             
             titleLabel.text? = ""
-            TextAnimator().animateTitle(text: processes[index].title) { letter in
+            animator.animateTitle(text: processes[index].title) { letter in
                 self.titleLabel.text?.append(letter)
                 self.titleLabel.frame = CGRect(x: .zero,
                                                y: self.textField.top - 200,
@@ -144,4 +168,6 @@ class RegisterationViewController: UIViewController {
             }
         }
     }
+    
+    
 }

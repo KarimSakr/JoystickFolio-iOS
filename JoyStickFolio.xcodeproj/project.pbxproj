@@ -17,6 +17,7 @@
 		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
 		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
+		7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */; };
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F5D64B12B1E6CCA00E9669E /* RegisterationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegisterationProcess.swift */; };
 		7F5D64B42B1E6DAE00E9669E /* RegisterationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegisterationProcessData.swift */; };
@@ -36,6 +37,7 @@
 		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
+		7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidator.swift; sourceTree = "<group>"; };
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F5D64B02B1E6CCA00E9669E /* RegisterationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationProcess.swift; sourceTree = "<group>"; };
 		7F5D64B32B1E6DAE00E9669E /* RegisterationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationProcessData.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				7F063B5D2B1CC9420075B6A7 /* Models */,
 				7F063B5E2B1CC9620075B6A7 /* Views */,
 				7F063B5F2B1CC96B0075B6A7 /* Controllers */,
+				7F3FACC42B1FB12000F47247 /* Validator */,
 				7F063B602B1CCA170075B6A7 /* Utils */,
 				7F063B522B1CBAC40075B6A7 /* Assets.xcassets */,
 				7F063B572B1CBAC40075B6A7 /* Info.plist */,
@@ -171,6 +174,14 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		7F3FACC42B1FB12000F47247 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
 		7F5D64B22B1E6D9300E9669E /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +263,7 @@
 			files = (
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
+				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
 				7F6FFE802B1D2A0900D89F92 /* RegisterationViewController.swift in Sources */,
 				7F5D64B42B1E6DAE00E9669E /* RegisterationProcessData.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
