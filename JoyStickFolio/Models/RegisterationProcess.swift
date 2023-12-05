@@ -11,4 +11,5 @@ struct RegisterationProcess: Equatable {
     let title      : String
     let placeholder: String
     let buttonTitle: String
+    let process    : Process
 }

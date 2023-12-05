@@ -10,9 +10,10 @@ import Foundation
 struct RegisterationProcessData {
     
     static let allProcesses = [
-        RegisterationProcess(title: "Well Hello There! \nGot a name?", placeholder: "Full Name...", buttonTitle: "Next"),
-        RegisterationProcess(title: "Nice to meet you! \nHow can we contact you?", placeholder: "Email...", buttonTitle: "Next"),
-        RegisterationProcess(title: "Can we verify that \nit is you and not some \nweirdo?", placeholder: "Phone Number... (Optional)", buttonTitle: "Next"),
-        RegisterationProcess(title: "How about some privacy? \n No peeking... \nI promise :)", placeholder: "Password...", buttonTitle: "Submit"),
+        RegisterationProcess(title: "Well Hello There! \nGot a name?", placeholder: "Full Name...", buttonTitle: "Next", process: .enterFullName),
+        RegisterationProcess(title: "Nice to meet you! \nHow can we contact you?", placeholder: "Email...", buttonTitle: "Next", process: .enterEmail),
+        RegisterationProcess(title: "How about a unique nickname\nLike everybody else...", placeholder: "Username...", buttonTitle: "Next", process: .enterUsername),
+        RegisterationProcess(title: "How about some privacy? \n No peeking... \nI promise :)", placeholder: "Password...", buttonTitle: "Submit", process: .enterPassword),
+        RegisterationProcess(title: "", placeholder: "Password...", buttonTitle: "Submit", process: .confirm)
     ]
 }

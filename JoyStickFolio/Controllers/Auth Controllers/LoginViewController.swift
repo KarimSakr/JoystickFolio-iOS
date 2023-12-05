@@ -111,9 +111,15 @@ class LoginViewController: UIViewController {
         gradientLayer.frame = headerView.bounds
         headerView.layer.addSublayer(gradientLayer)
         headerView.addSubview(titleLabel)
-
         
-        animateTitle()
+        titleLabel.text = ""
+        TextAnimator().animateTitle(text: "JoystickFolio") { letter in
+            self.titleLabel.text?.append(letter)
+            self.titleLabel.frame = CGRect(x: .zero,
+                                           y: self.view.top,
+                                           width: self.headerView.width,
+                                           height: self.headerView.height)
+        }
     }
     
     //MARK: - ViewDidLayoutSubViews
@@ -160,23 +166,6 @@ class LoginViewController: UIViewController {
     
     //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
-        
-    }
-    
-    private func animateTitle() {
-        titleLabel.text = ""
-        var charIndex = 0.0
-        let titleText = "JoystickFolio"
-        for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
-                self.titleLabel.text?.append(letter)
-                self.titleLabel.frame = CGRect(x: .zero,
-                                               y: self.view.top,
-                                               width: self.headerView.width,
-                                               height: self.headerView.height)
-            }
-            charIndex += 1
-        }
         
     }
 }

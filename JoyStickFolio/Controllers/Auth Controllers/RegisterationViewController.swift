@@ -85,7 +85,14 @@ class RegisterationViewController: UIViewController {
         view.addSubview(submitButton)
         view.addSubview(titleLabel)
         
-        animateTitle(text: processes[index].title)
+        titleLabel.text? = ""
+        TextAnimator().animateTitle(text: processes[index].title) { letter in
+            self.titleLabel.text?.append(letter)
+            self.titleLabel.frame = CGRect(x: .zero,
+                                           y: self.textField.top - 200,
+                                           width: self.view.width,
+                                           height: 150)
+        }
     }
     
     //MARK: - viewDidLayoutSubviews
@@ -119,32 +126,22 @@ class RegisterationViewController: UIViewController {
         
         if processes.last != processes[index] {
             index += 1
-            progressValue += 1.0 / Double(processes.count)
+            progressValue += 1.0 / Double(processes.count - 1)
             
             textField.placeholder = processes[index].placeholder
             submitButton.setTitle(processes[index].buttonTitle, for: .normal)
             titleLabel.text = processes[index].title
             
             progressBarView.progress = Float(progressValue)
-            animateTitle(text: processes[index].title)
-        }
-        
-    }
-    
-    private func animateTitle(text: String) {
-        titleLabel.text = ""
-        var charIndex = 0.0
-        let titleText = text
-        for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.05 * charIndex, repeats: false) { (timer) in
+            
+            titleLabel.text? = ""
+            TextAnimator().animateTitle(text: processes[index].title) { letter in
                 self.titleLabel.text?.append(letter)
                 self.titleLabel.frame = CGRect(x: .zero,
                                                y: self.textField.top - 200,
                                                width: self.view.width,
                                                height: 150)
             }
-            charIndex += 1
         }
-        
     }
 }

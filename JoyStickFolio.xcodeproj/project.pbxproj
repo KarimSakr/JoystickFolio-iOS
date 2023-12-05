@@ -15,6 +15,8 @@
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
 		7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */; };
 		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
+		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
+		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F5D64B12B1E6CCA00E9669E /* RegisterationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegisterationProcess.swift */; };
 		7F5D64B42B1E6DAE00E9669E /* RegisterationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegisterationProcessData.swift */; };
@@ -32,6 +34,8 @@
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F5D64B02B1E6CCA00E9669E /* RegisterationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationProcess.swift; sourceTree = "<group>"; };
 		7F5D64B32B1E6DAE00E9669E /* RegisterationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationProcessData.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		7F063B602B1CCA170075B6A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7F3FACC12B1FAA6200F47247 /* Animation */,
+				7F3FACBE2B1FA81000F47247 /* Enums */,
 				7F063B662B1CE5A40075B6A7 /* Extensions */,
 				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
 			);
@@ -147,6 +153,22 @@
 				7F063B672B1CE5B70075B6A7 /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F3FACBE2B1FA81000F47247 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7F3FACBF2B1FA82800F47247 /* Process.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		7F3FACC12B1FAA6200F47247 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		7F5D64B22B1E6D9300E9669E /* Data */ = {
@@ -229,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
+				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7F6FFE802B1D2A0900D89F92 /* RegisterationViewController.swift in Sources */,
 				7F5D64B42B1E6DAE00E9669E /* RegisterationProcessData.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
@@ -237,6 +260,7 @@
 				7F5D64B12B1E6CCA00E9669E /* RegisterationProcess.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
 				7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */,
+				7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
