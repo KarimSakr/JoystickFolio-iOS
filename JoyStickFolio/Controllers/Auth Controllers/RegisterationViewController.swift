@@ -48,6 +48,7 @@ class RegisterationViewController: UIViewController {
     private let secondTextField: UITextField = {
         let field = UITextField()
         field.placeholder = "Password..."
+        field.isSecureTextEntry = true
         field.returnKeyType = .next
         field.leftViewMode = .always
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -123,7 +124,7 @@ class RegisterationViewController: UIViewController {
         
         titleLabel.frame = CGRect(x: .zero,
                                   y: textField.top - 200,
-                                  width: view.width,
+                                  width: view.width - 10,
                                   height: 150)
         
         
@@ -144,35 +145,48 @@ class RegisterationViewController: UIViewController {
                                     height: 52)
     }
     
+    //MARK: - Button Pressed
     @objc private func buttonPressed() {
-        
         
         if processes.last != processes[index] {
             
-//            switch processes[index].process {
-//                
-//            case .enterFullName:
+            switch processes[index].process {
+                
+            case .enterFullName:
 //                guard validator.isFullNameValid(textField: textField.text ?? "") else {
 //                    return
 //                }
-//            case .enterEmail:
+                break
+            case .enterEmail:
 //                guard validator.isEmailValid(textField: textField.text ?? "") else {
 //                    return
 //                }
-//            case .enterUsername:
+                break
+            case .enterUsername:
 //                guard validator.isUsernameValid(textField: textField.text ?? "") else {
 //                    return
 //                }
-//            case .enterPassword:
-//                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: textField.text ?? "") else {
+                view.addSubview(secondTextField)
+                secondTextField.becomeFirstResponder()
+                textField.isSecureTextEntry = true
+            case .enterPassword:
+               
+//                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
 //                    return
 //                }
-//            case .confirm:
-//                // API Call
-//                break
-//            }
-            
-            
+                secondTextField.resignFirstResponder()
+                textField.resignFirstResponder()
+                textField.removeFromSuperview()
+                secondTextField.removeFromSuperview()
+                
+                submitButton.frame = CGRect(x: 25,
+                                            y: view.bottom - 10,
+                                            width: view.width - 50,
+                                            height: 52)
+                
+            case .confirm:
+              break
+            }
             
             index += 1
             progressValue += 1.0 / Double(processes.count - 1)
@@ -190,9 +204,6 @@ class RegisterationViewController: UIViewController {
                                                y: self.textField.top - 200,
                                                width: self.view.width,
                                                height: 150)
-            }
-            if processes[index].process == .enterPassword {
-                view.addSubview(secondTextField)
             }
         }
     }
