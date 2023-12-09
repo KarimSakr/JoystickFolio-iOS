@@ -44,6 +44,23 @@ class RegisterationViewController: UIViewController {
         return field
     }()
     
+    //MARK: - Second TextField
+    private let secondTextField: UITextField = {
+        let field = UITextField()
+        field.placeholder = "Password..."
+        field.returnKeyType = .next
+        field.leftViewMode = .always
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.layer.masksToBounds = true
+        field.layer.cornerRadius = Constants.cornerRadius
+        field.backgroundColor = .secondarySystemBackground
+        field.layer.borderWidth = 1.0
+        field.layer.borderColor = UIColor.secondaryLabel.cgColor
+        return field
+    }()
+    
     //MARK: - Button
     private let submitButton: UIButton = {
         let button = UIButton()
@@ -115,6 +132,12 @@ class RegisterationViewController: UIViewController {
                                  width: view.width - 50,
                                  height: 52)
         
+        
+        secondTextField.frame = CGRect(x: 25,
+                                 y: textField.top - 62,
+                                 width: view.width - 50,
+                                 height: 52)
+        
         submitButton.frame = CGRect(x: 25,
                                     y: textField.bottom + 10,
                                     width: view.width - 50,
@@ -126,28 +149,30 @@ class RegisterationViewController: UIViewController {
         
         if processes.last != processes[index] {
             
-            switch processes[index].process {
-                
-            case .enterFullName:
-                guard validator.isFullNameValid(textField: textField.text ?? "") else {
-                    return
-                }
-            case .enterEmail:
-                guard validator.isEmailValid(textField: textField.text ?? "") else {
-                    return
-                }
-            case .enterUsername:
-                guard validator.isUsernameValid(textField: textField.text ?? "") else {
-                    return
-                }
-            case .enterPassword:
-                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: textField.text ?? "") else {
-                    return
-                }
-            case .confirm:
-                // API Call
-                break
-            }
+//            switch processes[index].process {
+//                
+//            case .enterFullName:
+//                guard validator.isFullNameValid(textField: textField.text ?? "") else {
+//                    return
+//                }
+//            case .enterEmail:
+//                guard validator.isEmailValid(textField: textField.text ?? "") else {
+//                    return
+//                }
+//            case .enterUsername:
+//                guard validator.isUsernameValid(textField: textField.text ?? "") else {
+//                    return
+//                }
+//            case .enterPassword:
+//                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: textField.text ?? "") else {
+//                    return
+//                }
+//            case .confirm:
+//                // API Call
+//                break
+//            }
+            
+            
             
             index += 1
             progressValue += 1.0 / Double(processes.count - 1)
@@ -166,8 +191,9 @@ class RegisterationViewController: UIViewController {
                                                width: self.view.width,
                                                height: 150)
             }
+            if processes[index].process == .enterPassword {
+                view.addSubview(secondTextField)
+            }
         }
     }
-    
-    
 }
