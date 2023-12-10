@@ -18,6 +18,14 @@ class RegisterationViewController: UIViewController {
     private let validator = AuthValidator()
     private let animator = TextAnimator()
     
+    //MARK: - Table
+    private var data = [RegistrationConfirmation]()
+    
+    private let tableView: UITableView = {
+        let table = UITableView()
+        table.register(RegistrationTableViewCell.self, forCellReuseIdentifier: RegistrationTableViewCell.identifier)
+        return table
+    }()
     
     //MARK: - titleLabel
     private let titleLabel: UILabel = {
@@ -85,6 +93,9 @@ class RegisterationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         // add target to button
         submitButton.addTarget(self,
                                action: #selector(buttonPressed),
@@ -143,6 +154,8 @@ class RegisterationViewController: UIViewController {
                                     y: textField.bottom + 10,
                                     width: view.width - 50,
                                     height: 52)
+        
+        tableView.frame = view.bounds
     }
     
     //MARK: - Button Pressed
@@ -153,33 +166,45 @@ class RegisterationViewController: UIViewController {
             switch processes[index].process {
                 
             case .enterFullName:
-//                guard validator.isFullNameValid(textField: textField.text ?? "") else {
-//                    return
-//                }
+                guard validator.isFullNameValid(textField: textField.text ?? "") else {
+                    return
+                }
+                data.append(RegistrationConfirmation(key: "fullName", label: "Name:", value: textField.text ?? ""))
+                
+                textField.text = ""
                 break
             case .enterEmail:
-//                guard validator.isEmailValid(textField: textField.text ?? "") else {
-//                    return
-//                }
+                guard validator.isEmailValid(textField: textField.text ?? "") else {
+                    return
+                }
+                
+                data.append(RegistrationConfirmation(key: "emailAddress", label: "Email:", value: textField.text ?? ""))
+                textField.text = ""
                 break
             case .enterUsername:
-//                guard validator.isUsernameValid(textField: textField.text ?? "") else {
-//                    return
-//                }
+                guard validator.isUsernameValid(textField: textField.text ?? "") else {
+                    return
+                }
+                data.append(RegistrationConfirmation(key: "username", label: "Username:", value: textField.text ?? ""))
                 view.addSubview(secondTextField)
                 secondTextField.becomeFirstResponder()
                 textField.isSecureTextEntry = true
+                tableView.reloadData()
+                textField.text = ""
             case .enterPassword:
                
-//                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
-//                    return
-//                }
+                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
+                    return
+                }
                 secondTextField.resignFirstResponder()
                 textField.resignFirstResponder()
                 textField.removeFromSuperview()
                 secondTextField.removeFromSuperview()
                 submitButton.removeFromSuperview()
                 titleLabel.removeFromSuperview()
+                data.append(RegistrationConfirmation(key: "password", label: "Password:", value: textField.text ?? ""))
+                view.addSubview(tableView)
+                textField.text = ""
                 
             case .confirm:
               break
@@ -203,5 +228,20 @@ class RegisterationViewController: UIViewController {
                                                height: 150)
             }
         }
+    }
+}
+
+
+extension RegisterationViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RegistrationTableViewCell.identifier, for: indexPath) as! RegistrationTableViewCell
+        cell.leftLabel.text = data[indexPath.row].label
+        cell.rightLabel.text = data[indexPath.row].value
+        return cell
     }
 }

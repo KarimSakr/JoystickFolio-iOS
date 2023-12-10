@@ -9,5 +9,6 @@ import Foundation
 
 struct Constants {
     
+    //MARK: - Corner Radius
     static let cornerRadius = 8.0
 }
