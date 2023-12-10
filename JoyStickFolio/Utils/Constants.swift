@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants {
     
-    struct RegistrationKey {
+    struct AuthKey {
         //MARK: - Registration Keys
         static let email    = "emailAddress"
         static let fullName = "fullName"
