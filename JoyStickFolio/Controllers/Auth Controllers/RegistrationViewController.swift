@@ -1,5 +1,5 @@
 //
-//  RegisterationViewController.swift
+//  RegistrationViewController.swift
 //  JoyStickFolio
 //
 //  Created by Karim Sakr on 03/12/2023.
@@ -169,7 +169,7 @@ class RegistrationViewController: UIViewController {
                 guard validator.isFullNameValid(textField: textField.text ?? "") else {
                     return
                 }
-                data.append(RegistrationConfirmation(key: "fullName", label: "Name:", value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.RegistrationKey.fullName, label: "Name:", value: textField.text ?? ""))
                 
                 textField.text = ""
                 break
@@ -178,14 +178,14 @@ class RegistrationViewController: UIViewController {
                     return
                 }
                 
-                data.append(RegistrationConfirmation(key: "emailAddress", label: "Email:", value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.RegistrationKey.email, label: "Email:", value: textField.text ?? ""))
                 textField.text = ""
                 break
             case .enterUsername:
                 guard validator.isUsernameValid(textField: textField.text ?? "") else {
                     return
                 }
-                data.append(RegistrationConfirmation(key: "username", label: "Username:", value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.RegistrationKey.username, label: "Username:", value: textField.text ?? ""))
                 view.addSubview(secondTextField)
                 secondTextField.becomeFirstResponder()
                 textField.isSecureTextEntry = true
@@ -202,7 +202,7 @@ class RegistrationViewController: UIViewController {
                 secondTextField.removeFromSuperview()
                 submitButton.removeFromSuperview()
                 titleLabel.removeFromSuperview()
-                data.append(RegistrationConfirmation(key: "password", label: "Password:", value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.RegistrationKey.password, label: "Password:", value: textField.text ?? ""))
                 view.addSubview(tableView)
                 textField.text = ""
                 

@@ -9,8 +9,12 @@ import Foundation
 
 struct Constants {
     
-    struct Registration {
-        
+    struct RegistrationKey {
+        //MARK: - Registration Keys
+        static let email    = "emailAddress"
+        static let fullName = "fullName"
+        static let username = "username"
+        static let password = "password"
     }
     
     //MARK: - Corner Radius
