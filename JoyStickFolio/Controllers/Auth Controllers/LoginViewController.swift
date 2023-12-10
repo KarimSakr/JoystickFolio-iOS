@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    private let animator = TextAnimator()
+    
     //MARK: - Username Field
     private let usernameField: UITextField = {
         let field = UITextField()
@@ -113,7 +115,7 @@ class LoginViewController: UIViewController {
         headerView.addSubview(titleLabel)
         
         titleLabel.text = ""
-        TextAnimator().animateTitle(text: "JoystickFolio") { letter in
+        animator.animateTitle(text: "JoystickFolio", timeInterval: 0.1) { letter in
             self.titleLabel.text?.append(letter)
             self.titleLabel.frame = CGRect(x: .zero,
                                            y: self.view.top,

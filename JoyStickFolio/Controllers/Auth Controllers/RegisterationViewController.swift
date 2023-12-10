@@ -103,7 +103,7 @@ class RegisterationViewController: UIViewController {
         view.addSubview(titleLabel)
         
         titleLabel.text? = ""
-        animator.animateTitle(text: processes[index].title) { letter in
+        animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
             self.titleLabel.text?.append(letter)
             self.titleLabel.frame = CGRect(x: .zero,
                                            y: self.textField.top - 200,
@@ -178,11 +178,8 @@ class RegisterationViewController: UIViewController {
                 textField.resignFirstResponder()
                 textField.removeFromSuperview()
                 secondTextField.removeFromSuperview()
-                
-                submitButton.frame = CGRect(x: 25,
-                                            y: view.bottom - 10,
-                                            width: view.width - 50,
-                                            height: 52)
+                submitButton.removeFromSuperview()
+                titleLabel.removeFromSuperview()
                 
             case .confirm:
               break
@@ -198,7 +195,7 @@ class RegisterationViewController: UIViewController {
             progressBarView.progress = Float(progressValue)
             
             titleLabel.text? = ""
-            animator.animateTitle(text: processes[index].title) { letter in
+            animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
                 self.titleLabel.text?.append(letter)
                 self.titleLabel.frame = CGRect(x: .zero,
                                                y: self.textField.top - 200,

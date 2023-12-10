@@ -9,11 +9,11 @@ import Foundation
 
 class TextAnimator {
     
-    func animateTitle(text: String, completion: @escaping (Character) -> Void) {
+    func animateTitle(text: String, timeInterval: TimeInterval, completion: @escaping (Character) -> Void) {
         var charIndex = 0.0
         let titleText = text
         for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.05 * charIndex, repeats: false) { (timer) in
+            Timer.scheduledTimer(withTimeInterval: timeInterval * charIndex, repeats: false) { (timer) in
                 completion(letter)
 
             }
