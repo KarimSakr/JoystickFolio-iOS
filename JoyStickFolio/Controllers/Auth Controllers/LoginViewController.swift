@@ -160,7 +160,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - didTapCreateAccountButton
     @objc private func didTapCreateAccountButton() {
-        let vc = RegisterationViewController()
+        let vc = RegistrationViewController()
         vc.title = "Create Account"
         present(UINavigationController(rootViewController: vc), animated: true)
     }

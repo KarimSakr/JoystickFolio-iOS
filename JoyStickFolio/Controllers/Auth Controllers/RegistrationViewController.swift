@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterationViewController: UIViewController {
+class RegistrationViewController: UIViewController {
     
     //MARK: - Login Process
     private let processes = RegistrationProcessData.allProcesses
@@ -232,7 +232,7 @@ class RegisterationViewController: UIViewController {
 }
 
 
-extension RegisterationViewController: UITableViewDelegate, UITableViewDataSource {
+extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count

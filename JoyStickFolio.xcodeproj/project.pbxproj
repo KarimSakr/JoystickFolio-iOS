@@ -21,7 +21,7 @@
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */; };
 		7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */; };
-		7F6FFE802B1D2A0900D89F92 /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegisterationViewController.swift */; };
+		7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */; };
 		7F94AB552B26276300B0FBBC /* RegistrationConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */; };
 		7F94AB582B262D2500B0FBBC /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94AB572B262D2500B0FBBC /* RegistrationTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +43,7 @@
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcess.swift; sourceTree = "<group>"; };
 		7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessData.swift; sourceTree = "<group>"; };
-		7F6FFE7F2B1D2A0900D89F92 /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
+		7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmation.swift; sourceTree = "<group>"; };
 		7F94AB572B262D2500B0FBBC /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,11 +121,11 @@
 		7F063B602B1CCA170075B6A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
 				7F3FACC42B1FB12000F47247 /* Validator */,
 				7F3FACC12B1FAA6200F47247 /* Animation */,
 				7F3FACBE2B1FA81000F47247 /* Enums */,
 				7F063B662B1CE5A40075B6A7 /* Extensions */,
-				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */,
-				7F6FFE7F2B1D2A0900D89F92 /* RegisterationViewController.swift */,
+				7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */,
 			);
 			path = "Auth Controllers";
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
-				7F6FFE802B1D2A0900D89F92 /* RegisterationViewController.swift in Sources */,
+				7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */,
 				7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
 				7F94AB582B262D2500B0FBBC /* RegistrationTableViewCell.swift in Sources */,
