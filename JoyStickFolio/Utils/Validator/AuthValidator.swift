@@ -10,19 +10,21 @@ import Foundation
 class AuthValidator {
     
     func isFullNameValid(textField: String) -> Bool {
-        // valid if not empty and character count between 4 and 15
-        return (textField.range(of: #"^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?/~\\-]{4,15}$"#, options: .regularExpression) != nil)
+        let regex = "^[a-zA-Z0-9!@#$%^&*()_+{}\\[\\]:;<>,.?/~\\\\\\s-]{4,15}$"
+           let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+           return predicate.evaluate(with: textField)
     }
     
     func isEmailValid(textField: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: textField)
-        
+        let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+           let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+           return predicate.evaluate(with: textField)
     }
     
     func isUsernameValid(textField: String) -> Bool {
-        // valid if not empty, character count between 4 and 20, and no special charcters
-        return (textField.range(of: #"^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?/~\\-]{4,20}$"#, options: .regularExpression) != nil)
+        let regex = #"^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?/~\\-]{4,20}$"#
+           let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+           return predicate.evaluate(with: textField)
     }
     
     func isPasswordValid(textfield: String, repearTextField: String) -> Bool {
