@@ -10,7 +10,7 @@ import UIKit
 class RegisterationViewController: UIViewController {
     
     //MARK: - Login Process
-    private let processes = RegisterationProcessData.allProcesses
+    private let processes = RegistrationProcessData.allProcesses
     private var index: Int = 0
     private var progressValue = 0.0
     
