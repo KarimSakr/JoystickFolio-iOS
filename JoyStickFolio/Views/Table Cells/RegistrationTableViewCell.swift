@@ -12,7 +12,8 @@ class RegistrationTableViewCell: UITableViewCell {
     static let identifier = "RegistrationTableViewCell"
     
     let leftLabel = UILabel()
-    let rightLabel = UILabel()
+    var rightLabel = UITextField()
+    var leftLabelKey = String()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

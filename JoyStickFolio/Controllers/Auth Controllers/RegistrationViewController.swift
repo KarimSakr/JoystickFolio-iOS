@@ -10,9 +10,10 @@ import UIKit
 class RegistrationViewController: UIViewController {
     
     //MARK: - Login Process
-    private let processes = RegistrationProcessData.allProcesses
+    private let processes:[RegistrationProcess]  = allProcesses
     private var index: Int = 0
-    private var progressValue = 0.0
+    private var progressValue: Double = 0.0
+    private var showPassword: Bool = false
     
     //MARK: - Classes
     private let validator = AuthValidator()
@@ -229,6 +230,26 @@ class RegistrationViewController: UIViewController {
             }
         }
     }
+    
+    
+    func presentActionSheet(for cell: RegistrationTableViewCell) {
+        let alert = UIAlertController(title: "Password", message: "What do you want to do?", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Hide/Reveal", style: .default) { action in
+            self.showPassword.toggle()
+        })
+        
+        alert.addAction(UIAlertAction(title: "Edit", style: .destructive) { action in
+            cell.rightLabel.becomeFirstResponder()
+        })
+        
+        alert.addAction(UIAlertAction(title: "Edit", style: .cancel))
+        
+        present(alert, animated: true) {
+            self.tableView.reloadData()
+        }
+    }
+                        
 }
 
 
@@ -242,6 +263,24 @@ extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: RegistrationTableViewCell.identifier, for: indexPath) as! RegistrationTableViewCell
         cell.leftLabel.text = data[indexPath.row].label
         cell.rightLabel.text = data[indexPath.row].value
+        cell.leftLabelKey = data[indexPath.row].key
+        if cell.leftLabelKey == Constants.AuthKey.password {
+            cell.rightLabel.isSecureTextEntry = showPassword
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let cell = tableView.cellForRow(at: indexPath) as! RegistrationTableViewCell
+        
+        if cell.leftLabelKey == Constants.AuthKey.password {
+            presentActionSheet(for: cell)
+        } else {
+            cell.rightLabel.becomeFirstResponder()
+        }
+        
     }
 }
