@@ -9,10 +9,6 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
-    //MARK: - Fields
-    private var securePassword: Bool = true
-    private var yButtonLocation: CGFloat = 0
-    
     //MARK: - Login Process
     private let processes:[RegistrationProcess]  = allProcesses
     private var index: Int = 0
@@ -24,12 +20,6 @@ class RegistrationViewController: UIViewController {
     
     //MARK: - Table
     private var data = [RegistrationConfirmation]()
-    
-    private let tableView: UITableView = {
-        let table = UITableView()
-        table.register(RegistrationTableViewCell.self, forCellReuseIdentifier: RegistrationTableViewCell.identifier)
-        return table
-    }()
     
     //MARK: - titleLabel
     private let titleLabel: UILabel = {
@@ -85,6 +75,7 @@ class RegistrationViewController: UIViewController {
         return button
     }()
     
+    //MARK: - progressBarView
     private let progressBarView: UIProgressView = {
         let progressBar = UIProgressView()
         progressBar.progress = 0.0
@@ -92,13 +83,16 @@ class RegistrationViewController: UIViewController {
         return progressBar
     }()
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        tableView.dataSource = self
-        tableView.delegate = self
         
         // add target to button
         submitButton.addTarget(self,
@@ -131,10 +125,6 @@ class RegistrationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if processes[index].process != .confirm {
-            yButtonLocation = textField.bottom + 10
-        }
-        
         progressBarView.frame = CGRect(x: (view.width / 2) - ((view.width * 0.8) / 2),
                                        y: view.top + 60,
                                        width: view.width * 0.8,
@@ -159,14 +149,11 @@ class RegistrationViewController: UIViewController {
                                  height: 52)
         
         submitButton.frame = CGRect(x: 25,
-                                    y: yButtonLocation,
+                                    y: textField.bottom + 10,
                                     width: view.width - 50,
                                     height: 52)
         
-        tableView.frame = CGRect(x: 0,
-                                 y: titleLabel.bottom,
-                                 width: view.width,
-                                 height: view.height / 3)
+        activityIndicator.center = view.center
     }
     
     //MARK: - Button Pressed
@@ -174,53 +161,7 @@ class RegistrationViewController: UIViewController {
         
         if processes.last != processes[index] {
             
-            switch processes[index].process {
-                
-            case .enterFullName:
-                guard validator.isFullNameValid(textField: textField.text ?? "") else {
-                    return
-                }
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.fullName, label: "Name:", value: textField.text ?? ""))
-                
-                textField.text = ""
-                break
-            case .enterEmail:
-                guard validator.isEmailValid(textField: textField.text ?? "") else {
-                    return
-                }
-                
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.email, label: "Email:", value: textField.text ?? ""))
-                textField.text = ""
-                break
-            case .enterUsername:
-                guard validator.isUsernameValid(textField: textField.text ?? "") else {
-                    return
-                }
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.username, label: "Username:", value: textField.text ?? ""))
-                view.addSubview(secondTextField)
-                secondTextField.becomeFirstResponder()
-                textField.isSecureTextEntry = true
-                textField.text = ""
-            case .enterPassword:
-               
-                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
-                    return
-                }
-                secondTextField.resignFirstResponder()
-                textField.resignFirstResponder()
-                textField.removeFromSuperview()
-                secondTextField.removeFromSuperview()
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.password, label: "Password:", value: textField.text ?? ""))
-                view.addSubview(tableView)
-                
-                yButtonLocation = tableView.bottom + 10
-                
-//                view.setNeedsLayout()
-                textField.text = ""
-                
-            case .confirm:
-              break
-            }
+            validateEntry()
             
             index += 1
             progressValue += 1.0 / Double(processes.count - 1)
@@ -239,61 +180,67 @@ class RegistrationViewController: UIViewController {
                                                width: self.view.width,
                                                height: 150)
             }
-        }
-    }
-    
-    
-    func presentActionSheet(for cell: RegistrationTableViewCell, indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Password", message: "What do you want to do?", preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Hide/Reveal", style: .default) { action in
-            self.securePassword.toggle()
-            
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-        })
-        
-        alert.addAction(UIAlertAction(title: "Edit", style: .destructive) { action in
-            cell.rightLabel.becomeFirstResponder()
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(alert, animated: true)
-    }
-                        
-}
-
-
-extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RegistrationTableViewCell.identifier, for: indexPath) as! RegistrationTableViewCell
-        
-        cell.leftLabel.text = data[indexPath.row].label
-        cell.rightLabel.text = data[indexPath.row].value
-        cell.leftLabelKey = data[indexPath.row].key
-        
-        if cell.leftLabelKey == Constants.AuthKey.password {
-            cell.rightLabel.isSecureTextEntry = securePassword
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        let cell = tableView.cellForRow(at: indexPath) as! RegistrationTableViewCell
-        
-        if cell.leftLabelKey == Constants.AuthKey.password {
-            presentActionSheet(for: cell, indexPath: indexPath)
         } else {
-            cell.rightLabel.becomeFirstResponder()
+            registerUser()
         }
+    }
+    
+    private func registerUser() {
+        // register user
+        print("registeruser")
+    }
+    
+    private func validateEntry() {
         
+        switch processes[index].process {
+            
+        case .enterFullName:
+            guard validator.isFullNameValid(textField: textField.text ?? "") else {
+                return
+            }
+            data.append(RegistrationConfirmation(key: Constants.AuthKey.fullName, value: textField.text ?? ""))
+            
+            textField.text = ""
+            break
+        case .enterEmail:
+            guard validator.isEmailValid(textField: textField.text ?? "") else {
+                return
+            }
+            
+            data.append(RegistrationConfirmation(key: Constants.AuthKey.email, value: textField.text ?? ""))
+            textField.text = ""
+            break
+        case .enterUsername:
+            guard validator.isUsernameValid(textField: textField.text ?? "") else {
+                return
+            }
+            data.append(RegistrationConfirmation(key: Constants.AuthKey.username, value: textField.text ?? ""))
+            view.addSubview(secondTextField)
+            secondTextField.becomeFirstResponder()
+            textField.isSecureTextEntry = true
+            textField.text = ""
+        case .enterPassword:
+           
+            guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
+                return
+            }
+            
+            // deselect textfields
+            secondTextField.resignFirstResponder()
+            textField.resignFirstResponder()
+            
+            // remove views
+            textField.removeFromSuperview()
+            secondTextField.removeFromSuperview()
+            submitButton.removeFromSuperview()
+            
+            data.append(RegistrationConfirmation(key: Constants.AuthKey.password, value: textField.text ?? ""))
+            textField.text = ""
+
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+        case .loading:
+            break
+        }
     }
 }

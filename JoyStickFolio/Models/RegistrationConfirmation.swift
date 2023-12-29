@@ -9,6 +9,5 @@ import Foundation
 
 struct RegistrationConfirmation {
     let key: String
-    let label: String
     let value: String
 }

@@ -23,7 +23,6 @@
 		7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */; };
 		7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */; };
 		7F94AB552B26276300B0FBBC /* RegistrationConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */; };
-		7F94AB582B262D2500B0FBBC /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94AB572B262D2500B0FBBC /* RegistrationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +44,6 @@
 		7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessData.swift; sourceTree = "<group>"; };
 		7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmation.swift; sourceTree = "<group>"; };
-		7F94AB572B262D2500B0FBBC /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 		7F063B5E2B1CC9620075B6A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F94AB562B262CEF00B0FBBC /* Table Cells */,
 				7F063B622B1CD7780075B6A7 /* Storyboards */,
 			);
 			path = Views;
@@ -196,14 +193,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		7F94AB562B262CEF00B0FBBC /* Table Cells */ = {
-			isa = PBXGroup;
-			children = (
-				7F94AB572B262D2500B0FBBC /* RegistrationTableViewCell.swift */,
-			);
-			path = "Table Cells";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,7 +270,6 @@
 				7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */,
 				7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
-				7F94AB582B262D2500B0FBBC /* RegistrationTableViewCell.swift in Sources */,
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
 				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
 				7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */,
