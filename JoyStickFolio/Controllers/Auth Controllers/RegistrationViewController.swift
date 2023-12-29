@@ -13,7 +13,7 @@ class RegistrationViewController: UIViewController {
     private let processes:[RegistrationProcess]  = allProcesses
     private var index: Int = 0
     private var progressValue: Double = 0.0
-    private var showPassword: Bool = false
+    private var securePassword: Bool = true
     
     //MARK: - Classes
     private let validator = AuthValidator()
@@ -156,7 +156,10 @@ class RegistrationViewController: UIViewController {
                                     width: view.width - 50,
                                     height: 52)
         
-        tableView.frame = view.bounds
+        tableView.frame = CGRect(x: 0,
+                                 y: view.top,
+                                 width: view.width,
+                                 height: view.height / 3)
     }
     
     //MARK: - Button Pressed
@@ -232,22 +235,22 @@ class RegistrationViewController: UIViewController {
     }
     
     
-    func presentActionSheet(for cell: RegistrationTableViewCell) {
+    func presentActionSheet(for cell: RegistrationTableViewCell, indexPath: IndexPath) {
         let alert = UIAlertController(title: "Password", message: "What do you want to do?", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Hide/Reveal", style: .default) { action in
-            self.showPassword.toggle()
+            self.securePassword.toggle()
+            
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
         })
         
         alert.addAction(UIAlertAction(title: "Edit", style: .destructive) { action in
             cell.rightLabel.becomeFirstResponder()
         })
         
-        alert.addAction(UIAlertAction(title: "Edit", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-        present(alert, animated: true) {
-            self.tableView.reloadData()
-        }
+        present(alert, animated: true)
     }
                         
 }
@@ -261,11 +264,13 @@ extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RegistrationTableViewCell.identifier, for: indexPath) as! RegistrationTableViewCell
+        
         cell.leftLabel.text = data[indexPath.row].label
         cell.rightLabel.text = data[indexPath.row].value
         cell.leftLabelKey = data[indexPath.row].key
+        
         if cell.leftLabelKey == Constants.AuthKey.password {
-            cell.rightLabel.isSecureTextEntry = showPassword
+            cell.rightLabel.isSecureTextEntry = securePassword
         }
         return cell
     }
@@ -277,7 +282,7 @@ extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.cellForRow(at: indexPath) as! RegistrationTableViewCell
         
         if cell.leftLabelKey == Constants.AuthKey.password {
-            presentActionSheet(for: cell)
+            presentActionSheet(for: cell, indexPath: indexPath)
         } else {
             cell.rightLabel.becomeFirstResponder()
         }
