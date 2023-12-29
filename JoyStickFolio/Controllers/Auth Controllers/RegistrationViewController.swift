@@ -9,11 +9,14 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
+    //MARK: - Fields
+    private var securePassword: Bool = true
+    private var yButtonLocation: CGFloat = 0
+    
     //MARK: - Login Process
     private let processes:[RegistrationProcess]  = allProcesses
     private var index: Int = 0
     private var progressValue: Double = 0.0
-    private var securePassword: Bool = true
     
     //MARK: - Classes
     private let validator = AuthValidator()
@@ -128,6 +131,10 @@ class RegistrationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        if processes[index].process != .confirm {
+            yButtonLocation = textField.bottom + 10
+        }
+        
         progressBarView.frame = CGRect(x: (view.width / 2) - ((view.width * 0.8) / 2),
                                        y: view.top + 60,
                                        width: view.width * 0.8,
@@ -152,12 +159,12 @@ class RegistrationViewController: UIViewController {
                                  height: 52)
         
         submitButton.frame = CGRect(x: 25,
-                                    y: textField.bottom + 10,
+                                    y: yButtonLocation,
                                     width: view.width - 50,
                                     height: 52)
         
         tableView.frame = CGRect(x: 0,
-                                 y: view.top,
+                                 y: titleLabel.bottom,
                                  width: view.width,
                                  height: view.height / 3)
     }
@@ -193,7 +200,6 @@ class RegistrationViewController: UIViewController {
                 view.addSubview(secondTextField)
                 secondTextField.becomeFirstResponder()
                 textField.isSecureTextEntry = true
-                tableView.reloadData()
                 textField.text = ""
             case .enterPassword:
                
@@ -204,10 +210,12 @@ class RegistrationViewController: UIViewController {
                 textField.resignFirstResponder()
                 textField.removeFromSuperview()
                 secondTextField.removeFromSuperview()
-                submitButton.removeFromSuperview()
-                titleLabel.removeFromSuperview()
                 data.append(RegistrationConfirmation(key: Constants.AuthKey.password, label: "Password:", value: textField.text ?? ""))
                 view.addSubview(tableView)
+                
+                yButtonLocation = tableView.bottom + 10
+                
+//                view.setNeedsLayout()
                 textField.text = ""
                 
             case .confirm:
