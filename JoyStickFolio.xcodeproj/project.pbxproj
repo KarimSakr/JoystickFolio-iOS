@@ -13,6 +13,18 @@
 		7F063B512B1CBAC20075B6A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B4F2B1CBAC20075B6A7 /* Main.storyboard */; };
 		7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B522B1CBAC40075B6A7 /* Assets.xcassets */; };
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
+		7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */; };
+		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
+		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
+		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
+		7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */; };
+		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
+		7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */; };
+		7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */; };
+		7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */; };
+		7F94AB552B26276300B0FBBC /* RegistrationConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */; };
+		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
+		7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF328632B4023C400FACB58 /* AppSnackBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +36,17 @@
 		7F063B522B1CBAC40075B6A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F063B552B1CBAC40075B6A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
+		7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidator.swift; sourceTree = "<group>"; };
+		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcess.swift; sourceTree = "<group>"; };
+		7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessData.swift; sourceTree = "<group>"; };
+		7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmation.swift; sourceTree = "<group>"; };
+		7FF328632B4023C400FACB58 /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF328612B40232600FACB58 /* SnackBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +82,7 @@
 			children = (
 				7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */,
 				7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */,
+				7F5D64B22B1E6D9300E9669E /* Data */,
 				7F063B5D2B1CC9420075B6A7 /* Models */,
 				7F063B5E2B1CC9620075B6A7 /* Views */,
 				7F063B5F2B1CC96B0075B6A7 /* Controllers */,
@@ -71,6 +96,8 @@
 		7F063B5D2B1CC9420075B6A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */,
+				7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -78,6 +105,7 @@
 		7F063B5E2B1CC9620075B6A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7FF328622B40239B00FACB58 /* SnackBar */,
 				7F063B622B1CD7780075B6A7 /* Storyboards */,
 			);
 			path = Views;
@@ -86,7 +114,8 @@
 		7F063B5F2B1CC96B0075B6A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7F063B612B1CD05B0075B6A7 /* Main Controllers */,
+				7F063B632B1CDA7C0075B6A7 /* Auth Controllers */,
+				7F063B612B1CD05B0075B6A7 /* Core Tabs */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -94,16 +123,21 @@
 		7F063B602B1CCA170075B6A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
+				7F3FACC42B1FB12000F47247 /* Validator */,
+				7F3FACC12B1FAA6200F47247 /* Animation */,
+				7F3FACBE2B1FA81000F47247 /* Enums */,
+				7F063B662B1CE5A40075B6A7 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		7F063B612B1CD05B0075B6A7 /* Main Controllers */ = {
+		7F063B612B1CD05B0075B6A7 /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
 				7F063B4D2B1CBAC20075B6A7 /* HomeViewController.swift */,
 			);
-			path = "Main Controllers";
+			path = "Core Tabs";
 			sourceTree = "<group>";
 		};
 		7F063B622B1CD7780075B6A7 /* Storyboards */ = {
@@ -113,6 +147,63 @@
 				7F063B4F2B1CBAC20075B6A7 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		7F063B632B1CDA7C0075B6A7 /* Auth Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */,
+				7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */,
+			);
+			path = "Auth Controllers";
+			sourceTree = "<group>";
+		};
+		7F063B662B1CE5A40075B6A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F063B672B1CE5B70075B6A7 /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F3FACBE2B1FA81000F47247 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7F3FACBF2B1FA82800F47247 /* Process.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		7F3FACC12B1FAA6200F47247 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		7F3FACC42B1FB12000F47247 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		7F5D64B22B1E6D9300E9669E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7FF328622B40239B00FACB58 /* SnackBar */ = {
+			isa = PBXGroup;
+			children = (
+				7FF328632B4023C400FACB58 /* AppSnackBar.swift */,
+			);
+			path = SnackBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +222,9 @@
 			dependencies = (
 			);
 			name = JoyStickFolio;
+			packageProductDependencies = (
+				7FF328602B40232600FACB58 /* SnackBar */,
+			);
 			productName = JoyStickFolio;
 			productReference = 7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +253,9 @@
 				Base,
 			);
 			mainGroup = 7F063B3D2B1CBAC20075B6A7;
+			packageReferences = (
+				7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */,
+			);
 			productRefGroup = 7F063B472B1CBAC20075B6A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,9 +283,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
+				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
+				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
+				7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */,
+				7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */,
+				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
+				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
+				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
+				7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
 				7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */,
+				7F94AB552B26276300B0FBBC /* RegistrationConfirmation.swift in Sources */,
+				7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +525,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7FF328602B40232600FACB58 /* SnackBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */;
+			productName = SnackBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F063B3E2B1CBAC20075B6A7 /* Project object */;
 }
