@@ -161,7 +161,63 @@ class RegistrationViewController: UIViewController {
         
         if processes.last != processes[index] {
             
-            validateEntry()
+            switch processes[index].process {
+                
+            case .enterFullName:
+                guard validator.isFullNameValid(textField: textField.text ?? "") else {
+                    AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
+                    return
+                }
+                data.append(RegistrationConfirmation(key: Constants.AuthKey.fullName, value: textField.text ?? ""))
+                
+                textField.text = ""
+                break
+            case .enterEmail:
+                guard validator.isEmailValid(textField: textField.text ?? "") else {
+                    AppSnackBar.make(in: self.view, message: "Invalid email", duration: .lengthLong).show()
+                    return
+                }
+                
+                data.append(RegistrationConfirmation(key: Constants.AuthKey.email, value: textField.text ?? ""))
+                textField.text = ""
+                break
+            case .enterUsername:
+                guard validator.isUsernameValid(textField: textField.text ?? "") else {
+                    AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
+                    return
+                }
+                data.append(RegistrationConfirmation(key: Constants.AuthKey.username, value: textField.text ?? ""))
+                view.addSubview(secondTextField)
+                secondTextField.becomeFirstResponder()
+                textField.isSecureTextEntry = true
+                textField.text = ""
+            case .enterPassword:
+               
+                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
+                    AppSnackBar.make(in: self.view, message: "Invalid password, minimum length: 6 characters", duration: .lengthLong).show()
+                    return
+                }
+                
+                // deselect textfields
+                secondTextField.resignFirstResponder()
+                textField.resignFirstResponder()
+                
+                // remove views
+                textField.removeFromSuperview()
+                secondTextField.removeFromSuperview()
+                submitButton.removeFromSuperview()
+                
+                data.append(RegistrationConfirmation(key: Constants.AuthKey.password, value: textField.text ?? ""))
+                textField.text = ""
+                
+                registerUser()
+
+                view.addSubview(activityIndicator)
+                activityIndicator.startAnimating()
+            case .loading:
+                break
+            }
+
             
             index += 1
             progressValue += 1.0 / Double(processes.count - 1)
@@ -187,62 +243,5 @@ class RegistrationViewController: UIViewController {
     private func registerUser() {
         // register user
         print("registeruser")
-    }
-    
-    //MARK: - validateEntry
-    private func validateEntry() {
-        
-        switch processes[index].process {
-            
-        case .enterFullName:
-            guard validator.isFullNameValid(textField: textField.text ?? "") else {
-                return
-            }
-            data.append(RegistrationConfirmation(key: Constants.AuthKey.fullName, value: textField.text ?? ""))
-            
-            textField.text = ""
-            break
-        case .enterEmail:
-            guard validator.isEmailValid(textField: textField.text ?? "") else {
-                return
-            }
-            
-            data.append(RegistrationConfirmation(key: Constants.AuthKey.email, value: textField.text ?? ""))
-            textField.text = ""
-            break
-        case .enterUsername:
-            guard validator.isUsernameValid(textField: textField.text ?? "") else {
-                return
-            }
-            data.append(RegistrationConfirmation(key: Constants.AuthKey.username, value: textField.text ?? ""))
-            view.addSubview(secondTextField)
-            secondTextField.becomeFirstResponder()
-            textField.isSecureTextEntry = true
-            textField.text = ""
-        case .enterPassword:
-           
-            guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
-                return
-            }
-            
-            // deselect textfields
-            secondTextField.resignFirstResponder()
-            textField.resignFirstResponder()
-            
-            // remove views
-            textField.removeFromSuperview()
-            secondTextField.removeFromSuperview()
-            submitButton.removeFromSuperview()
-            
-            data.append(RegistrationConfirmation(key: Constants.AuthKey.password, value: textField.text ?? ""))
-            textField.text = ""
-            
-            registerUser()
-
-            view.addSubview(activityIndicator)
-            activityIndicator.startAnimating()
-        case .loading:
-            break
-        }
     }
 }
