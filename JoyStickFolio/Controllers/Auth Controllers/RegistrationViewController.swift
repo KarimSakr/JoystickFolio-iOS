@@ -180,16 +180,16 @@ class RegistrationViewController: UIViewController {
                                                width: self.view.width,
                                                height: 150)
             }
-        } else {
-            registerUser()
         }
     }
     
+    //MARK: - registerUser
     private func registerUser() {
         // register user
         print("registeruser")
     }
     
+    //MARK: - validateEntry
     private func validateEntry() {
         
         switch processes[index].process {
@@ -236,6 +236,8 @@ class RegistrationViewController: UIViewController {
             
             data.append(RegistrationConfirmation(key: Constants.AuthKey.password, value: textField.text ?? ""))
             textField.text = ""
+            
+            registerUser()
 
             view.addSubview(activityIndicator)
             activityIndicator.startAnimating()
