@@ -9,12 +9,17 @@ import Foundation
 
 struct Constants {
     
-    struct AuthKey {
-        //MARK: - AuthKey Keys
-        static let email    = "emailAddress"
-        static let fullName = "fullName"
-        static let username = "username"
-        static let password = "password"
+    //MARK: - Keys
+    struct Key{
+        
+        // keys for authentication
+        //MARK: - Auth
+        struct Auth {
+            static let email    = "emailAddress"
+            static let fullName = "fullName"
+            static let username = "username"
+            static let password = "password"
+        }
     }
     
     //MARK: - Corner Radius

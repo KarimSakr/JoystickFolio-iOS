@@ -168,7 +168,7 @@ class RegistrationViewController: UIViewController {
                     AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
                     return
                 }
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.fullName, value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.Key.Auth.fullName, value: textField.text ?? ""))
                 
                 textField.text = ""
                 break
@@ -178,7 +178,7 @@ class RegistrationViewController: UIViewController {
                     return
                 }
                 
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.email, value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.Key.Auth.email, value: textField.text ?? ""))
                 textField.text = ""
                 break
             case .enterUsername:
@@ -186,7 +186,7 @@ class RegistrationViewController: UIViewController {
                     AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
                     return
                 }
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.username, value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.Key.Auth.username, value: textField.text ?? ""))
                 view.addSubview(secondTextField)
                 secondTextField.becomeFirstResponder()
                 textField.isSecureTextEntry = true
@@ -207,7 +207,7 @@ class RegistrationViewController: UIViewController {
                 secondTextField.removeFromSuperview()
                 submitButton.removeFromSuperview()
                 
-                data.append(RegistrationConfirmation(key: Constants.AuthKey.password, value: textField.text ?? ""))
+                data.append(RegistrationConfirmation(key: Constants.Key.Auth.password, value: textField.text ?? ""))
                 textField.text = ""
                 
                 registerUser()
