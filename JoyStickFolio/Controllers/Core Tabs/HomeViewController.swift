@@ -9,19 +9,36 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        // Navigation Bar
+        let messagesButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.message"), style: .done, target: self, action: #selector(messageButtonTapped))
+        let notificationButton = UIBarButtonItem(image: UIImage(systemName: "bell"), style: .done, target: self, action: #selector(notificationButtonTapped))
+        
+        navigationItem.rightBarButtonItems = [messagesButton, notificationButton]
     }
     
     override func viewDidAppear(_ animated: Bool) {
         handleAuth()
     }
     
+    //MARK: - messageButtonTapped
+    @objc private func messageButtonTapped() {
+        
+    }
+    
+    @objc private func notificationButtonTapped() {
+        
+    }
+    
+    //MARK: - handleAuth
     private func handleAuth() {
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        present(loginVC, animated: false)
+//        let loginVC = LoginViewController()
+//        loginVC.modalPresentationStyle = .fullScreen
+//        present(loginVC, animated: false)
     }
 
 }
