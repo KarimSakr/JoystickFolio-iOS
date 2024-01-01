@@ -11,16 +11,20 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Navigation Bar
-        let messagesButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .done, target: self, action: #selector(hamburgerMenuPressed))
-        
-        navigationItem.rightBarButtonItem = messagesButton
+        configureNavigationBar()
     }
     
+    //MARK: - configureNavigationBar
+    private func configureNavigationBar() {
+        let hamburgerMenu = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .done, target: self, action: #selector(hamburgerMenuPressed))
+        
+        navigationItem.rightBarButtonItem = hamburgerMenu
+    }
+    
+    //MARK: - hamburgerMenuPressed
     @objc private func hamburgerMenuPressed() {
         let vc = HamburgerMenuViewController()
-        present(UINavigationController(rootViewController: vc), animated: true)
+        vc.title = "Settings"
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
