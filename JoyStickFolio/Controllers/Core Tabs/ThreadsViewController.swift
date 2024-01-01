@@ -1,5 +1,5 @@
 //
-//  MyLibraryViewController.swift
+//  ThreadsViewController.swift
 //  JoyStickFolio
 //
 //  Created by Karim Sakr on 30/12/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyLibraryViewController: UIViewController {
+class ThreadsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

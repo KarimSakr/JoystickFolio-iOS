@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-364" y="901"/>
         </scene>
-        <!--My Library View Controller-->
+        <!--Threads View Controller-->
         <scene sceneID="Egf-xV-uQ4">
             <objects>
-                <viewController id="3f5-Cq-66F" customClass="MyLibraryViewController" customModule="JoyStickFolio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3f5-Cq-66F" customClass="ThreadsViewController" customModule="JoyStickFolio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dqq-SD-2zF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
         <scene sceneID="Y1o-zq-mc9">
             <objects>
                 <navigationController id="VL1-0b-jOJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="square.stack.3d.down.forward" catalog="system" id="idX-pg-c8v"/>
+                    <tabBarItem key="tabBarItem" title="" image="network" catalog="system" id="idX-pg-c8v"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6k-l2-rfj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -165,8 +165,8 @@
     <resources>
         <image name="gamecontroller" catalog="system" width="128" height="79"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="network" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="square.stack.3d.down.forward" catalog="system" width="105" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
