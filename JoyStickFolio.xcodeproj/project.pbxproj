@@ -25,6 +25,7 @@
 		7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */; };
 		7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */; };
 		7F94AB552B26276300B0FBBC /* RegistrationConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */; };
+		7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE4B7342B435B9400608B45 /* EventsViewController.swift */; };
 		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
 		7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF328632B4023C400FACB58 /* AppSnackBar.swift */; };
 		7FF328662B4040BF00FACB58 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF328652B4040BF00FACB58 /* ExploreViewController.swift */; };
@@ -53,6 +54,7 @@
 		7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuCell.swift; sourceTree = "<group>"; };
 		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmation.swift; sourceTree = "<group>"; };
+		7FE4B7342B435B9400608B45 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		7FF328632B4023C400FACB58 /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
 		7FF328652B4040BF00FACB58 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		7FF328672B40412300FACB58 /* ThreadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				7F063B4D2B1CBAC20075B6A7 /* HomeViewController.swift */,
 				7FF328652B4040BF00FACB58 /* ExploreViewController.swift */,
+				7FE4B7342B435B9400608B45 /* EventsViewController.swift */,
 				7FF328672B40412300FACB58 /* ThreadsViewController.swift */,
 				7FF328692B40415900FACB58 /* ProfileViewController.swift */,
 			);
@@ -315,6 +318,7 @@
 				7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */,
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
+				7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */,
 				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
 				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
