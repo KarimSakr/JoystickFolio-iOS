@@ -25,6 +25,7 @@
 		7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */; };
 		7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */; };
 		7F94AB552B26276300B0FBBC /* RegistrationConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */; };
+		7FC836262B60624F004EFB59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC836252B60624F004EFB59 /* GoogleService-Info.plist */; };
 		7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE4B7342B435B9400608B45 /* EventsViewController.swift */; };
 		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
 		7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF328632B4023C400FACB58 /* AppSnackBar.swift */; };
@@ -54,6 +55,7 @@
 		7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuCell.swift; sourceTree = "<group>"; };
 		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmation.swift; sourceTree = "<group>"; };
+		7FC836252B60624F004EFB59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7FE4B7342B435B9400608B45 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		7FF328632B4023C400FACB58 /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
 		7FF328652B4040BF00FACB58 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				7F063B602B1CCA170075B6A7 /* Utils */,
 				7F063B522B1CBAC40075B6A7 /* Assets.xcassets */,
 				7F063B572B1CBAC40075B6A7 /* Info.plist */,
+				7FC836252B60624F004EFB59 /* GoogleService-Info.plist */,
 			);
 			path = JoyStickFolio;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */,
+				7FC836262B60624F004EFB59 /* GoogleService-Info.plist in Resources */,
 				7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */,
 				7F063B512B1CBAC20075B6A7 /* Main.storyboard in Resources */,
 			);
