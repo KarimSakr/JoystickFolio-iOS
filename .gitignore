@@ -16,12 +16,12 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-GoogleService-Info.plist
 
 ## Other
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+GoogleService-Info.plist
 
 ## Obj-C/Swift specific
 *.hmap
