@@ -9,12 +9,16 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    //MARK: - Managers
+    private let authenticationManager = AuthenticationManager()
+    
+    //MARK: - Animator
     private let animator = TextAnimator()
     
     //MARK: - Username Field
-    private let usernameField: UITextField = {
+    private let usernameEmailField: UITextField = {
         let field = UITextField()
-        field.placeholder = "Username"
+        field.placeholder = "Username or Email..."
         field.returnKeyType = .next
         field.leftViewMode = .always
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -104,7 +108,7 @@ class LoginViewController: UIViewController {
         
         //MARK: - Add Subviews
         view.addSubview(headerView)
-        view.addSubview(usernameField)
+        view.addSubview(usernameEmailField)
         view.addSubview(passwordField)
         view.addSubview(loginButton)
         view.addSubview(createAccountButton)
@@ -135,13 +139,13 @@ class LoginViewController: UIViewController {
         
         headerView.layer.sublayers?.first?.frame = headerView.bounds
         
-        usernameField.frame = CGRect(x: 25,
+        usernameEmailField.frame = CGRect(x: 25,
                                      y: headerView.bottom + 40,
                                      width: view.width - 50,
                                      height: 52)
         
         passwordField.frame = CGRect(x: 25,
-                                     y: usernameField.bottom + 15,
+                                     y: usernameEmailField.bottom + 15,
                                      width: view.width - 50,
                                      height: 52)
         
@@ -168,14 +172,14 @@ class LoginViewController: UIViewController {
     
     //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
-        
+        authenticationManager.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
     }
 }
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField == usernameField {
+        if textField == usernameEmailField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField{
             didTapLoginButton()

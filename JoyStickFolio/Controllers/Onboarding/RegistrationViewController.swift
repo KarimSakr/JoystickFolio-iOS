@@ -9,6 +9,9 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
+    //MARK: - Managers
+    private let authenticationManager = AuthenticationManager()
+    
     //MARK: - Login Process
     private let processes:[RegistrationProcess]  = allProcesses
     private var index: Int = 0
@@ -19,7 +22,7 @@ class RegistrationViewController: UIViewController {
     private let animator = TextAnimator()
     
     //MARK: - Table
-    private var data = [RegistrationConfirmation]()
+    private var data: [String : String] = [:]
     
     //MARK: - titleLabel
     private let titleLabel: UILabel = {
@@ -168,7 +171,7 @@ class RegistrationViewController: UIViewController {
                     AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
                     return
                 }
-                data.append(RegistrationConfirmation(key: Constants.Key.Auth.fullName, value: textField.text ?? ""))
+                data[Constants.Key.Auth.fullName] = textField.text ?? ""
                 
                 textField.text = ""
                 break
@@ -178,7 +181,7 @@ class RegistrationViewController: UIViewController {
                     return
                 }
                 
-                data.append(RegistrationConfirmation(key: Constants.Key.Auth.email, value: textField.text ?? ""))
+                data[Constants.Key.Auth.email] = textField.text ?? ""
                 textField.text = ""
                 break
             case .enterUsername:
@@ -186,7 +189,9 @@ class RegistrationViewController: UIViewController {
                     AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
                     return
                 }
-                data.append(RegistrationConfirmation(key: Constants.Key.Auth.username, value: textField.text ?? ""))
+                
+                data[Constants.Key.Auth.username] = textField.text ?? ""
+                
                 view.addSubview(secondTextField)
                 secondTextField.becomeFirstResponder()
                 textField.isSecureTextEntry = true
@@ -207,10 +212,10 @@ class RegistrationViewController: UIViewController {
                 secondTextField.removeFromSuperview()
                 submitButton.removeFromSuperview()
                 
-                data.append(RegistrationConfirmation(key: Constants.Key.Auth.password, value: textField.text ?? ""))
+                data[Constants.Key.Auth.password] = textField.text ?? ""
                 textField.text = ""
                 
-                registerUser()
+                registerUser(userInfo: data)
 
                 view.addSubview(activityIndicator)
                 activityIndicator.startAnimating()
@@ -240,8 +245,7 @@ class RegistrationViewController: UIViewController {
     }
     
     //MARK: - registerUser
-    private func registerUser() {
-        // register user
-        print("registeruser")
+    private func registerUser(userInfo: [String : String]) {
+        authenticationManager.createUser(with: userInfo)
     }
 }
