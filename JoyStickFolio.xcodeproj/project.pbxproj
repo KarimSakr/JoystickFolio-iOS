@@ -53,6 +53,11 @@
 		7FA5C4222B6238F10019E90F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C4212B6238F10019E90F /* FirebaseStorage */; };
 		7FA5C4242B6238F10019E90F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C4232B6238F10019E90F /* FirebaseStorageCombine-Community */; };
 		7FC002002B62DFAE00007581 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC001FF2B62DFAE00007581 /* AuthenticationManager.swift */; };
+		7FC002032B62E15E00007581 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002022B62E15E00007581 /* RxBlocking */; };
+		7FC002052B62E15E00007581 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002042B62E15E00007581 /* RxBlocking-Dynamic */; };
+		7FC002072B62E15E00007581 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002062B62E15E00007581 /* RxCocoa */; };
+		7FC002092B62E15E00007581 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002082B62E15E00007581 /* RxCocoa-Dynamic */; };
+		7FC0020B2B62E15E00007581 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC0020A2B62E15E00007581 /* RxRelay */; };
 		7FC836262B60624F004EFB59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC836252B60624F004EFB59 /* GoogleService-Info.plist */; };
 		7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE4B7342B435B9400608B45 /* EventsViewController.swift */; };
 		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
@@ -99,21 +104,26 @@
 			files = (
 				7FA5C40E2B6238F10019E90F /* FirebaseFunctions in Frameworks */,
 				7FA5C4042B6238F10019E90F /* FirebaseDatabaseSwift in Frameworks */,
+				7FC002032B62E15E00007581 /* RxBlocking in Frameworks */,
 				7FA5C4142B6238F10019E90F /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				7FA5C41A2B6238F10019E90F /* FirebaseMessaging in Frameworks */,
 				7FA5C3FA2B6238F10019E90F /* FirebaseAppDistribution-Beta in Frameworks */,
 				7FA5C3FE2B6238F10019E90F /* FirebaseAuthCombine-Community in Frameworks */,
 				7FA5C40A2B6238F10019E90F /* FirebaseFirestoreCombine-Community in Frameworks */,
 				7FA5C3F42B6238F10019E90F /* FirebaseAnalyticsSwift in Frameworks */,
+				7FC002052B62E15E00007581 /* RxBlocking-Dynamic in Frameworks */,
 				7FA5C4182B6238F10019E90F /* FirebaseMLModelDownloader in Frameworks */,
 				7FA5C3F62B6238F10019E90F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				7FA5C3F02B6238F10019E90F /* FirebaseAnalytics in Frameworks */,
 				7FA5C40C2B6238F10019E90F /* FirebaseFirestoreSwift in Frameworks */,
+				7FC002072B62E15E00007581 /* RxCocoa in Frameworks */,
 				7FA5C3F22B6238F10019E90F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				7FC002092B62E15E00007581 /* RxCocoa-Dynamic in Frameworks */,
 				7FA5C3F82B6238F10019E90F /* FirebaseAppCheck in Frameworks */,
 				7FA5C41C2B6238F10019E90F /* FirebasePerformance in Frameworks */,
 				7FA5C4122B6238F10019E90F /* FirebaseInAppMessaging-Beta in Frameworks */,
 				7FA5C4102B6238F10019E90F /* FirebaseFunctionsCombine-Community in Frameworks */,
+				7FC0020B2B62E15E00007581 /* RxRelay in Frameworks */,
 				7FA5C4002B6238F10019E90F /* FirebaseCrashlytics in Frameworks */,
 				7FA5C4162B6238F10019E90F /* FirebaseInstallations in Frameworks */,
 				7FA5C41E2B6238F10019E90F /* FirebaseRemoteConfig in Frameworks */,
@@ -353,6 +363,11 @@
 				7FA5C41F2B6238F10019E90F /* FirebaseRemoteConfigSwift */,
 				7FA5C4212B6238F10019E90F /* FirebaseStorage */,
 				7FA5C4232B6238F10019E90F /* FirebaseStorageCombine-Community */,
+				7FC002022B62E15E00007581 /* RxBlocking */,
+				7FC002042B62E15E00007581 /* RxBlocking-Dynamic */,
+				7FC002062B62E15E00007581 /* RxCocoa */,
+				7FC002082B62E15E00007581 /* RxCocoa-Dynamic */,
+				7FC0020A2B62E15E00007581 /* RxRelay */,
 			);
 			productName = JoyStickFolio;
 			productReference = 7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */;
@@ -385,6 +400,7 @@
 			packageReferences = (
 				7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */,
 				7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 7F063B472B1CBAC20075B6A7 /* Products */;
 			projectDirPath = "";
@@ -673,6 +689,14 @@
 				minimumVersion = 10.20.0;
 			};
 		};
+		7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
 		7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
@@ -818,6 +842,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		7FC002022B62E15E00007581 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		7FC002042B62E15E00007581 /* RxBlocking-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxBlocking-Dynamic";
+		};
+		7FC002062B62E15E00007581 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		7FC002082B62E15E00007581 /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		7FC0020A2B62E15E00007581 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
 		7FF328602B40232600FACB58 /* SnackBar */ = {
 			isa = XCSwiftPackageProductDependency;
