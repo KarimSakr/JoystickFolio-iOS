@@ -39,9 +39,9 @@ class HomeViewController: UIViewController {
     
     //MARK: - handleAuth
     private func handleAuth() {
-//        let loginVC = LoginViewController()
-//        loginVC.modalPresentationStyle = .fullScreen
-//        present(loginVC, animated: false)
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        present(loginVC, animated: false)
     }
 
 }
