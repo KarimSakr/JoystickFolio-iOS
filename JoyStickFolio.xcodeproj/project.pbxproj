@@ -58,6 +58,7 @@
 		7FC002072B62E15E00007581 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002062B62E15E00007581 /* RxCocoa */; };
 		7FC002092B62E15E00007581 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002082B62E15E00007581 /* RxCocoa-Dynamic */; };
 		7FC0020B2B62E15E00007581 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC0020A2B62E15E00007581 /* RxRelay */; };
+		7FC0020E2B62F30C00007581 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC0020D2B62F30C00007581 /* DatabaseManager.swift */; };
 		7FC836262B60624F004EFB59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC836252B60624F004EFB59 /* GoogleService-Info.plist */; };
 		7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE4B7342B435B9400608B45 /* EventsViewController.swift */; };
 		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
@@ -89,6 +90,7 @@
 		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		7F94AB542B26276300B0FBBC /* RegistrationConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmation.swift; sourceTree = "<group>"; };
 		7FC001FF2B62DFAE00007581 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		7FC0020D2B62F30C00007581 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		7FC836252B60624F004EFB59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7FE4B7342B435B9400608B45 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		7FF328632B4023C400FACB58 /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		7FC001FD2B62DF8B00007581 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				7FC0020C2B62F2F200007581 /* Database */,
 				7FC001FE2B62DF9D00007581 /* Authentication */,
 			);
 			path = Managers;
@@ -308,6 +311,14 @@
 				7FC001FF2B62DFAE00007581 /* AuthenticationManager.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		7FC0020C2B62F2F200007581 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7FC0020D2B62F30C00007581 /* DatabaseManager.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		7FF328622B40239B00FACB58 /* SnackBar */ = {
@@ -442,6 +453,7 @@
 				7FC002002B62DFAE00007581 /* AuthenticationManager.swift in Sources */,
 				7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */,
 				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
+				7FC0020E2B62F30C00007581 /* DatabaseManager.swift in Sources */,
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
 				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
 				7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */,

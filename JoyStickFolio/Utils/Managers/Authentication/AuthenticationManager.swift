@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-class AuthenticationManager {
+final class AuthenticationManager {
     
     private let validatior = AuthValidator()
     
