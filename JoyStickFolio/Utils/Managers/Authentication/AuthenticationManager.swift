@@ -10,20 +10,37 @@ import FirebaseAuth
 
 final class AuthenticationManager {
     
+    //MARK: - Managers
+    private let databaseManager = DatabaseManager()
+    
+    //MARK: - Validators
     private let validatior = AuthValidator()
     
-    func createUser(with userInfo: [String : String]) {
+    func createUser(with userInfo: [String : String], completion: @escaping (Error?) -> Void) {
         
         guard let email = userInfo[Constants.Key.Auth.email], let password = userInfo[Constants.Key.Auth.password] else {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                // save the rest
+                
+                if let userId = authResult?.user.uid, let fullName = userInfo[Constants.Key.Auth.fullName], let userName = userInfo[Constants.Key.Auth.username] {
+                    var newUser = CreatedUserProfile(email   : email,
+                                                     fullName: fullName,
+                                                     username: userName)
+
+                    do {
+                        try self?.databaseManager.createUserProfile(newUser: newUser, userId: userId) { error in
+                            completion(error)
+                        }
+                    } catch {
+                        completion(error)
+                    }
+                }
             }
         }
     }

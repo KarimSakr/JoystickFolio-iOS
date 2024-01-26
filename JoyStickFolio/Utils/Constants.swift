@@ -20,6 +20,21 @@ struct Constants {
             static let username = "username"
             static let password = "password"
         }
+        
+        
+        struct UserInfo {
+            static let id = "id"
+        }
+    }
+    
+    struct Firebase {
+        
+        struct FireStore {
+            
+            struct Collection {
+                static let users = "users"
+            }
+        }
     }
     
     //MARK: - Corner Radius
