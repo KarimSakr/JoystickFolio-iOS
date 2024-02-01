@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class RegistrationViewController: UIViewController {
     
@@ -23,6 +24,9 @@ class RegistrationViewController: UIViewController {
     
     //MARK: - Table
     private var data: [String : String] = [:]
+    
+    //MARK: - Dispose bag
+    private let bag = DisposeBag()
     
     //MARK: - titleLabel
     private let titleLabel: UILabel = {
@@ -215,10 +219,14 @@ class RegistrationViewController: UIViewController {
                 data[Constants.Key.Auth.password] = textField.text ?? ""
                 textField.text = ""
                 
-                registerUser(userInfo: data)
-
                 view.addSubview(activityIndicator)
                 activityIndicator.startAnimating()
+                
+                Task{
+                    await registerUser(userInfo: data)
+                }
+
+                
             case .loading:
                 break
             }
@@ -245,7 +253,14 @@ class RegistrationViewController: UIViewController {
     }
     
     //MARK: - registerUser
-    private func registerUser(userInfo: [String : String]) {
-        authenticationManager.createUser(with: userInfo)
+    private func registerUser(userInfo: [String : String]) async {
+        
+        await authenticationManager.createUser(with: userInfo)
+            .subscribe(onError: { error in
+                print(error.localizedDescription)
+            }, onCompleted: {
+                print("success")
+            })
+            .disposed(by: bag)
     }
 }
