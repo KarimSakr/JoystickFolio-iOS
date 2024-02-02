@@ -203,7 +203,7 @@ class RegistrationViewController: UIViewController {
             case .enterPassword:
                
                 guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
-                    AppSnackBar.make(in: self.view, message: "Invalid password, minimum length: 6 characters", duration: .lengthLong).show()
+                    AppSnackBar.make(in: self.view, message: "Passwords should match and have a minimum length of 6 characters", duration: .lengthLong).show()
                     return
                 }
                 
@@ -211,13 +211,20 @@ class RegistrationViewController: UIViewController {
                 secondTextField.resignFirstResponder()
                 textField.resignFirstResponder()
                 
+                
+                textField.isSecureTextEntry = false
+                textField.text = ""
+                secondTextField.text = ""
+                
+                
                 // remove views
                 textField.removeFromSuperview()
                 secondTextField.removeFromSuperview()
                 submitButton.removeFromSuperview()
+                progressBarView.removeFromSuperview()
                 
                 data[Constants.Key.Auth.password] = textField.text ?? ""
-                textField.text = ""
+                
                 
                 view.addSubview(activityIndicator)
                 activityIndicator.startAnimating()
@@ -256,11 +263,36 @@ class RegistrationViewController: UIViewController {
     private func registerUser(userInfo: [String : String]) async {
         
         await authenticationManager.createUser(with: userInfo)
-            .subscribe(onError: { error in
-                print(error.localizedDescription)
+            .subscribe(onError: { [weak self] error in
+                
+                self?.resetRegistration()
+                AppSnackBar.make(in: self!.view!, message: error.localizedDescription, duration: .lengthLong).show()
+                
             }, onCompleted: {
-                print("success")
+                DispatchQueue.main.async{
+                    self.dismiss(animated: true)
+                }
             })
             .disposed(by: bag)
+    }
+    
+    private func resetRegistration() {
+        data = [:]
+        progressValue = 0
+        index = 0
+        
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+        
+        textField.placeholder = processes[index].placeholder
+        submitButton.setTitle(processes[index].buttonTitle, for: .normal)
+        titleLabel.text = processes[index].title
+        
+        progressBarView.progress = Float(progressValue)
+        
+        view.addSubview(progressBarView)
+        view.addSubview(textField)
+        view.addSubview(submitButton)
+        
     }
 }
