@@ -10,23 +10,21 @@ import RxSwift
 
 class RegistrationViewController: UIViewController {
     
-    //MARK: - Managers
-    private let authenticationManager = AuthenticationManager()
+    //MARK: - viewModel
+    private let viewModel = RegistrationViewModel()
     
-    //MARK: - Login Process
-    private let processes:[RegistrationProcess]  = allProcesses
-    private var index: Int = 0
-    private var progressValue: Double = 0.0
-    
-    //MARK: - Classes
-    private let validator = AuthValidator()
+    //MARK: - Animator
     private let animator = TextAnimator()
     
-    //MARK: - Table
-    private var data: [String : String] = [:]
-    
-    //MARK: - Dispose bag
+    //MARK: - Dispose Bag
     private let bag = DisposeBag()
+    
+    
+    //MARK: - Login Process
+    let processes:[RegistrationProcess]  = allProcesses
+    var index: Int = 0
+    var progressValue: Double = 0.0
+    
     
     //MARK: - titleLabel
     private let titleLabel: UILabel = {
@@ -151,9 +149,9 @@ class RegistrationViewController: UIViewController {
         
         
         secondTextField.frame = CGRect(x: 25,
-                                 y: textField.top - 62,
-                                 width: view.width - 50,
-                                 height: 52)
+                                       y: textField.top - 62,
+                                       width: view.width - 50,
+                                       height: 52)
         
         submitButton.frame = CGRect(x: 25,
                                     y: textField.bottom + 10,
@@ -171,73 +169,45 @@ class RegistrationViewController: UIViewController {
             switch processes[index].process {
                 
             case .enterFullName:
-                guard validator.isFullNameValid(textField: textField.text ?? "") else {
+                guard viewModel.isFullNameValid(textField: textField.text ?? "") else {
                     AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
                     return
                 }
-                data[Constants.Key.Auth.fullName] = textField.text ?? ""
+                
+                viewModel.fullNameEntered(fullName: textField.text ?? "")
                 
                 textField.text = ""
                 break
             case .enterEmail:
-                guard validator.isEmailValid(textField: textField.text ?? "") else {
+                guard viewModel.isEmailValid(textField: textField.text ?? "") else {
                     AppSnackBar.make(in: self.view, message: "Invalid email", duration: .lengthLong).show()
                     return
                 }
                 
-                data[Constants.Key.Auth.email] = textField.text ?? ""
+                viewModel.emailEntered(email: textField.text ?? "")
                 textField.text = ""
                 break
             case .enterUsername:
-                guard validator.isUsernameValid(textField: textField.text ?? "") else {
+                guard viewModel.isUsernameValid(textField: textField.text ?? "") else {
                     AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
                     return
                 }
                 
-                data[Constants.Key.Auth.username] = textField.text ?? ""
+                usernameEntered(username: textField.text ?? "")
                 
-                view.addSubview(secondTextField)
-                secondTextField.becomeFirstResponder()
-                textField.isSecureTextEntry = true
-                textField.text = ""
             case .enterPassword:
-               
-                guard validator.isPasswordValid(textfield: textField.text ?? "", repearTextField: secondTextField.text ?? "") else {
+                
+                guard viewModel.isPasswordValid(textfield: textField.text ?? "", repeatTextField: secondTextField.text ?? "") else {
                     AppSnackBar.make(in: self.view, message: "Passwords should match and have a minimum length of 6 characters", duration: .lengthLong).show()
                     return
                 }
                 
-                // deselect textfields
-                secondTextField.resignFirstResponder()
-                textField.resignFirstResponder()
-                
-                
-                textField.isSecureTextEntry = false
-                textField.text = ""
-                secondTextField.text = ""
-                
-                
-                // remove views
-                textField.removeFromSuperview()
-                secondTextField.removeFromSuperview()
-                submitButton.removeFromSuperview()
-                progressBarView.removeFromSuperview()
-                
-                data[Constants.Key.Auth.password] = textField.text ?? ""
-                
-                
-                view.addSubview(activityIndicator)
-                activityIndicator.startAnimating()
-                
-                Task{
-                    await registerUser(userInfo: data)
-                }
-
+                passwordEntered(password: textField.text ?? "")
                 
             case .loading:
                 break
             }
-
+            
             
             index += 1
             progressValue += 1.0 / Double(processes.count - 1)
@@ -259,25 +229,60 @@ class RegistrationViewController: UIViewController {
         }
     }
     
-    //MARK: - registerUser
-    private func registerUser(userInfo: [String : String]) async {
-        
-        await authenticationManager.createUser(with: userInfo)
-            .subscribe(onError: { [weak self] error in
-                
-                self?.resetRegistration()
-                AppSnackBar.make(in: self!.view!, message: error.localizedDescription, duration: .lengthLong).show()
-                
-            }, onCompleted: {
-                DispatchQueue.main.async{
-                    self.dismiss(animated: true)
-                }
-            })
-            .disposed(by: bag)
+    //MARK: - usernameEntered
+    private func usernameEntered(username: String) {
+        viewModel.usernameEntered(username: username)
+        view.addSubview(secondTextField)
+        secondTextField.becomeFirstResponder()
+        textField.isSecureTextEntry = true
+        textField.text = ""
     }
     
+    //MARK: - passwordEntered
+    private func passwordEntered(password: String) {
+        
+        // deselect textfields
+        secondTextField.resignFirstResponder()
+        textField.resignFirstResponder()
+        
+        
+        textField.isSecureTextEntry = false
+        textField.text = ""
+        secondTextField.text = ""
+        
+        
+        // remove views
+        textField.removeFromSuperview()
+        secondTextField.removeFromSuperview()
+        submitButton.removeFromSuperview()
+        progressBarView.removeFromSuperview()
+        
+        // add loading indicator
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+        viewModel.passwordEnetred(password: password)
+        
+        Task{
+            await viewModel.registerUser()
+                .subscribe(onError: { [weak self] error in
+                    
+                    self?.resetRegistration()
+                    AppSnackBar.make(in: self!.view!, message: error.localizedDescription, duration: .lengthLong).show()
+                    
+                }, onCompleted: {
+                    DispatchQueue.main.async{
+                        self.dismiss(animated: true)
+                    }
+                })
+                .disposed(by: bag)
+        }
+        
+    }
+    
+    //MARK: - resetRegistration
     private func resetRegistration() {
-        data = [:]
+        viewModel.data = [:]
         progressValue = 0
         index = 0
         

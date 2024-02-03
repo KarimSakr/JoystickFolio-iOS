@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0526A42B6DAC51000CC51D /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0526A32B6DAC51000CC51D /* RegistrationViewModel.swift */; };
 		7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */; };
 		7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */; };
 		7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B4D2B1CBAC20075B6A7 /* HomeViewController.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F0526A32B6DAC51000CC51D /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyStickFolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F0526A22B6DAC23000CC51D /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */,
+				7F0526A32B6DAC51000CC51D /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		7F063B3D2B1CBAC20075B6A7 = {
 			isa = PBXGroup;
 			children = (
@@ -247,8 +258,8 @@
 		7F063B632B1CDA7C0075B6A7 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				7F0526A22B6DAC23000CC51D /* Registration */,
 				7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */,
-				7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -475,6 +486,7 @@
 				7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */,
 				7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
+				7F0526A42B6DAC51000CC51D /* RegistrationViewModel.swift in Sources */,
 				7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */,
 				7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */,
 				7F94AB552B26276300B0FBBC /* RegistrationConfirmation.swift in Sources */,
