@@ -16,6 +16,8 @@ final class AuthenticationManager {
     //MARK: - Managers
     private let databaseManager = DatabaseManager()
     
+    private let validator = AuthValidator()
+    
     private let db = Firestore.firestore()
     
     func createUser(with userInfo: [String : String]) async -> Observable<Void> {
@@ -57,19 +59,30 @@ final class AuthenticationManager {
         }
     }
     
-    func signIn(usernameEmail: String, password: String) {
-        
-//        if validatior.isEmailValid(textField: usernameEmail) {
-//            // is email
-//            Auth.auth().signIn(withEmail: usernameEmail, password: password) { [weak self] authResult, error in
-//              guard let strongSelf = self else { return }
-//              
-//                //fetch data
-//            }
-//            
-//        } else {
-//            // is username
-//        }
-
+    //MARK: - signIn
+    func signIn(usernameEmail: String, password: String) async throws {
+        do {
+            let email = try await userEmail(usernameEmail: usernameEmail)
+            
+            let user = try await Auth
+                .auth()
+                .signIn(withEmail: email, password: password)
+            
+            
+        } catch {
+            print(error)
+            throw error
+        }
+    }
+    
+    //MARK: - userEmail
+    private func userEmail(usernameEmail: String) async throws -> String {
+        if !validator.isEmailValid(textField: usernameEmail) {
+            // username used
+            return try await databaseManager.fetchEmail(of: usernameEmail)
+        } else {
+            // email used
+            return usernameEmail
+        }
     }
 }

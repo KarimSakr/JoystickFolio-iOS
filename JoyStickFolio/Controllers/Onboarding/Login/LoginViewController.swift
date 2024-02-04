@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     //MARK: - Managers
-    private let authenticationManager = AuthenticationManager()
+    private let viewModel = LoginViewModel()
     
     //MARK: - Animator
     private let animator = TextAnimator()
@@ -172,7 +172,16 @@ class LoginViewController: UIViewController {
     
     //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
-        authenticationManager.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
+        Task {
+            do {
+                try await viewModel.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
+                
+                dismiss(animated: true, completion: nil)
+            } catch {
+                print(error)
+            }
+           
+        }
     }
 }
 

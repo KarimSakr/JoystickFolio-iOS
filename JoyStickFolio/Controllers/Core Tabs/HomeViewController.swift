@@ -6,8 +6,10 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class HomeViewController: UIViewController {
+    
+    var handle: AuthStateDidChangeListenerHandle?
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -17,7 +19,14 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         handleAuth()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+        
+      Auth.auth().removeStateDidChangeListener(handle!)
     }
     
     private func configureNavigationBar() {
@@ -39,10 +48,14 @@ class HomeViewController: UIViewController {
     
     //MARK: - handleAuth
     private func handleAuth() {
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        present(loginVC, animated: false)
+        
+        handle = Auth.auth().addStateDidChangeListener { auth, user in
+            if auth.currentUser == nil {
+                let loginVC = LoginViewController()
+                loginVC.modalPresentationStyle = .fullScreen
+                self.present(loginVC, animated: false)
+            }
+        }
     }
-
 }
 

@@ -15,7 +15,7 @@ struct Constants {
         // keys for authentication
         //MARK: - Auth
         struct Auth {
-            static let email    = "emailAddress"
+            static let email    = "email"
             static let fullName = "fullName"
             static let username = "username"
             static let password = "password"

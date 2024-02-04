@@ -26,4 +26,29 @@ final class DatabaseManager {
             return false
         }
     }
+    
+    func fetchEmail(of username: String) async throws -> String {
+        
+        do {
+            let query = try await db
+                .collection(Constants.Firebase.FireStore.Collection.users)
+                .whereField(Constants.Key.Auth.username, isEqualTo: username)
+                .getDocuments()
+            
+            for document in query.documents {
+                
+                if document.exists {
+                    
+                    let data = document.data()
+                    return data[Constants.Key.Auth.email] as! String
+                } else {
+                    
+                    throw AppError.wrongCredentials
+                }
+            }
+            throw AppError.wrongCredentials
+        } catch {
+            throw error
+        }
+    }
 }

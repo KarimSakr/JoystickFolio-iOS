@@ -8,13 +8,17 @@
 import Foundation
 
 enum AppError: LocalizedError {
-    case usernameTaken
+    
+    case usernameTaken, wrongCredentials
     
     
     var errorDescription: String? {
         switch self {
         case .usernameTaken:
             return "Username is already taken."
+            
+        case .wrongCredentials:
+            return "Wrong credentials."
         }
     }
 }

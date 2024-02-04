@@ -30,4 +30,8 @@ class AuthValidator {
     func isPasswordValid(textfield: String, repeatTextField: String) -> Bool {
         return textfield == repeatTextField && textfield.count >= 6
     }
+    
+    func isPasswordValid(textfield: String) -> Bool {
+        return textfield.count >= 6
+    }
 }
