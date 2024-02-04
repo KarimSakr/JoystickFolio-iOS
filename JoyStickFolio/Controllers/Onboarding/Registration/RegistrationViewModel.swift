@@ -45,7 +45,7 @@ final class RegistrationViewModel {
     }
     
     //MARK: - passwordEnetred
-    func passwordEnetred(password: String) {
+    func passwordEntered(password: String) {
         data[Constants.Key.Auth.password] = password
     }
     

@@ -200,15 +200,14 @@ class RegistrationViewController: UIViewController {
                         return
                     }
                     addLoadingIndicator()
-                    isModalInPresentation = true
+                    
                     guard await viewModel.isUsernameAvailble(username: textField.text ?? "") else {
                         AppSnackBar.make(in: self.view, message: "Username already taken", duration: .lengthLong).show()
                         removeLoadingIndicator()
-                        isModalInPresentation = false
                         return
                     }
                     
-                    isModalInPresentation = false
+                    
                     removeLoadingIndicator()
                     
                     usernameEntered(username: textField.text ?? "")
@@ -223,7 +222,6 @@ class RegistrationViewController: UIViewController {
                     }
                     
                     passwordEntered(password: textField.text ?? "")
-                    isModalInPresentation = true
                     
                     //MARK: - loading
                 case .loading:
@@ -282,7 +280,7 @@ class RegistrationViewController: UIViewController {
         
         addLoadingIndicator()
         
-        viewModel.passwordEnetred(password: password)
+        viewModel.passwordEntered(password: password)
         
         Task{
             await viewModel.registerUser()
@@ -318,20 +316,20 @@ class RegistrationViewController: UIViewController {
         view.addSubview(progressBarView)
         view.addSubview(textField)
         view.addSubview(submitButton)
-        isModalInPresentation = false
+        
     }
     
+    //MARK: - addLoadingIndicator
     private func addLoadingIndicator() {
+        isModalInPresentation = true
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
     }
     
+    //MARK: - removeLoadingIndicator
     private func removeLoadingIndicator() {
+        isModalInPresentation = false
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
-    }
-    
-    deinit {
-        print("deinit")
     }
 }
