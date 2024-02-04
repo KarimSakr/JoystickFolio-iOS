@@ -75,6 +75,15 @@ final class AuthenticationManager {
         }
     }
     
+    func signout() {
+        do {
+            try Auth.auth().signOut()
+        }
+        catch {
+            print("already logged out")
+        }
+    }
+    
     //MARK: - userEmail
     private func userEmail(usernameEmail: String) async throws -> String {
         if !validator.isEmailValid(textField: usernameEmail) {
@@ -85,4 +94,5 @@ final class AuthenticationManager {
             return usernameEmail
         }
     }
+    
 }
