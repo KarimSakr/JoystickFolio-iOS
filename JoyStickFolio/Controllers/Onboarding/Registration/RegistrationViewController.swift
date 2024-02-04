@@ -88,6 +88,7 @@ class RegistrationViewController: UIViewController {
         return progressBar
     }()
     
+    //MARK: - activityIndicator
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.hidesWhenStopped = true

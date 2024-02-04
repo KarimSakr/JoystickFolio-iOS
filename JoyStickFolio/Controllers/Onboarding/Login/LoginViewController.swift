@@ -90,11 +90,19 @@ class LoginViewController: UIViewController {
         return gradient
     }()
     
+    //MARK: - titleLabel
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 50.0)
         return label
+    }()
+    
+    //MARK: - activityIndicator
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
     }()
     
     //MARK: - ViewDidLoad
@@ -111,11 +119,7 @@ class LoginViewController: UIViewController {
                                       for: .touchUpInside)
         
         //MARK: - Add Subviews
-        view.addSubview(headerView)
-        view.addSubview(usernameEmailField)
-        view.addSubview(passwordField)
-        view.addSubview(loginButton)
-        view.addSubview(createAccountButton)
+       addMainSubviews()
         
         //MARK: - Add Subviews to Header
         gradientLayer.frame = headerView.bounds
@@ -163,6 +167,8 @@ class LoginViewController: UIViewController {
                                            width: view.width - 50,
                                            height: 52)
         
+        activityIndicator.center = view.center
+        
     }
     
     
@@ -176,11 +182,12 @@ class LoginViewController: UIViewController {
     
     //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
+        showLoading()
         Task {
             do {
                 try await viewModel.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
                     .subscribe(onError: { [weak self] error in
-                        
+                        self?.hideLoading()
                         self?.showSnackbar(with: error.localizedDescription)
                         
                     }, onCompleted: {
@@ -191,15 +198,43 @@ class LoginViewController: UIViewController {
                     .disposed(by: bag)
                 
             } catch {
+                hideLoading()
                 showSnackbar(with: error.localizedDescription)
             }
             
         }
     }
     
+    private func addMainSubviews() {
+        DispatchQueue.main.async {
+            self.view.addSubview(self.headerView)
+            self.view.addSubview(self.usernameEmailField)
+            self.view.addSubview(self.passwordField)
+            self.view.addSubview(self.loginButton)
+            self.view.addSubview(self.createAccountButton)
+        }
+    }
+    
     private func showSnackbar(with message: String) {
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             AppSnackBar.make(in: self.view!, message: message, duration: .lengthLong).show()
+        }
+    }
+    
+    private func showLoading() {
+        usernameEmailField.removeFromSuperview()
+        passwordField.removeFromSuperview()
+        loginButton.removeFromSuperview()
+        createAccountButton.removeFromSuperview()
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    private func hideLoading() {
+        DispatchQueue.main.async {
+            self.addMainSubviews()
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.removeFromSuperview()
         }
     }
 }
