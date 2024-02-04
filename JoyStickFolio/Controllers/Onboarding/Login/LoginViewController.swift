@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import RxSwift
 
 class LoginViewController: UIViewController {
     
     //MARK: - Managers
     private let viewModel = LoginViewModel()
+    
+    //MARK: - Dispose Bag
+    private let bag = DisposeBag()
     
     //MARK: - Animator
     private let animator = TextAnimator()
@@ -103,8 +107,8 @@ class LoginViewController: UIViewController {
                               for: .touchUpInside)
         
         createAccountButton.addTarget(self,
-                              action: #selector(didTapCreateAccountButton),
-                              for: .touchUpInside)
+                                      action: #selector(didTapCreateAccountButton),
+                                      for: .touchUpInside)
         
         //MARK: - Add Subviews
         view.addSubview(headerView)
@@ -140,9 +144,9 @@ class LoginViewController: UIViewController {
         headerView.layer.sublayers?.first?.frame = headerView.bounds
         
         usernameEmailField.frame = CGRect(x: 25,
-                                     y: headerView.bottom + 40,
-                                     width: view.width - 50,
-                                     height: 52)
+                                          y: headerView.bottom + 40,
+                                          width: view.width - 50,
+                                          height: 52)
         
         passwordField.frame = CGRect(x: 25,
                                      y: usernameEmailField.bottom + 15,
@@ -175,12 +179,27 @@ class LoginViewController: UIViewController {
         Task {
             do {
                 try await viewModel.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
+                    .subscribe(onError: { [weak self] error in
+                        
+                        self?.showSnackbar(with: error.localizedDescription)
+                        
+                    }, onCompleted: {
+                        DispatchQueue.main.async{
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    })
+                    .disposed(by: bag)
                 
-                dismiss(animated: true, completion: nil)
             } catch {
-                print(error)
+                showSnackbar(with: error.localizedDescription)
             }
-           
+            
+        }
+    }
+    
+    private func showSnackbar(with message: String) {
+        DispatchQueue.main.async{
+            AppSnackBar.make(in: self.view!, message: message, duration: .lengthLong).show()
         }
     }
 }

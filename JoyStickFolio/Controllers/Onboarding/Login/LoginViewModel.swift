@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import FirebaseAuth
 
 final class LoginViewModel {
     
@@ -15,13 +17,8 @@ final class LoginViewModel {
     //MARK: - Validators
     private let validator = AuthValidator()
     
-    func signIn(usernameEmail: String, password: String) async throws {
+    func signIn(usernameEmail: String, password: String) async throws -> Observable<AuthDataResult> {
         
-        // check validation to minimize calls
-        guard validator.isPasswordValid(textfield: password) else {
-            print("Wrong")
-            throw AppError.wrongCredentials
-        }
-       try await authManager.signIn(usernameEmail: usernameEmail, password: password)
+       return await authManager.signIn(usernameEmail: usernameEmail, password: password)
     }
 }

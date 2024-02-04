@@ -60,18 +60,27 @@ final class AuthenticationManager {
     }
     
     //MARK: - signIn
-    func signIn(usernameEmail: String, password: String) async throws {
-        do {
-            let email = try await userEmail(usernameEmail: usernameEmail)
-            
-            let user = try await Auth
-                .auth()
-                .signIn(withEmail: email, password: password)
-            
-            
-        } catch {
-            print(error)
-            throw error
+    func signIn(usernameEmail: String, password: String) async -> Observable<AuthDataResult> {
+        
+        return Observable.create { observer in
+            Task {
+                do {
+                    let email = try await self.userEmail(usernameEmail: usernameEmail)
+                    
+                    let user = try await Auth
+                        .auth()
+                        .signIn(withEmail: email, password: password)
+                    
+                    observer.onNext(user)
+                    observer.onCompleted()
+                    
+                    
+                } catch {
+                    observer.onError(error)
+                }
+                
+            }
+            return Disposables.create()
         }
     }
     
