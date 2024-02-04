@@ -11,7 +11,7 @@ final class HamburgerMenuViewModel {
     
     private let authManager = AuthenticationManager()
     
-    func signOut() {
-        authManager.signout()
+    func logout() {
+        authManager.logout()
     }
 }

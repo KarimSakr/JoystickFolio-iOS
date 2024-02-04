@@ -92,7 +92,7 @@ class HamburgerMenuViewController: UIViewController {
             self?.tabBarController?.selectedIndex = 0
             self?.navigationController?.popToRootViewController(animated: false)
             
-            self?.viewModel.signOut()
+            self?.viewModel.logout()
         })
         
         present(actionSheet, animated: true)

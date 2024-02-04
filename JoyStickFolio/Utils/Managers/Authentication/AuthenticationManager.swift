@@ -84,7 +84,7 @@ final class AuthenticationManager {
         }
     }
     
-    func signout() {
+    func logout() {
         do {
             try Auth.auth().signOut()
         }
