@@ -88,6 +88,10 @@ class HamburgerMenuViewController: UIViewController {
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive) { [weak self] _ in
+            
+            self?.tabBarController?.selectedIndex = 0
+            self?.navigationController?.popToRootViewController(animated: false)
+            
             self?.viewModel.signOut()
         })
         
