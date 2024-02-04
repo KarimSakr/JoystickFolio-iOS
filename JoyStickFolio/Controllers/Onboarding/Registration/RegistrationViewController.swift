@@ -163,68 +163,91 @@ class RegistrationViewController: UIViewController {
     
     //MARK: - Button Pressed
     @objc private func buttonPressed() {
-        
-        if processes.last != processes[index] {
+        Task {
             
-            switch processes[index].process {
+            if processes.last != processes[index] {
                 
-            case .enterFullName:
-                guard viewModel.isFullNameValid(textField: textField.text ?? "") else {
-                    AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
-                    return
+                switch processes[index].process {
+                    
+                    //MARK: - enterFullName
+                case .enterFullName:
+                    guard viewModel.isFullNameValid(textField: textField.text ?? "") else {
+                        AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
+                        return
+                    }
+                    
+                    viewModel.fullNameEntered(fullName: textField.text ?? "")
+                    
+                    textField.text = ""
+                    break
+                    
+                    //MARK: - enterEmail
+                case .enterEmail:
+                    guard viewModel.isEmailValid(textField: textField.text ?? "") else {
+                        AppSnackBar.make(in: self.view, message: "Invalid email", duration: .lengthLong).show()
+                        return
+                    }
+                    
+                    viewModel.emailEntered(email: textField.text ?? "")
+                    textField.text = ""
+                    break
+                    
+                    //MARK: - enterUsername
+                case .enterUsername:
+                    
+                    guard viewModel.isUsernameValid(textField: textField.text ?? "") else {
+                        AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
+                        return
+                    }
+                    addLoadingIndicator()
+                    isModalInPresentation = true
+                    guard await viewModel.isUsernameAvailble(username: textField.text ?? "") else {
+                        AppSnackBar.make(in: self.view, message: "Username already taken", duration: .lengthLong).show()
+                        removeLoadingIndicator()
+                        isModalInPresentation = false
+                        return
+                    }
+                    
+                    isModalInPresentation = false
+                    removeLoadingIndicator()
+                    
+                    usernameEntered(username: textField.text ?? "")
+                    
+                    
+                    //MARK: - enterPassword
+                case .enterPassword:
+                    
+                    guard viewModel.isPasswordValid(textfield: textField.text ?? "", repeatTextField: secondTextField.text ?? "") else {
+                        AppSnackBar.make(in: self.view, message: "Passwords should match and have a minimum length of 6 characters", duration: .lengthLong).show()
+                        return
+                    }
+                    
+                    passwordEntered(password: textField.text ?? "")
+                    isModalInPresentation = true
+                    
+                    //MARK: - loading
+                case .loading:
+                    break
                 }
                 
-                viewModel.fullNameEntered(fullName: textField.text ?? "")
                 
-                textField.text = ""
-                break
-            case .enterEmail:
-                guard viewModel.isEmailValid(textField: textField.text ?? "") else {
-                    AppSnackBar.make(in: self.view, message: "Invalid email", duration: .lengthLong).show()
-                    return
+                index += 1
+                progressValue += 1.0 / Double(processes.count - 1)
+                
+                textField.placeholder = processes[index].placeholder
+                submitButton.setTitle(processes[index].buttonTitle, for: .normal)
+                titleLabel.text = processes[index].title
+                
+                progressBarView.progress = Float(progressValue)
+                
+                titleLabel.text? = ""
+                animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
+                    self.titleLabel.text?.append(letter)
+                    self.titleLabel.frame = CGRect(x: .zero,
+                                                   y: self.textField.top - 200,
+                                                   width: self.view.width,
+                                                   height: 150)
                 }
-                
-                viewModel.emailEntered(email: textField.text ?? "")
-                textField.text = ""
-                break
-            case .enterUsername:
-                guard viewModel.isUsernameValid(textField: textField.text ?? "") else {
-                    AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
-                    return
-                }
-                
-                usernameEntered(username: textField.text ?? "")
-                
-            case .enterPassword:
-                
-                guard viewModel.isPasswordValid(textfield: textField.text ?? "", repeatTextField: secondTextField.text ?? "") else {
-                    AppSnackBar.make(in: self.view, message: "Passwords should match and have a minimum length of 6 characters", duration: .lengthLong).show()
-                    return
-                }
-                
-                passwordEntered(password: textField.text ?? "")
-                
-            case .loading:
-                break
-            }
-            
-            
-            index += 1
-            progressValue += 1.0 / Double(processes.count - 1)
-            
-            textField.placeholder = processes[index].placeholder
-            submitButton.setTitle(processes[index].buttonTitle, for: .normal)
-            titleLabel.text = processes[index].title
-            
-            progressBarView.progress = Float(progressValue)
-            
-            titleLabel.text? = ""
-            animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
-                self.titleLabel.text?.append(letter)
-                self.titleLabel.frame = CGRect(x: .zero,
-                                               y: self.textField.top - 200,
-                                               width: self.view.width,
-                                               height: 150)
             }
         }
     }
@@ -257,9 +280,7 @@ class RegistrationViewController: UIViewController {
         submitButton.removeFromSuperview()
         progressBarView.removeFromSuperview()
         
-        // add loading indicator
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
+        addLoadingIndicator()
         
         viewModel.passwordEnetred(password: password)
         
@@ -286,8 +307,7 @@ class RegistrationViewController: UIViewController {
         progressValue = 0
         index = 0
         
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
+        removeLoadingIndicator()
         
         textField.placeholder = processes[index].placeholder
         submitButton.setTitle(processes[index].buttonTitle, for: .normal)
@@ -298,6 +318,20 @@ class RegistrationViewController: UIViewController {
         view.addSubview(progressBarView)
         view.addSubview(textField)
         view.addSubview(submitButton)
-        
+        isModalInPresentation = false
+    }
+    
+    private func addLoadingIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    private func removeLoadingIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+    }
+    
+    deinit {
+        print("deinit")
     }
 }

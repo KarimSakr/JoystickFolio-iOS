@@ -21,9 +21,6 @@ final class AuthenticationManager {
     func createUser(with userInfo: [String : String]) async -> Observable<Void> {
         
         do {
-            guard await self.isUsernameAvailable(username: userInfo[Constants.Key.Auth.username]!) else {
-                return Observable.error(AppError.usernameTaken)
-            }
             try await Auth.auth()
                 .createUser(withEmail: userInfo[Constants.Key.Auth.email]!, password: userInfo[Constants.Key.Auth.password]!)
             
@@ -57,20 +54,6 @@ final class AuthenticationManager {
             }
             
             return Disposables.create()
-        }
-    }
-    
-    private func isUsernameAvailable(username: String) async -> Bool {
-        let ref = db.collection(Constants.Firebase.FireStore.Collection.users).document(username)
-        do {
-            let document = try await ref.getDocument()
-            if document.exists {
-                return false
-            } else {
-                return true
-            }
-        } catch {
-            return false
         }
     }
     

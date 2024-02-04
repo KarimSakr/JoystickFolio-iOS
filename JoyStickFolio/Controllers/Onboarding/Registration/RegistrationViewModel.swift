@@ -12,6 +12,7 @@ final class RegistrationViewModel {
     
     //MARK: - Managers
     private let authenticationManager = AuthenticationManager()
+    private let databaseManager = DatabaseManager()
     
     //MARK: - Auth Validator
     private let validator = AuthValidator()
@@ -19,6 +20,11 @@ final class RegistrationViewModel {
     //MARK: - User Data
     var data: [String : String] = [:]
     
+    func isUsernameAvailble(username: String) async -> Bool {
+        return await databaseManager.isUsernameAvailable(username: username)
+    }
+    
+    //MARK: - registerUser
     func registerUser() async -> Observable<Void> {
         return await authenticationManager.createUser(with: data)
     }
