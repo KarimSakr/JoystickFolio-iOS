@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import FirebaseAnalytics
 
 class RegistrationViewController: UIViewController {
     
@@ -291,6 +292,7 @@ class RegistrationViewController: UIViewController {
                     AppSnackBar.make(in: self!.view!, message: error.localizedDescription, duration: .lengthLong).show()
                     
                 }, onCompleted: {
+                    AnalyticsManager.logEvent(event: .signup)
                     DispatchQueue.main.async{
                         self.dismiss(animated: true)
                     }

@@ -191,6 +191,7 @@ class LoginViewController: UIViewController {
                         self?.showSnackbar(with: error.localizedDescription)
                         
                     }, onCompleted: {
+                        AnalyticsManager.logEvent(event: .login)
                         DispatchQueue.main.async{
                             self.dismiss(animated: true, completion: nil)
                         }

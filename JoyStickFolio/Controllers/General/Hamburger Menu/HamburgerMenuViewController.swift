@@ -91,7 +91,7 @@ class HamburgerMenuViewController: UIViewController {
             
             self?.tabBarController?.selectedIndex = 0
             self?.navigationController?.popToRootViewController(animated: false)
-            
+            AnalyticsManager.logEvent(event: .signOut)
             self?.viewModel.logout()
         })
         

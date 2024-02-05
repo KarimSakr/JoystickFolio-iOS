@@ -63,6 +63,8 @@
 		7FC836262B60624F004EFB59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC836252B60624F004EFB59 /* GoogleService-Info.plist */; };
 		7FE123ED2B700F7600610BB1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123EC2B700F7600610BB1 /* LoginViewModel.swift */; };
 		7FE123F02B70302B00610BB1 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */; };
+		7FE123F32B70579A00610BB1 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F22B70579A00610BB1 /* AnalyticsManager.swift */; };
+		7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */; };
 		7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE4B7342B435B9400608B45 /* EventsViewController.swift */; };
 		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
 		7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF328632B4023C400FACB58 /* AppSnackBar.swift */; };
@@ -99,6 +101,8 @@
 		7FC836252B60624F004EFB59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7FE123EC2B700F7600610BB1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
+		7FE123F22B70579A00610BB1 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaltyicsEvent.swift; sourceTree = "<group>"; };
 		7FE4B7342B435B9400608B45 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		7FF328632B4023C400FACB58 /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
 		7FF328652B4040BF00FACB58 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 			children = (
 				7F3FACBF2B1FA82800F47247 /* Process.swift */,
 				7FFA06672B6813DB0007B192 /* AppError.swift */,
+				7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 		7FC001FD2B62DF8B00007581 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				7FE123F12B70575C00610BB1 /* Analytics */,
 				7FC001FE2B62DF9D00007581 /* Authentication */,
 				7FC0020C2B62F2F200007581 /* Database */,
 			);
@@ -363,6 +369,14 @@
 				7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */,
 			);
 			path = "Hamburger Menu";
+			sourceTree = "<group>";
+		};
+		7FE123F12B70575C00610BB1 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				7FE123F22B70579A00610BB1 /* AnalyticsManager.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		7FF328622B40239B00FACB58 /* SnackBar */ = {
@@ -485,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE123F32B70579A00610BB1 /* AnalyticsManager.swift in Sources */,
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7FF328682B40412300FACB58 /* ThreadsViewController.swift in Sources */,
@@ -505,6 +520,7 @@
 				7FFA06682B6813DB0007B192 /* AppError.swift in Sources */,
 				7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */,
 				7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */,
+				7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
 				7FE123F02B70302B00610BB1 /* HamburgerMenuViewModel.swift in Sources */,
 				7F0526A42B6DAC51000CC51D /* RegistrationViewModel.swift in Sources */,
