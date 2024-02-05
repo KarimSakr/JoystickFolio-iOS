@@ -9,6 +9,9 @@ import UIKit
 
 class HamburgerMenuViewController: UIViewController {
     
+    //MARK: - View Models
+    private let viewModel = HamburgerMenuViewModel()
+    
     //MARK: - tableView
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -85,15 +88,14 @@ class HamburgerMenuViewController: UIViewController {
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive) { [weak self] _ in
-            self?.logOutUser()
+            
+            self?.tabBarController?.selectedIndex = 0
+            self?.navigationController?.popToRootViewController(animated: false)
+            AnalyticsManager.logEvent(event: .signOut)
+            self?.viewModel.logout()
         })
         
         present(actionSheet, animated: true)
-    }
-    
-    //MARK: - logOutUser
-    private func logOutUser() {
-        
     }
 }
 

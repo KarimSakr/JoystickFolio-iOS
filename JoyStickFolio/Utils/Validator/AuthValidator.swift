@@ -27,7 +27,11 @@ class AuthValidator {
         return predicate.evaluate(with: textField)
     }
     
-    func isPasswordValid(textfield: String, repearTextField: String) -> Bool {
-        return textfield == repearTextField && textfield.count >= 6
+    func isPasswordValid(textfield: String, repeatTextField: String) -> Bool {
+        return textfield == repeatTextField && textfield.count >= 6
+    }
+    
+    func isPasswordValid(textfield: String) -> Bool {
+        return textfield.count >= 6
     }
 }

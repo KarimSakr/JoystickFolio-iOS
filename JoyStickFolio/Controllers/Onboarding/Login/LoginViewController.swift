@@ -6,15 +6,24 @@
 //
 
 import UIKit
+import RxSwift
+
 
 class LoginViewController: UIViewController {
     
+    //MARK: - Managers
+    private let viewModel = LoginViewModel()
+    
+    //MARK: - Dispose Bag
+    private let bag = DisposeBag()
+    
+    //MARK: - Animator
     private let animator = TextAnimator()
     
     //MARK: - Username Field
-    private let usernameField: UITextField = {
+    private let usernameEmailField: UITextField = {
         let field = UITextField()
-        field.placeholder = "Username"
+        field.placeholder = "Username or Email..."
         field.returnKeyType = .next
         field.leftViewMode = .always
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -82,11 +91,19 @@ class LoginViewController: UIViewController {
         return gradient
     }()
     
+    //MARK: - titleLabel
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 50.0)
         return label
+    }()
+    
+    //MARK: - activityIndicator
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
     }()
     
     //MARK: - ViewDidLoad
@@ -99,15 +116,11 @@ class LoginViewController: UIViewController {
                               for: .touchUpInside)
         
         createAccountButton.addTarget(self,
-                              action: #selector(didTapCreateAccountButton),
-                              for: .touchUpInside)
+                                      action: #selector(didTapCreateAccountButton),
+                                      for: .touchUpInside)
         
         //MARK: - Add Subviews
-        view.addSubview(headerView)
-        view.addSubview(usernameField)
-        view.addSubview(passwordField)
-        view.addSubview(loginButton)
-        view.addSubview(createAccountButton)
+       addMainSubviews()
         
         //MARK: - Add Subviews to Header
         gradientLayer.frame = headerView.bounds
@@ -135,13 +148,13 @@ class LoginViewController: UIViewController {
         
         headerView.layer.sublayers?.first?.frame = headerView.bounds
         
-        usernameField.frame = CGRect(x: 25,
-                                     y: headerView.bottom + 40,
-                                     width: view.width - 50,
-                                     height: 52)
+        usernameEmailField.frame = CGRect(x: 25,
+                                          y: headerView.bottom + 40,
+                                          width: view.width - 50,
+                                          height: 52)
         
         passwordField.frame = CGRect(x: 25,
-                                     y: usernameField.bottom + 15,
+                                     y: usernameEmailField.bottom + 15,
                                      width: view.width - 50,
                                      height: 52)
         
@@ -155,27 +168,102 @@ class LoginViewController: UIViewController {
                                            width: view.width - 50,
                                            height: 52)
         
+        activityIndicator.center = view.center
+        
     }
     
     
     //MARK: - didTapCreateAccountButton
     @objc private func didTapCreateAccountButton() {
+        createAccountButtonTapped() {
+            if self.viewModel.checkifUserIsSignedIn() {
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func createAccountButtonTapped(completion: (() -> Void)? = nil) {
         let vc = RegistrationViewController()
         vc.title = "Create Account"
+        vc.dismissalCompletion = {
+             completion?()
+         }
         present(UINavigationController(rootViewController: vc), animated: true)
     }
     
-    
     //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
-        
+        showLoading()
+        Task {
+            do {
+                try await viewModel.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
+                    .subscribe(onError: { [weak self] error in
+                        self?.hideLoading()
+                        self?.showSnackbar(with: error.localizedDescription)
+                        
+                    }, onCompleted: {
+                        
+                        self.viewModel.requestIDFA()
+                        
+                        AnalyticsManager.logEvent(event: .login)
+                        
+                        DispatchQueue.main.async{
+                            
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    })
+                    .disposed(by: bag)
+                
+            } catch {
+                hideLoading()
+                showSnackbar(with: error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    //MARK: - addMainSubviews
+    private func addMainSubviews() {
+        DispatchQueue.main.async {
+            self.view.addSubview(self.headerView)
+            self.view.addSubview(self.usernameEmailField)
+            self.view.addSubview(self.passwordField)
+            self.view.addSubview(self.loginButton)
+            self.view.addSubview(self.createAccountButton)
+        }
+    }
+    
+    //MARK: - showSnackbar
+    private func showSnackbar(with message: String) {
+        DispatchQueue.main.async {
+            AppSnackBar.make(in: self.view!, message: message, duration: .lengthLong).show()
+        }
+    }
+    
+    //MARK: - showLoading
+    private func showLoading() {
+        usernameEmailField.removeFromSuperview()
+        passwordField.removeFromSuperview()
+        loginButton.removeFromSuperview()
+        createAccountButton.removeFromSuperview()
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    //MARK: - hideLoading
+    private func hideLoading() {
+        DispatchQueue.main.async {
+            self.addMainSubviews()
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.removeFromSuperview()
+        }
     }
 }
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField == usernameField {
+        if textField == usernameEmailField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField{
             didTapLoginButton()
