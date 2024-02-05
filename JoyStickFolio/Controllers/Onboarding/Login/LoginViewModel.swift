@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 import FirebaseAuth
-
+import AppTrackingTransparency
 final class LoginViewModel {
     
     //MARK: - Managers
@@ -20,5 +20,17 @@ final class LoginViewModel {
     func signIn(usernameEmail: String, password: String) async throws -> Observable<AuthDataResult> {
         
        return await authManager.signIn(usernameEmail: usernameEmail, password: password)
+    }
+    
+    //MARK: - requestIDFA
+    func requestIDFA() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                switch status {
+                case .authorized, .denied, .notDetermined, .restricted: break
+                @unknown default: break
+                }
+            }
+        }
     }
 }

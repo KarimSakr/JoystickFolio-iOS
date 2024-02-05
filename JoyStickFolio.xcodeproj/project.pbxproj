@@ -683,6 +683,7 @@
 				INFOPLIST_FILE = JoyStickFolio/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JoystickFolio;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -714,6 +715,7 @@
 				INFOPLIST_FILE = JoyStickFolio/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JoystickFolio;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

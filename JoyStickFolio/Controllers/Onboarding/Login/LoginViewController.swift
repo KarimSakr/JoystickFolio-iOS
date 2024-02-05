@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 
+
 class LoginViewController: UIViewController {
     
     //MARK: - Managers
@@ -179,7 +180,6 @@ class LoginViewController: UIViewController {
         present(UINavigationController(rootViewController: vc), animated: true)
     }
     
-    
     //MARK: - didTapLoginButton
     @objc private func didTapLoginButton() {
         showLoading()
@@ -191,8 +191,13 @@ class LoginViewController: UIViewController {
                         self?.showSnackbar(with: error.localizedDescription)
                         
                     }, onCompleted: {
+                        
+                        self.viewModel.requestIDFA()
+                        
                         AnalyticsManager.logEvent(event: .login)
+                        
                         DispatchQueue.main.async{
+                            
                             self.dismiss(animated: true, completion: nil)
                         }
                     })
@@ -206,6 +211,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //MARK: - addMainSubviews
     private func addMainSubviews() {
         DispatchQueue.main.async {
             self.view.addSubview(self.headerView)
@@ -216,12 +222,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //MARK: - showSnackbar
     private func showSnackbar(with message: String) {
         DispatchQueue.main.async {
             AppSnackBar.make(in: self.view!, message: message, duration: .lengthLong).show()
         }
     }
     
+    //MARK: - showLoading
     private func showLoading() {
         usernameEmailField.removeFromSuperview()
         passwordField.removeFromSuperview()
@@ -231,6 +239,7 @@ class LoginViewController: UIViewController {
         view.addSubview(activityIndicator)
     }
     
+    //MARK: - hideLoading
     private func hideLoading() {
         DispatchQueue.main.async {
             self.addMainSubviews()
