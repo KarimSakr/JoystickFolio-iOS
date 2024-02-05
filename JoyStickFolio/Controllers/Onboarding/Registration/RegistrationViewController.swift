@@ -20,6 +20,8 @@ class RegistrationViewController: UIViewController {
     //MARK: - Dispose Bag
     private let bag = DisposeBag()
     
+    //MARK: - dismissalCompletion
+    var dismissalCompletion: (() -> Void)?
     
     //MARK: - Login Process
     let processes:[RegistrationProcess]  = allProcesses
@@ -294,7 +296,9 @@ class RegistrationViewController: UIViewController {
                 }, onCompleted: {
                     AnalyticsManager.logEvent(event: .signup)
                     DispatchQueue.main.async{
-                        self.dismiss(animated: true)
+                        self.dismiss(animated: true) {
+                            self.dismissalCompletion?()
+                        }
                     }
                 })
                 .disposed(by: bag)

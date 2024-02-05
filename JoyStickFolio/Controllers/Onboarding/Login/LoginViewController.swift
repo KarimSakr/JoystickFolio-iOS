@@ -175,8 +175,19 @@ class LoginViewController: UIViewController {
     
     //MARK: - didTapCreateAccountButton
     @objc private func didTapCreateAccountButton() {
+        createAccountButtonTapped() {
+            if self.viewModel.checkifUserIsSignedIn() {
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func createAccountButtonTapped(completion: (() -> Void)? = nil) {
         let vc = RegistrationViewController()
         vc.title = "Create Account"
+        vc.dismissalCompletion = {
+             completion?()
+         }
         present(UINavigationController(rootViewController: vc), animated: true)
     }
     
