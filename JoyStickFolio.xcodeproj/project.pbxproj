@@ -23,6 +23,7 @@
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */; };
 		7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */; };
+		7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */; };
 		7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */; };
 		7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */; };
 		7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */; };
@@ -93,6 +94,7 @@
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcess.swift; sourceTree = "<group>"; };
 		7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessData.swift; sourceTree = "<group>"; };
+		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
 		7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuCell.swift; sourceTree = "<group>"; };
 		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		7F063B5D2B1CC9420075B6A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7F6E6FCC2B73C7D100F0D64C /* Response */,
 				7F0F6FA92B64654E00667010 /* Requests */,
 				7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */,
 				7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */,
@@ -317,6 +320,14 @@
 				7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		7F6E6FCC2B73C7D100F0D64C /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		7F81821C2B42F7D800A1869A /* General */ = {
@@ -511,6 +522,7 @@
 				7FE123ED2B700F7600610BB1 /* LoginViewModel.swift in Sources */,
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
+				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
 				7FC002002B62DFAE00007581 /* AuthenticationManager.swift in Sources */,
 				7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */,
 				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
