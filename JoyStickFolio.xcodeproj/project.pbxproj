@@ -24,6 +24,7 @@
 		7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */; };
 		7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */; };
 		7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */; };
+		7F6E6FD02B73C88900F0D64C /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCF2B73C88900F0D64C /* Config.plist */; };
 		7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */; };
 		7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */; };
 		7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */; };
@@ -95,6 +96,7 @@
 		7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcess.swift; sourceTree = "<group>"; };
 		7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessData.swift; sourceTree = "<group>"; };
 		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
+		7F6E6FCF2B73C88900F0D64C /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuCell.swift; sourceTree = "<group>"; };
 		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				7F063B522B1CBAC40075B6A7 /* Assets.xcassets */,
 				7F063B572B1CBAC40075B6A7 /* Info.plist */,
 				7FC836252B60624F004EFB59 /* GoogleService-Info.plist */,
+				7F6E6FCF2B73C88900F0D64C /* Config.plist */,
 			);
 			path = JoyStickFolio;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				7FC836262B60624F004EFB59 /* GoogleService-Info.plist in Resources */,
 				7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */,
 				7F063B512B1CBAC20075B6A7 /* Main.storyboard in Resources */,
+				7F6E6FD02B73C88900F0D64C /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
