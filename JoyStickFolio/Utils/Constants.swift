@@ -9,6 +9,13 @@ import Foundation
 
 struct Constants {
     
+    struct Url {
+        
+        static func twitchAuth(clientId: String, clientSecret: String) -> String {
+            return "https://id.twitch.tv/oauth2/token?client_id=\(clientId)&client_secret=\(clientSecret)&grant_type=client_credentials"
+        }
+    }
+    
     //MARK: - Keys
     struct Key{
         
