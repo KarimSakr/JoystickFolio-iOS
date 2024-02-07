@@ -20,11 +20,13 @@
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
 		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
 		7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */; };
+		7F58D6402B73E0E100D56711 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F58D63F2B73E0E100D56711 /* Alamofire */; };
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */; };
 		7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */; };
 		7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */; };
 		7F6E6FD22B73CC6C00F0D64C /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD12B73CC6C00F0D64C /* Config.plist */; };
+		7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */; };
 		7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */; };
 		7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */; };
 		7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */; };
@@ -97,6 +99,7 @@
 		7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessData.swift; sourceTree = "<group>"; };
 		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
 		7F6E6FD12B73CC6C00F0D64C /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuCell.swift; sourceTree = "<group>"; };
 		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 				7FA5C4022B6238F10019E90F /* FirebaseDatabase in Frameworks */,
 				7FA5C4242B6238F10019E90F /* FirebaseStorageCombine-Community in Frameworks */,
 				7FF328612B40232600FACB58 /* SnackBar in Frameworks */,
+				7F58D6402B73E0E100D56711 /* Alamofire in Frameworks */,
 				7FA5C3FC2B6238F10019E90F /* FirebaseAuth in Frameworks */,
 				7FA5C4062B6238F10019E90F /* FirebaseDynamicLinks in Frameworks */,
 				7FA5C4082B6238F10019E90F /* FirebaseFirestore in Frameworks */,
@@ -333,6 +337,14 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		7F6E6FD32B73D35D00F0D64C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		7F81821C2B42F7D800A1869A /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +356,7 @@
 		7FC001FD2B62DF8B00007581 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				7F6E6FD32B73D35D00F0D64C /* Network */,
 				7FE123F12B70575C00610BB1 /* Analytics */,
 				7FC001FE2B62DF9D00007581 /* Authentication */,
 				7FC0020C2B62F2F200007581 /* Database */,
@@ -451,6 +464,7 @@
 				7FC002062B62E15E00007581 /* RxCocoa */,
 				7FC002082B62E15E00007581 /* RxCocoa-Dynamic */,
 				7FC0020A2B62E15E00007581 /* RxRelay */,
+				7F58D63F2B73E0E100D56711 /* Alamofire */,
 			);
 			productName = JoyStickFolio;
 			productReference = 7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */;
@@ -484,6 +498,7 @@
 				7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */,
 				7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7F58D63E2B73E0E100D56711 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 7F063B472B1CBAC20075B6A7 /* Products */;
 			projectDirPath = "";
@@ -526,6 +541,7 @@
 				7FE123ED2B700F7600610BB1 /* LoginViewModel.swift in Sources */,
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
+				7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */,
 				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
 				7FC002002B62DFAE00007581 /* AuthenticationManager.swift in Sources */,
 				7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */,
@@ -775,6 +791,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7F58D63E2B73E0E100D56711 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -802,6 +826,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7F58D63F2B73E0E100D56711 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F58D63E2B73E0E100D56711 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		7FA5C3EF2B6238F10019E90F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
