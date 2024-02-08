@@ -10,11 +10,13 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseCore
 import RxSwift
+import Alamofire
 
 final class AuthenticationManager {
     
     //MARK: - Managers
     private let databaseManager = DatabaseManager()
+    private let networkManager = NetworkManager()
     
     private let validator = AuthValidator()
     
@@ -84,6 +86,7 @@ final class AuthenticationManager {
         }
     }
     
+    //MARK: - logout
     func logout() {
         do {
             try Auth.auth().signOut()
@@ -91,6 +94,52 @@ final class AuthenticationManager {
         catch {
             print("already logged out")
         }
+    }
+    
+    //MARK: - twitchAuthentication
+    func twitchAuthentication() -> Observable<IGDBAuth> {
+        
+
+        return Observable.create { observer in
+            
+            guard let bundle = Bundle.config else {
+                observer.onError(AppError.configFileMissing)
+                return Disposables.create()
+            }
+            
+            let dict = NSDictionary(contentsOfFile: bundle) as! [String: Any]
+            
+            guard let clientId = dict[Constants.BundleKey.clientId] as? String else{
+                observer.onError(AppError.missingClientId)
+                return Disposables.create()
+                
+            }
+            
+            guard let clientSecret = dict[Constants.BundleKey.clientSecret] as? String else{
+                observer.onError(AppError.missingClientSecret)
+                return Disposables.create()
+            }
+            
+            let parameters: Parameters = [
+                "client_id" : clientId,
+                "client_secret" : clientSecret,
+                "grant_type" : "client_credentials",
+            ]
+            let rout: Router = .twitchAuth(parameters: parameters)
+            
+            self.networkManager.request(rout: rout)
+                .subscribe(onNext: { (auth: IGDBAuth) in
+                    //save
+                }, onError: { error in
+                    observer.onError(error)
+                })
+                .disposed(by: DisposeBag())
+
+            observer.onCompleted()
+            
+            return Disposables.create()
+        }
+        
     }
     
     //MARK: - userEmail

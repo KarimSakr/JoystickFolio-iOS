@@ -9,7 +9,7 @@ import Foundation
 
 enum AppError: LocalizedError {
     
-    case usernameTaken, wrongCredentials
+    case usernameTaken, wrongCredentials, configFileMissing, missingClientId, missingClientSecret
     
     
     var errorDescription: String? {
@@ -19,6 +19,15 @@ enum AppError: LocalizedError {
             
         case .wrongCredentials:
             return "Wrong credentials."
+            
+        case .configFileMissing:
+            return "Configuration files are missing."
+            
+        case .missingClientId:
+            return "The Client's ID is missing."
+            
+        case .missingClientSecret:
+            return "The Client's key is missing."
         }
     }
 }
