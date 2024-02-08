@@ -9,7 +9,11 @@ import Foundation
 
 struct Constants {
     
+    private init() {}
+    
     struct Url {
+        
+        static let baseUrl = "https://api.igdb.com/v4"
         
         static func twitchAuth(clientId: String, clientSecret: String) -> String {
             return "https://id.twitch.tv/oauth2/token?client_id=\(clientId)&client_secret=\(clientSecret)&grant_type=client_credentials"
