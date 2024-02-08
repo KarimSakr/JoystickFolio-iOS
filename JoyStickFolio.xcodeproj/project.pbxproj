@@ -16,6 +16,7 @@
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
 		7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */; };
 		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
+		7F071CE22B74F595008D8739 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE12B74F595008D8739 /* Router.swift */; };
 		7F0F6FAB2B64656200667010 /* CreatedUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F6FAA2B64656200667010 /* CreatedUserProfile.swift */; };
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
 		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
@@ -90,6 +91,7 @@
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7F071CE12B74F595008D8739 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7F0F6FAA2B64656200667010 /* CreatedUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedUserProfile.swift; sourceTree = "<group>"; };
 		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */,
+				7F071CE12B74F595008D8739 /* Router.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7FF328682B40412300FACB58 /* ThreadsViewController.swift in Sources */,
 				7FF328662B4040BF00FACB58 /* ExploreViewController.swift in Sources */,
+				7F071CE22B74F595008D8739 /* Router.swift in Sources */,
 				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
 				7F0F6FAB2B64656200667010 /* CreatedUserProfile.swift in Sources */,
 				7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */,

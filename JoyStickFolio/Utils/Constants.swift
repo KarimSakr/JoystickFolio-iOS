@@ -11,13 +11,11 @@ struct Constants {
     
     private init() {}
     
+    //MARK: - Url
     struct Url {
-        
         static let baseUrl = "https://api.igdb.com/v4"
+        static let twitchAuth = "https://id.twitch.tv/oauth2/token"
         
-        static func twitchAuth(clientId: String, clientSecret: String) -> String {
-            return "https://id.twitch.tv/oauth2/token?client_id=\(clientId)&client_secret=\(clientSecret)&grant_type=client_credentials"
-        }
     }
     
     //MARK: - Keys
