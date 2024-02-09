@@ -51,6 +51,7 @@ class RegistrationViewController: UIViewController {
         field.backgroundColor = .secondarySystemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
+        field.textContentType = .name
         return field
     }()
     
@@ -181,7 +182,7 @@ class RegistrationViewController: UIViewController {
                     }
                     
                     viewModel.fullNameEntered(fullName: textField.text ?? "")
-                    
+                    textField.textContentType = .emailAddress
                     textField.text = ""
                     break
                     
@@ -193,6 +194,7 @@ class RegistrationViewController: UIViewController {
                     }
                     
                     viewModel.emailEntered(email: textField.text ?? "")
+                    textField.textContentType = .name
                     textField.text = ""
                     break
                     
@@ -213,7 +215,7 @@ class RegistrationViewController: UIViewController {
                     
                     
                     removeLoadingIndicator()
-                    
+                    textField.textContentType = .newPassword
                     usernameEntered(username: textField.text ?? "")
                     
                     
