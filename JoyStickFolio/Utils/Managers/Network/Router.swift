@@ -51,6 +51,7 @@ enum Router: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         switch self {
         case .twitchAuth(let parameters):
+            urlRequest.url = url
             if let parameters = parameters {
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             }

@@ -12,21 +12,20 @@ import RxSwift
 final class NetworkManager {
     
     func request<T: Codable>(router: Router) -> Observable<T> {
-
+        
         return Observable.create { observer in
-            let request = AF
-                .request(rout)
+            AF.request(router)
                 .responseDecodable(of: T.self) { response in
                     switch response.result {
                     case .success(let data):
                         observer.onNext(data)
+                        observer.onCompleted()
                     case .failure(let error):
+                        print(error.localizedDescription)
                         observer.onError(error)
                     }
-            }
-            return Disposables.create {
-                request.cancel()
-            }
+                }
+            return Disposables.create()
         }
     }
     

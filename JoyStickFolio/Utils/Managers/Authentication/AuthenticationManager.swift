@@ -18,9 +18,14 @@ final class AuthenticationManager {
     private let databaseManager = DatabaseManager()
     private let networkManager = NetworkManager()
     
+    //MARK: - validator
     private let validator = AuthValidator()
     
+    //MARK: - db
     private let db = Firestore.firestore()
+    
+    //MARK: - bag
+    private let bag = DisposeBag()
     
     func createUser(with userInfo: [String : String]) async -> Observable<Void> {
         
@@ -126,10 +131,13 @@ final class AuthenticationManager {
                 "grant_type" : "client_credentials",
             ]
             
-            self.networkManager.request(router: .twitchAuth(parameters: parameters))
-                .subscribe(onNext: { (igdb: IGDBAuth) in
+            self.networkManager
+                .request(router: .twitchAuth(parameters: parameters))
+                .subscribe(onNext: { igdb in
                     do {
                         try self.databaseManager.saveIgdbInfo(igdb: igdb)
+                        observer.onNext(igdb)
+                        observer.onCompleted()
                     } catch {
                         observer.onError(error)
                     }
@@ -137,9 +145,7 @@ final class AuthenticationManager {
                 }, onError: { error in
                     observer.onError(error)
                 })
-                .disposed(by: DisposeBag())
-
-            observer.onCompleted()
+                .disposed(by: self.bag)
             
             return Disposables.create()
         }
