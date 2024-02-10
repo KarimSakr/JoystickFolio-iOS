@@ -11,7 +11,7 @@ import RxSwift
 
 final class NetworkManager {
     
-    func request<T: Codable>(rout: Router) -> Observable<T> {
+    func request<T: Codable>(router: Router) -> Observable<T> {
 
         return Observable.create { observer in
             let request = AF

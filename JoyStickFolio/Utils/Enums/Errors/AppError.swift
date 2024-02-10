@@ -9,7 +9,12 @@ import Foundation
 
 enum AppError: LocalizedError {
     
-    case usernameTaken, wrongCredentials, configFileMissing, missingClientId, missingClientSecret
+    case usernameTaken,
+         wrongCredentials,
+         configFileMissing,
+         missingClientId,
+         missingClientSecret,
+         sessionExpired
     
     
     var errorDescription: String? {
@@ -28,6 +33,9 @@ enum AppError: LocalizedError {
             
         case .missingClientSecret:
             return "The Client's key is missing."
+            
+        case .sessionExpired:
+            return "Current session has expired."
         }
     }
 }

@@ -17,8 +17,8 @@ class Persistence {
         defaults.set(object, forKey: key)
     }
     
-    func getString(key: String) -> String? {
-        return defaults.string(forKey: key)
+    func getDouble(key: String) -> Double? {
+        return defaults.double(forKey: key)
     }
     
     private init() {}

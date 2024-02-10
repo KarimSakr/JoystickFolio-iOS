@@ -22,6 +22,11 @@ struct Constants {
     //MARK: - Keys
     struct Key{
         
+        struct Persistence {
+            static let expiryDate  = "com.joystick.folio.expiryDate"
+            static let accessToken = "com.joystick.folio.access.token"
+        }
+        
         // keys for authentication
         //MARK: - Auth
         struct Auth {

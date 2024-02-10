@@ -125,11 +125,15 @@ final class AuthenticationManager {
                 "client_secret" : clientSecret,
                 "grant_type" : "client_credentials",
             ]
-            let rout: Router = .twitchAuth(parameters: parameters)
             
-            self.networkManager.request(rout: rout)
-                .subscribe(onNext: { (auth: IGDBAuth) in
-                    //save
+            self.networkManager.request(router: .twitchAuth(parameters: parameters))
+                .subscribe(onNext: { (igdb: IGDBAuth) in
+                    do {
+                        try self.databaseManager.saveIgdbInfo(igdb: igdb)
+                    } catch {
+                        observer.onError(error)
+                    }
+                    
                 }, onError: { error in
                     observer.onError(error)
                 })

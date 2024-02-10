@@ -10,9 +10,9 @@ import Foundation
 
 struct IGDBAuth: Codable {
     
-    var accessToken : String? = nil
-    var expiresIn   : Int?    = nil
-    var tokenType   : String? = nil
+    var accessToken : String = ""
+    var expiresIn   : Int    = 0
+    var tokenType   : String = ""
     
     enum CodingKeys: String, CodingKey {
         
@@ -25,9 +25,9 @@ struct IGDBAuth: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        accessToken = try values.decodeIfPresent(String.self , forKey: .accessToken )
-        expiresIn   = try values.decodeIfPresent(Int.self    , forKey: .expiresIn   )
-        tokenType   = try values.decodeIfPresent(String.self , forKey: .tokenType   )
+        accessToken = try values.decodeIfPresent(String.self , forKey: .accessToken ) ?? ""
+        expiresIn   = try values.decodeIfPresent(Int.self    , forKey: .expiresIn   ) ?? 0
+        tokenType   = try values.decodeIfPresent(String.self , forKey: .tokenType   ) ?? ""
         
     }
     
