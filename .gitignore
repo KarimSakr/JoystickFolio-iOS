@@ -23,6 +23,8 @@ xcuserdata/
 *.xcscmblueprint
 GoogleService-Info.plist
 
+Config.plist
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa

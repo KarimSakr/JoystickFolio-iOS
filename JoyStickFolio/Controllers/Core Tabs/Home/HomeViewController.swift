@@ -7,8 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+
 class HomeViewController: UIViewController {
     
+    //MARK: - View Models
+    private let viewModel = HomeViewModel()
+    
+    //MARK: - AuthStateDidChangeListenerHandle
     var handle: AuthStateDidChangeListenerHandle?
     
     //MARK: - viewDidLoad
@@ -20,6 +25,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        viewModel.validateIgdb()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         handleAuth()
     }
     

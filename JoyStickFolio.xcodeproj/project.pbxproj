@@ -16,13 +16,23 @@
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
 		7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */; };
 		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
+		7F071CE22B74F595008D8739 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE12B74F595008D8739 /* Router.swift */; };
+		7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE32B7508E6008D8739 /* Bundle.swift */; };
 		7F0F6FAB2B64656200667010 /* CreatedUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F6FAA2B64656200667010 /* CreatedUserProfile.swift */; };
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
 		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
 		7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */; };
+		7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F362B76E9CA007DF271 /* Persistence.swift */; };
+		7F434F392B76ED21007DF271 /* Keychains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F382B76ED21007DF271 /* Keychains.swift */; };
+		7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F3B2B76F002007DF271 /* KeychainErrors.swift */; };
+		7F434F3F2B76FBAB007DF271 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F3E2B76FBAB007DF271 /* HomeViewModel.swift */; };
+		7F58D6402B73E0E100D56711 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F58D63F2B73E0E100D56711 /* Alamofire */; };
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */; };
 		7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */; };
+		7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */; };
+		7F6E6FD22B73CC6C00F0D64C /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD12B73CC6C00F0D64C /* Config.plist */; };
+		7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */; };
 		7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */; };
 		7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */; };
 		7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */; };
@@ -86,13 +96,22 @@
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F063B642B1CDAAE0075B6A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7F071CE12B74F595008D8739 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		7F071CE32B7508E6008D8739 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7F0F6FAA2B64656200667010 /* CreatedUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedUserProfile.swift; sourceTree = "<group>"; };
 		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
 		7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidator.swift; sourceTree = "<group>"; };
+		7F434F362B76E9CA007DF271 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		7F434F382B76ED21007DF271 /* Keychains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychains.swift; sourceTree = "<group>"; };
+		7F434F3B2B76F002007DF271 /* KeychainErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainErrors.swift; sourceTree = "<group>"; };
+		7F434F3E2B76FBAB007DF271 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcess.swift; sourceTree = "<group>"; };
 		7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessData.swift; sourceTree = "<group>"; };
+		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
+		7F6E6FD12B73CC6C00F0D64C /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F6FFE7F2B1D2A0900D89F92 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuCell.swift; sourceTree = "<group>"; };
 		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +164,7 @@
 				7FA5C4022B6238F10019E90F /* FirebaseDatabase in Frameworks */,
 				7FA5C4242B6238F10019E90F /* FirebaseStorageCombine-Community in Frameworks */,
 				7FF328612B40232600FACB58 /* SnackBar in Frameworks */,
+				7F58D6402B73E0E100D56711 /* Alamofire in Frameworks */,
 				7FA5C3FC2B6238F10019E90F /* FirebaseAuth in Frameworks */,
 				7FA5C4062B6238F10019E90F /* FirebaseDynamicLinks in Frameworks */,
 				7FA5C4082B6238F10019E90F /* FirebaseFirestore in Frameworks */,
@@ -193,6 +213,7 @@
 				7F063B522B1CBAC40075B6A7 /* Assets.xcassets */,
 				7F063B572B1CBAC40075B6A7 /* Info.plist */,
 				7FC836252B60624F004EFB59 /* GoogleService-Info.plist */,
+				7F6E6FD12B73CC6C00F0D64C /* Config.plist */,
 			);
 			path = JoyStickFolio;
 			sourceTree = "<group>";
@@ -200,6 +221,7 @@
 		7F063B5D2B1CC9420075B6A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7F6E6FCC2B73C7D100F0D64C /* Response */,
 				7F0F6FA92B64654E00667010 /* Requests */,
 				7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */,
 				7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */,
@@ -231,6 +253,7 @@
 			children = (
 				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
 				7FC001FD2B62DF8B00007581 /* Managers */,
+				7F434F352B76E9B4007DF271 /* Persistence */,
 				7F3FACC42B1FB12000F47247 /* Validator */,
 				7F3FACC12B1FAA6200F47247 /* Animation */,
 				7F3FACBE2B1FA81000F47247 /* Enums */,
@@ -242,7 +265,7 @@
 		7F063B612B1CD05B0075B6A7 /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				7F063B4D2B1CBAC20075B6A7 /* HomeViewController.swift */,
+				7F434F3D2B76FB96007DF271 /* Home */,
 				7FF328652B4040BF00FACB58 /* ExploreViewController.swift */,
 				7FE4B7342B435B9400608B45 /* EventsViewController.swift */,
 				7FF328672B40412300FACB58 /* ThreadsViewController.swift */,
@@ -273,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				7F063B672B1CE5B70075B6A7 /* UIView.swift */,
+				7F071CE32B7508E6008D8739 /* Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,8 +312,8 @@
 		7F3FACBE2B1FA81000F47247 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				7F434F3A2B76EFF1007DF271 /* Errors */,
 				7F3FACBF2B1FA82800F47247 /* Process.swift */,
-				7FFA06672B6813DB0007B192 /* AppError.swift */,
 				7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */,
 			);
 			path = Enums;
@@ -311,12 +335,56 @@
 			path = Validator;
 			sourceTree = "<group>";
 		};
+		7F434F352B76E9B4007DF271 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				7F434F362B76E9CA007DF271 /* Persistence.swift */,
+				7F434F382B76ED21007DF271 /* Keychains.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		7F434F3A2B76EFF1007DF271 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA06672B6813DB0007B192 /* AppError.swift */,
+				7F434F3B2B76F002007DF271 /* KeychainErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		7F434F3D2B76FB96007DF271 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7F063B4D2B1CBAC20075B6A7 /* HomeViewController.swift */,
+				7F434F3E2B76FBAB007DF271 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		7F5D64B22B1E6D9300E9669E /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				7F5D64B32B1E6DAE00E9669E /* RegistrationProcessData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		7F6E6FCC2B73C7D100F0D64C /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		7F6E6FD32B73D35D00F0D64C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */,
+				7F071CE12B74F595008D8739 /* Router.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		7F81821C2B42F7D800A1869A /* General */ = {
@@ -330,6 +398,7 @@
 		7FC001FD2B62DF8B00007581 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				7F6E6FD32B73D35D00F0D64C /* Network */,
 				7FE123F12B70575C00610BB1 /* Analytics */,
 				7FC001FE2B62DF9D00007581 /* Authentication */,
 				7FC0020C2B62F2F200007581 /* Database */,
@@ -437,6 +506,7 @@
 				7FC002062B62E15E00007581 /* RxCocoa */,
 				7FC002082B62E15E00007581 /* RxCocoa-Dynamic */,
 				7FC0020A2B62E15E00007581 /* RxRelay */,
+				7F58D63F2B73E0E100D56711 /* Alamofire */,
 			);
 			productName = JoyStickFolio;
 			productReference = 7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */;
@@ -470,6 +540,7 @@
 				7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */,
 				7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7F58D63E2B73E0E100D56711 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 7F063B472B1CBAC20075B6A7 /* Products */;
 			projectDirPath = "";
@@ -488,6 +559,7 @@
 				7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */,
 				7FC836262B60624F004EFB59 /* GoogleService-Info.plist in Resources */,
 				7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */,
+				7F6E6FD22B73CC6C00F0D64C /* Config.plist in Resources */,
 				7F063B512B1CBAC20075B6A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,11 +571,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */,
 				7FE123F32B70579A00610BB1 /* AnalyticsManager.swift in Sources */,
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7FF328682B40412300FACB58 /* ThreadsViewController.swift in Sources */,
+				7F434F392B76ED21007DF271 /* Keychains.swift in Sources */,
 				7FF328662B4040BF00FACB58 /* ExploreViewController.swift in Sources */,
+				7F071CE22B74F595008D8739 /* Router.swift in Sources */,
 				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
 				7F0F6FAB2B64656200667010 /* CreatedUserProfile.swift in Sources */,
 				7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */,
@@ -511,7 +586,11 @@
 				7FE123ED2B700F7600610BB1 /* LoginViewModel.swift in Sources */,
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
 				7F063B652B1CDAAE0075B6A7 /* LoginViewController.swift in Sources */,
+				7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */,
+				7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */,
+				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
 				7FC002002B62DFAE00007581 /* AuthenticationManager.swift in Sources */,
+				7F434F3F2B76FBAB007DF271 /* HomeViewModel.swift in Sources */,
 				7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */,
 				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
 				7FC0020E2B62F30C00007581 /* DatabaseManager.swift in Sources */,
@@ -523,6 +602,7 @@
 				7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
 				7FE123F02B70302B00610BB1 /* HamburgerMenuViewModel.swift in Sources */,
+				7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */,
 				7F0526A42B6DAC51000CC51D /* RegistrationViewModel.swift in Sources */,
 				7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */,
 				7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */,
@@ -678,7 +758,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P63VAPNRN9;
+				DEVELOPMENT_TEAM = Q53JDDZU5Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JoyStickFolio/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JoystickFolio;
@@ -710,7 +790,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P63VAPNRN9;
+				DEVELOPMENT_TEAM = Q53JDDZU5Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JoyStickFolio/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JoystickFolio;
@@ -759,6 +839,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7F58D63E2B73E0E100D56711 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -786,6 +874,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7F58D63F2B73E0E100D56711 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F58D63E2B73E0E100D56711 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		7FA5C3EF2B6238F10019E90F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

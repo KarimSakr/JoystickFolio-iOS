@@ -9,8 +9,23 @@ import Foundation
 
 struct Constants {
     
+    private init() {}
+    
+    
+    //MARK: - Url
+    struct Url {
+        static let baseUrl = "https://api.igdb.com/v4"
+        static let twitchAuth = "https://id.twitch.tv/oauth2/token"
+        
+    }
+    
     //MARK: - Keys
     struct Key{
+        
+        struct Persistence {
+            static let expiryDate  = "com.joystick.folio.expiryDate"
+            static let accessToken = "com.joystick.folio.access.token"
+        }
         
         // keys for authentication
         //MARK: - Auth
@@ -35,6 +50,13 @@ struct Constants {
                 static let users = "users"
             }
         }
+    }
+    
+    struct BundleKey {
+        static let fileName = "Config"
+        static let fileExtension = "plist"
+        static let clientId = "client_id"
+        static let clientSecret = "client_secret"
     }
     
     //MARK: - Corner Radius
