@@ -11,11 +11,16 @@ import RxSwift
 
 final class HomeViewModel {
     
+    //MARK: - bag
     private let bag = DisposeBag()
     
+    var games = [Game]()
+    
+    //MARK: - Managers
     private let authenticationManager = AuthenticationManager()
     private let databaseManager = DatabaseManager()
     
+    //MARK: - validateIgdb
     func validateIgdb() {
         if !isAccessTokenValid() {
             authenticationManager.twitchAuthentication()
@@ -28,6 +33,17 @@ final class HomeViewModel {
         }
     }
     
+    func fetchGames() {
+        databaseManager
+            .fetchGames()
+            .subscribe(onNext: { games in
+                self.games = games
+            })
+            .disposed(by: bag)
+    }
+    
+    //MARK: - Helper Functions
+    //MARK: - isAccessTokenValid
     private func isAccessTokenValid() -> Bool {
         do {
             let (token, expiryDate) = try databaseManager.fetchAccessToken()

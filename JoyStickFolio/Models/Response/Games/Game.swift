@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game: Decodable {
+struct Game: Codable {
     
     var id               : Int?    = nil
     var ageRatings       : [Int]?  = []
