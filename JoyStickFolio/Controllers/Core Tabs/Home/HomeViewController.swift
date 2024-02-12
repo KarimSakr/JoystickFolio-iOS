@@ -36,16 +36,18 @@ class HomeViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 210),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
-        viewModel.fetchGames()
+        viewModel.fetchGames() {
+            self.collectionView.reloadData()
+        }
         
         configureNavigationBar()
     }
@@ -120,8 +122,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = self.view.frame.width / 3
-        return CGSize(width: size, height: size * 2)
+        
+        return CGSize(width: 140, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

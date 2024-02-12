@@ -33,11 +33,12 @@ final class HomeViewModel {
         }
     }
     
-    func fetchGames() {
+    func fetchGames(completion: @escaping () -> Void) {
         databaseManager
             .fetchGames()
             .subscribe(onNext: { games in
                 self.games = games
+                completion()
             })
             .disposed(by: bag)
     }

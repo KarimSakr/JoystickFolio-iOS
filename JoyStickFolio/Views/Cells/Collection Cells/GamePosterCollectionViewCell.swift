@@ -46,12 +46,15 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
         addSubview(imagePoster)
         imagePoster.translatesAutoresizingMaskIntoConstraints = false
         
+        addSubview(gameTitleLabel)
+        
         NSLayoutConstraint.activate([
             imagePoster.topAnchor.constraint(equalTo: self.topAnchor),
             imagePoster.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             imagePoster.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imagePoster.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
+        
     }
     
     private func downloadImageData(from url: URL) async throws -> Data {
