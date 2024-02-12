@@ -114,7 +114,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             fatalError("Failed to dequeue GamePosterCollectionViewCell in HomeViewController")
         }
         
-        cell.configure(with: viewModel.games[indexPath.row])
+        cell.configure(with: viewModel.games[indexPath.item])
         return cell
     }
 }

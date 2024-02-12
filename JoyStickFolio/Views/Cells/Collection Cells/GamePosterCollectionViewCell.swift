@@ -23,6 +23,9 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
     private let gameTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Game Title"
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.textColor = .gray
         return label
     }()
     
@@ -40,21 +43,22 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        gameTitleLabel.text = game.name
-        self.backgroundColor = .systemRed
-        
         addSubview(imagePoster)
         imagePoster.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(gameTitleLabel)
+        gameTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             imagePoster.topAnchor.constraint(equalTo: self.topAnchor),
             imagePoster.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             imagePoster.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imagePoster.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            gameTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            gameTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            gameTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
         ])
-        
     }
     
     private func downloadImageData(from url: URL) async throws -> Data {
