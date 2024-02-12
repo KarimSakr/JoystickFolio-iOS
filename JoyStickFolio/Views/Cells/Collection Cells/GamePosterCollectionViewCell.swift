@@ -32,17 +32,13 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
     func configure(with game: Game) {
         
         gameTitleLabel.text = game.name
-//        do {
-//                let data = try await downloadImageData(from: url)
-//                let image = UIImage(data: data)
-//                // Display the image
-//            } catch {
-//                print("Error: \(error.localizedDescription)")
-//            }
         self.setupUI()
     }
     
     private func setupUI() {
+        
+        self.backgroundColor = .systemGray6
+        
         addSubview(imagePoster)
         imagePoster.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,12 +55,6 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
             gameTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             gameTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
         ])
-    }
-    
-    private func downloadImageData(from url: URL) async throws -> Data {
-        let request = URLRequest(url: url)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        return data
     }
     
     override func prepareForReuse() {
