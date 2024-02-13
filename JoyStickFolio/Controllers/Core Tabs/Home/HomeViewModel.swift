@@ -14,8 +14,6 @@ final class HomeViewModel {
     //MARK: - bag
     private let bag = DisposeBag()
     
-    var games = [Game]()
-    
     //MARK: - Managers
     private let authenticationManager = AuthenticationManager()
     private let databaseManager = DatabaseManager()
@@ -31,16 +29,6 @@ final class HomeViewModel {
                 })
                 .disposed(by: bag)
         }
-    }
-    
-    func fetchGames(completion: @escaping () -> Void) {
-        databaseManager
-            .fetchGames()
-            .subscribe(onNext: { games in
-                self.games = games
-                completion()
-            })
-            .disposed(by: bag)
     }
     
     //MARK: - Helper Functions
