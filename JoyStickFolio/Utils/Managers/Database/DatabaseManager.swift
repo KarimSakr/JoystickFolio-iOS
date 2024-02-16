@@ -8,13 +8,24 @@
 import Foundation
 import FirebaseCore
 import FirebaseFirestore
+import RxSwift
 
 final class DatabaseManager {
     
+    //MARK: - Cloud Database
     private let db = Firestore.firestore()
+    private let networkManager = NetworkManager()
     
+    //MARK: - Local Database
     private let persistence = Persistence.instance
     private let keychains = Keychains.shared
+    
+
+    
+    func fetchGames() -> Observable<[Game]>{
+        return networkManager
+            .request(router: .fetchgames)
+    }
     
     //MARK: - isUsernameAvailable
     func isUsernameAvailable(username: String) async -> Bool {

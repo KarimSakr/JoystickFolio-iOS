@@ -19,26 +19,30 @@ class HomeViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         configureNavigationBar()
     }
     
+    //MARK: - viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.validateIgdb()
     }
     
+    //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handleAuth()
     }
     
+    //MARK: - viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
         
       Auth.auth().removeStateDidChangeListener(handle!)
     }
     
+    //MARK: - configureNavigationBar
     private func configureNavigationBar() {
         // Navigation Bar
         let messagesButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.message"), style: .done, target: self, action: #selector(messageButtonTapped))
@@ -52,6 +56,7 @@ class HomeViewController: UIViewController {
         
     }
     
+    //MARK: - notificationButtonTapped
     @objc private func notificationButtonTapped() {
         
     }
@@ -68,4 +73,3 @@ class HomeViewController: UIViewController {
         }
     }
 }
-
