@@ -14,6 +14,12 @@ import UIKit
 import RxSwift
 protocol LoginDisplayLogic: AnyObject {
     
+    func showLoading()
+    func hideLoading()
+    func animateText()
+    func addMainSubviews()
+    func showSnackbar(with message: String)
+    
 }
 
 class LoginViewController: UIViewController, LoginDisplayLogic {
@@ -247,7 +253,7 @@ extension LoginViewController {
         }
     }
     
-    private func createAccountButtonTapped(completion: (() -> Void)? = nil) {
+    func createAccountButtonTapped(completion: (() -> Void)? = nil) {
         let vc = RegistrationViewController()
         vc.title = "Create Account"
         vc.dismissalCompletion = {
@@ -257,7 +263,7 @@ extension LoginViewController {
     }
     
     
-    private func addMainSubviews() {
+    func addMainSubviews() {
         DispatchQueue.main.async {
             self.view.addSubview(self.headerView)
             self.view.addSubview(self.usernameEmailField)
@@ -268,7 +274,7 @@ extension LoginViewController {
         }
     }
     
-    private func showLoading() {
+    func showLoading() {
         usernameEmailField.isHidden  = true
         passwordField.isHidden       = true
         loginButton.isHidden         = true
@@ -278,7 +284,7 @@ extension LoginViewController {
         activityIndicator.startAnimating()
     }
     
-    private func hideLoading() {
+    func hideLoading() {
         DispatchQueue.main.async {
             self.usernameEmailField.isHidden  = false
             self.passwordField.isHidden       = false
@@ -289,7 +295,7 @@ extension LoginViewController {
         }
     }
     
-    private func animateText() {
+    func animateText() {
         titleLabel.text = ""
         animator.animateTitle(text: "JoystickFolio", timeInterval: 0.1) { letter in
             self.titleLabel.text?.append(letter)
@@ -300,7 +306,7 @@ extension LoginViewController {
         }
     }
     
-    private func showSnackbar(with message: String) {
+    func showSnackbar(with message: String) {
         DispatchQueue.main.async {
             AppSnackBar.make(in: self.view!, message: message, duration: .lengthLong).show()
         }
