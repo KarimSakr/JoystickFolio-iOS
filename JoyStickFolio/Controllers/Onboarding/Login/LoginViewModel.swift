@@ -23,13 +23,6 @@ final class LoginViewModel {
        return await authManager.signIn(usernameEmail: usernameEmail, password: password)
     }
     
-    func checkifUserIsSignedIn() -> Bool {
-        
-        if Auth.auth().currentUser == nil {
-            return false
-        }
-        return true
-    }
     //MARK: - requestIDFA
     func requestIDFA() {
         if #available(iOS 14, *) {

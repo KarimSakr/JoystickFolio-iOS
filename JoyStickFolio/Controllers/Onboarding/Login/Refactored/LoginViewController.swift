@@ -19,6 +19,8 @@ protocol LoginDisplayLogic: AnyObject {
     func animateText()
     func addMainSubviews()
     func showSnackbar(with message: String)
+    func setupHeader()
+    func setupButtons()
     
 }
 
@@ -126,21 +128,17 @@ extension LoginViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
         
-        loginButton.addTarget(self,
-                              action: #selector(didTapLoginButton),
-                              for: .touchUpInside)
+        setupButtons()
         
-        createAccountButton.addTarget(self,
-                                      action: #selector(didTapCreateAccountButton),
-                                      for: .touchUpInside)
+        addMainSubviews()
         
         setupHeader()
         
         animateText()
         
-        addMainSubviews()
     }
     
     override func viewDidLayoutSubviews() {
@@ -201,6 +199,22 @@ extension LoginViewController {
         router.dataStore = interactor
     }
     
+    func setupHeader() {
+        gradientLayer.frame = headerView.bounds
+        headerView.layer.addSublayer(gradientLayer)
+        headerView.addSubview(titleLabel)
+    }
+    
+    func setupButtons() {
+        loginButton.addTarget(self,
+                              action: #selector(didTapLoginButton),
+                              for: .touchUpInside)
+        
+        createAccountButton.addTarget(self,
+                                      action: #selector(didTapCreateAccountButton),
+                                      for: .touchUpInside)
+    }
+    
 }
 
 //MARK: - functions
@@ -239,7 +253,8 @@ extension LoginViewController {
     //MARK: - didTapCreateAccountButton
     @objc private func didTapCreateAccountButton() {
         router?.goToCreateAccount() {
-            if self.viewModel.checkifUserIsSignedIn() {
+            guard let interactor = self.interactor else { return }
+            if interactor.checkifUserIsSignedIn() {
                 self.dismiss(animated: true)
             }
         }
@@ -276,14 +291,6 @@ extension LoginViewController {
             self.activityIndicator.stopAnimating()
         }
     }
-    
-    
-    func setupHeader() {
-        gradientLayer.frame = headerView.bounds
-        headerView.layer.addSublayer(gradientLayer)
-        headerView.addSubview(titleLabel)
-    }
-    
     
     func animateText() {
         titleLabel.text = ""

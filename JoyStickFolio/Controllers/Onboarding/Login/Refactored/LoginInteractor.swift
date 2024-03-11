@@ -11,23 +11,28 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 protocol LoginBusinessLogic {
-  
+    
+    func checkifUserIsSignedIn() -> Bool
+    
 }
 
 protocol LoginDataStore {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
-  var presenter: LoginPresentationLogic?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: LoginModels.Request) {
+    var presenter: LoginPresentationLogic?
+    //var name: String = ""
     
+    // MARK: Do something
     
-  }
+    func checkifUserIsSignedIn() -> Bool {
+        
+        if Auth.auth().currentUser == nil {
+            return false
+        }
+        return true
+    }
 }
