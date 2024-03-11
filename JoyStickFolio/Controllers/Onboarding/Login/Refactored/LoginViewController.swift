@@ -136,9 +136,7 @@ extension LoginViewController {
                                       action: #selector(didTapCreateAccountButton),
                                       for: .touchUpInside)
         
-        gradientLayer.frame = headerView.bounds
-        headerView.layer.addSublayer(gradientLayer)
-        headerView.addSubview(titleLabel)
+        setupHeader()
         
         animateText()
         
@@ -161,13 +159,11 @@ extension LoginViewController {
             usernameEmailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             usernameEmailField.heightAnchor.constraint(equalToConstant: 52),
             
-            
             // Password Field constraints
             passwordField.topAnchor.constraint(equalTo: usernameEmailField.bottomAnchor, constant: 15),
             passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             passwordField.heightAnchor.constraint(equalToConstant: 52),
-            
             
             // Login Button constraints
             loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 10),
@@ -175,20 +171,16 @@ extension LoginViewController {
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             loginButton.heightAnchor.constraint(equalToConstant: 52),
             
-            
             // Create Account Button constraints
             createAccountButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
             createAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             createAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             createAccountButton.heightAnchor.constraint(equalToConstant: 52),
             
-            
             // Activity Indicator constraints
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
         ])
-        
     }
     
 }
@@ -214,54 +206,44 @@ extension LoginViewController {
 //MARK: - functions
 extension LoginViewController {
     
-    #warning("Refactor login and create account functions")
+#warning("Refactor login and create account functions")
     @objc private func didTapLoginButton() {
-//        showLoading()
-//        Task {
-//            do {
-//                try await viewModel.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
-//                    .subscribe(onError: { [weak self] error in
-//                        self?.hideLoading()
-//                        self?.showSnackbar(with: error.localizedDescription)
-//                        
-//                    }, onCompleted: {
-//                        
-//                        self.viewModel.requestIDFA()
-//                        
-//                        AnalyticsManager.logEvent(event: .login)
-//                        
-//                        DispatchQueue.main.async{
-//                            
-//                            self.dismiss(animated: true, completion: nil)
-//                        }
-//                    })
-//                    .disposed(by: bag)
-//                
-//            } catch {
-//                hideLoading()
-//                showSnackbar(with: error.localizedDescription)
-//            }
-//            
-//        }
+        //        showLoading()
+        //        Task {
+        //            do {
+        //                try await viewModel.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
+        //                    .subscribe(onError: { [weak self] error in
+        //                        self?.hideLoading()
+        //                        self?.showSnackbar(with: error.localizedDescription)
+        //
+        //                    }, onCompleted: {
+        //
+        //                        self.viewModel.requestIDFA()
+        //
+        //                        AnalyticsManager.logEvent(event: .login)
+        //
+        //                        DispatchQueue.main.async{
+        //
+        //                            self.dismiss(animated: true, completion: nil)
+        //                        }
+        //                    })
+        //                    .disposed(by: bag)
+        //
+        //            } catch {
+        //                hideLoading()
+        //                showSnackbar(with: error.localizedDescription)
+        //            }
+        //
+        //        }
     }
     //MARK: - didTapCreateAccountButton
     @objc private func didTapCreateAccountButton() {
-        createAccountButtonTapped() {
+        router?.goToCreateAccount() {
             if self.viewModel.checkifUserIsSignedIn() {
                 self.dismiss(animated: true)
             }
         }
     }
-    
-    func createAccountButtonTapped(completion: (() -> Void)? = nil) {
-        let vc = RegistrationViewController()
-        vc.title = "Create Account"
-        vc.dismissalCompletion = {
-             completion?()
-         }
-        present(UINavigationController(rootViewController: vc), animated: true)
-    }
-    
     
     func addMainSubviews() {
         DispatchQueue.main.async {
@@ -294,6 +276,14 @@ extension LoginViewController {
             self.activityIndicator.stopAnimating()
         }
     }
+    
+    
+    func setupHeader() {
+        gradientLayer.frame = headerView.bounds
+        headerView.layer.addSublayer(gradientLayer)
+        headerView.addSubview(titleLabel)
+    }
+    
     
     func animateText() {
         titleLabel.text = ""

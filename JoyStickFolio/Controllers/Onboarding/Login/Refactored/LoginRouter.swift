@@ -23,5 +23,14 @@ protocol LoginDataPassing {
 class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
   weak var viewController: LoginViewController?
   var dataStore: LoginDataStore?
+    
+    func goToCreateAccount(completion: (() -> Void)? = nil) {
+        let vc = RegistrationViewController()
+        vc.title = "Create Account"
+        vc.dismissalCompletion = {
+             completion?()
+         }
+        viewController?.present(UINavigationController(rootViewController: vc), animated: true)
+    }
   
 }
