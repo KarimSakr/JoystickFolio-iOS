@@ -31,8 +31,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     private let bag = DisposeBag()
     
-    private let viewModel = LoginViewModel()
-    
     private let animator = TextAnimator()
     
     
@@ -109,8 +107,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.text = ""
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 50.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -125,7 +125,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 //MARK: - LifeCycle
 extension LoginViewController {
     
-    // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -135,9 +134,9 @@ extension LoginViewController {
         
         addMainSubviews()
         
-        setupHeader()
-        
-        animateText()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            self.animateText()
+        }
         
     }
     
@@ -179,6 +178,9 @@ extension LoginViewController {
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
+        
+        setupHeader()
+
     }
     
 }
@@ -220,39 +222,32 @@ extension LoginViewController {
 //MARK: - functions
 extension LoginViewController {
     
-#warning("Refactor login and create account functions")
     @objc private func didTapLoginButton() {
-        //        showLoading()
-        //        Task {
-        //            do {
-        //                try await viewModel.signIn(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
-        //                    .subscribe(onError: { [weak self] error in
-        //                        self?.hideLoading()
-        //                        self?.showSnackbar(with: error.localizedDescription)
-        //
-        //                    }, onCompleted: {
-        //
-        //                        self.viewModel.requestIDFA()
-        //
-        //                        AnalyticsManager.logEvent(event: .login)
-        //
-        //                        DispatchQueue.main.async{
-        //
-        //                            self.dismiss(animated: true, completion: nil)
-        //                        }
-        //                    })
-        //                    .disposed(by: bag)
-        //
-        //            } catch {
-        //                hideLoading()
-        //                showSnackbar(with: error.localizedDescription)
-        //            }
-        //
-        //        }
+        Task {
+            showLoading()
+            await interactor!.login(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
+                .subscribe { event in
+                    switch event {
+                        
+                    case .success(_):
+                        self.interactor!.requestIDFA()
+                        AnalyticsManager.logEvent(event: .login)
+                        DispatchQueue.main.async{
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    case .failure(let error):
+                        DispatchQueue.main.async {
+                            self.hideLoading()
+                            self.showSnackbar(with: error.localizedDescription)
+                        }
+                    }
+                }.disposed(by: bag)
+        }
+        
     }
-    //MARK: - didTapCreateAccountButton
+
     @objc private func didTapCreateAccountButton() {
-        router?.goToCreateAccount() {
+        router!.goToCreateAccount() {
             guard let interactor = self.interactor else { return }
             if interactor.checkifUserIsSignedIn() {
                 self.dismiss(animated: true)
@@ -268,6 +263,9 @@ extension LoginViewController {
             self.view.addSubview(self.loginButton)
             self.view.addSubview(self.createAccountButton)
             self.view.addSubview(self.activityIndicator)
+            // Now that all subviews are added, activate constraints
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -311,7 +309,7 @@ extension LoginViewController {
 }
 
 
-//MARK: - textField
+//MARK: - UITextField
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         

@@ -67,9 +67,9 @@ final class AuthenticationManager {
     }
     
     //MARK: - signIn
-    func signIn(usernameEmail: String, password: String) async -> Observable<AuthDataResult> {
+    func signIn(usernameEmail: String, password: String) async -> Single<AuthDataResult> {
         
-        return Observable.create { observer in
+        return Single.create { single in
             Task {
                 do {
                     let email = try await self.userEmail(usernameEmail: usernameEmail)
@@ -78,14 +78,11 @@ final class AuthenticationManager {
                         .auth()
                         .signIn(withEmail: email, password: password)
                     
-                    observer.onNext(user)
-                    observer.onCompleted()
-                    
-                    
-                } catch {
-                    observer.onError(error)
-                }
+                    single(.success(user))
                 
+                } catch {
+                    single(.failure(error))
+                }
             }
             return Disposables.create()
         }

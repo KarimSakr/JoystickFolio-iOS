@@ -79,7 +79,6 @@
 		7FD21ADA2B7C04DB004DB19B /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD21AD92B7C04DB004DB19B /* ExploreViewModel.swift */; };
 		7FD7E8A62B795545000BE278 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8A52B795545000BE278 /* Game.swift */; };
 		7FD7E8AF2B7972E2000BE278 /* GamePosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8AE2B7972E2000BE278 /* GamePosterCollectionViewCell.swift */; };
-		7FE123ED2B700F7600610BB1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123EC2B700F7600610BB1 /* LoginViewModel.swift */; };
 		7FE123F02B70302B00610BB1 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */; };
 		7FE123F32B70579A00610BB1 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F22B70579A00610BB1 /* AnalyticsManager.swift */; };
 		7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */; };
@@ -134,7 +133,6 @@
 		7FD21AD92B7C04DB004DB19B /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		7FD7E8A52B795545000BE278 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		7FD7E8AE2B7972E2000BE278 /* GamePosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePosterCollectionViewCell.swift; sourceTree = "<group>"; };
-		7FE123EC2B700F7600610BB1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
 		7FE123F22B70579A00610BB1 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaltyicsEvent.swift; sourceTree = "<group>"; };
@@ -318,19 +316,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		7F06712D2B9E657B00087919 /* Refactored */ = {
-			isa = PBXGroup;
-			children = (
-				7F06712E2B9E659D00087919 /* LoginPresenter.swift */,
-				7F06712F2B9E659D00087919 /* LoginWorker.swift */,
-				7F0671302B9E659D00087919 /* LoginRouter.swift */,
-				7F0671312B9E659D00087919 /* LoginModels.swift */,
-				7F0671332B9E659D00087919 /* LoginInteractor.swift */,
-				7F0671322B9E659D00087919 /* LoginViewController.swift */,
-			);
-			path = Refactored;
-			sourceTree = "<group>";
-		};
 		7F0F6FA92B64654E00667010 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,8 +474,12 @@
 		7FE123EB2B700F5200610BB1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				7F06712D2B9E657B00087919 /* Refactored */,
-				7FE123EC2B700F7600610BB1 /* LoginViewModel.swift */,
+				7F06712E2B9E659D00087919 /* LoginPresenter.swift */,
+				7F06712F2B9E659D00087919 /* LoginWorker.swift */,
+				7F0671302B9E659D00087919 /* LoginRouter.swift */,
+				7F0671312B9E659D00087919 /* LoginModels.swift */,
+				7F0671332B9E659D00087919 /* LoginInteractor.swift */,
+				7F0671322B9E659D00087919 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -649,7 +638,6 @@
 				7F0671392B9E659D00087919 /* LoginInteractor.swift in Sources */,
 				7F6FFE802B1D2A0900D89F92 /* RegistrationViewController.swift in Sources */,
 				7F5D64B42B1E6DAE00E9669E /* RegistrationProcessData.swift in Sources */,
-				7FE123ED2B700F7600610BB1 /* LoginViewModel.swift in Sources */,
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
 				7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */,
 				7F0671382B9E659D00087919 /* LoginViewController.swift in Sources */,

@@ -12,21 +12,37 @@
 
 import UIKit
 import FirebaseAuth
+import RxSwift
+import AppTrackingTransparency
+
 protocol LoginBusinessLogic {
     
     func checkifUserIsSignedIn() -> Bool
     
+    func login(usernameEmail: String, password: String) async -> Single<AuthDataResult>
+    
+    func requestIDFA()
+    
 }
 
 protocol LoginDataStore {
-    //var name: String { get set }
+    
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
     var presenter: LoginPresentationLogic?
     //var name: String = ""
     
+    //MARK: - Managers
+    private let authManager = AuthenticationManager()
+    
     // MARK: Do something
+    
+    func login(usernameEmail: String, password: String) async -> Single<AuthDataResult> {
+        
+        return await authManager.signIn(usernameEmail: usernameEmail, password: password)
+        
+    }
     
     func checkifUserIsSignedIn() -> Bool {
         
@@ -34,5 +50,16 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
             return false
         }
         return true
+    }
+    
+    func requestIDFA() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                switch status {
+                case .authorized, .denied, .notDetermined, .restricted: break
+                @unknown default: break
+                }
+            }
+        }
     }
 }

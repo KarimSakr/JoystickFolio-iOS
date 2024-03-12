@@ -28,6 +28,4 @@ final class NetworkManager {
             return Disposables.create()
         }
     }
-    
-    
 }
