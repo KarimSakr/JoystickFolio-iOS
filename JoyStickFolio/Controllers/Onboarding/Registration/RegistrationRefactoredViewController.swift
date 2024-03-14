@@ -77,6 +77,7 @@ class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
         field.backgroundColor = .secondarySystemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
+        field.isHidden = true
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -126,17 +127,12 @@ extension RegistrationViewController {
         
         // Add constraints for progressBarView
         NSLayoutConstraint.activate([
+            
+            // Add constraints for progressBarView
             progressBarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
             progressBarView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             progressBarView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             progressBarView.heightAnchor.constraint(equalToConstant: 10),
-            
-            
-            // Add constraints for titleLabel
-            titleLabel.topAnchor.constraint(equalTo: textField.topAnchor, constant: -200),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 150),
             
             // Add constraints for textField
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
@@ -144,6 +140,12 @@ extension RegistrationViewController {
             textField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -50),
             textField.heightAnchor.constraint(equalToConstant: 52),
             
+            // Add constraints for titleLabel
+            titleLabel.topAnchor.constraint(equalTo: textField.topAnchor, constant: -200),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 150),
+
             // Add constraints for secondTextField
             secondTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             secondTextField.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -10),
@@ -195,109 +197,107 @@ extension RegistrationViewController {
         
         view.addSubview(progressBarView)
         view.addSubview(textField)
+        view.addSubview(secondTextField)
         view.addSubview(submitButton)
         view.addSubview(titleLabel)
+        view.addSubview(activityIndicator)
         
         titleLabel.text? = ""
-        animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
-            self.titleLabel.text?.append(letter)
-            self.titleLabel.frame = CGRect(x: .zero,
-                                           y: self.textField.top - 200,
-                                           width: self.view.width,
-                                           height: 150)
-            
-        }
+        self.animator.animateTitle(text: self.processes[self.index].title, timeInterval: 0.01) { letter in
+                self.titleLabel.text?.append(letter)
+                
+            }
         
     }
 }
 extension RegistrationViewController {
     @objc private func buttonPressed() {
-        Task {
-            
-            if processes.last != processes[index] {
-                
-                switch processes[index].process {
-                    
-                    //MARK: - enterFullName
-                case .enterFullName:
-                    guard interactor!.isFullNameValid(textField: textField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
-                        return
-                    }
-                    
-                    interactor!.fullNameEntered(fullName: textField.text ?? "")
-                    textField.textContentType = .emailAddress
-                    textField.text = ""
-                    break
-                    
-                    //MARK: - enterEmail
-                case .enterEmail:
-                    guard interactor!.isEmailValid(textField: textField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Invalid email", duration: .lengthLong).show()
-                        return
-                    }
-                    
-                    interactor!.emailEntered(email: textField.text ?? "")
-                    textField.textContentType = .name
-                    textField.text = ""
-                    break
-                    
-                    //MARK: - enterUsername
-                case .enterUsername:
-                    
-                    guard interactor!.isUsernameValid(textField: textField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
-                        return
-                    }
-                    addLoadingIndicator()
-                    
-                    guard await interactor!.isUsernameAvailble(username: textField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Username already taken", duration: .lengthLong).show()
-                        removeLoadingIndicator()
-                        return
-                    }
-                    
-                    
-                    removeLoadingIndicator()
-                    textField.textContentType = .newPassword
-                    usernameEntered(username: textField.text ?? "")
-                    
-                    
-                    //MARK: - enterPassword
-                case .enterPassword:
-                    
-                    guard interactor!.isPasswordValid(textfield: textField.text ?? "", repeatTextField: secondTextField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Passwords should match and have a minimum length of 6 characters", duration: .lengthLong).show()
-                        return
-                    }
-                    
-                    passwordEntered(password: textField.text ?? "")
-                    
-                    //MARK: - loading
-                case .loading:
-                    break
-                }
-                
-                
-                index += 1
-                progressValue += 1.0 / Double(processes.count - 1)
-                
-                textField.placeholder = processes[index].placeholder
-                submitButton.setTitle(processes[index].buttonTitle, for: .normal)
-                titleLabel.text = processes[index].title
-                
-                progressBarView.progress = Float(progressValue)
-                
-                titleLabel.text? = ""
-                animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
-                    self.titleLabel.text?.append(letter)
-                    self.titleLabel.frame = CGRect(x: .zero,
-                                                   y: self.textField.top - 200,
-                                                   width: self.view.width,
-                                                   height: 150)
-                }
-            }
-        }
+//        Task {
+//            
+//            if processes.last != processes[index] {
+//                
+//                switch processes[index].process {
+//                    
+//                    //MARK: - enterFullName
+//                case .enterFullName:
+//                    guard interactor!.isFullNameValid(textField: textField.text ?? "") else {
+//                        AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
+//                        return
+//                    }
+//                    
+//                    interactor!.fullNameEntered(fullName: textField.text ?? "")
+//                    textField.textContentType = .emailAddress
+//                    textField.text = ""
+//                    break
+//                    
+//                    //MARK: - enterEmail
+//                case .enterEmail:
+//                    guard interactor!.isEmailValid(textField: textField.text ?? "") else {
+//                        AppSnackBar.make(in: self.view, message: "Invalid email", duration: .lengthLong).show()
+//                        return
+//                    }
+//                    
+//                    interactor!.emailEntered(email: textField.text ?? "")
+//                    textField.textContentType = .name
+//                    textField.text = ""
+//                    break
+//                    
+//                    //MARK: - enterUsername
+//                case .enterUsername:
+//                    
+//                    guard interactor!.isUsernameValid(textField: textField.text ?? "") else {
+//                        AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
+//                        return
+//                    }
+//                    addLoadingIndicator()
+//                    
+//                    guard await interactor!.isUsernameAvailble(username: textField.text ?? "") else {
+//                        AppSnackBar.make(in: self.view, message: "Username already taken", duration: .lengthLong).show()
+//                        removeLoadingIndicator()
+//                        return
+//                    }
+//                    
+//                    
+//                    removeLoadingIndicator()
+//                    textField.textContentType = .newPassword
+//                    usernameEntered(username: textField.text ?? "")
+//                    
+//                    
+//                    //MARK: - enterPassword
+//                case .enterPassword:
+//                    
+//                    guard interactor!.isPasswordValid(textfield: textField.text ?? "", repeatTextField: secondTextField.text ?? "") else {
+//                        AppSnackBar.make(in: self.view, message: "Passwords should match and have a minimum length of 6 characters", duration: .lengthLong).show()
+//                        return
+//                    }
+//                    
+//                    passwordEntered(password: textField.text ?? "")
+//                    
+//                    //MARK: - loading
+//                case .loading:
+//                    break
+//                }
+//                
+//                
+//                index += 1
+//                progressValue += 1.0 / Double(processes.count - 1)
+//                
+//                textField.placeholder = processes[index].placeholder
+//                submitButton.setTitle(processes[index].buttonTitle, for: .normal)
+//                titleLabel.text = processes[index].title
+//                
+//                progressBarView.progress = Float(progressValue)
+//                
+//                titleLabel.text? = ""
+//                animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
+//                    self.titleLabel.text?.append(letter)
+//                    self.titleLabel.frame = CGRect(x: .zero,
+//                                                   y: self.textField.top - 200,
+//                                                   width: self.view.width,
+//                                                   height: 150)
+//                }
+//            }
+//        }
     }
 }
 
@@ -307,7 +307,7 @@ extension RegistrationViewController {
     //MARK: - usernameEntered
     private func usernameEntered(username: String) {
         interactor!.usernameEntered(username: username)
-        view.addSubview(secondTextField)
+        secondTextField.isHidden = false
         secondTextField.becomeFirstResponder()
         textField.isSecureTextEntry = true
         textField.text = ""
@@ -327,10 +327,10 @@ extension RegistrationViewController {
         
         
         // remove views
-        textField.removeFromSuperview()
-        secondTextField.removeFromSuperview()
-        submitButton.removeFromSuperview()
-        progressBarView.removeFromSuperview()
+        textField.isHidden       = true
+        secondTextField.isHidden = true
+        submitButton.isHidden    = true
+        progressBarView.isHidden = true
         
         addLoadingIndicator()
         
@@ -369,21 +369,21 @@ extension RegistrationViewController {
         
         progressBarView.progress = Float(progressValue)
         
-        view.addSubview(progressBarView)
-        view.addSubview(textField)
-        view.addSubview(submitButton)
+        progressBarView.isHidden = false
+        textField.isHidden       = false
+        submitButton.isHidden    = false
         
     }
     
     func addLoadingIndicator() {
         isModalInPresentation = true
-        view.addSubview(activityIndicator)
+        activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
     
     func removeLoadingIndicator() {
         isModalInPresentation = false
         activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
+        activityIndicator.isHidden = true
     }
 }
