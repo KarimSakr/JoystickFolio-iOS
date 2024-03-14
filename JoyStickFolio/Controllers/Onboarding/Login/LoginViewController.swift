@@ -14,8 +14,8 @@ import UIKit
 import RxSwift
 protocol LoginDisplayLogic: AnyObject {
     
-    func showLoading()
-    func hideLoading()
+    func startLoading()
+    func stopLoading()
     func animateText()
     func addMainSubviews()
     func showSnackbar(with message: String)
@@ -134,9 +134,7 @@ extension LoginViewController {
         
         addMainSubviews()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            self.animateText()
-        }
+        animateText()
         
     }
     
@@ -177,6 +175,12 @@ extension LoginViewController {
             // Activity Indicator constraints
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            // title label constraints
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            titleLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/3),
         ])
         
         setupHeader()
@@ -224,7 +228,7 @@ extension LoginViewController {
     
     @objc private func didTapLoginButton() {
         Task {
-            showLoading()
+            startLoading()
             await interactor!.login(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
                 .subscribe { event in
                     switch event {
@@ -233,11 +237,12 @@ extension LoginViewController {
                         self.interactor!.requestIDFA()
                         AnalyticsManager.logEvent(event: .login)
                         DispatchQueue.main.async{
+                            self.stopLoading()
                             self.dismiss(animated: true, completion: nil)
                         }
                     case .failure(let error):
                         DispatchQueue.main.async {
-                            self.hideLoading()
+                            self.stopLoading()
                             self.showSnackbar(with: error.localizedDescription)
                         }
                     }
@@ -256,20 +261,21 @@ extension LoginViewController {
     }
     
     func addMainSubviews() {
-        DispatchQueue.main.async {
-            self.view.addSubview(self.headerView)
-            self.view.addSubview(self.usernameEmailField)
-            self.view.addSubview(self.passwordField)
-            self.view.addSubview(self.loginButton)
-            self.view.addSubview(self.createAccountButton)
-            self.view.addSubview(self.activityIndicator)
-            // Now that all subviews are added, activate constraints
-            self.view.setNeedsLayout()
-            self.view.layoutIfNeeded()
-        }
+        
+        view.addSubview(self.headerView)
+        view.addSubview(self.usernameEmailField)
+        view.addSubview(self.passwordField)
+        view.addSubview(self.loginButton)
+        view.addSubview(self.createAccountButton)
+        view.addSubview(self.activityIndicator)
+        view.addSubview(titleLabel)
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        
     }
     
-    func showLoading() {
+    func startLoading() {
         usernameEmailField.isHidden  = true
         passwordField.isHidden       = true
         loginButton.isHidden         = true
@@ -279,25 +285,24 @@ extension LoginViewController {
         activityIndicator.startAnimating()
     }
     
-    func hideLoading() {
-        DispatchQueue.main.async {
-            self.usernameEmailField.isHidden  = false
-            self.passwordField.isHidden       = false
-            self.loginButton.isHidden         = false
-            self.createAccountButton.isHidden = false
-            self.activityIndicator.isHidden   = true
-            self.activityIndicator.stopAnimating()
-        }
+    func stopLoading() {
+        
+        usernameEmailField.isHidden  = false
+        passwordField.isHidden       = false
+        loginButton.isHidden         = false
+        createAccountButton.isHidden = false
+        activityIndicator.isHidden   = true
+        activityIndicator.stopAnimating()
     }
     
     func animateText() {
         titleLabel.text = ""
         animator.animateTitle(text: "JoystickFolio", timeInterval: 0.1) { letter in
             self.titleLabel.text?.append(letter)
-            self.titleLabel.frame = CGRect(x: .zero,
-                                           y: self.view.top,
-                                           width: self.headerView.width,
-                                           height: self.headerView.height)
+//            self.titleLabel.frame = CGRect(x: .zero,
+//                                           y: self.view.top,
+//                                           width: self.headerView.width,
+//                                           height: self.headerView.height)
         }
     }
     
