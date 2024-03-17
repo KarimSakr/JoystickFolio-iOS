@@ -294,10 +294,6 @@ extension RegistrationViewController {
                 titleLabel.text? = ""
                 animator.animateTitle(text: interactor!.processes[index].title, timeInterval: 0.01) { letter in
                     self.titleLabel.text?.append(letter)
-                    self.titleLabel.frame = CGRect(x: .zero,
-                                                   y: self.textField.top - 200,
-                                                   width: self.view.width,
-                                                   height: 150)
                 }
             }
         }
@@ -335,20 +331,24 @@ extension RegistrationViewController {
         
         Task{
             await interactor!.registerUser()
-                .subscribe(onError: { [weak self] error in
+                .subscribe { [weak self] event in
                     
-                    self?.resetRegistration()
-                    AppSnackBar.make(in: self!.view!, message: error.localizedDescription, duration: .lengthLong).show()
-                    
-                }, onCompleted: {
-                    AnalyticsManager.logEvent(event: .signup)
-                    DispatchQueue.main.async{
-                        self.dismiss(animated: true) {
-                            self.dismissalCompletion?()
+                    guard let self = self else { return }
+                    switch event {
+                        
+                    case .success():
+                        AnalyticsManager.logEvent(event: .signup)
+                        DispatchQueue.main.async{
+                            self.dismiss(animated: false) {
+                                self.dismissalCompletion?()
+                            }
                         }
+                    case .failure(let error):
+                        self.resetRegistration()
+                        AppSnackBar.make(in: self.view!, message: error.localizedDescription, duration: .lengthLong).show()
                     }
-                })
-                .disposed(by: bag)
+                    
+                }.disposed(by: bag)
         }
         
     }

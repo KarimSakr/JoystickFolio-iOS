@@ -21,7 +21,7 @@ protocol RegistrationBusinessLogic {
     
     func isUsernameAvailble(username: String) async -> Bool
     
-    func registerUser() async -> Observable<Void>
+    func registerUser() async -> Single<Void>
     
     func fullNameEntered(fullName: String)
     
@@ -71,7 +71,7 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
     }
     
     //MARK: - registerUser
-    func registerUser() async -> Observable<Void> {
+    func registerUser() async -> Single<Void> {
         return await authenticationManager.createUser(with: data)
     }
     

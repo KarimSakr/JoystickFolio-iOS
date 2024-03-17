@@ -27,7 +27,7 @@ final class AuthenticationManager {
     //MARK: - bag
     private let bag = DisposeBag()
     
-    func createUser(with userInfo: [String : String]) async -> Observable<Void> {
+    func createUser(with userInfo: [String : String]) async -> Single<Void> {
         
         do {
             try await Auth.auth()
@@ -40,13 +40,13 @@ final class AuthenticationManager {
             return createUserProfile(newUser: newUser)
             
         } catch {
-            return Observable.error(error)
+            return Single.error(error)
         }
     }
     
     
-    private func createUserProfile(newUser: CreatedUserProfile) -> Observable<Void> {
-        return Observable.create { observer in
+    private func createUserProfile(newUser: CreatedUserProfile) -> Single<Void> {
+        return Single.create { single in
             
             Task {
                 do {
@@ -54,11 +54,9 @@ final class AuthenticationManager {
                         .collection(Constants.Firebase.FireStore.Collection.users)
                         .document(newUser.username)
                         .setData(from: newUser)
-                    observer.onNext(())
-                    observer.onCompleted()
-                    
+                    single(.success({}()))
                 } catch {
-                    observer.onError(error)
+                    single(.failure(error))
                 }
             }
             
