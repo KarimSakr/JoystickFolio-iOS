@@ -27,42 +27,6 @@ final class AuthenticationManager {
     //MARK: - bag
     private let bag = DisposeBag()
     
-    func createUser(with userInfo: [String : String]) async -> Single<Void> {
-        
-        do {
-            try await Auth.auth()
-                .createUser(withEmail: userInfo[Constants.Key.Auth.email]!, password: userInfo[Constants.Key.Auth.password]!)
-            
-            let newUser = CreatedUserProfile(email   : userInfo[Constants.Key.Auth.email]!,
-                                             fullName: userInfo[Constants.Key.Auth.fullName]!,
-                                             username: userInfo[Constants.Key.Auth.username]!)
-            
-            return createUserProfile(newUser: newUser)
-            
-        } catch {
-            return Single.error(error)
-        }
-    }
-    
-    
-    private func createUserProfile(newUser: CreatedUserProfile) -> Single<Void> {
-        return Single.create { single in
-            
-            Task {
-                do {
-                    try self.db
-                        .collection(Constants.Firebase.FireStore.Collection.users)
-                        .document(newUser.username)
-                        .setData(from: newUser)
-                    single(.success({}()))
-                } catch {
-                    single(.failure(error))
-                }
-            }
-            
-            return Disposables.create()
-        }
-    }
     
     //MARK: - signIn
     func signIn(usernameEmail: String, password: String) async -> Single<AuthDataResult> {

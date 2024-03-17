@@ -12,12 +12,14 @@
 
 import UIKit
 import RxSwift
+import FirebaseAuth
+import FirebaseFirestore
 
 protocol RegistrationBusinessLogic {
     
     var data: [String : String] { get set }
     
-    var processes:[RegistrationProcess] { get set }
+    var processes:[RegistrationModels.Request.RegistrationProcess] { get set }
     
     func isUsernameAvailble(username: String) async -> Bool
     
@@ -52,18 +54,20 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
     private let authenticationManager = AuthenticationManager()
     private let databaseManager = DatabaseManager()
     
+    private let db = Firestore.firestore()
+    
     //MARK: - Auth Validator
     private let validator = AuthValidator()
     
     //MARK: - User Data
     var data: [String : String] = [:]
     
-    var processes:[RegistrationProcess] = [
-        RegistrationProcess(title: "Well hello there! \nGot a name?", placeholder: "Full Name...", buttonTitle: "Next", process: .enterFullName),
-        RegistrationProcess(title: "Nice to meet you! \nHow can we contact you?", placeholder: "Email...", buttonTitle: "Next", process: .enterEmail),
-        RegistrationProcess(title: "How about a unique nickname?\nLike everybody else...", placeholder: "Username...", buttonTitle: "Next", process: .enterUsername),
-        RegistrationProcess(title: "How about some privacy? \n No peeking... \nI promise :)", placeholder: "Confirm Password...", buttonTitle: "Submit", process: .enterPassword),
-        RegistrationProcess(title: "Creating player...", placeholder: "", buttonTitle: "", process: .loading),
+    var processes:[RegistrationModels.Request.RegistrationProcess] = [
+        .init(title: "Well hello there! \nGot a name?", placeholder: "Full Name...", buttonTitle: "Next", process: .enterFullName),
+        .init(title: "Nice to meet you! \nHow can we contact you?", placeholder: "Email...", buttonTitle: "Next", process: .enterEmail),
+        .init(title: "How about a unique nickname?\nLike everybody else...", placeholder: "Username...", buttonTitle: "Next", process: .enterUsername),
+        .init(title: "How about some privacy? \n No peeking... \nI promise :)", placeholder: "Confirm Password...", buttonTitle: "Submit", process: .enterPassword),
+        .init(title: "Creating player...", placeholder: "", buttonTitle: "", process: .loading),
     ]
     
     func isUsernameAvailble(username: String) async -> Bool {
@@ -72,7 +76,35 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
     
     //MARK: - registerUser
     func registerUser() async -> Single<Void> {
-        return await authenticationManager.createUser(with: data)
+        let newUser = RegistrationModels.Request.CreatedUserProfile(email   : data[Constants.Key.Auth.email]!,
+                                                                    fullName: data[Constants.Key.Auth.fullName]!,
+                                                                    username: data[Constants.Key.Auth.username]!)
+        let password = data[Constants.Key.Auth.password]!
+        
+        do {
+            try await Auth.auth()
+                .createUser(withEmail: newUser.email, password: password)
+            
+            return Single.create { single in
+                
+                Task {
+                    do {
+                        try self.db
+                            .collection(Constants.Firebase.FireStore.Collection.users)
+                            .document(newUser.username)
+                            .setData(from: newUser)
+                        single(.success({}()))
+                    } catch {
+                        single(.failure(error))
+                    }
+                }
+                
+                return Disposables.create()
+            }
+            
+        } catch {
+            return Single.error(error)
+        }
     }
     
     //MARK: - fullNameEntered

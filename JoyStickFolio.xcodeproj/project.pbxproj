@@ -28,7 +28,6 @@
 		7F0671CF2BA32C8800087919 /* RegistrationRefactoredInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C92BA32C8800087919 /* RegistrationRefactoredInteractor.swift */; };
 		7F071CE22B74F595008D8739 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE12B74F595008D8739 /* Router.swift */; };
 		7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE32B7508E6008D8739 /* Bundle.swift */; };
-		7F0F6FAB2B64656200667010 /* CreatedUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F6FAA2B64656200667010 /* CreatedUserProfile.swift */; };
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
 		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
 		7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */; };
@@ -38,7 +37,6 @@
 		7F434F3F2B76FBAB007DF271 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F3E2B76FBAB007DF271 /* HomeViewModel.swift */; };
 		7F58D6402B73E0E100D56711 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F58D63F2B73E0E100D56711 /* Alamofire */; };
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
-		7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */; };
 		7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */; };
 		7F6E6FD22B73CC6C00F0D64C /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD12B73CC6C00F0D64C /* Config.plist */; };
 		7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */; };
@@ -118,7 +116,6 @@
 		7F0671C92BA32C8800087919 /* RegistrationRefactoredInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRefactoredInteractor.swift; sourceTree = "<group>"; };
 		7F071CE12B74F595008D8739 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7F071CE32B7508E6008D8739 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		7F0F6FAA2B64656200667010 /* CreatedUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedUserProfile.swift; sourceTree = "<group>"; };
 		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
 		7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidator.swift; sourceTree = "<group>"; };
@@ -127,7 +124,6 @@
 		7F434F3B2B76F002007DF271 /* KeychainErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainErrors.swift; sourceTree = "<group>"; };
 		7F434F3E2B76FBAB007DF271 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcess.swift; sourceTree = "<group>"; };
 		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
 		7F6E6FD12B73CC6C00F0D64C /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -245,8 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				7F6E6FCC2B73C7D100F0D64C /* Response */,
-				7F0F6FA92B64654E00667010 /* Requests */,
-				7F5D64B02B1E6CCA00E9669E /* RegistrationProcess.swift */,
 				7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */,
 			);
 			path = Models;
@@ -323,14 +317,6 @@
 				7F071CE32B7508E6008D8739 /* Bundle.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		7F0F6FA92B64654E00667010 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-				7F0F6FAA2B64656200667010 /* CreatedUserProfile.swift */,
-			);
-			path = Requests;
 			sourceTree = "<group>";
 		};
 		7F3FACBE2B1FA81000F47247 /* Enums */ = {
@@ -635,7 +621,6 @@
 				7F071CE22B74F595008D8739 /* Router.swift in Sources */,
 				7F0671CD2BA32C8800087919 /* RegistrationRefactoredModels.swift in Sources */,
 				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
-				7F0F6FAB2B64656200667010 /* CreatedUserProfile.swift in Sources */,
 				7F0671352B9E659D00087919 /* LoginWorker.swift in Sources */,
 				7F0671392B9E659D00087919 /* LoginInteractor.swift in Sources */,
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
@@ -657,7 +642,6 @@
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
 				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
 				7FFA06682B6813DB0007B192 /* AppError.swift in Sources */,
-				7F5D64B12B1E6CCA00E9669E /* RegistrationProcess.swift in Sources */,
 				7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */,
 				7F0671CF2BA32C8800087919 /* RegistrationRefactoredInteractor.swift in Sources */,
 				7F0671CB2BA32C8800087919 /* RegistrationRefactoredWorker.swift in Sources */,

@@ -17,6 +17,21 @@ struct RegistrationModels {
     // requests here
     struct Request {
         
+        struct RegistrationProcess: Equatable {
+            let title      : String
+            let placeholder: String
+            let buttonTitle: String
+            let process    : Process
+        }
+        
+        struct CreatedUserProfile: Encodable {
+            let email   : String
+            let fullName: String
+            let username: String
+        }
+
+
+        
     }
     
     struct ViewModels {

@@ -275,7 +275,7 @@ extension RegistrationViewController {
                         return
                     }
 
-                    passwordEntered(password: textField.text ?? "")
+                    passwordEntered()
 
                 case .loading:
                     break
@@ -307,7 +307,9 @@ extension RegistrationViewController {
         textField.text = ""
     }
     
-    private func passwordEntered(password: String) {
+    private func passwordEntered() {
+        
+        interactor!.passwordEntered(password: textField.text ?? "")
         
         // deselect textfields
         secondTextField.resignFirstResponder()
@@ -326,8 +328,6 @@ extension RegistrationViewController {
         progressBarView.isHidden = true
         
         addLoadingIndicator()
-        
-        interactor!.passwordEntered(password: password)
         
         Task{
             await interactor!.registerUser()
