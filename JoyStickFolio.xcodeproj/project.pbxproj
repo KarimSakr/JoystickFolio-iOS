@@ -193,8 +193,8 @@
 				7F0671C42BA32C8800087919 /* RegistrationPresenter.swift */,
 				7F0671C62BA32C8800087919 /* RegistrationRouter.swift */,
 				7F0671C72BA32C8800087919 /* RegistrationModels.swift */,
-				7F0671C82BA32C8800087919 /* RegistrationViewController.swift */,
 				7F0671C92BA32C8800087919 /* RegistrationInteractor.swift */,
+				7F0671C82BA32C8800087919 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
