@@ -12,8 +12,6 @@
 
 import UIKit
 import RxSwift
-import FirebaseAuth
-import FirebaseFirestore
 
 protocol RegistrationBusinessLogic {
     
@@ -54,8 +52,6 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
     private let authenticationManager = AuthenticationManager()
     private let databaseManager = DatabaseManager()
     
-    private let db = Firestore.firestore()
-    
     //MARK: - Auth Validator
     private let validator = AuthValidator()
     
@@ -81,30 +77,7 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
                                                                     username: data[Constants.Key.Auth.username]!)
         let password = data[Constants.Key.Auth.password]!
         
-        do {
-            try await Auth.auth()
-                .createUser(withEmail: newUser.email, password: password)
-            
-            return Single.create { single in
-                
-                Task {
-                    do {
-                        try self.db
-                            .collection(Constants.Firebase.FireStore.Collection.users)
-                            .document(newUser.username)
-                            .setData(from: newUser)
-                        single(.success({}()))
-                    } catch {
-                        single(.failure(error))
-                    }
-                }
-                
-                return Disposables.create()
-            }
-            
-        } catch {
-            return Single.error(error)
-        }
+        return await authenticationManager.registerUser(newUser: newUser, password: password)
     }
     
     //MARK: - fullNameEntered
