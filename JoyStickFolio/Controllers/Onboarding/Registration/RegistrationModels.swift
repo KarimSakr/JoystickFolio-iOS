@@ -29,9 +29,6 @@ struct RegistrationModels {
             let fullName: String
             let username: String
         }
-
-
-        
     }
     
     struct ViewModels {

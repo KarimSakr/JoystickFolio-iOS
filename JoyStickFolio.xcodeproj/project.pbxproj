@@ -15,17 +15,15 @@
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
 		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
 		7F0671342B9E659D00087919 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06712E2B9E659D00087919 /* LoginPresenter.swift */; };
-		7F0671352B9E659D00087919 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06712F2B9E659D00087919 /* LoginWorker.swift */; };
 		7F0671362B9E659D00087919 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671302B9E659D00087919 /* LoginRouter.swift */; };
 		7F0671372B9E659D00087919 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671312B9E659D00087919 /* LoginModels.swift */; };
 		7F0671382B9E659D00087919 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671322B9E659D00087919 /* LoginViewController.swift */; };
 		7F0671392B9E659D00087919 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671332B9E659D00087919 /* LoginInteractor.swift */; };
-		7F0671CA2BA32C8800087919 /* RegistrationRefactoredPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C42BA32C8800087919 /* RegistrationRefactoredPresenter.swift */; };
-		7F0671CB2BA32C8800087919 /* RegistrationRefactoredWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C52BA32C8800087919 /* RegistrationRefactoredWorker.swift */; };
-		7F0671CC2BA32C8800087919 /* RegistrationRefactoredRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C62BA32C8800087919 /* RegistrationRefactoredRouter.swift */; };
-		7F0671CD2BA32C8800087919 /* RegistrationRefactoredModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C72BA32C8800087919 /* RegistrationRefactoredModels.swift */; };
-		7F0671CE2BA32C8800087919 /* RegistrationRefactoredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C82BA32C8800087919 /* RegistrationRefactoredViewController.swift */; };
-		7F0671CF2BA32C8800087919 /* RegistrationRefactoredInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C92BA32C8800087919 /* RegistrationRefactoredInteractor.swift */; };
+		7F0671CA2BA32C8800087919 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C42BA32C8800087919 /* RegistrationPresenter.swift */; };
+		7F0671CC2BA32C8800087919 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C62BA32C8800087919 /* RegistrationRouter.swift */; };
+		7F0671CD2BA32C8800087919 /* RegistrationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C72BA32C8800087919 /* RegistrationModels.swift */; };
+		7F0671CE2BA32C8800087919 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C82BA32C8800087919 /* RegistrationViewController.swift */; };
+		7F0671CF2BA32C8800087919 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0671C92BA32C8800087919 /* RegistrationInteractor.swift */; };
 		7F071CE22B74F595008D8739 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE12B74F595008D8739 /* Router.swift */; };
 		7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE32B7508E6008D8739 /* Bundle.swift */; };
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
@@ -103,17 +101,15 @@
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		7F06712E2B9E659D00087919 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		7F06712F2B9E659D00087919 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		7F0671302B9E659D00087919 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		7F0671312B9E659D00087919 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
 		7F0671322B9E659D00087919 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F0671332B9E659D00087919 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
-		7F0671C42BA32C8800087919 /* RegistrationRefactoredPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRefactoredPresenter.swift; sourceTree = "<group>"; };
-		7F0671C52BA32C8800087919 /* RegistrationRefactoredWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRefactoredWorker.swift; sourceTree = "<group>"; };
-		7F0671C62BA32C8800087919 /* RegistrationRefactoredRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRefactoredRouter.swift; sourceTree = "<group>"; };
-		7F0671C72BA32C8800087919 /* RegistrationRefactoredModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRefactoredModels.swift; sourceTree = "<group>"; };
-		7F0671C82BA32C8800087919 /* RegistrationRefactoredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRefactoredViewController.swift; sourceTree = "<group>"; };
-		7F0671C92BA32C8800087919 /* RegistrationRefactoredInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRefactoredInteractor.swift; sourceTree = "<group>"; };
+		7F0671C42BA32C8800087919 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		7F0671C62BA32C8800087919 /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		7F0671C72BA32C8800087919 /* RegistrationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModels.swift; sourceTree = "<group>"; };
+		7F0671C82BA32C8800087919 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		7F0671C92BA32C8800087919 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
 		7F071CE12B74F595008D8739 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7F071CE32B7508E6008D8739 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
@@ -194,12 +190,11 @@
 		7F0526A22B6DAC23000CC51D /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				7F0671C42BA32C8800087919 /* RegistrationRefactoredPresenter.swift */,
-				7F0671C52BA32C8800087919 /* RegistrationRefactoredWorker.swift */,
-				7F0671C62BA32C8800087919 /* RegistrationRefactoredRouter.swift */,
-				7F0671C72BA32C8800087919 /* RegistrationRefactoredModels.swift */,
-				7F0671C82BA32C8800087919 /* RegistrationRefactoredViewController.swift */,
-				7F0671C92BA32C8800087919 /* RegistrationRefactoredInteractor.swift */,
+				7F0671C42BA32C8800087919 /* RegistrationPresenter.swift */,
+				7F0671C62BA32C8800087919 /* RegistrationRouter.swift */,
+				7F0671C72BA32C8800087919 /* RegistrationModels.swift */,
+				7F0671C82BA32C8800087919 /* RegistrationViewController.swift */,
+				7F0671C92BA32C8800087919 /* RegistrationInteractor.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -462,7 +457,6 @@
 			isa = PBXGroup;
 			children = (
 				7F06712E2B9E659D00087919 /* LoginPresenter.swift */,
-				7F06712F2B9E659D00087919 /* LoginWorker.swift */,
 				7F0671302B9E659D00087919 /* LoginRouter.swift */,
 				7F0671312B9E659D00087919 /* LoginModels.swift */,
 				7F0671332B9E659D00087919 /* LoginInteractor.swift */,
@@ -619,9 +613,8 @@
 				7F434F392B76ED21007DF271 /* Keychains.swift in Sources */,
 				7FF328662B4040BF00FACB58 /* ExploreViewController.swift in Sources */,
 				7F071CE22B74F595008D8739 /* Router.swift in Sources */,
-				7F0671CD2BA32C8800087919 /* RegistrationRefactoredModels.swift in Sources */,
+				7F0671CD2BA32C8800087919 /* RegistrationModels.swift in Sources */,
 				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
-				7F0671352B9E659D00087919 /* LoginWorker.swift in Sources */,
 				7F0671392B9E659D00087919 /* LoginInteractor.swift in Sources */,
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
 				7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */,
@@ -631,20 +624,19 @@
 				7FC002002B62DFAE00007581 /* AuthenticationManager.swift in Sources */,
 				7F0671372B9E659D00087919 /* LoginModels.swift in Sources */,
 				7FD7E8A62B795545000BE278 /* Game.swift in Sources */,
-				7F0671CA2BA32C8800087919 /* RegistrationRefactoredPresenter.swift in Sources */,
+				7F0671CA2BA32C8800087919 /* RegistrationPresenter.swift in Sources */,
 				7F434F3F2B76FBAB007DF271 /* HomeViewModel.swift in Sources */,
 				7FD21ADA2B7C04DB004DB19B /* ExploreViewModel.swift in Sources */,
 				7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */,
 				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
 				7FC0020E2B62F30C00007581 /* DatabaseManager.swift in Sources */,
 				7F0671342B9E659D00087919 /* LoginPresenter.swift in Sources */,
-				7F0671CE2BA32C8800087919 /* RegistrationRefactoredViewController.swift in Sources */,
+				7F0671CE2BA32C8800087919 /* RegistrationViewController.swift in Sources */,
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
 				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
 				7FFA06682B6813DB0007B192 /* AppError.swift in Sources */,
 				7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */,
-				7F0671CF2BA32C8800087919 /* RegistrationRefactoredInteractor.swift in Sources */,
-				7F0671CB2BA32C8800087919 /* RegistrationRefactoredWorker.swift in Sources */,
+				7F0671CF2BA32C8800087919 /* RegistrationInteractor.swift in Sources */,
 				7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */,
 				7F0671362B9E659D00087919 /* LoginRouter.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
@@ -653,7 +645,7 @@
 				7FD7E8AF2B7972E2000BE278 /* GamePosterCollectionViewCell.swift in Sources */,
 				7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */,
 				7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */,
-				7F0671CC2BA32C8800087919 /* RegistrationRefactoredRouter.swift in Sources */,
+				7F0671CC2BA32C8800087919 /* RegistrationRouter.swift in Sources */,
 				7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
