@@ -222,7 +222,7 @@
 				7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */,
 				7F063B5D2B1CC9420075B6A7 /* Models */,
 				7F063B5E2B1CC9620075B6A7 /* Views */,
-				7F063B5F2B1CC96B0075B6A7 /* Controllers */,
+				7F063B5F2B1CC96B0075B6A7 /* Scenes */,
 				7F063B602B1CCA170075B6A7 /* Utils */,
 				7F063B522B1CBAC40075B6A7 /* Assets.xcassets */,
 				7F063B572B1CBAC40075B6A7 /* Info.plist */,
@@ -251,14 +251,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7F063B5F2B1CC96B0075B6A7 /* Controllers */ = {
+		7F063B5F2B1CC96B0075B6A7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				7F81821C2B42F7D800A1869A /* General */,
 				7F063B632B1CDA7C0075B6A7 /* Onboarding */,
 				7F063B612B1CD05B0075B6A7 /* Core Tabs */,
 			);
-			path = Controllers;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		7F063B602B1CCA170075B6A7 /* Utils */ = {
