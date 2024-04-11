@@ -22,7 +22,7 @@ final class NetworkManager {
                         observer.onCompleted()
                     case .failure(let error):
                         switch error {
-                        case .responseSerializationFailed(_):
+                        case .responseSerializationFailed:
                             observer.onError(APIClientError.invalidResponse)
                         case .sessionTaskFailed(let error):
                             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
