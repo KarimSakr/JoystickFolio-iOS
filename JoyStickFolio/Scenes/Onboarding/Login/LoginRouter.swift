@@ -13,24 +13,34 @@
 import UIKit
 
 @objc protocol LoginRoutingLogic {
-  
+    
+    func goToCreateAccount(completion: (() -> Void)?)
+    
+    func dismissLoginScreen()
+    
 }
 
 protocol LoginDataPassing {
-  var dataStore: LoginDataStore? { get }
+    var dataStore: LoginDataStore? { get }
 }
 
 class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
-  weak var viewController: LoginViewController?
-  var dataStore: LoginDataStore?
+    weak var viewController: LoginViewController?
+    var dataStore: LoginDataStore?
     
     func goToCreateAccount(completion: (() -> Void)? = nil) {
+        guard let viewController = viewController else { return }
         let vc = RegistrationViewController()
         vc.title = "Create Account"
         vc.dismissalCompletion = {
-             completion?()
-         }
-        viewController?.present(UINavigationController(rootViewController: vc), animated: true)
+            completion?()
+        }
+        viewController.present(UINavigationController(rootViewController: vc), animated: true)
     }
-  
+    
+    func dismissLoginScreen() {
+        guard let viewController = viewController else { return }
+        viewController.dismissLoginScreen()
+    }
+    
 }

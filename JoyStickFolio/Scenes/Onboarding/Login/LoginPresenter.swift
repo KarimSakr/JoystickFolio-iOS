@@ -13,11 +13,27 @@
 import UIKit
 
 protocol LoginPresentationLogic {
-  
+    func stopLoading()
+    func dismissLoginScreen()
+    func showSnackbar(with message: String)
 }
 
 class LoginPresenter: LoginPresentationLogic {
-  weak var viewController: LoginDisplayLogic?
-  
-  
+    weak var viewController: LoginDisplayLogic?
+    
+    
+    func stopLoading(){
+        guard let viewController = viewController else { return }
+        viewController.stopLoading()
+    }
+    
+    func dismissLoginScreen() {
+        guard let viewController = viewController else { return }
+        viewController.dismissLoginScreen()
+    }
+    
+    func showSnackbar(with message: String) {
+        viewController?.showSnackbar(with: message)
+    }
+    
 }

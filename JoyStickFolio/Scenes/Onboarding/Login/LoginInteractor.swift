@@ -19,9 +19,7 @@ protocol LoginBusinessLogic {
     
     func checkifUserIsSignedIn() -> Bool
     
-    func login(usernameEmail: String, password: String) async -> Single<AuthDataResult>
-    
-    func requestIDFA()
+    func login(usernameEmail: String, password: String) async
     
 }
 
@@ -32,13 +30,32 @@ protocol LoginDataStore {
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
     var presenter: LoginPresentationLogic?
     
+    private let bag = DisposeBag()
+    
     //MARK: - Managers
     private let authManager = AuthenticationManager()
+    
+    func login(usernameEmail: String, password: String) async {
         
-    func login(usernameEmail: String, password: String) async -> Single<AuthDataResult> {
-        
-        return await authManager.signIn(usernameEmail: usernameEmail, password: password)
-        
+        await authManager.signIn(usernameEmail: usernameEmail, password: password)
+            .subscribe { [weak self] authDataResult in
+                guard let self = self else { return }
+                guard let presenter = presenter else { return }
+                requestIDFA()
+                AnalyticsManager.logEvent(event: .login)
+                DispatchQueue.main.async {
+                    presenter.stopLoading()
+                    presenter.dismissLoginScreen()
+                }
+            } onFailure: { [weak self] error in
+                guard let self = self else { return }
+                guard let presenter = presenter else { return }
+                DispatchQueue.main.async {
+                    presenter.stopLoading()
+                    presenter.showSnackbar(with: error.localizedDescription)
+                }
+            }
+            .disposed(by: bag)
     }
     
     func checkifUserIsSignedIn() -> Bool {
@@ -49,7 +66,7 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
         return true
     }
     
-    func requestIDFA() {
+    private func requestIDFA() {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization { status in
                 switch status {

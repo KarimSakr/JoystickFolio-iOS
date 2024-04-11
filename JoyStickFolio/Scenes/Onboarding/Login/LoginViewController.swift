@@ -22,15 +22,13 @@ protocol LoginDisplayLogic: AnyObject {
     func showSnackbar(with message: String)
     func setupHeader()
     func setupButtons()
-    
+    func dismissLoginScreen()
 }
 
 class LoginViewController: UIViewController, LoginDisplayLogic {
     
     var interactor: LoginBusinessLogic?
-    var router: LoginRouter?
-    
-    private let bag = DisposeBag()
+    var router: LoginRoutingLogic?
     
     private let animator = TextAnimator()
     
@@ -231,34 +229,21 @@ extension LoginViewController {
         Task {
             startLoading()
             await interactor!.login(usernameEmail: usernameEmailField.text ?? "", password: passwordField.text ?? "")
-                .subscribe { event in
-                    switch event {
-                        
-                    case .success(_):
-                        self.interactor!.requestIDFA()
-                        AnalyticsManager.logEvent(event: .login)
-                        DispatchQueue.main.async{
-                            self.stopLoading()
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                    case .failure(let error):
-                        DispatchQueue.main.async {
-                            self.stopLoading()
-                            self.showSnackbar(with: error.localizedDescription)
-                        }
-                    }
-                }.disposed(by: bag)
         }
-        
     }
 
     @objc private func didTapCreateAccountButton() {
-        router!.goToCreateAccount() {
+        guard let router = router else { return }
+        router.goToCreateAccount() {
             guard let interactor = self.interactor else { return }
             if interactor.checkifUserIsSignedIn() {
-                self.dismiss(animated: true)
+                router.dismissLoginScreen()
             }
         }
+    }
+    
+    func dismissLoginScreen() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func addMainSubviews() {
