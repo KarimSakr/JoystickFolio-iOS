@@ -12,6 +12,7 @@
 
 import UIKit
 import RxSwift
+
 protocol LoginDisplayLogic: AnyObject {
     
     func startLoading()
@@ -299,10 +300,6 @@ extension LoginViewController {
         titleLabel.text = ""
         animator.animateTitle(text: "JoystickFolio", timeInterval: 0.1) { letter in
             self.titleLabel.text?.append(letter)
-//            self.titleLabel.frame = CGRect(x: .zero,
-//                                           y: self.view.top,
-//                                           width: self.headerView.width,
-//                                           height: self.headerView.height)
         }
     }
     

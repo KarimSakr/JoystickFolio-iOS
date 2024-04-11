@@ -31,13 +31,10 @@ protocol LoginDataStore {
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
     var presenter: LoginPresentationLogic?
-    //var name: String = ""
     
     //MARK: - Managers
     private let authManager = AuthenticationManager()
-    
-    // MARK: Do something
-    
+        
     func login(usernameEmail: String, password: String) async -> Single<AuthDataResult> {
         
         return await authManager.signIn(usernameEmail: usernameEmail, password: password)
