@@ -21,11 +21,35 @@ final class NetworkManager {
                         observer.onNext(data)
                         observer.onCompleted()
                     case .failure(let error):
-                        print(error.localizedDescription)
-                        observer.onError(error)
+                        switch error {
+                        case .responseSerializationFailed(_):
+                            observer.onError(APIClientError.invalidResponse)
+                        case .sessionTaskFailed(let error):
+                            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                                observer.onError(APIClientError.networkError)
+                            } else {
+                                observer.onError(error)
+                            }
+                        default:
+                            observer.onError(error)
+                        }
                     }
                 }
             return Disposables.create()
+        }
+    }
+}
+
+enum APIClientError: LocalizedError {
+    case networkError
+    case invalidResponse
+    
+    var errorDescription: String? {
+        switch self {
+        case .networkError:
+            return "Failed to connect to the network"
+        case .invalidResponse:
+            return "Received invalid response from the server"
         }
     }
 }
