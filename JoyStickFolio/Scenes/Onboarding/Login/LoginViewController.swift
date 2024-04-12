@@ -248,12 +248,12 @@ extension LoginViewController {
     
     func addMainSubviews() {
         
-        view.addSubview(self.headerView)
-        view.addSubview(self.usernameEmailField)
-        view.addSubview(self.passwordField)
-        view.addSubview(self.loginButton)
-        view.addSubview(self.createAccountButton)
-        view.addSubview(self.activityIndicator)
+        view.addSubview(headerView)
+        view.addSubview(usernameEmailField)
+        view.addSubview(passwordField)
+        view.addSubview(loginButton)
+        view.addSubview(createAccountButton)
+        view.addSubview(activityIndicator)
         view.addSubview(titleLabel)
         
         view.setNeedsLayout()
