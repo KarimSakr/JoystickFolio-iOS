@@ -16,29 +16,23 @@ import RxSwift
 protocol RegistrationBusinessLogic {
     
     var data: [String : String] { get set }
+    var progressValue: Double { get set }
+    var index: Int { get set }
     
     var processes:[RegistrationModels.Request.RegistrationProcess] { get set }
     
-    func isUsernameAvailble(username: String) async -> Bool
-    
     func registerUser() async -> Single<Void>
     
-    func fullNameEntered(fullName: String)
+    func didEnterFullNameSuccessfully(fullName: String) -> Bool
     
-    func emailEntered(email: String)
+    func didEnterEmailSuccessfully(email: String) -> Bool
     
-    func usernameEntered(username: String)
+    func didEnterUsernameSuccessfully(username: String) async -> Bool
     
-    func passwordEntered(password: String)
+    func didEnterPasswordSuccessfully(password: String, repeatPassword: String) async -> Bool
     
-    func isFullNameValid(textField: String) -> Bool
+    func nextEntry()
     
-    func isEmailValid(textField: String) -> Bool
-    
-    func isUsernameValid(textField: String) -> Bool
-    
-    func isPasswordValid(textfield: String, repeatTextField: String) -> Bool
-  
 }
 
 protocol RegistrationDataStore {
@@ -54,9 +48,12 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
     
     //MARK: - Auth Validator
     private let validator = AuthValidator()
+    private let animator = TextAnimator()
     
     //MARK: - User Data
     var data: [String : String] = [:]
+    var progressValue: Double = 0.0
+    var index : Int = 0
     
     var processes:[RegistrationModels.Request.RegistrationProcess] = [
         .init(title: "Well hello there! \nGot a name?", placeholder: "Full Name...", buttonTitle: "Next", process: .enterFullName),
@@ -66,11 +63,12 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
         .init(title: "Creating player...", placeholder: "", buttonTitle: "", process: .loading),
     ]
     
-    func isUsernameAvailble(username: String) async -> Bool {
+    private var bag = DisposeBag()
+    
+    private func isUsernameAvailble(username: String) async -> Bool {
         return await databaseManager.isUsernameAvailable(username: username)
     }
     
-    //MARK: - registerUser
     func registerUser() async -> Single<Void> {
         let newUser = RegistrationModels.Request.CreatedUserProfile(email   : data[Constants.Key.Auth.email]!,
                                                                     fullName: data[Constants.Key.Auth.fullName]!,
@@ -80,40 +78,89 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
         return await authenticationManager.registerUser(newUser: newUser, password: password)
     }
     
-    //MARK: - fullNameEntered
-    func fullNameEntered(fullName: String) {
+    func didEnterFullNameSuccessfully(fullName: String) -> Bool {
+        guard let presenter = presenter else { return false }
+        guard validator.isFullNameValid(textField: fullName) else {
+            presenter.showError(with: "Invalid name")
+            return false
+        }
         data[Constants.Key.Auth.fullName] = fullName
+        presenter.fullNameEntered()
+        return true
     }
     
-    //MARK: - emailEntered
-    func emailEntered(email: String) {
+    func didEnterEmailSuccessfully(email: String) -> Bool {
+        guard let presenter = presenter else { return false }
+        guard validator.isEmailValid(textField: email) else {
+            presenter.showError(with: "Invalid email")
+            return false
+        }
         data[Constants.Key.Auth.email] = email
+        presenter.emailEntered()
+        return true
     }
     
-    //MARK: - usernameEntered
-    func usernameEntered(username: String) {
+    func didEnterUsernameSuccessfully(username: String) async -> Bool{
+        guard let presenter = presenter else { return false }
+        guard validator.isUsernameValid(textField: username) else {
+            presenter.showError(with: "Invalid username, should be between 4 and 20, no special characters, and no spaces")
+            return false
+        }
+        
+        presenter.addLoadingIndicator()
+        
+        guard await isUsernameAvailble(username: username) else {
+            presenter.showError(with: "Username already taken")
+            presenter.removeLoadingIndicator()
+            return false
+        }
         data[Constants.Key.Auth.username] = username
+        presenter.usernameEntered()
+        return true
     }
     
-    //MARK: - passwordEnetred
-    func passwordEntered(password: String) {
+    func didEnterPasswordSuccessfully(password: String, repeatPassword: String) async -> Bool {
+        guard let presenter = presenter else { return false }
+        guard validator.isPasswordValid(textfield: password, repeatTextField: repeatPassword) else {
+            presenter.showError(with: "Passwords should match and have a minimum length of 6 characters")
+            return false
+        }
         data[Constants.Key.Auth.password] = password
+        presenter.passwordEntered()
+        await registerUser()
+            .subscribe {  _ in
+                AnalyticsManager.logEvent(event: .signup)
+                presenter.dismissRegistrationScreen()
+                
+            } onFailure: { [weak self] error in
+                guard let self = self else { return }
+                resetRegistration()
+                presenter.showError(with: error.localizedDescription)
+            }
+            .disposed(by: bag)
+        
+        return false
     }
     
-    //MARK: - Validators
-    func isFullNameValid(textField: String) -> Bool {
-        return validator.isFullNameValid(textField: textField)
+    private func resetRegistration() {
+        guard let presenter = presenter else { return }
+        
+        data = [:]
+        progressValue = 0
+        index = 0
+        
+        presenter.resetRegistration(mainTextFieldPlaceholder: processes[index].placeholder, buttonSetTitle: processes[index].buttonTitle, titleLableText: processes[index].title)
     }
     
-    func isEmailValid(textField: String) -> Bool {
-        return validator.isEmailValid(textField: textField)
-    }
-    
-    func isUsernameValid(textField: String) -> Bool {
-        return validator.isUsernameValid(textField: textField)
-    }
-    
-    func isPasswordValid(textfield: String, repeatTextField: String) -> Bool {
-        return validator.isPasswordValid(textfield: textfield, repeatTextField: repeatTextField)
+    func nextEntry() {
+        guard let presenter = presenter else { return }
+        index += 1
+        progressValue += 1.0 / Double(processes.count - 1)
+        
+        presenter.nextEntry(mainTextFieldPlaceholder: processes[index].placeholder, buttonSetTitle: processes[index].buttonTitle, titleLableText: "", progressValue: Float(progressValue))
+        
+        animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
+            presenter.appendLetter(letter: letter)
+        }
     }
 }

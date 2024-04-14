@@ -16,6 +16,22 @@ import FirebaseAnalytics
 
 protocol RegistrationDisplayLogic: AnyObject {
     
+    var mainTextField: UITextField { get set }
+    
+    var secondTextField: UITextField { get set }
+    
+    var activityIndicator: UIActivityIndicatorView { get set }
+    
+    var submitButton: UIButton { get set }
+    
+    var progressBarView: UIProgressView { get set }
+    
+    var titleLabel: UILabel { get set }
+    
+    func showError(with message: String)
+    
+    func dismissRegistrationScreen()
+    
 }
 
 class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
@@ -29,14 +45,8 @@ class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
     
     var dismissalCompletion: (() -> Void)?
     
-
-
-    private var index: Int = 0
-    private var progressValue: Double = 0.0
-    
-    
     //MARK: - titleLabel
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 5
         label.textAlignment = .center
@@ -46,7 +56,7 @@ class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
     }()
     
     //MARK: - TextField
-    private lazy var mainTextField: UITextField = {
+    lazy var mainTextField: UITextField = {
         let field = UITextField()
         field.returnKeyType = .next
         field.leftViewMode = .always
@@ -64,7 +74,7 @@ class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
     }()
     
     //MARK: - Second TextField
-    private lazy var secondTextField: UITextField = {
+    lazy var secondTextField: UITextField = {
         let field = UITextField()
         field.placeholder = "Password..."
         field.isSecureTextEntry = true
@@ -85,7 +95,7 @@ class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
     }()
     
     //MARK: - Button
-    private lazy var submitButton: UIButton = {
+    lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("Next", for: .normal)
         button.layer.masksToBounds = true
@@ -97,7 +107,7 @@ class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
     }()
     
     //MARK: - progressBarView
-    private lazy var progressBarView: UIProgressView = {
+    lazy var progressBarView: UIProgressView = {
         let progressBar = UIProgressView()
         progressBar.progress = 0.0
         progressBar.progressTintColor = .accent
@@ -106,7 +116,7 @@ class RegistrationViewController: UIViewController, RegistrationDisplayLogic {
     }()
     
     //MARK: - activityIndicator
-    private lazy var activityIndicator: UIActivityIndicatorView = {
+    lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -192,10 +202,11 @@ extension RegistrationViewController {
     }
     
     func setupViewsData() {
-        mainTextField.placeholder = interactor!.processes[index].placeholder
-        submitButton.setTitle(interactor!.processes[index].buttonTitle, for: .normal)
-        titleLabel.text = interactor!.processes[index].title
-        progressBarView.progress = Float(progressValue)
+        guard let interactor = interactor else { return }
+        mainTextField.placeholder = interactor.processes[interactor.index].placeholder
+        submitButton.setTitle(interactor.processes[interactor.index].buttonTitle, for: .normal)
+        titleLabel.text = interactor.processes[interactor.index].title
+        progressBarView.progress = Float(interactor.progressValue)
     }
     
     func addUIViews() {
@@ -208,8 +219,9 @@ extension RegistrationViewController {
     }
     
     func animateText() {
+        guard let interactor = interactor else { return }
         titleLabel.text? = ""
-        self.animator.animateTitle(text: self.interactor!.processes[self.index].title, timeInterval: 0.01) { letter in
+        self.animator.animateTitle(text: self.interactor!.processes[interactor.index].title, timeInterval: 0.01) { letter in
             self.titleLabel.text?.append(letter)
         }
     }
@@ -219,164 +231,46 @@ extension RegistrationViewController {
 extension RegistrationViewController {
     
     @objc private func buttonPressed() {
+        
+        var isSuccessful: Bool = false
+        
+        guard let interactor = interactor else { return }
         Task {
 
-            if interactor!.processes.last != interactor!.processes[index] {
+            if interactor.processes.last != interactor.processes[interactor.index] {
 
-                switch interactor!.processes[index].process {
+                switch interactor.processes[interactor.index].process {
 
                 case .enterFullName:
-                    guard interactor!.isFullNameValid(textField: mainTextField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Invalid name", duration: .lengthLong).show()
-                        return
-                    }
-
-                   fullNameEntered()
-                    
+                    isSuccessful = interactor.didEnterFullNameSuccessfully(fullName: mainTextField.text ?? "")
 
                 case .enterEmail:
-                    guard interactor!.isEmailValid(textField: mainTextField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Invalid email", duration: .lengthLong).show()
-                        return
-                    }
-                    
-                    emailEntered()
-                    
+                    isSuccessful = interactor.didEnterEmailSuccessfully(email: mainTextField.text ?? "")
 
                 case .enterUsername:
-
-                    guard interactor!.isUsernameValid(textField: mainTextField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Invalid username, should be between 4 and 20, no special characters, and no spaces", duration: .lengthLong).show()
-                        return
-                    }
-                    addLoadingIndicator()
-
-                    guard await interactor!.isUsernameAvailble(username: mainTextField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Username already taken", duration: .lengthLong).show()
-                        removeLoadingIndicator()
-                        return
-                    }
+                    isModalInPresentation = true
+                    isSuccessful = await interactor.didEnterUsernameSuccessfully(username: mainTextField.text ?? "")
+                    isModalInPresentation = false
                     
-                    usernameEntered(username: mainTextField.text ?? "")
-
                 case .enterPassword:
-
-                    guard interactor!.isPasswordValid(textfield: mainTextField.text ?? "", repeatTextField: secondTextField.text ?? "") else {
-                        AppSnackBar.make(in: self.view, message: "Passwords should match and have a minimum length of 6 characters", duration: .lengthLong).show()
-                        return
-                    }
-
-                    passwordEntered()
-
+                    isModalInPresentation = true
+                    isSuccessful = await interactor.didEnterPasswordSuccessfully(password: mainTextField.text ?? "", repeatPassword: secondTextField.text ?? "")
+                    isModalInPresentation = false
+                    
                 case .loading:
                     break
                 }
-                nextEntry()
+                if isSuccessful{
+                    interactor.nextEntry()
+                }
             }
         }
     }
     
-    private func nextEntry() {
-        index += 1
-        progressValue += 1.0 / Double(interactor!.processes.count - 1)
-
-        mainTextField.placeholder = interactor!.processes[index].placeholder
-        submitButton.setTitle(interactor!.processes[index].buttonTitle, for: .normal)
-        titleLabel.text = interactor!.processes[index].title
-
-        progressBarView.progress = Float(progressValue)
-
-        titleLabel.text? = ""
-        animator.animateTitle(text: interactor!.processes[index].title, timeInterval: 0.01) { letter in
-            self.titleLabel.text?.append(letter)
+    func dismissRegistrationScreen(){
+        dismiss(animated: false) {
+            self.dismissalCompletion?()
         }
-    }
-    
-    private func fullNameEntered() {
-        interactor!.fullNameEntered(fullName: mainTextField.text ?? "")
-        mainTextField.textContentType = .emailAddress
-        mainTextField.text = ""
-    }
-    
-    private func emailEntered() {
-        interactor!.emailEntered(email: mainTextField.text ?? "")
-        mainTextField.textContentType = .name
-        mainTextField.text = ""
-    }
-    
-    private func usernameEntered(username: String) {
-        interactor!.usernameEntered(username: username)
-        secondTextField.isHidden = false
-        secondTextField.becomeFirstResponder()
-        mainTextField.isSecureTextEntry = true
-        mainTextField.text = ""
-        removeLoadingIndicator()
-        mainTextField.textContentType = .newPassword
-    }
-    
-    private func passwordEntered() {
-        
-        interactor!.passwordEntered(password: mainTextField.text ?? "")
-        
-        // deselect textfields
-        secondTextField.resignFirstResponder()
-        mainTextField.resignFirstResponder()
-        
-        
-        mainTextField.isSecureTextEntry = false
-        mainTextField.text = ""
-        secondTextField.text = ""
-        
-        
-        // remove views
-        mainTextField.isHidden       = true
-        secondTextField.isHidden = true
-        submitButton.isHidden    = true
-        progressBarView.isHidden = true
-        
-        addLoadingIndicator()
-        
-        Task{
-            await interactor!.registerUser()
-                .subscribe { [weak self] event in
-                    
-                    guard let self = self else { return }
-                    switch event {
-                        
-                    case .success():
-                        AnalyticsManager.logEvent(event: .signup)
-                        DispatchQueue.main.async{
-                            self.dismiss(animated: false) {
-                                self.dismissalCompletion?()
-                            }
-                        }
-                    case .failure(let error):
-                        self.resetRegistration()
-                        AppSnackBar.make(in: self.view!, message: error.localizedDescription, duration: .lengthLong).show()
-                    }
-                    
-                }.disposed(by: bag)
-        }
-        
-    }
-    
-    func resetRegistration() {
-        interactor!.data = [:]
-        progressValue = 0
-        index = 0
-        
-        removeLoadingIndicator()
-        
-        mainTextField.placeholder = interactor!.processes[index].placeholder
-        submitButton.setTitle(interactor!.processes[index].buttonTitle, for: .normal)
-        titleLabel.text = interactor!.processes[index].title
-        
-        progressBarView.progress = Float(progressValue)
-        
-        progressBarView.isHidden = false
-        mainTextField.isHidden       = false
-        submitButton.isHidden    = false
-        
     }
     
     func addLoadingIndicator() {
@@ -389,6 +283,12 @@ extension RegistrationViewController {
         isModalInPresentation = false
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
+    }
+    
+    func showError(with message: String) {
+        DispatchQueue.main.async {
+            AppSnackBar.make(in: self.view, message: message, duration: .lengthLong).show()
+        }
     }
 }
 
