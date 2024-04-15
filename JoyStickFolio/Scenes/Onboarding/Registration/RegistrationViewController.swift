@@ -268,8 +268,10 @@ extension RegistrationViewController {
     }
     
     func dismissRegistrationScreen(){
-        dismiss(animated: false) {
-            self.dismissalCompletion?()
+        DispatchQueue.main.async {
+            self.dismiss(animated: false) {
+                self.dismissalCompletion?()
+            }
         }
     }
     
