@@ -127,6 +127,7 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
         }
         data[Constants.Key.Auth.password] = password
         presenter.passwordEntered()
+        nextEntry()
         await registerUser()
             .subscribe {  _ in
                 AnalyticsManager.logEvent(event: .signup)
