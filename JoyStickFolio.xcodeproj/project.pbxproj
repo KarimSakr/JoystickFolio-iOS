@@ -74,7 +74,6 @@
 		7FD21ADA2B7C04DB004DB19B /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD21AD92B7C04DB004DB19B /* ExploreViewModel.swift */; };
 		7FD7E8A62B795545000BE278 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8A52B795545000BE278 /* Game.swift */; };
 		7FD7E8AF2B7972E2000BE278 /* GamePosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8AE2B7972E2000BE278 /* GamePosterCollectionViewCell.swift */; };
-		7FE123F02B70302B00610BB1 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */; };
 		7FE123F32B70579A00610BB1 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F22B70579A00610BB1 /* AnalyticsManager.swift */; };
 		7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */; };
 		7FE4B7352B435B9400608B45 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE4B7342B435B9400608B45 /* EventsViewController.swift */; };
@@ -131,7 +130,6 @@
 		7FD21AD92B7C04DB004DB19B /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		7FD7E8A52B795545000BE278 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		7FD7E8AE2B7972E2000BE278 /* GamePosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePosterCollectionViewCell.swift; sourceTree = "<group>"; };
-		7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
 		7FE123F22B70579A00610BB1 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaltyicsEvent.swift; sourceTree = "<group>"; };
 		7FE4B7342B435B9400608B45 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -481,7 +479,6 @@
 				EFDE3CFC2BD0017200F780D4 /* HamburgerMenuViewController.swift */,
 				EFDE3CFD2BD0017200F780D4 /* HamburgerMenuRepository.swift */,
 				EFDE3CFE2BD0017200F780D4 /* HamburgerMenuInteractor.swift */,
-				7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */,
 			);
 			path = "Hamburger Menu";
 			sourceTree = "<group>";
@@ -657,7 +654,6 @@
 				EFDE3D032BD0017200F780D4 /* HamburgerMenuRepository.swift in Sources */,
 				EFDE3D042BD0017200F780D4 /* HamburgerMenuInteractor.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
-				7FE123F02B70302B00610BB1 /* HamburgerMenuViewModel.swift in Sources */,
 				7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */,
 				7FD7E8AF2B7972E2000BE278 /* GamePosterCollectionViewCell.swift in Sources */,
 				7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */,
