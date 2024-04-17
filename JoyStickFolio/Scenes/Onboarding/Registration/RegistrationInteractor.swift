@@ -158,7 +158,7 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
         index += 1
         progressValue += 1.0 / Double(processes.count - 1)
         
-        presenter.nextEntry(mainTextFieldPlaceholder: processes[index].placeholder, buttonSetTitle: processes[index].buttonTitle, titleLableText: "", progressValue: Float(progressValue))
+        presenter.nextEntry(mainTextFieldPlaceholder: processes[index].placeholder, buttonSetTitle: processes[index].buttonTitle, progressValue: Float(progressValue))
         
         animator.animateTitle(text: processes[index].title, timeInterval: 0.01) { letter in
             presenter.appendLetter(letter: letter)

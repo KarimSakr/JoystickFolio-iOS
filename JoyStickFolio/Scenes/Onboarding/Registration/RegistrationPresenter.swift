@@ -32,7 +32,7 @@ protocol RegistrationPresentationLogic {
     
     func resetRegistration(mainTextFieldPlaceholder: String, buttonSetTitle: String, titleLableText: String)
     
-    func nextEntry(mainTextFieldPlaceholder: String, buttonSetTitle: String, titleLableText: String, progressValue: Float)
+    func nextEntry(mainTextFieldPlaceholder: String, buttonSetTitle: String, progressValue: Float)
     
     func appendLetter(letter: Character)
 }
@@ -66,7 +66,6 @@ class RegistrationPresenter: RegistrationPresentationLogic {
     func addLoadingIndicator() {
         guard let viewController = viewController else { return }
         let activityIndicator = viewController.activityIndicator
-        // fix modal presentation
         
         DispatchQueue.main.async {
             activityIndicator.isHidden = false
@@ -77,7 +76,7 @@ class RegistrationPresenter: RegistrationPresentationLogic {
     func removeLoadingIndicator() {
         guard let viewController = viewController else { return }
         let activityIndicator = viewController.activityIndicator
-        // fix modal presentation
+
         DispatchQueue.main.async {
             activityIndicator.stopAnimating()
             activityIndicator.isHidden = true
@@ -153,7 +152,7 @@ class RegistrationPresenter: RegistrationPresentationLogic {
         }
     }
     
-    func nextEntry(mainTextFieldPlaceholder: String, buttonSetTitle: String, titleLableText: String, progressValue: Float) {
+    func nextEntry(mainTextFieldPlaceholder: String, buttonSetTitle: String, progressValue: Float) {
         guard let viewController = viewController else { return }
         let mainTextField = viewController.mainTextField
         let submitButton = viewController.submitButton
