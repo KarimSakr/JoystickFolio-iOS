@@ -117,7 +117,7 @@ class RegistrationPresenter: RegistrationPresentationLogic {
             
             
             // remove views
-            mainTextField.isHidden       = true
+            mainTextField.isHidden   = true
             secondTextField.isHidden = true
             submitButton.isHidden    = true
             progressBarView.isHidden = true

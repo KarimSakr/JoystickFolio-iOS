@@ -15,7 +15,6 @@ class TextAnimator {
         for letter in titleText {
             Timer.scheduledTimer(withTimeInterval: timeInterval * charIndex, repeats: false) { (timer) in
                 completion(letter)
-
             }
             charIndex += 1
         }
