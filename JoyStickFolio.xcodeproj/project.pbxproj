@@ -37,8 +37,6 @@
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */; };
 		7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */; };
-		7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */; };
-		7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */; };
 		7FA5C3F02B6238F10019E90F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C3EF2B6238F10019E90F /* FirebaseAnalytics */; };
 		7FA5C3F22B6238F10019E90F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C3F12B6238F10019E90F /* FirebaseAnalyticsOnDeviceConversion */; };
 		7FA5C3F42B6238F10019E90F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C3F32B6238F10019E90F /* FirebaseAnalyticsSwift */; };
@@ -88,6 +86,12 @@
 		7FFA06682B6813DB0007B192 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA06672B6813DB0007B192 /* AppError.swift */; };
 		EF4E67C22BCC74E100FEC8EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */; };
 		EF4E67C42BCC751600FEC8EE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C32BCC751600FEC8EE /* Config.plist */; };
+		EFDE3CFF2BD0017200F780D4 /* HamburgerMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE3CF92BD0017200F780D4 /* HamburgerMenuPresenter.swift */; };
+		EFDE3D002BD0017200F780D4 /* HamburgerMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE3CFA2BD0017200F780D4 /* HamburgerMenuRouter.swift */; };
+		EFDE3D012BD0017200F780D4 /* HamburgerMenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE3CFB2BD0017200F780D4 /* HamburgerMenuModels.swift */; };
+		EFDE3D022BD0017200F780D4 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE3CFC2BD0017200F780D4 /* HamburgerMenuViewController.swift */; };
+		EFDE3D032BD0017200F780D4 /* HamburgerMenuRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE3CFD2BD0017200F780D4 /* HamburgerMenuRepository.swift */; };
+		EFDE3D042BD0017200F780D4 /* HamburgerMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE3CFE2BD0017200F780D4 /* HamburgerMenuInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,8 +126,6 @@
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
 		7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuCell.swift; sourceTree = "<group>"; };
-		7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		7FC001FF2B62DFAE00007581 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		7FC0020D2B62F30C00007581 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		7FD21AD92B7C04DB004DB19B /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
@@ -140,6 +142,12 @@
 		7FFA06672B6813DB0007B192 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF4E67C32BCC751600FEC8EE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		EFDE3CF92BD0017200F780D4 /* HamburgerMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuPresenter.swift; sourceTree = "<group>"; };
+		EFDE3CFA2BD0017200F780D4 /* HamburgerMenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuRouter.swift; sourceTree = "<group>"; };
+		EFDE3CFB2BD0017200F780D4 /* HamburgerMenuModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuModels.swift; sourceTree = "<group>"; };
+		EFDE3CFC2BD0017200F780D4 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
+		EFDE3CFD2BD0017200F780D4 /* HamburgerMenuRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuRepository.swift; sourceTree = "<group>"; };
+		EFDE3CFE2BD0017200F780D4 /* HamburgerMenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				7F6E6FCC2B73C7D100F0D64C /* API Models */,
-				7F79219A2B432C750080EE90 /* HamburgerMenuCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -468,7 +475,12 @@
 		7FE123EE2B70301000610BB1 /* Hamburger Menu */ = {
 			isa = PBXGroup;
 			children = (
-				7F81821E2B42F80800A1869A /* HamburgerMenuViewController.swift */,
+				EFDE3CF92BD0017200F780D4 /* HamburgerMenuPresenter.swift */,
+				EFDE3CFA2BD0017200F780D4 /* HamburgerMenuRouter.swift */,
+				EFDE3CFB2BD0017200F780D4 /* HamburgerMenuModels.swift */,
+				EFDE3CFC2BD0017200F780D4 /* HamburgerMenuViewController.swift */,
+				EFDE3CFD2BD0017200F780D4 /* HamburgerMenuRepository.swift */,
+				EFDE3CFE2BD0017200F780D4 /* HamburgerMenuInteractor.swift */,
 				7FE123EF2B70302B00610BB1 /* HamburgerMenuViewModel.swift */,
 			);
 			path = "Hamburger Menu";
@@ -635,16 +647,20 @@
 				7F063B4E2B1CBAC20075B6A7 /* HomeViewController.swift in Sources */,
 				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
 				7FFA06682B6813DB0007B192 /* AppError.swift in Sources */,
-				7F81821F2B42F80800A1869A /* HamburgerMenuViewController.swift in Sources */,
 				7F0671CF2BA32C8800087919 /* RegistrationInteractor.swift in Sources */,
 				7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */,
 				7F0671362B9E659D00087919 /* LoginRouter.swift in Sources */,
+				EFDE3CFF2BD0017200F780D4 /* HamburgerMenuPresenter.swift in Sources */,
+				EFDE3D002BD0017200F780D4 /* HamburgerMenuRouter.swift in Sources */,
+				EFDE3D012BD0017200F780D4 /* HamburgerMenuModels.swift in Sources */,
+				EFDE3D022BD0017200F780D4 /* HamburgerMenuViewController.swift in Sources */,
+				EFDE3D032BD0017200F780D4 /* HamburgerMenuRepository.swift in Sources */,
+				EFDE3D042BD0017200F780D4 /* HamburgerMenuInteractor.swift in Sources */,
 				7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */,
 				7FE123F02B70302B00610BB1 /* HamburgerMenuViewModel.swift in Sources */,
 				7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */,
 				7FD7E8AF2B7972E2000BE278 /* GamePosterCollectionViewCell.swift in Sources */,
 				7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */,
-				7F79219B2B432C750080EE90 /* HamburgerMenuCell.swift in Sources */,
 				7F0671CC2BA32C8800087919 /* RegistrationRouter.swift in Sources */,
 				7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */,
 			);
