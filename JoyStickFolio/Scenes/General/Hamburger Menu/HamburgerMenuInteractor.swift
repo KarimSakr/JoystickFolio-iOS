@@ -60,7 +60,7 @@ class HamburgerMenuInteractor: HamburgerMenuBusinessLogic, HamburgerMenuDataStor
             }])
         
         tableData.append([
-            HamburgerMenuModels.Request.HamburgerMenuCell(title: "Support the developer") { [weak self] in
+            HamburgerMenuModels.Request.HamburgerMenuCell(title: "Support the developer") {
 //                guard let self = self else { return }
                 // do something
             }
