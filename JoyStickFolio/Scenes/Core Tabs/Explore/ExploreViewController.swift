@@ -2,17 +2,21 @@
 //  ExploreViewController.swift
 //  JoyStickFolio
 //
-//  Created by Karim Sakr on 30/12/2023.
-//
+//  Created by Karim Sakr on 19/04/2024.
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+protocol ExploreDisplayLogic: AnyObject {
     
-    private let viewModel = ExploreViewModel()
+}
+
+class ExploreViewController: UIViewController, ExploreDisplayLogic {
+    
+    var interactor: ExploreBusinessLogic?
+    var router: ExploreRouter?
     
     //MARK: - searchController
-    private let searchController: UISearchController = {
+    lazy var searchController: UISearchController = {
        let search = UISearchController(searchResultsController: nil)
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search..."
@@ -20,7 +24,7 @@ class ExploreViewController: UIViewController {
     }()
     
     //MARK: - collectionView
-    private let collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -34,10 +38,15 @@ class ExploreViewController: UIViewController {
     }()
     
     
-    //MARK: - viewDidLoad
+}
+// MARK: View lifecycle
+extension ExploreViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchResultsUpdater = self
+        setup()
+        
+//        searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         
         view.addSubview(collectionView)
@@ -50,56 +59,80 @@ class ExploreViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+//        self.collectionView.dataSource = self
+//        self.collectionView.delegate = self
         
-        viewModel.fetchGames() {
-            self.collectionView.reloadData()
-        }
+//        viewModel.fetchGames() {
+//            self.collectionView.reloadData()
+//        }
         
         
-    }
-
-}
-
-//MARK: - UISearchResultsUpdating
-extension ExploreViewController: UISearchResultsUpdating {
-    
-    //MARK: - updateSearchResults
-    //TODO: Find a way to search on button pressed, not on character typing
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-           print(text)
     }
 }
 
-//MARK: - UICollectionViewDelegate | UICollectionViewDelegate
-extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.games.count
+// MARK: Setup
+extension ExploreViewController {
+    
+    private func setup() {
+        let viewController = self
+        let interactor = ExploreInteractor()
+        let presenter = ExplorePresenter()
+        let router = ExploreRouter()
+        let repository = ExploreRepository()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        interactor.repository = repository
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GamePosterCollectionViewCell.identifier, for: indexPath) as? GamePosterCollectionViewCell else {
-            fatalError("Failed to dequeue GamePosterCollectionViewCell in HomeViewController")
-        }
-        
-        cell.configure(with: viewModel.games[indexPath.item])
-        return cell
-    }
 }
 
-//MARK: - UICollectionViewDelegateFlowLayout
-extension ExploreViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 140, height: 200)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
-    }
-}
-
+//// MARK: Functions
+//extension ExploreViewController {
+//    
+//}
+//
+////MARK: - UISearchResultsUpdating
+//extension ExploreViewController: UISearchResultsUpdating {
+//    
+//    //MARK: - updateSearchResults
+//    //TODO: Find a way to search on button pressed, not on character typing
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let text = searchController.searchBar.text else { return }
+//           print(text)
+//    }
+//}
+//
+////MARK: - UICollectionViewDelegate | UICollectionViewDelegate
+//extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return viewModel.games.count
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GamePosterCollectionViewCell.identifier, for: indexPath) as? GamePosterCollectionViewCell else {
+//            fatalError("Failed to dequeue GamePosterCollectionViewCell in HomeViewController")
+//        }
+//        
+//        cell.configure(with: viewModel.games[indexPath.item])
+//        return cell
+//    }
+//}
+//
+////MARK: - UICollectionViewDelegateFlowLayout
+//extension ExploreViewController: UICollectionViewDelegateFlowLayout {
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        return CGSize(width: 140, height: 200)
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 20
+//    }
+//}
+//
