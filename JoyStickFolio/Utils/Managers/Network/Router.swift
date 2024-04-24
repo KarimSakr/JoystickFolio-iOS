@@ -11,27 +11,54 @@ import Alamofire
 enum Router: URLRequestConvertible {
     
     
-    case twitchAuth(parameters: Parameters?),
-         fetchgames
+    case twitchAuth,
+         fetchGames
     
     var baseUrl: String {
         switch self {
             
         case .twitchAuth:
-            return Constants.Url.twitchAuth
+            return Constants.Url.BaseUrl.twitchAuthBaseUrl
             
         default:
-            return Constants.Url.baseUrl
+            return Constants.Url.BaseUrl.igdbBaseUrl
         }
     }
     
-    var path: String {
+    var endpoint: String {
         switch self {
         case .twitchAuth:
-            return ""
+            return Constants.Url.Endpoint.TwitchAuthEndpoint.tokenAuth
             
-        case .fetchgames:
-            return "games"
+        case .fetchGames:
+            return Constants.Url.Endpoint.igdbEndpoint.games
+        }
+    }
+    
+    var parameters: [String : String] {
+        switch self {
+        case .twitchAuth:
+            guard let bundle = Bundle.config,
+                  let dict = NSDictionary(contentsOfFile: bundle) as? [String: Any],
+                  let clientId = dict[Constants.BundleKey.clientId] as? String,
+                  let clientSecret = dict[Constants.BundleKey.clientSecret] as? String
+            else {
+                return [:]
+            }
+            
+            return [
+                "client_id" : clientId,
+                "client_secret" : clientSecret,
+                "grant_type" : "client_credentials"
+            ]
+        default: return [:]
+        }
+    }
+    
+    var body: Data? {
+        switch self {
+            
+        default: return nil
         }
     }
     
@@ -43,53 +70,60 @@ enum Router: URLRequestConvertible {
         }
     }
     
+    var header: [String : String] {
+        switch self {
+        default:
+            return [
+                "Content-Type": "application/json"
+            ]
+        }
+    }
+    
+    
     var type: Decodable.Type {
         
         switch self {
-        case .twitchAuth(_):
+        case .twitchAuth:
             return IGDBAuth.self
             
-        case .fetchgames:
+        case .fetchGames:
             return [Game].self
         }
     }
     
     func asURLRequest() throws -> URLRequest {
         let url = try baseUrl.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        var urlRequest = URLRequest(url: url.appendingPathComponent(endpoint).appendingQueryParameters(parameters))
         urlRequest.httpMethod = method.rawValue
-        switch self {
-            
-        case .twitchAuth(let parameters):
-            urlRequest.url = url
-            if let parameters = parameters {
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
-            }
-            
-        case .fetchgames:
-            urlRequest.httpBody = "fields name, cover; limit 3;".data(using: .utf8, allowLossyConversion: false)
-            var accessToken: String!
-            var clientId: String!
-            do {
-                accessToken = try Keychains.shared.getValue(key: Constants.Key.Persistence.accessToken)
-                guard let bundle = Bundle.config else {
-                    throw AppError.configFileMissing
-                }
-                
-                let dict = NSDictionary(contentsOfFile: bundle) as! [String: Any]
-                
-                clientId = dict[Constants.BundleKey.clientId] as? String
-            } catch {
-                throw error
-            }
-            
-            urlRequest.setValue(clientId, forHTTPHeaderField: "Client-ID")
-            urlRequest.setValue("Bearer \(accessToken!)", forHTTPHeaderField: "Authorization")
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-
-        }
-        
+        urlRequest.httpBody = body
+        urlRequest.allHTTPHeaderFields = header
         return urlRequest
     }
 
+}
+
+extension URL {
+    func appendingQueryParameters(_ parameters: [String: String]) -> URL {
+        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
+        urlComponents.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        return urlComponents.url!
+    }
+}
+
+extension Constants.Url {
+    
+    struct BaseUrl {
+        static let igdbBaseUrl = "https://api.igdb.com/v4"
+        static let twitchAuthBaseUrl = "https://id.twitch.tv"
+    }
+    
+    struct Endpoint {
+        struct TwitchAuthEndpoint{
+            static let tokenAuth = "oauth2/token"
+        }
+        
+        struct igdbEndpoint {
+            static let games = "games"
+        }
+    }
 }

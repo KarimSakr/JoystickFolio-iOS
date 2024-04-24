@@ -34,7 +34,7 @@
 		7F58D6402B73E0E100D56711 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F58D63F2B73E0E100D56711 /* Alamofire */; };
 		7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D64AE2B1E625E00E9669E /* Constants.swift */; };
 		7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */; };
-		7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */; };
+		7F6E6FD52B73D39A00F0D64C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E6FD42B73D39900F0D64C /* APIClient.swift */; };
 		7FA5C3F02B6238F10019E90F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C3EF2B6238F10019E90F /* FirebaseAnalytics */; };
 		7FA5C3F22B6238F10019E90F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C3F12B6238F10019E90F /* FirebaseAnalyticsOnDeviceConversion */; };
 		7FA5C3F42B6238F10019E90F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C3F32B6238F10019E90F /* FirebaseAnalyticsSwift */; };
@@ -130,7 +130,7 @@
 		7F434F3B2B76F002007DF271 /* KeychainErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainErrors.swift; sourceTree = "<group>"; };
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
-		7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7F6E6FD42B73D39900F0D64C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		7FC001FF2B62DFAE00007581 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		7FC0020D2B62F30C00007581 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		7FD7E8A52B795545000BE278 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -404,7 +404,7 @@
 		7F6E6FD32B73D35D00F0D64C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7F6E6FD42B73D39900F0D64C /* NetworkManager.swift */,
+				7F6E6FD42B73D39900F0D64C /* APIClient.swift */,
 				7F071CE12B74F595008D8739 /* Router.swift */,
 			);
 			path = Network;
@@ -663,7 +663,7 @@
 				7FF3286A2B40415900FACB58 /* ProfileViewController.swift in Sources */,
 				7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */,
 				7F0671382B9E659D00087919 /* LoginViewController.swift in Sources */,
-				7F6E6FD52B73D39A00F0D64C /* NetworkManager.swift in Sources */,
+				7F6E6FD52B73D39A00F0D64C /* APIClient.swift in Sources */,
 				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
 				7FC002002B62DFAE00007581 /* AuthenticationManager.swift in Sources */,
 				7F0671372B9E659D00087919 /* LoginModels.swift in Sources */,

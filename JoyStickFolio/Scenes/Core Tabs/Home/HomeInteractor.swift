@@ -23,12 +23,17 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     private var bag = DisposeBag()
     
     func validateIgdb() {
+        guard let repository = repository else { return }
         if !isAccessTokenValid() {
-            authenticationManager.twitchAuthentication()
-                .subscribe( onError: { error in
+            repository.twitchAuthentication()
+                .subscribe(onNext: { igdb in
+                    do {
+                        try repository.saveIgdbInfo(igdb: igdb)
+                    } catch {
+                        // handle error
+                    }
+                }, onError: { error in
                     // handle error
-                }, onCompleted: {
-                    // handle completion
                 })
                 .disposed(by: bag)
         }

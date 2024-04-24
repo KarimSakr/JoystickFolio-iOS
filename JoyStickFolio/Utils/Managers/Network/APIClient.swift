@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  APIClient.swift
 //  JoyStickFolio
 //
 //  Created by Karim Sakr on 07/02/2024.
@@ -9,7 +9,11 @@ import Foundation
 import Alamofire
 import RxSwift
 
-final class NetworkManager {
+final class APIClient {
+    
+    static let shared = APIClient()
+    
+    private init() {}
     
     func request<T: Codable>(router: Router) -> Observable<T> {
         

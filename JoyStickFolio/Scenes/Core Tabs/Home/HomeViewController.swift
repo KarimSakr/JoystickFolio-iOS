@@ -28,11 +28,7 @@ extension HomeViewController {
         super.viewDidLoad()
         setup()
         configureNavigationBar()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        interactor?.validateIgdb()
+        validateIgdb()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +46,11 @@ extension HomeViewController {
 
 //MARK: - functions
 extension HomeViewController {
+    
+    func validateIgdb() {
+        guard let interactor = interactor else { return }
+        interactor.validateIgdb()
+    }
     
      
      @objc private func messageButtonTapped() {

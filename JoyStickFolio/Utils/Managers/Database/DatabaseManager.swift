@@ -14,7 +14,6 @@ final class DatabaseManager {
     
     //MARK: - Cloud Database
     private let db = Firestore.firestore()
-    private let networkManager = NetworkManager()
     
     //MARK: - Local Database
     private let persistence = Persistence.instance
@@ -23,8 +22,8 @@ final class DatabaseManager {
 
     
     func fetchGames() -> Observable<[Game]>{
-        return networkManager
-            .request(router: .fetchgames)
+        return APIClient.shared
+            .request(router: .fetchGames)
     }
     
     //MARK: - isUsernameAvailable
