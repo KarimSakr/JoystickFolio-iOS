@@ -98,10 +98,52 @@ final class AuthenticationManager {
     private func userEmail(usernameEmail: String) async throws -> String {
         if !validator.isEmailValid(textField: usernameEmail) {
             // username used
-            return try await databaseManager.fetchEmail(of: usernameEmail)
+            return try await fetchEmail(of: usernameEmail)
         } else {
             // email used
             return usernameEmail
+        }
+    }
+    
+    //MARK: - fetchEmail
+    private func fetchEmail(of username: String) async throws -> String {
+        
+        do {
+            let query = try await db
+                .collection(Constants.Firebase.FireStore.Collection.users)
+                .whereField(Constants.Key.Auth.username, isEqualTo: username)
+                .getDocuments()
+            
+            for document in query.documents {
+                
+                if document.exists {
+                    
+                    let data = document.data()
+                    return data[Constants.Key.Auth.email] as! String
+                } else {
+                    
+                    throw AppError.wrongCredentials
+                }
+            }
+            throw AppError.wrongCredentials
+        } catch {
+            throw error
+        }
+    }
+    
+    
+    //MARK: - isUsernameAvailable
+    func isUsernameAvailable(username: String) async -> Bool {
+        let ref = db.collection(Constants.Firebase.FireStore.Collection.users).document(username)
+        do {
+            let document = try await ref.getDocument()
+            if document.exists {
+                return false
+            } else {
+                return true
+            }
+        } catch {
+            return false
         }
     }
     

@@ -65,10 +65,6 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
     
     private var bag = DisposeBag()
     
-    private func isUsernameAvailble(username: String) async -> Bool {
-        return await databaseManager.isUsernameAvailable(username: username)
-    }
-    
     func registerUser() async -> Single<Void> {
         let newUser = RegistrationModels.Request.CreatedUserProfile(email   : data[Constants.Key.Auth.email]!,
                                                                     fullName: data[Constants.Key.Auth.fullName]!,
@@ -109,7 +105,7 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
         
         presenter.addLoadingIndicator()
         
-        guard await isUsernameAvailble(username: username) else {
+        guard await isUsernameAvailable(username: username) else {
             presenter.showError(with: "Username already taken")
             presenter.removeLoadingIndicator()
             return false
@@ -151,6 +147,10 @@ class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
         index = 0
         
         presenter.resetRegistration(mainTextFieldPlaceholder: processes[index].placeholder, buttonSetTitle: processes[index].buttonTitle, titleLableText: processes[index].title)
+    }
+    
+    private func isUsernameAvailable(username: String) async -> Bool {
+        return await authenticationManager.isUsernameAvailable(username: username)
     }
     
     func nextEntry() {

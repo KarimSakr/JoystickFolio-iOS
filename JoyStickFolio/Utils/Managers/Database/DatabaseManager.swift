@@ -18,55 +18,7 @@ final class DatabaseManager {
     //MARK: - Local Database
     private let persistence = Persistence.instance
     private let keychains = Keychains.shared
-    
 
-    
-    func fetchGames() -> Observable<[Game]>{
-        return APIClient.shared
-            .request(router: .fetchGames)
-    }
-    
-    //MARK: - isUsernameAvailable
-    func isUsernameAvailable(username: String) async -> Bool {
-        let ref = db.collection(Constants.Firebase.FireStore.Collection.users).document(username)
-        do {
-            let document = try await ref.getDocument()
-            if document.exists {
-                return false
-            } else {
-                return true
-            }
-        } catch {
-            return false
-        }
-    }
-    
-    //MARK: - fetchEmail
-    func fetchEmail(of username: String) async throws -> String {
-        
-        do {
-            let query = try await db
-                .collection(Constants.Firebase.FireStore.Collection.users)
-                .whereField(Constants.Key.Auth.username, isEqualTo: username)
-                .getDocuments()
-            
-            for document in query.documents {
-                
-                if document.exists {
-                    
-                    let data = document.data()
-                    return data[Constants.Key.Auth.email] as! String
-                } else {
-                    
-                    throw AppError.wrongCredentials
-                }
-            }
-            throw AppError.wrongCredentials
-        } catch {
-            throw error
-        }
-    }
-    
     //MARK: - saveIgdbInfo
     func saveIgdbInfo(igdb: IGDBAuth) throws {
         let expiryDate = calculateExpiryDate(expiresIn: igdb.expiresIn)
