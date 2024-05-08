@@ -68,6 +68,14 @@
 		EFADD3C52BE91CD9002BE61C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = EFADD3C42BE91CD9002BE61C /* Moya */; };
 		EFADD3C72BE91CD9002BE61C /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EFADD3C62BE91CD9002BE61C /* ReactiveMoya */; };
 		EFADD3C92BE91CD9002BE61C /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EFADD3C82BE91CD9002BE61C /* RxMoya */; };
+		EFADD3D32BE9200F002BE61C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFADD3CC2BE9200F002BE61C /* Login.storyboard */; };
+		EFADD3D42BE9200F002BE61C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3CD2BE9200F002BE61C /* LoginPresenter.swift */; };
+		EFADD3D52BE9200F002BE61C /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3CE2BE9200F002BE61C /* LoginRouter.swift */; };
+		EFADD3D62BE9200F002BE61C /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3CF2BE9200F002BE61C /* LoginModels.swift */; };
+		EFADD3D72BE9200F002BE61C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D02BE9200F002BE61C /* LoginViewController.swift */; };
+		EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */; };
+		EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */; };
+		EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3DD2BE93A5D002BE61C /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +105,14 @@
 		EF4E67C32BCC751600FEC8EE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EFADD3BD2BE903D4002BE61C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EFADD3BF2BE90E5B002BE61C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		EFADD3CC2BE9200F002BE61C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		EFADD3CD2BE9200F002BE61C /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		EFADD3CE2BE9200F002BE61C /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		EFADD3CF2BE9200F002BE61C /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		EFADD3D02BE9200F002BE61C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
+		EFADD3DD2BE93A5D002BE61C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +223,7 @@
 		7F063B5F2B1CC96B0075B6A7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EFADD3CA2BE91FEC002BE61C /* Onboarding */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -233,6 +250,7 @@
 			children = (
 				7F063B672B1CE5B70075B6A7 /* UIView.swift */,
 				7F071CE32B7508E6008D8739 /* Bundle.swift */,
+				EFADD3DD2BE93A5D002BE61C /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,6 +347,28 @@
 				EFADD3BF2BE90E5B002BE61C /* APIClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EFADD3CA2BE91FEC002BE61C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EFADD3CB2BE91FF6002BE61C /* Login */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		EFADD3CB2BE91FF6002BE61C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EFADD3CC2BE9200F002BE61C /* Login.storyboard */,
+				EFADD3CD2BE9200F002BE61C /* LoginPresenter.swift */,
+				EFADD3CE2BE9200F002BE61C /* LoginRouter.swift */,
+				EFADD3CF2BE9200F002BE61C /* LoginModels.swift */,
+				EFADD3D02BE9200F002BE61C /* LoginViewController.swift */,
+				EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */,
+				EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +476,7 @@
 			files = (
 				7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */,
 				7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */,
+				EFADD3D32BE9200F002BE61C /* Login.storyboard in Resources */,
 				EF4E67C22BCC74E100FEC8EE /* GoogleService-Info.plist in Resources */,
 				EF4E67C42BCC751600FEC8EE /* Config.plist in Resources */,
 				7F063B512B1CBAC20075B6A7 /* Main.storyboard in Resources */,
@@ -450,6 +491,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFADD3C02BE90E5B002BE61C /* APIClient.swift in Sources */,
+				EFADD3D42BE9200F002BE61C /* LoginPresenter.swift in Sources */,
+				EFADD3D52BE9200F002BE61C /* LoginRouter.swift in Sources */,
+				EFADD3D62BE9200F002BE61C /* LoginModels.swift in Sources */,
+				EFADD3D72BE9200F002BE61C /* LoginViewController.swift in Sources */,
+				EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */,
+				EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */,
 				7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */,
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
@@ -457,6 +504,7 @@
 				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
 				7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */,
 				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
+				EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */,
 				7FD7E8A62B795545000BE278 /* Game.swift in Sources */,
 				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
 				EFADD3BE2BE903D4002BE61C /* NetworkManager.swift in Sources */,
