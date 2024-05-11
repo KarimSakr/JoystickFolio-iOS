@@ -55,7 +55,7 @@ extension LoginInteractor: LoginViewControllerOutput{
 extension LoginInteractor {
     fileprivate
     func userEmail(usernameEmail: String) async throws -> String {
-        if usernameEmail.isEmail() == true {
+        if !usernameEmail.isEmail() {
             // username used
             return try await fetchEmail(of: usernameEmail)
         } else {

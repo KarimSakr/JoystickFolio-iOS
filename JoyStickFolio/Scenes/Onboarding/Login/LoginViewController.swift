@@ -118,21 +118,12 @@ class LoginViewController: UIViewController {
 //MARK:- View Lifecycle
 extension LoginViewController{
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        LoginConfigurator.shared.configure(viewController: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
-        
+        LoginConfigurator.shared.configure(viewController: self)
         addMainSubviews()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -215,19 +206,22 @@ extension LoginViewController {
 extension LoginViewController {
     
     @objc private func didTapLoginButton() {
+        
+        guard let interactor = interactor else { return }
         Task {
             startLoading()
-            await interactor!.login(usernameEmail: usernameEmailField.text ?? "" ,password: passwordField.text ?? "")
+            await interactor.login(usernameEmail: usernameEmailField.text ?? "" ,password: passwordField.text ?? "")
                 .observe(on: MainScheduler.instance)
                 .subscribe { [weak self] authResult in
                     guard let self = self else { return }
+                    self.stopLoading()
                     self.dismiss(animated: true, completion: nil)
                 } onFailure: { [weak self] error in
                     guard let self = self else { return }
                     self.showSnackbar(with: error.localizedDescription)
+                    self.stopLoading()
                 }
                 .disposed(by: disposeBag)
-            stopLoading()
         }
 
     }
