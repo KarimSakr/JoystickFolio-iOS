@@ -16,7 +16,6 @@
 		7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE32B7508E6008D8739 /* Bundle.swift */; };
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
 		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
-		7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */; };
 		7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F362B76E9CA007DF271 /* Persistence.swift */; };
 		7F434F392B76ED21007DF271 /* Keychains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F382B76ED21007DF271 /* Keychains.swift */; };
 		7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F434F3B2B76F002007DF271 /* KeychainErrors.swift */; };
@@ -60,6 +59,12 @@
 		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
 		7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF328632B4023C400FACB58 /* AppSnackBar.swift */; };
 		7FFA06682B6813DB0007B192 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA06672B6813DB0007B192 /* AppError.swift */; };
+		EF0CDE132BEEEE270059741F /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE0D2BEEEE270059741F /* RegistrationPresenter.swift */; };
+		EF0CDE142BEEEE270059741F /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE0E2BEEEE270059741F /* RegistrationRouter.swift */; };
+		EF0CDE152BEEEE270059741F /* RegistrationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE0F2BEEEE270059741F /* RegistrationModels.swift */; };
+		EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE102BEEEE270059741F /* RegistrationViewController.swift */; };
+		EF0CDE172BEEEE270059741F /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */; };
+		EF0CDE182BEEEE270059741F /* RegistrationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */; };
 		EF4270C92BEE48B200BACC8E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4270C22BEE48B200BACC8E /* Profile.storyboard */; };
 		EF4270CA2BEE48B200BACC8E /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */; };
 		EF4270CB2BEE48B200BACC8E /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */; };
@@ -109,7 +114,6 @@
 		7F071CE32B7508E6008D8739 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
-		7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidator.swift; sourceTree = "<group>"; };
 		7F434F362B76E9CA007DF271 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7F434F382B76ED21007DF271 /* Keychains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychains.swift; sourceTree = "<group>"; };
 		7F434F3B2B76F002007DF271 /* KeychainErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainErrors.swift; sourceTree = "<group>"; };
@@ -120,6 +124,12 @@
 		7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaltyicsEvent.swift; sourceTree = "<group>"; };
 		7FF328632B4023C400FACB58 /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
 		7FFA06672B6813DB0007B192 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		EF0CDE0D2BEEEE270059741F /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		EF0CDE0E2BEEEE270059741F /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		EF0CDE0F2BEEEE270059741F /* RegistrationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModels.swift; sourceTree = "<group>"; };
+		EF0CDE102BEEEE270059741F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
+		EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfigurator.swift; sourceTree = "<group>"; };
 		EF4270C22BEE48B200BACC8E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
@@ -227,7 +237,6 @@
 				7F063B5F2B1CC96B0075B6A7 /* Scenes */,
 				7F063B5E2B1CC9620075B6A7 /* Reusable Views */,
 				EFADD3BC2BE902DB002BE61C /* Network */,
-				7F3FACC42B1FB12000F47247 /* Validator */,
 				7F3FACC12B1FAA6200F47247 /* Animation */,
 				7F3FACBE2B1FA81000F47247 /* Enums */,
 				7F063B662B1CE5A40075B6A7 /* Extensions */,
@@ -311,14 +320,6 @@
 				7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */,
 			);
 			path = Animation;
-			sourceTree = "<group>";
-		};
-		7F3FACC42B1FB12000F47247 /* Validator */ = {
-			isa = PBXGroup;
-			children = (
-				7F3FACC52B1FB14B00F47247 /* AuthValidator.swift */,
-			);
-			path = Validator;
 			sourceTree = "<group>";
 		};
 		7F434F352B76E9B4007DF271 /* Local Database */ = {
@@ -450,6 +451,7 @@
 		EFADD3CA2BE91FEC002BE61C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				EFF434C32BEEED6C0095A776 /* Registration */,
 				EFADD3CB2BE91FF6002BE61C /* Login */,
 			);
 			path = Onboarding;
@@ -466,6 +468,19 @@
 				EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		EFF434C32BEEED6C0095A776 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				EF0CDE0D2BEEEE270059741F /* RegistrationPresenter.swift */,
+				EF0CDE0E2BEEEE270059741F /* RegistrationRouter.swift */,
+				EF0CDE0F2BEEEE270059741F /* RegistrationModels.swift */,
+				EF0CDE102BEEEE270059741F /* RegistrationViewController.swift */,
+				EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */,
+				EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,7 +620,6 @@
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7F434F392B76ED21007DF271 /* Keychains.swift in Sources */,
-				7F3FACC62B1FB14B00F47247 /* AuthValidator.swift in Sources */,
 				7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */,
 				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
 				EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */,
@@ -616,6 +630,12 @@
 				EF4270DA2BEE49AA00BACC8E /* HamburgerMenuPresenter.swift in Sources */,
 				EF4270DB2BEE49AA00BACC8E /* HamburgerMenuRouter.swift in Sources */,
 				EF4270DC2BEE49AA00BACC8E /* HamburgerMenuModels.swift in Sources */,
+				EF0CDE132BEEEE270059741F /* RegistrationPresenter.swift in Sources */,
+				EF0CDE142BEEEE270059741F /* RegistrationRouter.swift in Sources */,
+				EF0CDE152BEEEE270059741F /* RegistrationModels.swift in Sources */,
+				EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */,
+				EF0CDE172BEEEE270059741F /* RegistrationInteractor.swift in Sources */,
+				EF0CDE182BEEEE270059741F /* RegistrationConfigurator.swift in Sources */,
 				EF4270DD2BEE49AA00BACC8E /* HamburgerMenuViewController.swift in Sources */,
 				EF4270DE2BEE49AA00BACC8E /* HamburgerMenuInteractor.swift in Sources */,
 				EF4270DF2BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift in Sources */,

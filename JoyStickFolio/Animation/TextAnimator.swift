@@ -9,7 +9,7 @@ import Foundation
 
 class TextAnimator {
     
-    func animateTitle(text: String, timeInterval: TimeInterval, completion: @escaping (Character) -> Void) {
+    static func animateTitle(text: String, timeInterval: TimeInterval, completion: @escaping (Character) -> Void) {
         var charIndex = 0.0
         let titleText = text
         for letter in titleText {

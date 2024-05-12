@@ -32,11 +32,11 @@ extension LoginRouter {
     }
     
     func goToCreateAccount(completion: (() -> Void)? = nil) {
-//        let vc = RegistrationViewController()
-//        vc.title = "Create Account"
-//        vc.dismissalCompletion = {
-//            completion?()
-//        }
-//        viewController.present(UINavigationController(rootViewController: vc), animated: true)
+        let vc = RegistrationViewController()
+        vc.title = "Create Account"
+        vc.dismissalCompletion = {
+            completion?()
+        }
+        viewController.present(UINavigationController(rootViewController: vc), animated: true)
     }
 }

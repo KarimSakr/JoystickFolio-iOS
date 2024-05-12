@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     var interactor: LoginViewControllerOutput?
     var router: LoginRouter?
     
-    private let animator = TextAnimator()
     private var disposeBag = DisposeBag()
     
     private lazy var usernameEmailField: UITextField = {
@@ -273,7 +272,7 @@ extension LoginViewController {
     
     func animateText() {
         titleLabel.text = ""
-        animator.animateTitle(text: "JoystickFolio", timeInterval: 0.1) { letter in
+        TextAnimator.animateTitle(text: "JoystickFolio", timeInterval: 0.1) { letter in
             self.titleLabel.text?.append(letter)
         }
     }
