@@ -100,6 +100,12 @@
 		EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */; };
 		EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */; };
 		EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3DD2BE93A5D002BE61C /* String.swift */; };
+		EFFA34ED2BF104C800DE53F7 /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */; };
+		EFFA34EE2BF104C800DE53F7 /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */; };
+		EFFA34EF2BF104C800DE53F7 /* ExploreModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */; };
+		EFFA34F02BF104C800DE53F7 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */; };
+		EFFA34F12BF104C800DE53F7 /* ExploreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */; };
+		EFFA34F22BF104C800DE53F7 /* ExploreConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +167,12 @@
 		EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		EFADD3DD2BE93A5D002BE61C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
+		EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
+		EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreModels.swift; sourceTree = "<group>"; };
+		EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractor.swift; sourceTree = "<group>"; };
+		EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,8 +282,8 @@
 		7F063B5F2B1CC96B0075B6A7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				EF4270D02BEE498A00BACC8E /* General */,
 				EFA86A192BEBA641009B0B0D /* Core Tabs */,
+				EF4270D02BEE498A00BACC8E /* General */,
 				EFADD3CA2BE91FEC002BE61C /* Onboarding */,
 			);
 			path = Scenes;
@@ -419,8 +431,9 @@
 		EFA86A192BEBA641009B0B0D /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				EF4270C12BEE48A200BACC8E /* Profile */,
 				EFA86A1A2BEBA64B009B0B0D /* Home */,
+				EFFA34E62BF104B400DE53F7 /* Explore */,
+				EF4270C12BEE48A200BACC8E /* Profile */,
 			);
 			path = "Core Tabs";
 			sourceTree = "<group>";
@@ -481,6 +494,19 @@
 				EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		EFFA34E62BF104B400DE53F7 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */,
+				EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */,
+				EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */,
+				EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */,
+				EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */,
+				EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -624,6 +650,12 @@
 				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
 				EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */,
 				EFA86A222BEBA65D009B0B0D /* HomePresenter.swift in Sources */,
+				EFFA34ED2BF104C800DE53F7 /* ExplorePresenter.swift in Sources */,
+				EFFA34EE2BF104C800DE53F7 /* ExploreRouter.swift in Sources */,
+				EFFA34EF2BF104C800DE53F7 /* ExploreModels.swift in Sources */,
+				EFFA34F02BF104C800DE53F7 /* ExploreViewController.swift in Sources */,
+				EFFA34F12BF104C800DE53F7 /* ExploreInteractor.swift in Sources */,
+				EFFA34F22BF104C800DE53F7 /* ExploreConfigurator.swift in Sources */,
 				EFA86A232BEBA65D009B0B0D /* HomeRouter.swift in Sources */,
 				EFA86A242BEBA65D009B0B0D /* HomeModels.swift in Sources */,
 				EFA86A252BEBA65D009B0B0D /* HomeViewController.swift in Sources */,
