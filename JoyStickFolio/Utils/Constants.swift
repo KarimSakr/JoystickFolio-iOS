@@ -13,11 +13,7 @@ struct Constants {
     
     
     //MARK: - Url
-    struct Url {
-        static let baseUrl = "https://api.igdb.com/v4"
-        static let twitchAuth = "https://id.twitch.tv/oauth2/token"
-        
-    }
+    struct Url {}
     
     //MARK: - Keys
     struct Key{
