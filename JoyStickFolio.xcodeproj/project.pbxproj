@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7F063B4A2B1CBAC20075B6A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */; };
 		7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */; };
-		7F063B512B1CBAC20075B6A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B4F2B1CBAC20075B6A7 /* Main.storyboard */; };
 		7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B522B1CBAC40075B6A7 /* Assets.xcassets */; };
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
 		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
@@ -65,6 +64,7 @@
 		EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE102BEEEE270059741F /* RegistrationViewController.swift */; };
 		EF0CDE172BEEEE270059741F /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */; };
 		EF0CDE182BEEEE270059741F /* RegistrationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */; };
+		EF12600D2BF110930097F91E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF12600C2BF110930097F91E /* TabBarViewController.swift */; };
 		EF4270CA2BEE48B200BACC8E /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */; };
 		EF4270CB2BEE48B200BACC8E /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */; };
 		EF4270CC2BEE48B200BACC8E /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C52BEE48B200BACC8E /* ProfileModels.swift */; };
@@ -122,7 +122,6 @@
 		7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyStickFolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F063B502B1CBAC20075B6A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F063B522B1CBAC40075B6A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F063B552B1CBAC40075B6A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +145,7 @@
 		EF0CDE102BEEEE270059741F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
 		EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfigurator.swift; sourceTree = "<group>"; };
+		EF12600C2BF110930097F91E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		EF4270C52BEE48B200BACC8E /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
@@ -264,6 +264,7 @@
 			children = (
 				7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */,
 				7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */,
+				EF12600A2BF10FDA0097F91E /* Tab Bar Controller */,
 				7F063B5D2B1CC9420075B6A7 /* Models */,
 				7F063B622B1CD7780075B6A7 /* Storyboards */,
 				7F063B5F2B1CC96B0075B6A7 /* Scenes */,
@@ -321,7 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */,
-				7F063B4F2B1CBAC20075B6A7 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -411,6 +411,14 @@
 				7FF328632B4023C400FACB58 /* AppSnackBar.swift */,
 			);
 			path = SnackBar;
+			sourceTree = "<group>";
+		};
+		EF12600A2BF10FDA0097F91E /* Tab Bar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EF12600C2BF110930097F91E /* TabBarViewController.swift */,
+			);
+			path = "Tab Bar Controller";
 			sourceTree = "<group>";
 		};
 		EF4270C12BEE48A200BACC8E /* Profile */ = {
@@ -662,7 +670,6 @@
 				7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */,
 				EF4E67C22BCC74E100FEC8EE /* GoogleService-Info.plist in Resources */,
 				EF4E67C42BCC751600FEC8EE /* Config.plist in Resources */,
-				7F063B512B1CBAC20075B6A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +692,7 @@
 				EFADD3D62BE9200F002BE61C /* LoginModels.swift in Sources */,
 				EF4270CA2BEE48B200BACC8E /* ProfilePresenter.swift in Sources */,
 				EF4270CB2BEE48B200BACC8E /* ProfileRouter.swift in Sources */,
+				EF12600D2BF110930097F91E /* TabBarViewController.swift in Sources */,
 				EF4270CC2BEE48B200BACC8E /* ProfileModels.swift in Sources */,
 				EF4270CD2BEE48B200BACC8E /* ProfileViewController.swift in Sources */,
 				EF4270CE2BEE48B200BACC8E /* ProfileInteractor.swift in Sources */,
@@ -746,14 +754,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7F063B4F2B1CBAC20075B6A7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7F063B502B1CBAC20075B6A7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -899,7 +899,6 @@
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -931,7 +930,6 @@
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
