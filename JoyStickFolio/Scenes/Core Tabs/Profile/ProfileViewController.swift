@@ -25,13 +25,9 @@ class ProfileViewController: UIViewController {
 //MARK: - View Lifecycle -
 extension ProfileViewController{
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        ProfileConfigurator.shared.configure(viewController: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ProfileConfigurator.shared.configure(viewController: self)
         configureNavigationBar()
      
     }
