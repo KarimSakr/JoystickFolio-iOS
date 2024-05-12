@@ -86,7 +86,6 @@
 		EFA86A252BEBA65D009B0B0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1F2BEBA65D009B0B0D /* HomeViewController.swift */; };
 		EFA86A262BEBA65D009B0B0D /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A202BEBA65D009B0B0D /* HomeInteractor.swift */; };
 		EFA86A272BEBA65D009B0B0D /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A212BEBA65D009B0B0D /* HomeConfigurator.swift */; };
-		EFA86A282BEBA65D009B0B0D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFA86A1B2BEBA65D009B0B0D /* Home.storyboard */; };
 		EFADD3BE2BE903D4002BE61C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3BD2BE903D4002BE61C /* NetworkManager.swift */; };
 		EFADD3C02BE90E5B002BE61C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3BF2BE90E5B002BE61C /* APIClient.swift */; };
 		EFADD3C32BE91CD9002BE61C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EFADD3C22BE91CD9002BE61C /* CombineMoya */; };
@@ -151,7 +150,6 @@
 		EF4270D82BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuConfigurator.swift; sourceTree = "<group>"; };
 		EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF4E67C32BCC751600FEC8EE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		EFA86A1B2BEBA65D009B0B0D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 		EFA86A1A2BEBA64B009B0B0D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				EFA86A1B2BEBA65D009B0B0D /* Home.storyboard */,
 				EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */,
 				EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */,
 				EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */,
@@ -612,7 +609,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFA86A282BEBA65D009B0B0D /* Home.storyboard in Resources */,
 				7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */,
 				EF4270C92BEE48B200BACC8E /* Profile.storyboard in Resources */,
 				7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */,

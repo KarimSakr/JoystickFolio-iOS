@@ -26,13 +26,9 @@ class HomeViewController: UIViewController {
 //MARK: - View Lifecycle -
 extension HomeViewController{
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        HomeConfigurator.shared.configure(viewController: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        HomeConfigurator.shared.configure(viewController: self)
         configureNavigationBar()
         validateIgdb()
      
