@@ -110,6 +110,12 @@
 		EFFA34FD2BF107A000DE53F7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34F72BF107A000DE53F7 /* EventsViewController.swift */; };
 		EFFA34FE2BF107A000DE53F7 /* EventsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34F82BF107A000DE53F7 /* EventsInteractor.swift */; };
 		EFFA34FF2BF107A000DE53F7 /* EventsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34F92BF107A000DE53F7 /* EventsConfigurator.swift */; };
+		EFFA35072BF1099600DE53F7 /* ThreadsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA35012BF1099600DE53F7 /* ThreadsPresenter.swift */; };
+		EFFA35082BF1099600DE53F7 /* ThreadsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA35022BF1099600DE53F7 /* ThreadsRouter.swift */; };
+		EFFA35092BF1099600DE53F7 /* ThreadsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA35032BF1099600DE53F7 /* ThreadsModels.swift */; };
+		EFFA350A2BF1099600DE53F7 /* ThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA35042BF1099600DE53F7 /* ThreadsViewController.swift */; };
+		EFFA350B2BF1099600DE53F7 /* ThreadsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA35052BF1099600DE53F7 /* ThreadsInteractor.swift */; };
+		EFFA350C2BF1099600DE53F7 /* ThreadsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA35062BF1099600DE53F7 /* ThreadsConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,6 +187,12 @@
 		EFFA34F72BF107A000DE53F7 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		EFFA34F82BF107A000DE53F7 /* EventsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsInteractor.swift; sourceTree = "<group>"; };
 		EFFA34F92BF107A000DE53F7 /* EventsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsConfigurator.swift; sourceTree = "<group>"; };
+		EFFA35012BF1099600DE53F7 /* ThreadsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsPresenter.swift; sourceTree = "<group>"; };
+		EFFA35022BF1099600DE53F7 /* ThreadsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsRouter.swift; sourceTree = "<group>"; };
+		EFFA35032BF1099600DE53F7 /* ThreadsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsModels.swift; sourceTree = "<group>"; };
+		EFFA35042BF1099600DE53F7 /* ThreadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsViewController.swift; sourceTree = "<group>"; };
+		EFFA35052BF1099600DE53F7 /* ThreadsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsInteractor.swift; sourceTree = "<group>"; };
+		EFFA35062BF1099600DE53F7 /* ThreadsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +453,7 @@
 				EFA86A1A2BEBA64B009B0B0D /* Home */,
 				EFFA34E62BF104B400DE53F7 /* Explore */,
 				EFFA34F32BF1075800DE53F7 /* Events */,
+				EFFA35002BF1098700DE53F7 /* Threads */,
 				EF4270C12BEE48A200BACC8E /* Profile */,
 			);
 			path = "Core Tabs";
@@ -527,6 +540,19 @@
 				EFFA34F92BF107A000DE53F7 /* EventsConfigurator.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		EFFA35002BF1098700DE53F7 /* Threads */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA35012BF1099600DE53F7 /* ThreadsPresenter.swift */,
+				EFFA35022BF1099600DE53F7 /* ThreadsRouter.swift */,
+				EFFA35032BF1099600DE53F7 /* ThreadsModels.swift */,
+				EFFA35042BF1099600DE53F7 /* ThreadsViewController.swift */,
+				EFFA35052BF1099600DE53F7 /* ThreadsInteractor.swift */,
+				EFFA35062BF1099600DE53F7 /* ThreadsConfigurator.swift */,
+			);
+			path = Threads;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -690,6 +716,12 @@
 				EF0CDE142BEEEE270059741F /* RegistrationRouter.swift in Sources */,
 				EF0CDE152BEEEE270059741F /* RegistrationModels.swift in Sources */,
 				EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */,
+				EFFA35072BF1099600DE53F7 /* ThreadsPresenter.swift in Sources */,
+				EFFA35082BF1099600DE53F7 /* ThreadsRouter.swift in Sources */,
+				EFFA35092BF1099600DE53F7 /* ThreadsModels.swift in Sources */,
+				EFFA350A2BF1099600DE53F7 /* ThreadsViewController.swift in Sources */,
+				EFFA350B2BF1099600DE53F7 /* ThreadsInteractor.swift in Sources */,
+				EFFA350C2BF1099600DE53F7 /* ThreadsConfigurator.swift in Sources */,
 				EF0CDE172BEEEE270059741F /* RegistrationInteractor.swift in Sources */,
 				EF0CDE182BEEEE270059741F /* RegistrationConfigurator.swift in Sources */,
 				EF4270DD2BEE49AA00BACC8E /* HamburgerMenuViewController.swift in Sources */,
