@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         return field
     }()
     
-    private lazy var passwordField: UITextField = {
+    lazy var passwordField: UITextField = {
         let field = UITextField()
         field.isSecureTextEntry = true
         field.placeholder  = "Password..."
@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
         return field
     }()
     
-    private lazy var loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Log in", for: .normal)
         button.layer.masksToBounds = true
@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private lazy var createAccountButton: UIButton = {
+    lazy var createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create an account?", for: .normal)
         button.layer.masksToBounds = true
@@ -80,14 +80,14 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private lazy var headerView: UIView = {
+    lazy var headerView: UIView = {
         let header = UIView()
         header.clipsToBounds = true
         header.translatesAutoresizingMaskIntoConstraints = false
         return header
     }()
     
-    private lazy var gradientLayer: CAGradientLayer = {
+    lazy var gradientLayer: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.purpleApp.cgColor, UIColor.pinkApp.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
@@ -95,7 +95,7 @@ class LoginViewController: UIViewController {
         return gradient
     }()
     
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.textAlignment = .center
@@ -104,7 +104,7 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    private lazy var activityIndicator: UIActivityIndicatorView = {
+    lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -205,6 +205,9 @@ extension LoginViewController {
 extension LoginViewController {
     
     @objc private func didTapLoginButton() {
+        
+        usernameEmailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
         
         guard let interactor = interactor else { return }
         Task {
