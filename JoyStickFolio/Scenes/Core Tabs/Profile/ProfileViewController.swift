@@ -29,7 +29,8 @@ extension ProfileViewController{
         super.viewDidLoad()
         ProfileConfigurator.shared.configure(viewController: self)
         configureNavigationBar()
-     
+        addBottomGradient(color: .purpleApp, alpha: 0.3)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +42,10 @@ extension ProfileViewController{
 extension ProfileViewController {
     
     private func configureNavigationBar() {
-        let hamburgerMenu = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .done, target: self, action: #selector(hamburgerMenuPressed))
+        let hamburgerMenu = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"),
+                                            style: .done,
+                                            target: self,
+                                            action: #selector(hamburgerMenuPressed))
         
         navigationItem.rightBarButtonItem = hamburgerMenu
     }

@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
     var router: HomeRouter?
     private var disposeBag = DisposeBag()
     var handle: AuthStateDidChangeListenerHandle?
-    
 }
 
 //MARK: - View Lifecycle -
@@ -31,7 +30,7 @@ extension HomeViewController{
         HomeConfigurator.shared.configure(viewController: self)
         configureNavigationBar()
         validateIgdb()
-     
+        addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     
     override func viewWillAppear(_ animated: Bool) {

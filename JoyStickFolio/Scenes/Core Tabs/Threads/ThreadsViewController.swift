@@ -28,6 +28,7 @@ extension ThreadsViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         ThreadsConfigurator.shared.configure(viewController: self)
+        addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     
 }

@@ -51,6 +51,7 @@ extension ExploreViewController{
         view.backgroundColor = .systemBackground
         navigationItem.searchController = searchController
         view.addSubview(collectionView)
+        addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     
     override func viewDidLayoutSubviews() {
