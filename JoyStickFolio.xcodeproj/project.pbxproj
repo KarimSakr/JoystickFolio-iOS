@@ -47,11 +47,6 @@
 		7FA5C4202B6238F10019E90F /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C41F2B6238F10019E90F /* FirebaseRemoteConfigSwift */; };
 		7FA5C4222B6238F10019E90F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C4212B6238F10019E90F /* FirebaseStorage */; };
 		7FA5C4242B6238F10019E90F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C4232B6238F10019E90F /* FirebaseStorageCombine-Community */; };
-		7FC002032B62E15E00007581 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002022B62E15E00007581 /* RxBlocking */; };
-		7FC002052B62E15E00007581 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002042B62E15E00007581 /* RxBlocking-Dynamic */; };
-		7FC002072B62E15E00007581 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002062B62E15E00007581 /* RxCocoa */; };
-		7FC002092B62E15E00007581 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC002082B62E15E00007581 /* RxCocoa-Dynamic */; };
-		7FC0020B2B62E15E00007581 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC0020A2B62E15E00007581 /* RxRelay */; };
 		7FD7E8A62B795545000BE278 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8A52B795545000BE278 /* Game.swift */; };
 		7FD7E8AF2B7972E2000BE278 /* GamePosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8AE2B7972E2000BE278 /* GamePosterCollectionViewCell.swift */; };
 		7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */; };
@@ -79,6 +74,9 @@
 		EF4270DF2BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270D82BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift */; };
 		EF4E67C22BCC74E100FEC8EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */; };
 		EF4E67C42BCC751600FEC8EE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C32BCC751600FEC8EE /* Config.plist */; };
+		EFA7E3792BF924AF0054B24B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */; };
+		EFA7E37C2BF937280054B24B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7E37B2BF937280054B24B /* GradientView.swift */; };
+		EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */; };
 		EFA86A222BEBA65D009B0B0D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */; };
 		EFA86A232BEBA65D009B0B0D /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */; };
 		EFA86A242BEBA65D009B0B0D /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */; };
@@ -160,6 +158,8 @@
 		EF4270D82BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuConfigurator.swift; sourceTree = "<group>"; };
 		EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF4E67C32BCC751600FEC8EE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		EFA7E37B2BF937280054B24B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 		EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -202,7 +202,6 @@
 			files = (
 				7FA5C40E2B6238F10019E90F /* FirebaseFunctions in Frameworks */,
 				7FA5C4042B6238F10019E90F /* FirebaseDatabaseSwift in Frameworks */,
-				7FC002032B62E15E00007581 /* RxBlocking in Frameworks */,
 				7FA5C4142B6238F10019E90F /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				EFADD3C32BE91CD9002BE61C /* CombineMoya in Frameworks */,
 				EFADD3C72BE91CD9002BE61C /* ReactiveMoya in Frameworks */,
@@ -211,19 +210,16 @@
 				7FA5C3FE2B6238F10019E90F /* FirebaseAuthCombine-Community in Frameworks */,
 				7FA5C40A2B6238F10019E90F /* FirebaseFirestoreCombine-Community in Frameworks */,
 				7FA5C3F42B6238F10019E90F /* FirebaseAnalyticsSwift in Frameworks */,
-				7FC002052B62E15E00007581 /* RxBlocking-Dynamic in Frameworks */,
 				7FA5C4182B6238F10019E90F /* FirebaseMLModelDownloader in Frameworks */,
 				7FA5C3F62B6238F10019E90F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				7FA5C3F02B6238F10019E90F /* FirebaseAnalytics in Frameworks */,
 				7FA5C40C2B6238F10019E90F /* FirebaseFirestoreSwift in Frameworks */,
-				7FC002072B62E15E00007581 /* RxCocoa in Frameworks */,
+				EFA7E3792BF924AF0054B24B /* IQKeyboardManagerSwift in Frameworks */,
 				7FA5C3F22B6238F10019E90F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
-				7FC002092B62E15E00007581 /* RxCocoa-Dynamic in Frameworks */,
 				7FA5C3F82B6238F10019E90F /* FirebaseAppCheck in Frameworks */,
 				7FA5C41C2B6238F10019E90F /* FirebasePerformance in Frameworks */,
 				7FA5C4122B6238F10019E90F /* FirebaseInAppMessaging-Beta in Frameworks */,
 				7FA5C4102B6238F10019E90F /* FirebaseFunctionsCombine-Community in Frameworks */,
-				7FC0020B2B62E15E00007581 /* RxRelay in Frameworks */,
 				7FA5C4002B6238F10019E90F /* FirebaseCrashlytics in Frameworks */,
 				7FA5C4162B6238F10019E90F /* FirebaseInstallations in Frameworks */,
 				7FA5C41E2B6238F10019E90F /* FirebaseRemoteConfig in Frameworks */,
@@ -248,6 +244,7 @@
 			children = (
 				7F063B482B1CBAC20075B6A7 /* JoyStickFolio */,
 				7F063B472B1CBAC20075B6A7 /* Products */,
+				EFB6302E2BFA079A00E4E7F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,6 +291,7 @@
 		7F063B5E2B1CC9620075B6A7 /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
+				EFA7E37A2BF937140054B24B /* GradientView */,
 				7FD7E8AC2B797298000BE278 /* Cells */,
 				7FF328622B40239B00FACB58 /* SnackBar */,
 			);
@@ -332,6 +330,7 @@
 				7F063B672B1CE5B70075B6A7 /* UIView.swift */,
 				7F071CE32B7508E6008D8739 /* Bundle.swift */,
 				EFADD3DD2BE93A5D002BE61C /* String.swift */,
+				EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -455,6 +454,14 @@
 			path = HamburgerMenu;
 			sourceTree = "<group>";
 		};
+		EFA7E37A2BF937140054B24B /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				EFA7E37B2BF937280054B24B /* GradientView.swift */,
+			);
+			path = GradientView;
+			sourceTree = "<group>";
+		};
 		EFA86A192BEBA641009B0B0D /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +516,13 @@
 				EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		EFB6302E2BFA079A00E4E7F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EFF434C32BEEED6C0095A776 /* Registration */ = {
@@ -608,15 +622,11 @@
 				7FA5C41F2B6238F10019E90F /* FirebaseRemoteConfigSwift */,
 				7FA5C4212B6238F10019E90F /* FirebaseStorage */,
 				7FA5C4232B6238F10019E90F /* FirebaseStorageCombine-Community */,
-				7FC002022B62E15E00007581 /* RxBlocking */,
-				7FC002042B62E15E00007581 /* RxBlocking-Dynamic */,
-				7FC002062B62E15E00007581 /* RxCocoa */,
-				7FC002082B62E15E00007581 /* RxCocoa-Dynamic */,
-				7FC0020A2B62E15E00007581 /* RxRelay */,
 				EFADD3C22BE91CD9002BE61C /* CombineMoya */,
 				EFADD3C42BE91CD9002BE61C /* Moya */,
 				EFADD3C62BE91CD9002BE61C /* ReactiveMoya */,
 				EFADD3C82BE91CD9002BE61C /* RxMoya */,
+				EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */,
 			);
 			productName = JoyStickFolio;
 			productReference = 7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */;
@@ -649,8 +659,8 @@
 			packageReferences = (
 				7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */,
 				7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EFADD3C12BE91CD9002BE61C /* XCRemoteSwiftPackageReference "Moya" */,
+				EFA7E3772BF924AF0054B24B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 7F063B472B1CBAC20075B6A7 /* Products */;
 			projectDirPath = "";
@@ -700,6 +710,7 @@
 				EFADD3D72BE9200F002BE61C /* LoginViewController.swift in Sources */,
 				EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */,
 				EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */,
+				EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */,
 				7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */,
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
@@ -727,6 +738,7 @@
 				EFFA35072BF1099600DE53F7 /* ThreadsPresenter.swift in Sources */,
 				EFFA35082BF1099600DE53F7 /* ThreadsRouter.swift in Sources */,
 				EFFA35092BF1099600DE53F7 /* ThreadsModels.swift in Sources */,
+				EFA7E37C2BF937280054B24B /* GradientView.swift in Sources */,
 				EFFA350A2BF1099600DE53F7 /* ThreadsViewController.swift in Sources */,
 				EFFA350B2BF1099600DE53F7 /* ThreadsInteractor.swift in Sources */,
 				EFFA350C2BF1099600DE53F7 /* ThreadsConfigurator.swift in Sources */,
@@ -891,7 +903,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q53JDDZU5Y;
+				DEVELOPMENT_TEAM = P63VAPNRN9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JoyStickFolio/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JoystickFolio;
@@ -922,7 +934,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q53JDDZU5Y;
+				DEVELOPMENT_TEAM = P63VAPNRN9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JoyStickFolio/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JoystickFolio;
@@ -978,20 +990,20 @@
 				minimumVersion = 10.20.0;
 			};
 		};
-		7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.6.0;
-			};
-		};
 		7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.1.2;
+			};
+		};
+		EFA7E3772BF924AF0054B24B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.3;
 			};
 		};
 		EFADD3C12BE91CD9002BE61C /* XCRemoteSwiftPackageReference "Moya" */ = {
@@ -1140,35 +1152,15 @@
 			package = 7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
 		};
-		7FC002022B62E15E00007581 /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		7FC002042B62E15E00007581 /* RxBlocking-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxBlocking-Dynamic";
-		};
-		7FC002062B62E15E00007581 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		7FC002082B62E15E00007581 /* RxCocoa-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxCocoa-Dynamic";
-		};
-		7FC0020A2B62E15E00007581 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FC002012B62E15E00007581 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
 		7FF328602B40232600FACB58 /* SnackBar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */;
 			productName = SnackBar;
+		};
+		EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFA7E3772BF924AF0054B24B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		EFADD3C22BE91CD9002BE61C /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;

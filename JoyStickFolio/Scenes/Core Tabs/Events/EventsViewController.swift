@@ -28,6 +28,7 @@ extension EventsViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         EventsConfigurator.shared.configure(viewController: self)
+        addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     
 }

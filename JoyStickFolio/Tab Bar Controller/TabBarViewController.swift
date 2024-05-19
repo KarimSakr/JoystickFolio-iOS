@@ -47,7 +47,7 @@ extension TabBarViewController {
         let explore = createNav(with: "Explore", and: UIImage(systemName: "magnifyingglass"), vc: ExploreViewController())
         let events = createNav(with: "Events", and: UIImage(systemName: "calendar"), vc: EventsViewController())
         let threads = createNav(with: "Threads", and: UIImage(systemName: "network"), vc: ThreadsViewController())
-        let profile = createNav(with: "Profile", and: UIImage(systemName: "person.circle"), vc: ThreadsViewController())
+        let profile = createNav(with: "Profile", and: UIImage(systemName: "person.circle"), vc: ProfileViewController())
         
         self.setViewControllers([home, explore, events, threads, profile], animated: true)
     }

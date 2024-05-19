@@ -29,13 +29,12 @@ class RegistrationViewController: UIViewController {
     fileprivate var index : Int = 0
     
     fileprivate let processes:[RegistrationModels.ViewModels.RegistrationProcess] = [
-        .init(title: "Well hello there! \nGot a name?", placeholder: "Full Name...", buttonTitle: "Next", process: .enterFullName),
-        .init(title: "Nice to meet you! \nHow can we contact you?", placeholder: "Email...", buttonTitle: "Next", process: .enterEmail),
+        .init(title: "Well hello there!\nGot a name?", placeholder: "Full Name...", buttonTitle: "Next", process: .enterFullName),
+        .init(title: "Nice to meet you!\nHow can we contact you?", placeholder: "Email...", buttonTitle: "Next", process: .enterEmail),
         .init(title: "How about a unique nickname?\nLike everybody else...", placeholder: "Username...", buttonTitle: "Next", process: .enterUsername),
-        .init(title: "How about some privacy? \n No peeking... \nI promise :)", placeholder: "Confirm Password...", buttonTitle: "Submit", process: .enterPassword),
+        .init(title: "How about some privacy?\n No peeking...\nI promise :)", placeholder: "Confirm Password...", buttonTitle: "Submit", process: .enterPassword),
         .init(title: "Creating player...", placeholder: "", buttonTitle: "", process: .loading),
     ]
-    
     
     //MARK: - titleLabel
     lazy var titleLabel: UILabel = {

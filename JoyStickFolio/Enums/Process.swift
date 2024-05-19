@@ -8,5 +8,9 @@
 import Foundation
 
 enum Process {
-    case enterFullName, enterEmail, enterUsername, enterPassword, loading
+    case enterFullName,
+         enterEmail,
+         enterUsername,
+         enterPassword,
+         loading
 }
