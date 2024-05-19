@@ -216,6 +216,9 @@ extension RegistrationViewController {
     @objc fileprivate
     func buttonPressed() {
         
+        mainTextField.resignFirstResponder()
+        secondTextField.resignFirstResponder()
+        
         var isSuccessful: Bool = false
         
         Task {
