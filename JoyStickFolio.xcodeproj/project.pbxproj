@@ -96,6 +96,7 @@
 		EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */; };
 		EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */; };
 		EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3DD2BE93A5D002BE61C /* String.swift */; };
+		EFF1FBEC2BFA653500D8897D /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */; };
 		EFFA34ED2BF104C800DE53F7 /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */; };
 		EFFA34EE2BF104C800DE53F7 /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */; };
 		EFFA34EF2BF104C800DE53F7 /* ExploreModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */; };
@@ -175,6 +176,7 @@
 		EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		EFADD3DD2BE93A5D002BE61C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
 		EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
 		EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreModels.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				7F063B672B1CE5B70075B6A7 /* UIView.swift */,
+				EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */,
 				7F071CE32B7508E6008D8739 /* Bundle.swift */,
 				EFADD3DD2BE93A5D002BE61C /* String.swift */,
 				EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */,
@@ -711,6 +714,7 @@
 				EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */,
 				EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */,
 				EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */,
+				EFF1FBEC2BFA653500D8897D /* JSONSerializable.swift in Sources */,
 				7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */,
 				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
