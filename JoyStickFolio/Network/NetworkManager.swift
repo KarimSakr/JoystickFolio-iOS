@@ -36,27 +36,7 @@ extension NetworkManager: TargetType {
             return Constants.Url.Endpoint.igdbEndpoint.games
         }
     }
-//    
-//    var parameters: [String : String] {
-//        switch self {
-//        case .twitchAuth:
-//            guard let bundle = Bundle.config,
-//                  let dict = NSDictionary(contentsOfFile: bundle) as? [String: Any],
-//                  let clientId = dict[Constants.BundleKey.clientId] as? String,
-//                  let clientSecret = dict[Constants.BundleKey.clientSecret] as? String
-//            else {
-//                return [:]
-//            }
-//            
-//            return [
-//                "client_id" : clientId,
-//                "client_secret" : clientSecret,
-//                "grant_type" : "client_credentials"
-//            ]
-//        default: return [:]
-//        }
-//    }
-//    
+
     var method: Moya.Method {
         switch self {
         default:
@@ -66,6 +46,18 @@ extension NetworkManager: TargetType {
     
     var task: Moya.Task {
         switch self {
+            
+        case .twitchAuth:
+            
+            guard let bundle = Bundle.config,
+                  let dict = NSDictionary(contentsOfFile: bundle) as? [String: Any],
+                  let clientId = dict[Constants.BundleKey.clientId] as? String,
+                  let clientSecret = dict[Constants.BundleKey.clientSecret] as? String
+            else {
+                fatalError("Bundle Error")
+            }
+            
+            return .requestData(try! IGDBBody(client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials").toJSON())
             
         default:
             return .requestPlain
@@ -87,6 +79,17 @@ extension NetworkManager: TargetType {
     }
 }
 
+//MARK: - IGDB request -
+extension NetworkManager {
+    
+    struct IGDBBody: JSONSerializable{
+        var client_id: String
+        var client_secret: String
+        var grant_type: String
+        
+    }
+}
+
 extension Constants.Url {
     
     struct BaseUrl {
@@ -104,59 +107,3 @@ extension Constants.Url {
         }
     }
 }
-
-
-
-/*
- 
-    
-    var endpoint: String {
-       
-    }
-    
-   
-    
-    var body: Data? {
-        switch self {
-            
-        default: return nil
-        }
-    }
-    
-    var method: HTTPMethod {
-        
-        
-    }
-    
-    var type: Decodable.Type {
-        
-        switch self {
-        case .twitchAuth:
-            return IGDBAuth.self
-            
-        case .fetchGames:
-            return [Game].self
-        }
-    }
-    
-    func asURLRequest() throws -> URLRequest {
-        let url = try baseUrl.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(endpoint).appendingQueryParameters(parameters))
-        urlRequest.httpMethod = method.rawValue
-        urlRequest.httpBody = body
-        urlRequest.allHTTPHeaderFields = header
-        return urlRequest
-    }
-
-}
-
-extension URL {
-    func appendingQueryParameters(_ parameters: [String: String]) -> URL {
-        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
-        urlComponents.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
-        return urlComponents.url!
-    }
-}
-
-
- */

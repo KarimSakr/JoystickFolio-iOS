@@ -20,10 +20,7 @@ class Keychains {
             kSecValueData as String: stringData
         ]
         
-        let status = SecItemAdd(keychainAttrs as CFDictionary, nil)
-        guard status == errSecSuccess else {
-            throw KeychainErrors.saveFailure
-        }
+        let _ = SecItemAdd(keychainAttrs as CFDictionary, nil)
         
         do {
             try update(string: object as! String, key: key)
@@ -43,11 +40,7 @@ class Keychains {
             kSecValueData: data!
         ]
         
-        let status = SecItemUpdate(query as CFDictionary, [kSecValueData: data!] as CFDictionary)
-        
-        guard status == errSecSuccess else {
-            throw KeychainErrors.updateFailure
-        }
+        let _ = SecItemUpdate(query as CFDictionary, [kSecValueData: data!] as CFDictionary)
         
     }
     
