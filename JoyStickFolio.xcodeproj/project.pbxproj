@@ -47,7 +47,7 @@
 		7FA5C4202B6238F10019E90F /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C41F2B6238F10019E90F /* FirebaseRemoteConfigSwift */; };
 		7FA5C4222B6238F10019E90F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C4212B6238F10019E90F /* FirebaseStorage */; };
 		7FA5C4242B6238F10019E90F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA5C4232B6238F10019E90F /* FirebaseStorageCombine-Community */; };
-		7FD7E8A62B795545000BE278 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8A52B795545000BE278 /* Game.swift */; };
+		7FD7E8A62B795545000BE278 /* GameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8A52B795545000BE278 /* GameAPI.swift */; };
 		7FD7E8AF2B7972E2000BE278 /* GamePosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7E8AE2B7972E2000BE278 /* GamePosterCollectionViewCell.swift */; };
 		7FE123F62B7057D900610BB1 /* AnaltyicsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */; };
 		7FF328612B40232600FACB58 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF328602B40232600FACB58 /* SnackBar */; };
@@ -72,6 +72,10 @@
 		EF4270DD2BEE49AA00BACC8E /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270D62BEE49AA00BACC8E /* HamburgerMenuViewController.swift */; };
 		EF4270DE2BEE49AA00BACC8E /* HamburgerMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270D72BEE49AA00BACC8E /* HamburgerMenuInteractor.swift */; };
 		EF4270DF2BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270D82BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift */; };
+		EF4A17042C03A9F500C2EC21 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EF4A17032C03A9F500C2EC21 /* SDWebImage */; };
+		EF4A17062C03A9F500C2EC21 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF4A17052C03A9F500C2EC21 /* SDWebImageMapKit */; };
+		EF4BEAC62C02869100786BAC /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BEAC52C02869100786BAC /* TypeAlias.swift */; };
+		EF4BEAC82C028B3E00786BAC /* CoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BEAC72C028B3E00786BAC /* CoverAPI.swift */; };
 		EF4E67C22BCC74E100FEC8EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */; };
 		EF4E67C42BCC751600FEC8EE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C32BCC751600FEC8EE /* Config.plist */; };
 		EFA7E3792BF924AF0054B24B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */; };
@@ -133,7 +137,7 @@
 		7F434F3B2B76F002007DF271 /* KeychainErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainErrors.swift; sourceTree = "<group>"; };
 		7F5D64AE2B1E625E00E9669E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBAuth.swift; sourceTree = "<group>"; };
-		7FD7E8A52B795545000BE278 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7FD7E8A52B795545000BE278 /* GameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAPI.swift; sourceTree = "<group>"; };
 		7FD7E8AE2B7972E2000BE278 /* GamePosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE123F52B7057D900610BB1 /* AnaltyicsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaltyicsEvent.swift; sourceTree = "<group>"; };
 		7FF328632B4023C400FACB58 /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		EF4270D62BEE49AA00BACC8E /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		EF4270D72BEE49AA00BACC8E /* HamburgerMenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuInteractor.swift; sourceTree = "<group>"; };
 		EF4270D82BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuConfigurator.swift; sourceTree = "<group>"; };
+		EF4BEAC52C02869100786BAC /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
+		EF4BEAC72C028B3E00786BAC /* CoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverAPI.swift; sourceTree = "<group>"; };
 		EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF4E67C32BCC751600FEC8EE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EFA7E37B2BF937280054B24B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 				7FA5C40C2B6238F10019E90F /* FirebaseFirestoreSwift in Frameworks */,
 				EFA7E3792BF924AF0054B24B /* IQKeyboardManagerSwift in Frameworks */,
 				7FA5C3F22B6238F10019E90F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				EF4A17042C03A9F500C2EC21 /* SDWebImage in Frameworks */,
 				7FA5C3F82B6238F10019E90F /* FirebaseAppCheck in Frameworks */,
 				7FA5C41C2B6238F10019E90F /* FirebasePerformance in Frameworks */,
 				7FA5C4122B6238F10019E90F /* FirebaseInAppMessaging-Beta in Frameworks */,
@@ -227,6 +234,7 @@
 				7FA5C41E2B6238F10019E90F /* FirebaseRemoteConfig in Frameworks */,
 				7FA5C4222B6238F10019E90F /* FirebaseStorage in Frameworks */,
 				7FA5C4022B6238F10019E90F /* FirebaseDatabase in Frameworks */,
+				EF4A17062C03A9F500C2EC21 /* SDWebImageMapKit in Frameworks */,
 				7FA5C4242B6238F10019E90F /* FirebaseStorageCombine-Community in Frameworks */,
 				EFADD3C92BE91CD9002BE61C /* RxMoya in Frameworks */,
 				7FF328612B40232600FACB58 /* SnackBar in Frameworks */,
@@ -271,8 +279,8 @@
 				EFADD3BC2BE902DB002BE61C /* Network */,
 				7F3FACC12B1FAA6200F47247 /* Animation */,
 				7F3FACBE2B1FA81000F47247 /* Enums */,
-				7F063B662B1CE5A40075B6A7 /* Extensions */,
 				7F434F352B76E9B4007DF271 /* Local Database */,
+				7F063B662B1CE5A40075B6A7 /* Extensions */,
 				7F063B602B1CCA170075B6A7 /* Utils */,
 				7F063B522B1CBAC40075B6A7 /* Assets.xcassets */,
 				EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */,
@@ -314,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
+				EF4BEAC42C02867000786BAC /* TypeAlias */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -386,7 +395,8 @@
 		7FD7E8A42B795538000BE278 /* Games */ = {
 			isa = PBXGroup;
 			children = (
-				7FD7E8A52B795545000BE278 /* Game.swift */,
+				7FD7E8A52B795545000BE278 /* GameAPI.swift */,
+				EF4BEAC72C028B3E00786BAC /* CoverAPI.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -394,7 +404,6 @@
 		7FD7E8AC2B797298000BE278 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7FD7E8AD2B7972B1000BE278 /* Collection Cells */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -455,6 +464,14 @@
 				EF4270D82BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift */,
 			);
 			path = HamburgerMenu;
+			sourceTree = "<group>";
+		};
+		EF4BEAC42C02867000786BAC /* TypeAlias */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BEAC52C02869100786BAC /* TypeAlias.swift */,
+			);
+			path = TypeAlias;
 			sourceTree = "<group>";
 		};
 		EFA7E37A2BF937140054B24B /* GradientView */ = {
@@ -550,6 +567,7 @@
 				EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */,
 				EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */,
 				EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */,
+				7FD7E8AD2B7972B1000BE278 /* Collection Cells */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -630,6 +648,8 @@
 				EFADD3C62BE91CD9002BE61C /* ReactiveMoya */,
 				EFADD3C82BE91CD9002BE61C /* RxMoya */,
 				EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */,
+				EF4A17032C03A9F500C2EC21 /* SDWebImage */,
+				EF4A17052C03A9F500C2EC21 /* SDWebImageMapKit */,
 			);
 			productName = JoyStickFolio;
 			productReference = 7F063B462B1CBAC20075B6A7 /* JoyStickFolio.app */;
@@ -664,6 +684,7 @@
 				7FA5C3EE2B6238F10019E90F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				EFADD3C12BE91CD9002BE61C /* XCRemoteSwiftPackageReference "Moya" */,
 				EFA7E3772BF924AF0054B24B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				EF4A17022C03A9F500C2EC21 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 7F063B472B1CBAC20075B6A7 /* Products */;
 			projectDirPath = "";
@@ -697,6 +718,7 @@
 				EFADD3D42BE9200F002BE61C /* LoginPresenter.swift in Sources */,
 				EFADD3D52BE9200F002BE61C /* LoginRouter.swift in Sources */,
 				EFFA34FA2BF107A000DE53F7 /* EventsPresenter.swift in Sources */,
+				EF4BEAC82C028B3E00786BAC /* CoverAPI.swift in Sources */,
 				EFFA34FB2BF107A000DE53F7 /* EventsRouter.swift in Sources */,
 				EFFA34FC2BF107A000DE53F7 /* EventsModels.swift in Sources */,
 				EFFA34FD2BF107A000DE53F7 /* EventsViewController.swift in Sources */,
@@ -723,6 +745,7 @@
 				7F6E6FCE2B73C7F200F0D64C /* IGDBAuth.swift in Sources */,
 				EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */,
 				EFA86A222BEBA65D009B0B0D /* HomePresenter.swift in Sources */,
+				EF4BEAC62C02869100786BAC /* TypeAlias.swift in Sources */,
 				EFFA34ED2BF104C800DE53F7 /* ExplorePresenter.swift in Sources */,
 				EFFA34EE2BF104C800DE53F7 /* ExploreRouter.swift in Sources */,
 				EFFA34EF2BF104C800DE53F7 /* ExploreModels.swift in Sources */,
@@ -753,7 +776,7 @@
 				EF4270DF2BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift in Sources */,
 				EFA86A262BEBA65D009B0B0D /* HomeInteractor.swift in Sources */,
 				EFA86A272BEBA65D009B0B0D /* HomeConfigurator.swift in Sources */,
-				7FD7E8A62B795545000BE278 /* Game.swift in Sources */,
+				7FD7E8A62B795545000BE278 /* GameAPI.swift in Sources */,
 				7FF328642B4023C400FACB58 /* AppSnackBar.swift in Sources */,
 				EFADD3BE2BE903D4002BE61C /* NetworkManager.swift in Sources */,
 				7F5D64AF2B1E625E00E9669E /* Constants.swift in Sources */,
@@ -1002,6 +1025,14 @@
 				minimumVersion = 0.1.2;
 			};
 		};
+		EF4A17022C03A9F500C2EC21 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.2;
+			};
+		};
 		EFA7E3772BF924AF0054B24B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1160,6 +1191,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7FF3285F2B40232600FACB58 /* XCRemoteSwiftPackageReference "SnackBar" */;
 			productName = SnackBar;
+		};
+		EF4A17032C03A9F500C2EC21 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF4A17022C03A9F500C2EC21 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		EF4A17052C03A9F500C2EC21 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF4A17022C03A9F500C2EC21 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 		EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

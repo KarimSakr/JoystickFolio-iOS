@@ -10,7 +10,8 @@ import Moya
 enum NetworkManager {
     
     case twitchAuth,
-         fetchGames
+         getGames(_ offset: Int),
+         getCovers(_ gameIds: [Int])
 }
 
 
@@ -32,8 +33,11 @@ extension NetworkManager: TargetType {
         case .twitchAuth:
             return Constants.Url.Endpoint.TwitchAuthEndpoint.tokenAuth
             
-        case .fetchGames:
+        case .getGames:
             return Constants.Url.Endpoint.igdbEndpoint.games
+            
+        case .getCovers:
+            return Constants.Url.Endpoint.igdbEndpoint.covers
         }
     }
 
@@ -57,18 +61,40 @@ extension NetworkManager: TargetType {
                 fatalError("Bundle Error")
             }
             
-            return .requestData(try! IGDBBody(client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials").toJSON())
+            return .requestParameters(parameters: [
+                "client_id"     : clientId,
+                "client_secret" : clientSecret,
+                "grant_type"    : "client_credentials",
+            ], encoding: URLEncoding.httpBody)
             
-        default:
-            return .requestPlain
+        case .getGames(let offset):
+            return .requestData("fields cover, name; limit 10; offset \(offset);".data(using: .utf8)!)
+            
+        case .getCovers(let gameIds):
+            return .requestData("fields url; where id = (\(gameIds.map({String($0)}).joined(separator: ",")));".data(using: .utf8)!)
+            
+//        default:
+//            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        default:
+        case .twitchAuth:
             return [
                 "Content-Type": "application/json"
+            ]
+            
+        default:
+            guard let bundle = Bundle.config,
+                  let dict = NSDictionary(contentsOfFile: bundle) as? [String: Any],
+                  let clientId = dict[Constants.BundleKey.clientId] as? String
+            else {
+                fatalError("Bundle Error")
+            }
+            return [
+                "Client-ID": clientId,
+                "Authorization": "Bearer \( try! Keychains.shared.getValue(key: Constants.Key.Persistence.accessToken))",
             ]
         }
     }
@@ -76,17 +102,6 @@ extension NetworkManager: TargetType {
     
     var validationType : ValidationType {
         return .successCodes
-    }
-}
-
-//MARK: - IGDB request -
-extension NetworkManager {
-    
-    struct IGDBBody: JSONSerializable{
-        var client_id: String
-        var client_secret: String
-        var grant_type: String
-        
     }
 }
 
@@ -104,6 +119,7 @@ extension Constants.Url {
         
         struct igdbEndpoint {
             static let games = "games"
+            static let covers = "covers"
         }
     }
 }

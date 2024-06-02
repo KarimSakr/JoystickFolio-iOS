@@ -10,13 +10,20 @@ import UIKit
 import RxSwift
 
 protocol ExploreViewControllerOutput {
-    
+    func getGames(offset: Int) -> Single<[ExploreModels.ViewModels.Game]>
+    func getCovers(gameIds: [Int]) -> Single<[ExploreModels.ViewModels.Cover]>
 }
 
 class ExploreViewController: UIViewController {
     
     var interactor: ExploreViewControllerOutput?
     var router: ExploreRouter?
+    
+    fileprivate
+    var bag = DisposeBag()
+    
+    fileprivate
+    var games: [ExploreModels.ViewModels.Game] = [ExploreModels.ViewModels.Game]()
     
     lazy var searchController: UISearchController = {
        let search = UISearchController(searchResultsController: nil)
@@ -30,9 +37,7 @@ class ExploreViewController: UIViewController {
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
-        
         collectionView.register(GamePosterCollectionViewCell.self, forCellWithReuseIdentifier: GamePosterCollectionViewCell.identifier)
-        
         collectionView.alwaysBounceHorizontal = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,16 +47,20 @@ class ExploreViewController: UIViewController {
     
 }
 
-//MARK:- View Lifecycle
-extension ExploreViewController{
+//MARK: - View Lifecycle -
+extension ExploreViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ExploreConfigurator.shared.configure(viewController: self)
-        view.backgroundColor = .systemBackground
+        // check how to add bottom gradient as background
+        addBottomGradient(color: .purpleApp, alpha: 0.3)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         navigationItem.searchController = searchController
         view.addSubview(collectionView)
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
+        getGames()
+        view.backgroundColor = .systemBackground
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,49 +76,90 @@ extension ExploreViewController{
     
 }
 
-//// MARK: Functions
-//extension ExploreViewController {
-//
-//}
-//
-////MARK: - UISearchResultsUpdating
-//extension ExploreViewController: UISearchResultsUpdating {
-//
-//    //MARK: - updateSearchResults
-//    //TODO: Find a way to search on button pressed, not on character typing
-//    func updateSearchResults(for searchController: UISearchController) {
-//        guard let text = searchController.searchBar.text else { return }
-//           print(text)
-//    }
-//}
-//
-////MARK: - UICollectionViewDelegate | UICollectionViewDelegate
-//extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return viewModel.games.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GamePosterCollectionViewCell.identifier, for: indexPath) as? GamePosterCollectionViewCell else {
-//            fatalError("Failed to dequeue GamePosterCollectionViewCell in HomeViewController")
-//        }
-//
-//        cell.configure(with: viewModel.games[indexPath.item])
-//        return cell
-//    }
-//}
-//
-////MARK: - UICollectionViewDelegateFlowLayout
-//extension ExploreViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        return CGSize(width: 140, height: 200)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 20
-//    }
-//}
-//
+//MARK: - UISearchResultsUpdating
+extension ExploreViewController: UISearchResultsUpdating {
+
+    //MARK: - updateSearchResults
+    //TODO: Find a way to search on button pressed, not on character typing
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+           print(text)
+    }
+}
+
+//MARK: - UICollectionViewDelegate | UICollectionViewDelegate
+extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return games.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GamePosterCollectionViewCell.identifier, for: indexPath) as? GamePosterCollectionViewCell else {
+            fatalError("Failed to dequeue GamePosterCollectionViewCell in HomeViewController")
+        }
+
+        cell.configure(with: games[indexPath.item])
+        return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+extension ExploreViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: 140, height: 200)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+}
+
+//MARK: - Functions -
+extension ExploreViewController {
+    fileprivate
+    func reloadData() {
+        collectionView.reloadData()
+    }
+}
+
+
+//MARK: - Fetch Data -
+extension ExploreViewController {
+    
+    fileprivate
+    func getGames() {
+        interactor!
+            .getGames(offset: 0)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] games in
+                guard let self = self else { return }
+                self.games.append(contentsOf: games)
+                self.reloadData()
+                self.getCovers()
+            }, onFailure: {[weak self] error in
+                guard let self = self else { return }
+                self.showSnackBar(message: error.localizedDescription)
+            }).disposed(by: bag)
+    }
+    
+    fileprivate
+    func getCovers() {
+        interactor!
+            .getCovers(gameIds: self.games.compactMap({$0.cover}))
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] covers in
+                guard let self = self else { return }
+                for (index, cover) in covers.enumerated() {
+                    self.games[index].imageUrl = covers.filter({$0.id == self.games[index].cover}).first?.url
+                }
+                self.reloadData()
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                self.showSnackBar(message: error.localizedDescription)
+            }).disposed(by: bag)
+    }
+}
+

@@ -13,5 +13,15 @@ struct ExploreModels {
     
     struct ViewModels {
         
+        struct Game {
+            var name : String?
+            var cover: Int?
+            var imageUrl: String?
+        }
+        
+        struct Cover {
+            var id : Int?
+            var url: String?
+        }
     }
 }

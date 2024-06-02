@@ -26,4 +26,18 @@ class APIClient {
             .map(IGDBAuth.self)
     }
     
+    func getGames(offset: Int) -> Single<[GameAPI]> {
+        return self.provider
+            .rx
+            .request(.getGames(offset))
+            .map([GameAPI].self)
+    }
+    
+    func getCovers(gameIds: [Int]) -> Single<[CoverAPI]> {
+        return self.provider
+            .rx
+            .request(.getCovers(gameIds))
+            .map([CoverAPI].self)
+    }
+    
 }

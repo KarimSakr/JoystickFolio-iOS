@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  GameAPI.swift
 //  JoyStickFolio
 //
 //  Created by Karim Sakr on 11/02/2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game: Codable {
+struct GameAPI: Codable {
     
     var id               : Int?    = nil
     var ageRatings       : [Int]?  = []

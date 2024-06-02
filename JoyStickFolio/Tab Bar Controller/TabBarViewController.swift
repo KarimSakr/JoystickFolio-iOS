@@ -9,32 +9,32 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    lazy var tabBarBackground: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        
-        let radius = self.tabBar.bounds.width * 3
-        let centerX = self.tabBar.bounds.midX
-        let tabBarHeight = self.tabBar.frame.height
-        
-        
-        let path = UIBezierPath(arcCenter: CGPoint(x: centerX, y: radius - (tabBarHeight - 30)),
-                                radius: radius,
-                                startAngle: 0,
-                                endAngle: CGFloat.pi,
-                                clockwise: false)
-        
-        layer.path = path.cgPath
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        layer.shadowOpacity = 0.3
-        
-        return layer
-    }()
+//    lazy var tabBarBackground: CAShapeLayer = {
+//        let layer = CAShapeLayer()
+//        
+//        let radius = self.tabBar.bounds.width * 3
+//        let centerX = self.tabBar.bounds.midX
+//        let tabBarHeight = self.tabBar.frame.height
+//        
+//        
+//        let path = UIBezierPath(arcCenter: CGPoint(x: centerX, y: radius - (tabBarHeight - 30)),
+//                                radius: radius,
+//                                startAngle: 0,
+//                                endAngle: CGFloat.pi,
+//                                clockwise: false)
+//        
+//        layer.path = path.cgPath
+//        layer.shadowColor = UIColor.lightGray.cgColor
+//        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//        layer.shadowOpacity = 0.3
+//        
+//        return layer
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabs()
-        self.tabBar.layer.insertSublayer(tabBarBackground, at: 0)
+//        self.tabBar.layer.insertSublayer(tabBarBackground, at: 0)
         self.tabBar.itemPositioning = .centered
     }
 }

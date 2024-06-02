@@ -65,7 +65,7 @@ extension HomeViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onFailure: { [weak self] error in
                 guard let self = self else { return }
-                AppSnackBar.make(in: self.view!, message: "Something went wrong: \n\(error.localizedDescription)", duration: .lengthShort).show()
+                self.showSnackBar(message: "Something went wrong: \n\(error.localizedDescription)")
             })
             .disposed(by: self.disposeBag)
 
