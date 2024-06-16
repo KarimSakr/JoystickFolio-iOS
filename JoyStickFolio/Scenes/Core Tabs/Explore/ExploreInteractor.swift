@@ -17,11 +17,10 @@ protocol ExploreInteractorOutput {
 }
 
 protocol ExploreDataStore {
-    var games: [GameAPI] { get set}
+    var games: [GameAPI] { get set }
 }
 
 class ExploreInteractor: ExploreDataStore {
-    
     var presenter: ExploreInteractorOutput?
     var games: [GameAPI] = [GameAPI]()
 }

@@ -102,6 +102,11 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.configure(with: games[indexPath.item])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! GamePosterCollectionViewCell
+        router?.goToDetailsVC(index: indexPath.item, coverImage: cell.imagePoster.image ?? UIImage())
+    }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
@@ -152,7 +157,7 @@ extension ExploreViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] covers in
                 guard let self = self else { return }
-                for (index, cover) in covers.enumerated() {
+                for (index, _) in covers.enumerated() {
                     self.games[index].imageUrl = covers.filter({$0.id == self.games[index].cover}).first?.url
                 }
                 self.reloadData()

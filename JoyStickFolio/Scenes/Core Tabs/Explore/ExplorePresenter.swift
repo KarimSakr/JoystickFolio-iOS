@@ -29,8 +29,8 @@ extension ExplorePresenter {
     fileprivate
     func createGame(model: GameAPI) -> ExploreModels.ViewModels.Game {
         
-        return ExploreModels.ViewModels.Game(name: model.name, 
-                                             cover: model.cover)
+        return ExploreModels.ViewModels.Game(cover: model.cover,
+                                             name: model.name)
     }
     
     fileprivate

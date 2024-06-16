@@ -13,15 +13,15 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
     
     var game: ExploreModels.ViewModels.Game = ExploreModels.ViewModels.Game()
     
-    private let imagePoster: UIImageView = {
-       let iv = UIImageView()
+    lazy var imagePoster: UIImageView = {
+        let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.tintColor = .white
         iv.clipsToBounds = true
         return iv
     }()
     
-    private let gameTitleLabel: UILabel = {
+    lazy var gameTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Game Title"
         label.numberOfLines = 2

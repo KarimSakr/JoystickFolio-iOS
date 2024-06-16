@@ -23,4 +23,12 @@ class ExploreRouter: ExploreRouterDataPassing {
         self.dataStore = dataStore
     }
     
+    func goToDetailsVC(index: Int, coverImage: UIImage) {
+        let vc = GameDetailsViewController()
+        let game = dataStore!.games[index]
+        vc.router?.dataStore?.game = game
+        vc.router?.dataStore?.coverImage = coverImage
+        viewController.navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }
