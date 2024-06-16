@@ -45,6 +45,15 @@ class ExploreViewController: UIViewController {
     }()
     
     
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        ExploreConfigurator.shared.configure(viewController: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 //MARK: - View Lifecycle -
@@ -52,8 +61,6 @@ extension ExploreViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ExploreConfigurator.shared.configure(viewController: self)
-        // check how to add bottom gradient as background
         addBottomGradient(color: .purpleApp, alpha: 0.3)
         collectionView.delegate = self
         collectionView.dataSource = self
