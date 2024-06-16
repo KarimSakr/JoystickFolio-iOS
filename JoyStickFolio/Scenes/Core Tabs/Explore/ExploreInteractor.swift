@@ -39,7 +39,7 @@ extension ExploreInteractor: ExploreViewControllerOutput {
                         self.games = games
                         single(.success(presenter.didGetGames(model: games)))
                     }, onFailure: { [weak self] error in
-                        guard let self = self else { return single(.failure(AppError.genericAppError))}
+                        guard self != nil else { return single(.failure(AppError.genericAppError))}
                         single(.failure(error))
                     })
             }
@@ -54,7 +54,7 @@ extension ExploreInteractor: ExploreViewControllerOutput {
                         guard let presenter = presenter else { return single(.failure(AppError.genericAppError)) }
                         single(.success(presenter.didGetCovers(model: covers)))
                     }, onFailure: { [weak self] error in
-                        guard let self = self else { return single(.failure(AppError.genericAppError))}
+                        guard self != nil else { return single(.failure(AppError.genericAppError))}
                         single(.failure(error))
                     })
             }

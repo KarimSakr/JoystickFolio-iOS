@@ -144,7 +144,7 @@ extension ExploreViewController {
     fileprivate
     func getGames() {
         interactor!
-            .getGames(offset: 0)
+            .getGames(offset: 1)
             .observe(on: MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] games in
                 guard let self = self else { return }

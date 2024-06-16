@@ -68,7 +68,7 @@ extension NetworkManager: TargetType {
             ], encoding: URLEncoding.httpBody)
             
         case .getGames(let offset):
-            return .requestData("fields cover, name; limit 10; offset \(offset);".data(using: .utf8)!)
+            return .requestData("fields *; limit 1; offset \(offset);".data(using: .utf8)!)
             
         case .getCovers(let gameIds):
             return .requestData("fields url; where id = (\(gameIds.map({String($0)}).joined(separator: ",")));".data(using: .utf8)!)
