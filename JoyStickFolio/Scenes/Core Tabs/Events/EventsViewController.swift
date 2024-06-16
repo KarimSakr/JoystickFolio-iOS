@@ -19,6 +19,14 @@ class EventsViewController: UIViewController {
     var router: EventsRouter?
     
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        EventsConfigurator.shared.configure(viewController: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }
 
@@ -27,7 +35,6 @@ extension EventsViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        EventsConfigurator.shared.configure(viewController: self)
         addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     

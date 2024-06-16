@@ -22,10 +22,15 @@ extension UIViewController {
         }()
         
         view.addSubview(gradientOverlay)
+        view.sendSubviewToBack(gradientOverlay)
         
         gradientOverlay.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         gradientOverlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         gradientOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         gradientOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
+    func showSnackBar(message: String) {
+        AppSnackBar.make(in: self.view!, message: message, duration: .lengthShort).show()
     }
 }

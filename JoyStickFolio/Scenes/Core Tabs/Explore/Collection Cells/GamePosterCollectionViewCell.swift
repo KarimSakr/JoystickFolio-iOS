@@ -6,21 +6,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class GamePosterCollectionViewCell: UICollectionViewCell {
     static let identifier = "GamePosterCollectionViewCell"
     
-    var game: Game = Game()
+    var game: ExploreModels.ViewModels.Game = ExploreModels.ViewModels.Game()
     
-    private let imagePoster: UIImageView = {
-       let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
+    lazy var imagePoster: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
         iv.tintColor = .white
         iv.clipsToBounds = true
         return iv
     }()
     
-    private let gameTitleLabel: UILabel = {
+    lazy var gameTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Game Title"
         label.numberOfLines = 2
@@ -29,13 +30,38 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(with game: Game) {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.clipsToBounds = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.imagePoster.image = nil
+    }
+}
+
+//MARK: - setup -
+extension GamePosterCollectionViewCell {
+    
+    func configure(with game: ExploreModels.ViewModels.Game) {
         
-        gameTitleLabel.text = game.name
+        if let urlString = game.imageUrl {
+            imagePoster.sd_setImage(with: URL(string: "https:" + urlString), placeholderImage: UIImage(named: "JoystickFolioLogo.png"))
+            gameTitleLabel.text = nil
+        } else {
+            imagePoster.image = UIImage(named: "JoystickFolioLogo.png")
+            gameTitleLabel.text = game.name
+        }
         self.setupUI()
     }
     
-    private func setupUI() {
+    fileprivate
+    func setupUI() {
         
         self.backgroundColor = .systemGray6
         
@@ -55,10 +81,5 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
             gameTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             gameTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
         ])
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.imagePoster.image = nil
     }
 }

@@ -14,7 +14,8 @@ enum AppError: LocalizedError {
          configFileMissing,
          missingClientId,
          missingClientSecret,
-         sessionExpired
+         sessionExpired,
+    genericAppError
     
     
     var errorDescription: String? {
@@ -36,6 +37,9 @@ enum AppError: LocalizedError {
             
         case .sessionExpired:
             return "Current session has expired."
+            
+        case .genericAppError:
+            return "Generic error occured."
         }
     }
 }

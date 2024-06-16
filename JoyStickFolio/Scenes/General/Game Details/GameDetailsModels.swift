@@ -1,18 +1,18 @@
 //
-//  ExploreModels.swift
+//  GameDetailsModels.swift
 //  JoyStickFolio
 //
-//  Created by Karim Sakr on 12/05/2024.
+//  Created by Karim Sakr on 02/06/2024.
 //  Copyright (c) 2024 Karim Sakr. All rights reserved.
 //
 
 import RxSwift
 import Foundation
+import UIKit
 
-struct ExploreModels {
+struct GameDetailsModels {
     
     struct ViewModels {
-        
         struct Game {
             var id               : Int?
             var ageRatings       : [Int]?
@@ -38,12 +38,7 @@ struct ExploreModels {
             var versionTitle     : String?
             var checksum         : String?
             
-            var imageUrl: String?
-        }
-        
-        struct Cover {
-            var id : Int?
-            var url: String?
+            var image: UIImage?
         }
     }
 }

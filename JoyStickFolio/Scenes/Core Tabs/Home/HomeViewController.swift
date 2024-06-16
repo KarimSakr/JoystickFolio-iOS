@@ -20,6 +20,15 @@ class HomeViewController: UIViewController {
     var router: HomeRouter?
     private var disposeBag = DisposeBag()
     var handle: AuthStateDidChangeListenerHandle?
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        HomeConfigurator.shared.configure(viewController: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 //MARK: - View Lifecycle -
@@ -27,7 +36,6 @@ extension HomeViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        HomeConfigurator.shared.configure(viewController: self)
         configureNavigationBar()
         validateIgdb()
         addBottomGradient(color: .purpleApp, alpha: 0.3)
@@ -65,7 +73,7 @@ extension HomeViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onFailure: { [weak self] error in
                 guard let self = self else { return }
-                AppSnackBar.make(in: self.view!, message: "Something went wrong: \n\(error.localizedDescription)", duration: .lengthShort).show()
+                self.showSnackBar(message: "Something went wrong: \n\(error.localizedDescription)")
             })
             .disposed(by: self.disposeBag)
 

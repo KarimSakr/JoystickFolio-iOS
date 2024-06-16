@@ -19,6 +19,14 @@ class ThreadsViewController: UIViewController {
     var router: ThreadsRouter?
     
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        ThreadsConfigurator.shared.configure(viewController: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }
 
@@ -27,7 +35,6 @@ extension ThreadsViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ThreadsConfigurator.shared.configure(viewController: self)
         addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     

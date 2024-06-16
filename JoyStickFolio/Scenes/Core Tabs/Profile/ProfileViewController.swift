@@ -19,7 +19,14 @@ class ProfileViewController: UIViewController {
     var router: ProfileRouter?
     
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        ProfileConfigurator.shared.configure(viewController: self)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 //MARK: - View Lifecycle -
@@ -27,7 +34,6 @@ extension ProfileViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProfileConfigurator.shared.configure(viewController: self)
         configureNavigationBar()
         addBottomGradient(color: .purpleApp, alpha: 0.3)
         
