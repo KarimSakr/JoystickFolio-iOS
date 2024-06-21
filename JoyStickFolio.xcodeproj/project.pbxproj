@@ -60,6 +60,7 @@
 		EF0CDE172BEEEE270059741F /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */; };
 		EF0CDE182BEEEE270059741F /* RegistrationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */; };
 		EF12600D2BF110930097F91E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF12600C2BF110930097F91E /* TabBarViewController.swift */; };
+		EF3DDF482C20C8100015145E /* PlatformCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3DDF472C20C8100015145E /* PlatformCollectionViewCell.swift */; };
 		EF4270CA2BEE48B200BACC8E /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */; };
 		EF4270CB2BEE48B200BACC8E /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */; };
 		EF4270CC2BEE48B200BACC8E /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C52BEE48B200BACC8E /* ProfileModels.swift */; };
@@ -154,6 +155,7 @@
 		EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
 		EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfigurator.swift; sourceTree = "<group>"; };
 		EF12600C2BF110930097F91E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		EF3DDF472C20C8100015145E /* PlatformCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		EF4270C52BEE48B200BACC8E /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
@@ -441,6 +443,14 @@
 			path = "Tab Bar Controller";
 			sourceTree = "<group>";
 		};
+		EF3DDF462C20C7EE0015145E /* Collection Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EF3DDF472C20C8100015145E /* PlatformCollectionViewCell.swift */,
+			);
+			path = "Collection Cells";
+			sourceTree = "<group>";
+		};
 		EF4270C12BEE48A200BACC8E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +566,7 @@
 				EFCF3DD22C0D0F7A000E7BD8 /* GameDetailsViewController.swift */,
 				EFCF3DD32C0D0F7A000E7BD8 /* GameDetailsInteractor.swift */,
 				EFCF3DD42C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift */,
+				EF3DDF462C20C7EE0015145E /* Collection Cells */,
 			);
 			path = "Game Details";
 			sourceTree = "<group>";
@@ -753,6 +764,7 @@
 				EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */,
 				EFF1FBEC2BFA653500D8897D /* JSONSerializable.swift in Sources */,
 				7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */,
+				EF3DDF482C20C8100015145E /* PlatformCollectionViewCell.swift in Sources */,
 				7F063B682B1CE5B70075B6A7 /* UIView + Extensions.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7F434F392B76ED21007DF271 /* Keychains.swift in Sources */,

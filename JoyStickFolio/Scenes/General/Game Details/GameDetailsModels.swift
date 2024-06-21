@@ -46,5 +46,9 @@ struct GameDetailsModels {
             
             var image: UIImage?
         }
+        
+        struct Platform {
+            
+        }
     }
 }
