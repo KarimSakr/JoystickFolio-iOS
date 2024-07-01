@@ -13,7 +13,7 @@ protocol ThreadsViewControllerOutput {
     
 }
 
-class ThreadsViewController: UIViewController {
+class ThreadsViewController: BaseViewController {
     
     var interactor: ThreadsViewControllerOutput?
     var router: ThreadsRouter?
@@ -35,7 +35,6 @@ extension ThreadsViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     
 }

@@ -80,7 +80,6 @@
 		EF4E67C42BCC751600FEC8EE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C32BCC751600FEC8EE /* Config.plist */; };
 		EFA7E3792BF924AF0054B24B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */; };
 		EFA7E37C2BF937280054B24B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7E37B2BF937280054B24B /* GradientView.swift */; };
-		EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */; };
 		EFA86A222BEBA65D009B0B0D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */; };
 		EFA86A232BEBA65D009B0B0D /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */; };
 		EFA86A242BEBA65D009B0B0D /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */; };
@@ -106,6 +105,7 @@
 		EFCF3DD82C0D0F7A000E7BD8 /* GameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD22C0D0F7A000E7BD8 /* GameDetailsViewController.swift */; };
 		EFCF3DD92C0D0F7A000E7BD8 /* GameDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD32C0D0F7A000E7BD8 /* GameDetailsInteractor.swift */; };
 		EFCF3DDA2C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD42C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift */; };
+		EFDDB0872C32B289009998FF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDB0862C32B289009998FF /* BaseViewController.swift */; };
 		EFF1FBEC2BFA653500D8897D /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */; };
 		EFFA34ED2BF104C800DE53F7 /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */; };
 		EFFA34EE2BF104C800DE53F7 /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */; };
@@ -172,7 +172,6 @@
 		EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF4E67C32BCC751600FEC8EE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EFA7E37B2BF937280054B24B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 		EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		EFCF3DD22C0D0F7A000E7BD8 /* GameDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewController.swift; sourceTree = "<group>"; };
 		EFCF3DD32C0D0F7A000E7BD8 /* GameDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsInteractor.swift; sourceTree = "<group>"; };
 		EFCF3DD42C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsConfigurator.swift; sourceTree = "<group>"; };
+		EFDDB0862C32B289009998FF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
 		EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
@@ -283,7 +283,6 @@
 			children = (
 				7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */,
 				7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */,
-				EF12600A2BF10FDA0097F91E /* Tab Bar Controller */,
 				7F063B5D2B1CC9420075B6A7 /* Models */,
 				7F063B622B1CD7780075B6A7 /* Storyboards */,
 				7F063B5F2B1CC96B0075B6A7 /* Scenes */,
@@ -334,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
+				EFDDB0842C32B24C009998FF /* Common */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -353,7 +353,6 @@
 				EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */,
 				7F071CE32B7508E6008D8739 /* Bundle.swift */,
 				EFADD3DD2BE93A5D002BE61C /* String.swift */,
-				EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -571,6 +570,23 @@
 			path = "Game Details";
 			sourceTree = "<group>";
 		};
+		EFDDB0842C32B24C009998FF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EFDDB0852C32B260009998FF /* Base View Controller */,
+				EF12600A2BF10FDA0097F91E /* Tab Bar Controller */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EFDDB0852C32B260009998FF /* Base View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EFDDB0862C32B289009998FF /* BaseViewController.swift */,
+			);
+			path = "Base View Controller";
+			sourceTree = "<group>";
+		};
 		EFF434C32BEEED6C0095A776 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -761,7 +777,6 @@
 				EFADD3D72BE9200F002BE61C /* LoginViewController.swift in Sources */,
 				EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */,
 				EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */,
-				EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */,
 				EFF1FBEC2BFA653500D8897D /* JSONSerializable.swift in Sources */,
 				7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */,
 				EF3DDF482C20C8100015145E /* PlatformCollectionViewCell.swift in Sources */,
@@ -785,6 +800,7 @@
 				EF4270DB2BEE49AA00BACC8E /* HamburgerMenuRouter.swift in Sources */,
 				EF4270DC2BEE49AA00BACC8E /* HamburgerMenuModels.swift in Sources */,
 				EF0CDE132BEEEE270059741F /* RegistrationPresenter.swift in Sources */,
+				EFDDB0872C32B289009998FF /* BaseViewController.swift in Sources */,
 				EF0CDE142BEEEE270059741F /* RegistrationRouter.swift in Sources */,
 				EF0CDE152BEEEE270059741F /* RegistrationModels.swift in Sources */,
 				EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */,

@@ -14,13 +14,10 @@ protocol ExploreViewControllerOutput {
     func getCovers(gameIds: [Int]) -> Single<[ExploreModels.ViewModels.Cover]>
 }
 
-class ExploreViewController: UIViewController {
+class ExploreViewController: BaseViewController {
     
     var interactor: ExploreViewControllerOutput?
     var router: ExploreRouter?
-    
-    fileprivate
-    var bag = DisposeBag()
     
     fileprivate
     var games: [ExploreModels.ViewModels.Game] = [ExploreModels.ViewModels.Game]()
@@ -61,7 +58,6 @@ extension ExploreViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
         collectionView.delegate = self
         collectionView.dataSource = self
         navigationItem.searchController = searchController
@@ -153,7 +149,7 @@ extension ExploreViewController {
                 self.getCovers()
             }, onFailure: {[weak self] error in
                 guard let self = self else { return }
-                self.showSnackBar(message: error.localizedDescription)
+                self.showSnackBar(with: error.localizedDescription)
             }).disposed(by: bag)
     }
     
@@ -170,7 +166,7 @@ extension ExploreViewController {
                 self.reloadData()
             }, onFailure: { [weak self] error in
                 guard let self = self else { return }
-                self.showSnackBar(message: error.localizedDescription)
+                self.showSnackBar(with: error.localizedDescription)
             }).disposed(by: bag)
     }
 }

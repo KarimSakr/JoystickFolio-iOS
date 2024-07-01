@@ -13,7 +13,7 @@ protocol GameDetailsViewControllerOutput {
     func getGame() -> Single<GameDetailsModels.ViewModels.Game>
 }
 
-class GameDetailsViewController: UIViewController {
+class GameDetailsViewController: BaseViewController {
     
     var interactor: GameDetailsViewControllerOutput?
     var router: GameDetailsRouter?
@@ -21,7 +21,6 @@ class GameDetailsViewController: UIViewController {
     var game: GameDetailsModels.ViewModels.Game!
     var platforms: [GameDetailsModels.ViewModels.Platform] = [GameDetailsModels.ViewModels.Platform]()
     
-    private var bag = DisposeBag()
     
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -113,7 +112,6 @@ extension GameDetailsViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
         self.addViews()
         self.getGame()
         self.setupDelegateAndDataSource()
@@ -212,7 +210,7 @@ extension GameDetailsViewController {
                 self.game = game
             } onFailure: { [weak self] error in
                 guard let self = self else { return }
-                self.showSnackBar(message: error.localizedDescription)
+                self.showSnackBar(with: error.localizedDescription)
             }
             .disposed(by: bag)
     }

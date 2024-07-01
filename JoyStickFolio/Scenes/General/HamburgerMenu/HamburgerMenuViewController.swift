@@ -14,7 +14,7 @@ protocol HamburgerMenuViewControllerOutput {
     
 }
 
-class HamburgerMenuViewController: UIViewController {
+class HamburgerMenuViewController: BaseViewController {
     
     var interactor: HamburgerMenuViewControllerOutput?
     var router: HamburgerMenuRouter?
