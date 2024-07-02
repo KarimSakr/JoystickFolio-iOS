@@ -21,21 +21,36 @@ class GameDetailsViewController: BaseViewController {
     var game: GameDetailsModels.ViewModels.Game!
     var platforms: [GameDetailsModels.ViewModels.Platform] = [GameDetailsModels.ViewModels.Platform]()
     
-    
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.alwaysBounceVertical = true
+        scroll.isUserInteractionEnabled = true
+        scroll.showsVerticalScrollIndicator = false
+        scroll.bounces = true
         return scroll
     }()
     
-    lazy var scrollStackViewContainer: UIStackView = {
-        let container = UIStackView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.axis = .vertical
-//        container.backgroundColor = .red
-        return container
+    lazy var containerView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
     }()
     
+    lazy var mainStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fill
+        stack.spacing = 10
+        [headerView,
+         whereToPlayContainerView,
+         platformCollectionView,
+         gameInfoContainerView].forEach { stack.addArrangedSubview($0) }
+        return stack
+    }()
     
     lazy var headerView: UIView = {
         let header = UIView()
@@ -55,7 +70,16 @@ class GameDetailsViewController: BaseViewController {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .title2), size: 25)
+        label.text = "Karim is an homosexual"
+        label.numberOfLines = 0
         return label
+    }()
+    
+    lazy var whereToPlayContainerView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
     }()
     
     lazy var whereToPlayLabel: UILabel = {
@@ -75,7 +99,15 @@ class GameDetailsViewController: BaseViewController {
         collectionView.alwaysBounceHorizontal = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.isScrollEnabled = true
         return collectionView
+    }()
+    
+    lazy var gameInfoContainerView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
     }()
     
     lazy var gameInfoLabel: UILabel = {
@@ -117,33 +149,51 @@ extension GameDetailsViewController {
         self.setupDelegateAndDataSource()
     }
     
+    fileprivate
+    func addViews() {
+        
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(containerView)
+        
+        containerView.addSubview(mainStack)
+        
+        headerView.addSubview(headerPurpleRectangleView)
+        headerView.addSubview(titleLabel)
+        
+        whereToPlayContainerView.addSubview(whereToPlayLabel)
+        
+        gameInfoContainerView.addSubview(gameInfoLabel)
+        gameInfoContainerView.addSubview(gameDescriptionLabel)
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
             
-            // scrollView constraints
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            //ScrollView constraints
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            // scrollViewContainer constraints
-            scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-            scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-            scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
-            scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-            scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
-            scrollStackViewContainer.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor),
+            containerView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             
-            // header view
-            headerView.topAnchor.constraint(equalTo: scrollStackViewContainer.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 250),
+            containerView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
             
-            // rectangle header view
+            //ScrollViewContainer constraints
+            mainStack.topAnchor.constraint(equalTo: containerView.topAnchor),
+            mainStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            mainStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            
+            //Header view
+            headerView.heightAnchor.constraint(equalTo: headerView.widthAnchor, multiplier: 0.56),
+            
             headerPurpleRectangleView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
             headerPurpleRectangleView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             headerPurpleRectangleView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
@@ -151,41 +201,29 @@ extension GameDetailsViewController {
             
             titleLabel.bottomAnchor.constraint(equalTo: headerPurpleRectangleView.topAnchor, constant: -10),
             titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10),
+            titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
             
-            whereToPlayLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 30),
-            whereToPlayLabel.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 10),
+            //Where to Play Container
+            whereToPlayLabel.topAnchor.constraint(equalTo: whereToPlayContainerView.topAnchor),
+            whereToPlayLabel.leadingAnchor.constraint(equalTo: whereToPlayContainerView.leadingAnchor, constant: 10),
+            whereToPlayLabel.centerYAnchor.constraint(equalTo: whereToPlayContainerView.centerYAnchor),
+            whereToPlayLabel.centerXAnchor.constraint(equalTo: whereToPlayContainerView.centerXAnchor),
             
-            platformCollectionView.topAnchor.constraint(equalTo: whereToPlayLabel.bottomAnchor, constant: 10),
-            platformCollectionView.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor),
-            platformCollectionView.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor),
+            //Platform Collection View
             platformCollectionView.heightAnchor.constraint(equalToConstant: 50),
             
-            gameInfoLabel.topAnchor.constraint(equalTo: platformCollectionView.bottomAnchor, constant: 30),
-            gameInfoLabel.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 10),
-            
-            gameDescriptionLabel.topAnchor.constraint(equalTo: gameInfoLabel.bottomAnchor, constant: 10),
-            gameDescriptionLabel.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 10),
-            gameDescriptionLabel.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor, constant: 10),
-        ])
-    }
-    
-}
+            //Game Info View
+            gameInfoLabel.topAnchor.constraint(equalTo: gameInfoContainerView.topAnchor),
+            gameInfoLabel.leadingAnchor.constraint(equalTo: gameInfoContainerView.leadingAnchor, constant: 10),
+            gameInfoLabel.centerXAnchor.constraint(equalTo: gameInfoContainerView.centerXAnchor),
 
-//MARK: - UI -
-extension GameDetailsViewController {
-    
-    fileprivate
-    func addViews() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(scrollStackViewContainer)
+            gameDescriptionLabel.topAnchor.constraint(equalTo: gameInfoLabel.bottomAnchor, constant: 10),
+            gameDescriptionLabel.leadingAnchor.constraint(equalTo: gameInfoContainerView.leadingAnchor, constant: 10),
+            gameDescriptionLabel.bottomAnchor.constraint(equalTo: gameInfoContainerView.bottomAnchor, constant: -10),
+            gameDescriptionLabel.centerXAnchor.constraint(equalTo: gameInfoContainerView.centerXAnchor),
+        ])
         
-        scrollStackViewContainer.addSubview(headerView)
-        headerView.addSubview(headerPurpleRectangleView)
-        headerView.addSubview(titleLabel)
-        scrollStackViewContainer.addSubview(whereToPlayLabel)
-        scrollStackViewContainer.addSubview(platformCollectionView)
-        scrollStackViewContainer.addSubview(gameInfoLabel)
-        scrollStackViewContainer.addSubview(gameDescriptionLabel)
+        mainStack.setCustomSpacing(50, after: headerView)
     }
 }
 
