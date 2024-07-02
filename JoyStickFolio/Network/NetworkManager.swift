@@ -65,7 +65,7 @@ extension NetworkManager: TargetType {
                 "client_id"     : clientId,
                 "client_secret" : clientSecret,
                 "grant_type"    : "client_credentials",
-            ], encoding: URLEncoding.httpBody)
+            ], encoding: URLEncoding.queryString)
             
         case .getGames(let offset):
             return .requestData("fields *; limit 1; offset \(offset);".data(using: .utf8)!)

@@ -18,7 +18,7 @@ class GameDetailsViewController: BaseViewController {
     var interactor: GameDetailsViewControllerOutput?
     var router: GameDetailsRouter?
 
-    var game: GameDetailsModels.ViewModels.Game!
+    var game: GameDetailsModels.ViewModels.Game?
     var platforms: [GameDetailsModels.ViewModels.Platform] = [GameDetailsModels.ViewModels.Platform]()
     
     lazy var scrollView: UIScrollView = {
