@@ -47,5 +47,25 @@ extension GameDetailsPresenter: GameDetailsInteractorOutput {
                                                  image: image)
     }
     
-    
+    func didGetPlatforms(model: [PlatformAPI]) -> [GameDetailsModels.ViewModels.Platform] {
+        return model.map({self.createSinglePlatform(model: $0)})
+    }
+}
+
+//MARK: - Helper Functions -
+extension GameDetailsPresenter {
+    fileprivate 
+    func createSinglePlatform(model: PlatformAPI) -> GameDetailsModels.ViewModels.Platform {
+        return GameDetailsModels.ViewModels.Platform(id: model.id,
+                                                     abbreviation: model.abbreviation,
+                                                     category: model.category,
+                                                     createdAt: model.createdAt,
+                                                     name: model.name,
+                                                     platformLogo: model.platformLogo,
+                                                     slug: model.slug,
+                                                     updatedAt: model.updatedAt,
+                                                     url: model.url,
+                                                     versions: model.versions,
+                                                     checksum: model.checksum)
+    }
 }

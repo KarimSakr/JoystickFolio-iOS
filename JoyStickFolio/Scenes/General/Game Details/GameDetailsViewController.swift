@@ -11,6 +11,7 @@ import RxSwift
 
 protocol GameDetailsViewControllerOutput {
     func getGame() -> Single<GameDetailsModels.ViewModels.Game>
+    func getPlatforms(platformIds: [Int]) -> Single<[GameDetailsModels.ViewModels.Platform]>
 }
 
 class GameDetailsViewController: BaseViewController {
@@ -69,8 +70,7 @@ class GameDetailsViewController: BaseViewController {
     lazy var titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .title2), size: 25)
-        label.text = "Karim is an ayos developer"
+        label.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .title2), size: 20)
         label.numberOfLines = 0
         return label
     }()
@@ -245,6 +245,8 @@ extension GameDetailsViewController {
             .subscribe { [weak self] game in
                 guard let self = self else { return }
                 self.game = game
+                self.updateUI()
+                self.getPlatforms()
             } onFailure: { [weak self] error in
                 guard let self = self else { return }
                 self.showSnackBar(with: error.localizedDescription)
@@ -253,22 +255,45 @@ extension GameDetailsViewController {
     }
     
     fileprivate
+    func getPlatforms() {
+        interactor!
+            .getPlatforms(platformIds: game!.platforms ?? [])
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] platforms in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    self.platforms = platforms
+                    self.platformCollectionView.reloadData()
+                }
+            } onFailure: { [weak self] error in
+                guard let self = self else { return }
+                self.showSnackBar(with: error.localizedDescription)
+            }
+            .disposed(by: bag)
+    }
+    
+}
+
+//MARK: - UI -
+extension GameDetailsViewController {
+    fileprivate
     func updateUI() {
-        
+        titleLabel.text = game?.name
+        gameDescriptionLabel.text = game?.summary
     }
 }
 //MARK: - UICollectionViewDelegate | UICollectionViewDelegate
 extension GameDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return platforms.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlatformCollectionViewCell.identifier, for: indexPath) as! PlatformCollectionViewCell
         
-        cell.configure(/*with: platforms[indexPath.item]*/)
+        cell.configure(platform: platforms[indexPath.item])
         
         return cell
     }

@@ -48,7 +48,17 @@ struct GameDetailsModels {
         }
         
         struct Platform {
-            
+            var id           : Int?   
+            var abbreviation : String?
+            var category     : Int?   
+            var createdAt    : Int?   
+            var name         : String?
+            var platformLogo : Int?   
+            var slug         : String?
+            var updatedAt    : Int?   
+            var url          : String?
+            var versions     : [Int]? 
+            var checksum     : String?
         }
     }
 }

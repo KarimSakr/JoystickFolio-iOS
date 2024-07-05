@@ -13,6 +13,7 @@ import UIKit
 protocol GameDetailsInteractorOutput {
     
     func didGetGame(model: GameAPI, image: UIImage) -> GameDetailsModels.ViewModels.Game
+    func didGetPlatforms(model: [PlatformAPI]) -> [GameDetailsModels.ViewModels.Platform]
     
 }
 
@@ -37,5 +38,18 @@ extension GameDetailsInteractor: GameDetailsViewControllerOutput {
         return Single<GameDetailsModels.ViewModels.Game>.just(presenter.didGetGame(model: game, image: coverImage))
     }
     
-    
+    func getPlatforms(platformIds: [Int]) -> Single<[GameDetailsModels.ViewModels.Platform]> {
+        return Single<[GameDetailsModels.ViewModels.Platform]>
+            .create { single in
+                APIClient.shared.getPlatforms(platformsIds: platformIds)
+                    .subscribe { [weak self] platforms in
+                        guard let self = self else { return single(.failure(AppError.genericAppError)) }
+                        guard let presenter = presenter else{ return single(.failure(AppError.genericAppError)) }
+                        single(.success(presenter.didGetPlatforms(model: platforms)))
+                    } onFailure: { [weak self] error in
+                        guard self != nil else { return single(.failure(AppError.genericAppError)) }
+                        single(.failure(error))
+                    }
+            }
+    }
 }

@@ -9,13 +9,10 @@ import UIKit
 
 class PlatformCollectionViewCell: UICollectionViewCell {
     static let identifier = "PlatformCollectionViewCell"
-    
-    var game: GameDetailsModels.ViewModels.Platform = GameDetailsModels.ViewModels.Platform()
-    
+        
     lazy var platformTitleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.text = "Platform"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,8 +43,8 @@ class PlatformCollectionViewCell: UICollectionViewCell {
 //MARK: - setup -
 extension PlatformCollectionViewCell {
     
-    func configure(/*with platform: GameDetailsModels.ViewModels.Platform*/) {
-        
+    func configure(platform: GameDetailsModels.ViewModels.Platform) {
+        platformTitleLabel.text = platform.name
         self.setupUI()
     }
     

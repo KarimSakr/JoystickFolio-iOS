@@ -99,6 +99,7 @@
 		EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */; };
 		EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */; };
 		EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3DD2BE93A5D002BE61C /* String.swift */; };
+		EFB403052C381D71009A56B4 /* PlatformAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403042C381D71009A56B4 /* PlatformAPI.swift */; };
 		EFCF3DD52C0D0F7A000E7BD8 /* GameDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DCF2C0D0F7A000E7BD8 /* GameDetailsPresenter.swift */; };
 		EFCF3DD62C0D0F7A000E7BD8 /* GameDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD02C0D0F7A000E7BD8 /* GameDetailsRouter.swift */; };
 		EFCF3DD72C0D0F7A000E7BD8 /* GameDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD12C0D0F7A000E7BD8 /* GameDetailsModels.swift */; };
@@ -187,6 +188,7 @@
 		EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		EFADD3DD2BE93A5D002BE61C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		EFB403042C381D71009A56B4 /* PlatformAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAPI.swift; sourceTree = "<group>"; };
 		EFCF3DCF2C0D0F7A000E7BD8 /* GameDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsPresenter.swift; sourceTree = "<group>"; };
 		EFCF3DD02C0D0F7A000E7BD8 /* GameDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsRouter.swift; sourceTree = "<group>"; };
 		EFCF3DD12C0D0F7A000E7BD8 /* GameDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsModels.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 		7F6E6FCC2B73C7D100F0D64C /* API Models */ = {
 			isa = PBXGroup;
 			children = (
+				EFB403032C381D61009A56B4 /* Platforms */,
 				7FD7E8A42B795538000BE278 /* Games */,
 				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
 			);
@@ -547,6 +550,14 @@
 				EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		EFB403032C381D61009A56B4 /* Platforms */ = {
+			isa = PBXGroup;
+			children = (
+				EFB403042C381D71009A56B4 /* PlatformAPI.swift */,
+			);
+			path = Platforms;
 			sourceTree = "<group>";
 		};
 		EFB6302E2BFA079A00E4E7F9 /* Frameworks */ = {
@@ -819,6 +830,7 @@
 				EFCF3DD62C0D0F7A000E7BD8 /* GameDetailsRouter.swift in Sources */,
 				EFCF3DD72C0D0F7A000E7BD8 /* GameDetailsModels.swift in Sources */,
 				EFCF3DD82C0D0F7A000E7BD8 /* GameDetailsViewController.swift in Sources */,
+				EFB403052C381D71009A56B4 /* PlatformAPI.swift in Sources */,
 				EFCF3DD92C0D0F7A000E7BD8 /* GameDetailsInteractor.swift in Sources */,
 				EFCF3DDA2C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift in Sources */,
 				EF4270DF2BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift in Sources */,

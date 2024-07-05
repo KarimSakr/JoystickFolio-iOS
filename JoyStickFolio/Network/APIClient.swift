@@ -40,4 +40,11 @@ class APIClient {
             .map([CoverAPI].self)
     }
     
+    func getPlatforms(platformsIds: [Int]) -> Single<[PlatformAPI]> {
+        return self.provider
+            .rx
+            .request(.getPlatforms(platformsIds))
+            .map([PlatformAPI].self)
+    }
+    
 }
