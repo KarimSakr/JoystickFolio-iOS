@@ -245,7 +245,7 @@ extension GameDetailsViewController {
             .subscribe { [weak self] game in
                 guard let self = self else { return }
                 self.game = game
-                self.updateUI()
+                self.didGetgame()
                 self.getPlatforms()
             } onFailure: { [weak self] error in
                 guard let self = self else { return }
@@ -256,6 +256,10 @@ extension GameDetailsViewController {
     
     fileprivate
     func getPlatforms() {
+        guard let platforms = game?.platforms, !platforms.isEmpty else {
+            self.didNotGetPlatforms()
+            return
+        }
         interactor!
             .getPlatforms(platformIds: game!.platforms ?? [])
             .observe(on: MainScheduler.instance)
@@ -277,9 +281,14 @@ extension GameDetailsViewController {
 //MARK: - UI -
 extension GameDetailsViewController {
     fileprivate
-    func updateUI() {
+    func didGetgame() {
         titleLabel.text = game?.name
         gameDescriptionLabel.text = game?.summary
+    }
+    
+    fileprivate
+    func didNotGetPlatforms() {
+        self.platforms = [GameDetailsModels.ViewModels.Platform(name: "No platforms")]
     }
 }
 //MARK: - UICollectionViewDelegate | UICollectionViewDelegate
