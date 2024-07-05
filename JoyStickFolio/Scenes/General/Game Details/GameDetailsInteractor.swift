@@ -21,6 +21,8 @@ protocol GameDetailsInteractorOutput {
 protocol GameDetailsDataStore {
     var game: GameAPI { get set }
     var coverImage: UIImage { get set }
+    
+    var platforms: [PlatformAPI] { get set }
 }
 
 class GameDetailsInteractor: GameDetailsDataStore {
@@ -28,6 +30,7 @@ class GameDetailsInteractor: GameDetailsDataStore {
     var presenter: GameDetailsInteractorOutput?
     var game: GameAPI = GameAPI()
     var coverImage: UIImage = UIImage()
+    var platforms: [PlatformAPI] = [PlatformAPI]()
 }
 
 extension GameDetailsInteractor: GameDetailsViewControllerOutput {
@@ -46,6 +49,7 @@ extension GameDetailsInteractor: GameDetailsViewControllerOutput {
                     .subscribe { [weak self] platforms in
                         guard let self = self else { return single(.failure(AppError.genericAppError)) }
                         guard let presenter = presenter else{ return single(.failure(AppError.genericAppError)) }
+                        self.platforms = platforms
                         single(.success(presenter.didGetPlatforms(model: platforms)))
                     } onFailure: { [weak self] error in
                         guard self != nil else { return single(.failure(AppError.genericAppError)) }

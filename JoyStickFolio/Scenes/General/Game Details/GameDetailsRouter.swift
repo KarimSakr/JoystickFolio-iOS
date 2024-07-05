@@ -23,4 +23,12 @@ class GameDetailsRouter: GameDetailsRouterDataPassing {
         self.dataStore = dataStore
     }
     
+    func presentPlatformSheet(index: Int) {
+        let vc = PlatformViewController()
+        let platform = dataStore!.platforms[index]
+        vc.router?.dataStore?.platform = platform
+        vc.title = platform.name
+        viewController.present(UINavigationController(rootViewController: vc), animated: true)
+    }
+    
 }

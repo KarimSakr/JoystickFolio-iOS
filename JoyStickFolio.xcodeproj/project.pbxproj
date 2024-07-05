@@ -99,6 +99,12 @@
 		EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */; };
 		EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */; };
 		EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3DD2BE93A5D002BE61C /* String.swift */; };
+		EFB297B72C388FEF00F13B01 /* PlatformPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B12C388FEF00F13B01 /* PlatformPresenter.swift */; };
+		EFB297B82C388FEF00F13B01 /* PlatformRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B22C388FEF00F13B01 /* PlatformRouter.swift */; };
+		EFB297B92C388FEF00F13B01 /* PlatformModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B32C388FEF00F13B01 /* PlatformModels.swift */; };
+		EFB297BA2C388FEF00F13B01 /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B42C388FEF00F13B01 /* PlatformViewController.swift */; };
+		EFB297BB2C388FEF00F13B01 /* PlatformInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B52C388FEF00F13B01 /* PlatformInteractor.swift */; };
+		EFB297BC2C388FEF00F13B01 /* PlatformConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B62C388FEF00F13B01 /* PlatformConfigurator.swift */; };
 		EFB403052C381D71009A56B4 /* PlatformAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403042C381D71009A56B4 /* PlatformAPI.swift */; };
 		EFB403082C3838AD009A56B4 /* ScreenshotAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */; };
 		EFB4030A2C383F46009A56B4 /* Array + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403092C383F46009A56B4 /* Array + Extensions.swift */; };
@@ -190,6 +196,12 @@
 		EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		EFADD3DD2BE93A5D002BE61C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		EFB297B12C388FEF00F13B01 /* PlatformPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformPresenter.swift; sourceTree = "<group>"; };
+		EFB297B22C388FEF00F13B01 /* PlatformRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformRouter.swift; sourceTree = "<group>"; };
+		EFB297B32C388FEF00F13B01 /* PlatformModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModels.swift; sourceTree = "<group>"; };
+		EFB297B42C388FEF00F13B01 /* PlatformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViewController.swift; sourceTree = "<group>"; };
+		EFB297B52C388FEF00F13B01 /* PlatformInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformInteractor.swift; sourceTree = "<group>"; };
+		EFB297B62C388FEF00F13B01 /* PlatformConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformConfigurator.swift; sourceTree = "<group>"; };
 		EFB403042C381D71009A56B4 /* PlatformAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAPI.swift; sourceTree = "<group>"; };
 		EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotAPI.swift; sourceTree = "<group>"; };
 		EFB403092C383F46009A56B4 /* Array + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extensions.swift"; sourceTree = "<group>"; };
@@ -475,6 +487,7 @@
 		EF4270D02BEE498A00BACC8E /* General */ = {
 			isa = PBXGroup;
 			children = (
+				EFB297B02C388FCE00F13B01 /* Platform */,
 				EFCF3DCE2C0D0F5B000E7BD8 /* Game Details */,
 				EF4270D12BEE499300BACC8E /* HamburgerMenu */,
 			);
@@ -556,6 +569,19 @@
 				EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		EFB297B02C388FCE00F13B01 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				EFB297B12C388FEF00F13B01 /* PlatformPresenter.swift */,
+				EFB297B22C388FEF00F13B01 /* PlatformRouter.swift */,
+				EFB297B32C388FEF00F13B01 /* PlatformModels.swift */,
+				EFB297B42C388FEF00F13B01 /* PlatformViewController.swift */,
+				EFB297B52C388FEF00F13B01 /* PlatformInteractor.swift */,
+				EFB297B62C388FEF00F13B01 /* PlatformConfigurator.swift */,
+			);
+			path = Platform;
 			sourceTree = "<group>";
 		};
 		EFB403032C381D61009A56B4 /* Platform */ = {
@@ -831,6 +857,12 @@
 				EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */,
 				EFFA35072BF1099600DE53F7 /* ThreadsPresenter.swift in Sources */,
 				EFB4030A2C383F46009A56B4 /* Array + Extensions.swift in Sources */,
+				EFB297B72C388FEF00F13B01 /* PlatformPresenter.swift in Sources */,
+				EFB297B82C388FEF00F13B01 /* PlatformRouter.swift in Sources */,
+				EFB297B92C388FEF00F13B01 /* PlatformModels.swift in Sources */,
+				EFB297BA2C388FEF00F13B01 /* PlatformViewController.swift in Sources */,
+				EFB297BB2C388FEF00F13B01 /* PlatformInteractor.swift in Sources */,
+				EFB297BC2C388FEF00F13B01 /* PlatformConfigurator.swift in Sources */,
 				EFFA35082BF1099600DE53F7 /* ThreadsRouter.swift in Sources */,
 				EFFA35092BF1099600DE53F7 /* ThreadsModels.swift in Sources */,
 				EFB403082C3838AD009A56B4 /* ScreenshotAPI.swift in Sources */,

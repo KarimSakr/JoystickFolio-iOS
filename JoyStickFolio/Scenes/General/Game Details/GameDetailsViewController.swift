@@ -335,6 +335,12 @@ extension GameDetailsViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! PlatformCollectionViewCell
+        guard platforms[indexPath.item].id != nil else { return }
+        router?.presentPlatformSheet(index: indexPath.item)
+    }
+    
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
