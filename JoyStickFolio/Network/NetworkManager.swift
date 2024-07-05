@@ -12,7 +12,8 @@ enum NetworkManager {
     case twitchAuth,
          getGames(_ offset: Int),
          getCovers(_ gameIds: [Int]),
-         getPlatforms(_ platformIds:[Int])
+         getPlatforms(_ platformIds:[Int]),
+         getScreenshots(_ screenshotIds: [Int])
 }
 
 
@@ -42,6 +43,9 @@ extension NetworkManager: TargetType {
             
         case .getPlatforms:
             return Constants.Url.Endpoint.igdbEndpoint.platforms
+            
+        case .getScreenshots:
+            return Constants.Url.Endpoint.igdbEndpoint.screenshots
         }
     }
 
@@ -79,8 +83,10 @@ extension NetworkManager: TargetType {
             
         case .getPlatforms(let platformsIds):
             return .requestData("fields *; where id = (\(platformsIds.map({String($0)}).joined(separator: ",")));".data(using: .utf8)!)
-//        default:
-//            return .requestPlain
+            
+        case .getScreenshots(let screenshotsIds):
+            return .requestData("fields *; where id = (\(screenshotsIds.map({String($0)}).joined(separator: ",")));".data(using: .utf8)!)
+            
         }
     }
     
@@ -127,6 +133,7 @@ extension Constants.Url {
             static let games = "games"
             static let covers = "covers"
             static let platforms = "platforms"
+            static let screenshots = "screenshots"
         }
     }
 }

@@ -100,6 +100,8 @@
 		EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */; };
 		EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3DD2BE93A5D002BE61C /* String.swift */; };
 		EFB403052C381D71009A56B4 /* PlatformAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403042C381D71009A56B4 /* PlatformAPI.swift */; };
+		EFB403082C3838AD009A56B4 /* ScreenshotAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */; };
+		EFB4030A2C383F46009A56B4 /* Array + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403092C383F46009A56B4 /* Array + Extensions.swift */; };
 		EFCF3DD52C0D0F7A000E7BD8 /* GameDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DCF2C0D0F7A000E7BD8 /* GameDetailsPresenter.swift */; };
 		EFCF3DD62C0D0F7A000E7BD8 /* GameDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD02C0D0F7A000E7BD8 /* GameDetailsRouter.swift */; };
 		EFCF3DD72C0D0F7A000E7BD8 /* GameDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD12C0D0F7A000E7BD8 /* GameDetailsModels.swift */; };
@@ -189,6 +191,8 @@
 		EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		EFADD3DD2BE93A5D002BE61C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EFB403042C381D71009A56B4 /* PlatformAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAPI.swift; sourceTree = "<group>"; };
+		EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotAPI.swift; sourceTree = "<group>"; };
+		EFB403092C383F46009A56B4 /* Array + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extensions.swift"; sourceTree = "<group>"; };
 		EFCF3DCF2C0D0F7A000E7BD8 /* GameDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsPresenter.swift; sourceTree = "<group>"; };
 		EFCF3DD02C0D0F7A000E7BD8 /* GameDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsRouter.swift; sourceTree = "<group>"; };
 		EFCF3DD12C0D0F7A000E7BD8 /* GameDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsModels.swift; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 				EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */,
 				7F071CE32B7508E6008D8739 /* Bundle.swift */,
 				EFADD3DD2BE93A5D002BE61C /* String.swift */,
+				EFB403092C383F46009A56B4 /* Array + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -398,20 +403,21 @@
 		7F6E6FCC2B73C7D100F0D64C /* API Models */ = {
 			isa = PBXGroup;
 			children = (
-				EFB403032C381D61009A56B4 /* Platforms */,
-				7FD7E8A42B795538000BE278 /* Games */,
+				EFB403062C383891009A56B4 /* Screenshot */,
+				EFB403032C381D61009A56B4 /* Platform */,
+				7FD7E8A42B795538000BE278 /* Game */,
 				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
 			);
 			path = "API Models";
 			sourceTree = "<group>";
 		};
-		7FD7E8A42B795538000BE278 /* Games */ = {
+		7FD7E8A42B795538000BE278 /* Game */ = {
 			isa = PBXGroup;
 			children = (
 				7FD7E8A52B795545000BE278 /* GameAPI.swift */,
 				EF4BEAC72C028B3E00786BAC /* CoverAPI.swift */,
 			);
-			path = Games;
+			path = Game;
 			sourceTree = "<group>";
 		};
 		7FD7E8AC2B797298000BE278 /* Cells */ = {
@@ -552,12 +558,20 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		EFB403032C381D61009A56B4 /* Platforms */ = {
+		EFB403032C381D61009A56B4 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
 				EFB403042C381D71009A56B4 /* PlatformAPI.swift */,
 			);
-			path = Platforms;
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		EFB403062C383891009A56B4 /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */,
+			);
+			path = Screenshot;
 			sourceTree = "<group>";
 		};
 		EFB6302E2BFA079A00E4E7F9 /* Frameworks */ = {
@@ -816,8 +830,10 @@
 				EF0CDE152BEEEE270059741F /* RegistrationModels.swift in Sources */,
 				EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */,
 				EFFA35072BF1099600DE53F7 /* ThreadsPresenter.swift in Sources */,
+				EFB4030A2C383F46009A56B4 /* Array + Extensions.swift in Sources */,
 				EFFA35082BF1099600DE53F7 /* ThreadsRouter.swift in Sources */,
 				EFFA35092BF1099600DE53F7 /* ThreadsModels.swift in Sources */,
+				EFB403082C3838AD009A56B4 /* ScreenshotAPI.swift in Sources */,
 				EFA7E37C2BF937280054B24B /* GradientView.swift in Sources */,
 				EFFA350A2BF1099600DE53F7 /* ThreadsViewController.swift in Sources */,
 				EFFA350B2BF1099600DE53F7 /* ThreadsInteractor.swift in Sources */,

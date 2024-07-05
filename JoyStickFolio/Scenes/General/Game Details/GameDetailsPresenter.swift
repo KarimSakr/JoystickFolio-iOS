@@ -50,6 +50,10 @@ extension GameDetailsPresenter: GameDetailsInteractorOutput {
     func didGetPlatforms(model: [PlatformAPI]) -> [GameDetailsModels.ViewModels.Platform] {
         return model.map({self.createSinglePlatform(model: $0)})
     }
+    
+    func didGetScreenshots(model: [ScreenshotAPI]) -> [GameDetailsModels.ViewModels.Screenshot] {
+        return model.map({self.createSingleScreenshot(model: $0)})
+    }
 }
 
 //MARK: - Helper Functions -
@@ -67,5 +71,16 @@ extension GameDetailsPresenter {
                                                      url: model.url,
                                                      versions: model.versions,
                                                      checksum: model.checksum)
+    }
+    
+    fileprivate
+    func createSingleScreenshot(model: ScreenshotAPI) -> GameDetailsModels.ViewModels.Screenshot {
+        return GameDetailsModels.ViewModels.Screenshot(id: model.id,
+                                                       game: model.game,
+                                                       height: model.height,
+                                                       imageId: model.imageId,
+                                                       url: model.url,
+                                                       width: model.width,
+                                                       checksum: model.checksum)
     }
 }

@@ -14,6 +14,7 @@ protocol GameDetailsInteractorOutput {
     
     func didGetGame(model: GameAPI, image: UIImage) -> GameDetailsModels.ViewModels.Game
     func didGetPlatforms(model: [PlatformAPI]) -> [GameDetailsModels.ViewModels.Platform]
+    func didGetScreenshots(model: [ScreenshotAPI]) -> [GameDetailsModels.ViewModels.Screenshot]
     
 }
 
@@ -46,6 +47,21 @@ extension GameDetailsInteractor: GameDetailsViewControllerOutput {
                         guard let self = self else { return single(.failure(AppError.genericAppError)) }
                         guard let presenter = presenter else{ return single(.failure(AppError.genericAppError)) }
                         single(.success(presenter.didGetPlatforms(model: platforms)))
+                    } onFailure: { [weak self] error in
+                        guard self != nil else { return single(.failure(AppError.genericAppError)) }
+                        single(.failure(error))
+                    }
+            }
+    }
+    
+    func getScreenshots(screenshotsIds: [Int]) -> Single<[GameDetailsModels.ViewModels.Screenshot]> {
+        return Single<[GameDetailsModels.ViewModels.Screenshot]>
+            .create { single in
+                APIClient.shared.getScreenshots(screenshorsIds: screenshotsIds)
+                    .subscribe { [weak self] screenshots in
+                        guard let self = self else { return single(.failure(AppError.genericAppError)) }
+                        guard let presenter = presenter else{ return single(.failure(AppError.genericAppError)) }
+                        single(.success(presenter.didGetScreenshots(model: screenshots)))
                     } onFailure: { [weak self] error in
                         guard self != nil else { return single(.failure(AppError.genericAppError)) }
                         single(.failure(error))

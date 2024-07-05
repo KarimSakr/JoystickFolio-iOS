@@ -8,10 +8,12 @@
 
 import UIKit
 import RxSwift
+import SDWebImage
 
 protocol GameDetailsViewControllerOutput {
     func getGame() -> Single<GameDetailsModels.ViewModels.Game>
     func getPlatforms(platformIds: [Int]) -> Single<[GameDetailsModels.ViewModels.Platform]>
+    func getScreenshots(screenshotsIds: [Int]) -> Single<[GameDetailsModels.ViewModels.Screenshot]>
 }
 
 class GameDetailsViewController: BaseViewController {
@@ -53,10 +55,11 @@ class GameDetailsViewController: BaseViewController {
         return stack
     }()
     
-    lazy var headerView: UIView = {
-        let header = UIView()
+    lazy var headerView: UIImageView = {
+        let header = UIImageView()
         header.translatesAutoresizingMaskIntoConstraints = false
         header.backgroundColor = .gray.withAlphaComponent(0.5)
+        header.addBottomGradient(color: .black, alpha: 1)
         return header
     }()
     
@@ -145,6 +148,7 @@ extension GameDetailsViewController {
         super.viewDidLoad()
         self.addViews()
         self.getGame()
+        self.getScreenshots()
         self.setupDelegateAndDataSource()
     }
     
@@ -276,6 +280,24 @@ extension GameDetailsViewController {
             .disposed(by: bag)
     }
     
+    fileprivate
+    func getScreenshots() {
+        guard let screenshotIds = game?.screenshots, !screenshotIds.isEmpty else {
+            return
+        }
+        interactor!
+            .getScreenshots(screenshotsIds: screenshotIds)
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] screenshots in
+                guard let self = self else { return }
+                self.updateImage(with: screenshots.randomItem()!)
+            } onFailure: { [weak self] error in
+                guard let self = self else { return }
+                self.showSnackBar(with: error.localizedDescription)
+            }
+            .disposed(by: bag)
+    }
+    
 }
 
 //MARK: - UI -
@@ -289,6 +311,12 @@ extension GameDetailsViewController {
     fileprivate
     func didNotGetPlatforms() {
         self.platforms = [GameDetailsModels.ViewModels.Platform(name: "No platforms")]
+    }
+    
+    fileprivate
+    func updateImage(with screenshot: GameDetailsModels.ViewModels.Screenshot) {
+        guard let screenshotUrl = screenshot.url else { return }
+        headerView.sd_setImage(with: URL(string: "https:" + screenshotUrl), placeholderImage: UIImage(named: "JoystickFolioLogo.png"))
     }
 }
 //MARK: - UICollectionViewDelegate | UICollectionViewDelegate

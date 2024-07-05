@@ -60,5 +60,15 @@ struct GameDetailsModels {
             var versions     : [Int]? 
             var checksum     : String?
         }
+        
+        struct Screenshot {
+            var id       : Int?
+            var game     : Int?
+            var height   : Int?
+            var imageId  : String?
+            var url      : String?
+            var width    : Int?
+            var checksum : String?
+        }
     }
 }

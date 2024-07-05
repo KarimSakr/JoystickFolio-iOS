@@ -47,4 +47,11 @@ class APIClient {
             .map([PlatformAPI].self)
     }
     
+    func getScreenshots(screenshorsIds: [Int]) -> Single<[ScreenshotAPI]> {
+        return self.provider
+            .rx
+            .request(.getScreenshots(screenshorsIds))
+            .map([ScreenshotAPI].self)
+    }
+    
 }
