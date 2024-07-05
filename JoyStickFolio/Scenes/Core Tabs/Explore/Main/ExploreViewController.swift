@@ -14,13 +14,10 @@ protocol ExploreViewControllerOutput {
     func getCovers(gameIds: [Int]) -> Single<[ExploreModels.ViewModels.Cover]>
 }
 
-class ExploreViewController: UIViewController {
+class ExploreViewController: BaseViewController {
     
     var interactor: ExploreViewControllerOutput?
     var router: ExploreRouter?
-    
-    fileprivate
-    var bag = DisposeBag()
     
     fileprivate
     var games: [ExploreModels.ViewModels.Game] = [ExploreModels.ViewModels.Game]()
@@ -61,7 +58,6 @@ extension ExploreViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
         collectionView.delegate = self
         collectionView.dataSource = self
         navigationItem.searchController = searchController
@@ -91,6 +87,52 @@ extension ExploreViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
            print(text)
+    }
+}
+
+//MARK: - Functions -
+extension ExploreViewController {
+    fileprivate
+    func reloadData() {
+        collectionView.reloadData()
+    }
+}
+
+
+//MARK: - Fetch Data -
+extension ExploreViewController {
+    
+    fileprivate
+    func getGames() {
+        interactor!
+            .getGames(offset: 0)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] games in
+                guard let self = self else { return }
+                self.games.append(contentsOf: games)
+                self.reloadData()
+                self.getCovers()
+            }, onFailure: {[weak self] error in
+                guard let self = self else { return }
+                self.showSnackBar(with: error.localizedDescription)
+            }).disposed(by: bag)
+    }
+    
+    fileprivate
+    func getCovers() {
+        interactor!
+            .getCovers(gameIds: self.games.compactMap({$0.cover}))
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] covers in
+                guard let self = self else { return }
+                for (index, _) in covers.enumerated() {
+                    self.games[index].imageUrl = covers.filter({$0.id == self.games[index].cover}).first?.url
+                }
+                self.reloadData()
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                self.showSnackBar(with: error.localizedDescription)
+            }).disposed(by: bag)
     }
 }
 
@@ -128,50 +170,3 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
         return 20
     }
 }
-
-//MARK: - Functions -
-extension ExploreViewController {
-    fileprivate
-    func reloadData() {
-        collectionView.reloadData()
-    }
-}
-
-
-//MARK: - Fetch Data -
-extension ExploreViewController {
-    
-    fileprivate
-    func getGames() {
-        interactor!
-            .getGames(offset: 0)
-            .observe(on: MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] games in
-                guard let self = self else { return }
-                self.games.append(contentsOf: games)
-                self.reloadData()
-                self.getCovers()
-            }, onFailure: {[weak self] error in
-                guard let self = self else { return }
-                self.showSnackBar(message: error.localizedDescription)
-            }).disposed(by: bag)
-    }
-    
-    fileprivate
-    func getCovers() {
-        interactor!
-            .getCovers(gameIds: self.games.compactMap({$0.cover}))
-            .observe(on: MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] covers in
-                guard let self = self else { return }
-                for (index, _) in covers.enumerated() {
-                    self.games[index].imageUrl = covers.filter({$0.id == self.games[index].cover}).first?.url
-                }
-                self.reloadData()
-            }, onFailure: { [weak self] error in
-                guard let self = self else { return }
-                self.showSnackBar(message: error.localizedDescription)
-            }).disposed(by: bag)
-    }
-}
-

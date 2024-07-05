@@ -11,7 +11,7 @@
 		7F063B4C2B1CBAC20075B6A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */; };
 		7F063B532B1CBAC40075B6A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B522B1CBAC40075B6A7 /* Assets.xcassets */; };
 		7F063B562B1CBAC40075B6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F063B542B1CBAC40075B6A7 /* LaunchScreen.storyboard */; };
-		7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView.swift */; };
+		7F063B682B1CE5B70075B6A7 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F063B672B1CE5B70075B6A7 /* UIView + Extensions.swift */; };
 		7F071CE42B7508E6008D8739 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F071CE32B7508E6008D8739 /* Bundle.swift */; };
 		7F3FACC02B1FA82800F47247 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACBF2B1FA82800F47247 /* Process.swift */; };
 		7F3FACC32B1FAA7600F47247 /* TextAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */; };
@@ -60,6 +60,7 @@
 		EF0CDE172BEEEE270059741F /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */; };
 		EF0CDE182BEEEE270059741F /* RegistrationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */; };
 		EF12600D2BF110930097F91E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF12600C2BF110930097F91E /* TabBarViewController.swift */; };
+		EF3DDF482C20C8100015145E /* PlatformCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3DDF472C20C8100015145E /* PlatformCollectionViewCell.swift */; };
 		EF4270CA2BEE48B200BACC8E /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */; };
 		EF4270CB2BEE48B200BACC8E /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */; };
 		EF4270CC2BEE48B200BACC8E /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4270C52BEE48B200BACC8E /* ProfileModels.swift */; };
@@ -79,7 +80,6 @@
 		EF4E67C42BCC751600FEC8EE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E67C32BCC751600FEC8EE /* Config.plist */; };
 		EFA7E3792BF924AF0054B24B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFA7E3782BF924AF0054B24B /* IQKeyboardManagerSwift */; };
 		EFA7E37C2BF937280054B24B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7E37B2BF937280054B24B /* GradientView.swift */; };
-		EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */; };
 		EFA86A222BEBA65D009B0B0D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */; };
 		EFA86A232BEBA65D009B0B0D /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */; };
 		EFA86A242BEBA65D009B0B0D /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */; };
@@ -99,12 +99,22 @@
 		EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */; };
 		EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */; };
 		EFADD3DE2BE93A5D002BE61C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFADD3DD2BE93A5D002BE61C /* String.swift */; };
+		EFB297B72C388FEF00F13B01 /* PlatformPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B12C388FEF00F13B01 /* PlatformPresenter.swift */; };
+		EFB297B82C388FEF00F13B01 /* PlatformRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B22C388FEF00F13B01 /* PlatformRouter.swift */; };
+		EFB297B92C388FEF00F13B01 /* PlatformModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B32C388FEF00F13B01 /* PlatformModels.swift */; };
+		EFB297BA2C388FEF00F13B01 /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B42C388FEF00F13B01 /* PlatformViewController.swift */; };
+		EFB297BB2C388FEF00F13B01 /* PlatformInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B52C388FEF00F13B01 /* PlatformInteractor.swift */; };
+		EFB297BC2C388FEF00F13B01 /* PlatformConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB297B62C388FEF00F13B01 /* PlatformConfigurator.swift */; };
+		EFB403052C381D71009A56B4 /* PlatformAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403042C381D71009A56B4 /* PlatformAPI.swift */; };
+		EFB403082C3838AD009A56B4 /* ScreenshotAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */; };
+		EFB4030A2C383F46009A56B4 /* Array + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB403092C383F46009A56B4 /* Array + Extensions.swift */; };
 		EFCF3DD52C0D0F7A000E7BD8 /* GameDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DCF2C0D0F7A000E7BD8 /* GameDetailsPresenter.swift */; };
 		EFCF3DD62C0D0F7A000E7BD8 /* GameDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD02C0D0F7A000E7BD8 /* GameDetailsRouter.swift */; };
 		EFCF3DD72C0D0F7A000E7BD8 /* GameDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD12C0D0F7A000E7BD8 /* GameDetailsModels.swift */; };
 		EFCF3DD82C0D0F7A000E7BD8 /* GameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD22C0D0F7A000E7BD8 /* GameDetailsViewController.swift */; };
 		EFCF3DD92C0D0F7A000E7BD8 /* GameDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD32C0D0F7A000E7BD8 /* GameDetailsInteractor.swift */; };
 		EFCF3DDA2C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF3DD42C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift */; };
+		EFDDB0872C32B289009998FF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDB0862C32B289009998FF /* BaseViewController.swift */; };
 		EFF1FBEC2BFA653500D8897D /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */; };
 		EFFA34ED2BF104C800DE53F7 /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */; };
 		EFFA34EE2BF104C800DE53F7 /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */; };
@@ -133,7 +143,7 @@
 		7F063B522B1CBAC40075B6A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F063B552B1CBAC40075B6A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F063B572B1CBAC40075B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F063B672B1CE5B70075B6A7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7F063B672B1CE5B70075B6A7 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		7F071CE32B7508E6008D8739 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		7F3FACBF2B1FA82800F47247 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		7F3FACC22B1FAA7600F47247 /* TextAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimator.swift; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 		EF0CDE112BEEEE270059741F /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
 		EF0CDE122BEEEE270059741F /* RegistrationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfigurator.swift; sourceTree = "<group>"; };
 		EF12600C2BF110930097F91E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		EF3DDF472C20C8100015145E /* PlatformCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		EF4270C52BEE48B200BACC8E /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
@@ -170,7 +181,6 @@
 		EF4E67C12BCC74E100FEC8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF4E67C32BCC751600FEC8EE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EFA7E37B2BF937280054B24B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 		EFA86A1C2BEBA65D009B0B0D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		EFA86A1D2BEBA65D009B0B0D /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		EFA86A1E2BEBA65D009B0B0D /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -186,12 +196,22 @@
 		EFADD3D12BE9200F002BE61C /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		EFADD3D22BE9200F002BE61C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		EFADD3DD2BE93A5D002BE61C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		EFB297B12C388FEF00F13B01 /* PlatformPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformPresenter.swift; sourceTree = "<group>"; };
+		EFB297B22C388FEF00F13B01 /* PlatformRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformRouter.swift; sourceTree = "<group>"; };
+		EFB297B32C388FEF00F13B01 /* PlatformModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModels.swift; sourceTree = "<group>"; };
+		EFB297B42C388FEF00F13B01 /* PlatformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViewController.swift; sourceTree = "<group>"; };
+		EFB297B52C388FEF00F13B01 /* PlatformInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformInteractor.swift; sourceTree = "<group>"; };
+		EFB297B62C388FEF00F13B01 /* PlatformConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformConfigurator.swift; sourceTree = "<group>"; };
+		EFB403042C381D71009A56B4 /* PlatformAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAPI.swift; sourceTree = "<group>"; };
+		EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotAPI.swift; sourceTree = "<group>"; };
+		EFB403092C383F46009A56B4 /* Array + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extensions.swift"; sourceTree = "<group>"; };
 		EFCF3DCF2C0D0F7A000E7BD8 /* GameDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsPresenter.swift; sourceTree = "<group>"; };
 		EFCF3DD02C0D0F7A000E7BD8 /* GameDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsRouter.swift; sourceTree = "<group>"; };
 		EFCF3DD12C0D0F7A000E7BD8 /* GameDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsModels.swift; sourceTree = "<group>"; };
 		EFCF3DD22C0D0F7A000E7BD8 /* GameDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewController.swift; sourceTree = "<group>"; };
 		EFCF3DD32C0D0F7A000E7BD8 /* GameDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsInteractor.swift; sourceTree = "<group>"; };
 		EFCF3DD42C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsConfigurator.swift; sourceTree = "<group>"; };
+		EFDDB0862C32B289009998FF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
 		EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
@@ -281,7 +301,6 @@
 			children = (
 				7F063B492B1CBAC20075B6A7 /* AppDelegate.swift */,
 				7F063B4B2B1CBAC20075B6A7 /* SceneDelegate.swift */,
-				EF12600A2BF10FDA0097F91E /* Tab Bar Controller */,
 				7F063B5D2B1CC9420075B6A7 /* Models */,
 				7F063B622B1CD7780075B6A7 /* Storyboards */,
 				7F063B5F2B1CC96B0075B6A7 /* Scenes */,
@@ -312,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				EFA7E37A2BF937140054B24B /* GradientView */,
-				7FD7E8AC2B797298000BE278 /* Cells */,
 				7FF328622B40239B00FACB58 /* SnackBar */,
 			);
 			path = "Reusable Views";
@@ -322,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				EFA86A192BEBA641009B0B0D /* Core Tabs */,
-				EF4270D02BEE498A00BACC8E /* General */,
 				EFADD3CA2BE91FEC002BE61C /* Onboarding */,
 			);
 			path = Scenes;
@@ -332,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5D64AE2B1E625E00E9669E /* Constants.swift */,
+				EFDDB0842C32B24C009998FF /* Common */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -347,11 +365,11 @@
 		7F063B662B1CE5A40075B6A7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7F063B672B1CE5B70075B6A7 /* UIView.swift */,
+				7F063B672B1CE5B70075B6A7 /* UIView + Extensions.swift */,
 				EFF1FBEB2BFA653500D8897D /* JSONSerializable.swift */,
 				7F071CE32B7508E6008D8739 /* Bundle.swift */,
 				EFADD3DD2BE93A5D002BE61C /* String.swift */,
-				EFA7E37D2BF93C8F0054B24B /* UIViewController + Extensions.swift */,
+				EFB403092C383F46009A56B4 /* Array + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -395,26 +413,21 @@
 		7F6E6FCC2B73C7D100F0D64C /* API Models */ = {
 			isa = PBXGroup;
 			children = (
-				7FD7E8A42B795538000BE278 /* Games */,
-				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
+				EFB297BF2C3899BE00F13B01 /* IGDB Authentication */,
+				EFB403062C383891009A56B4 /* Screenshot */,
+				EFB403032C381D61009A56B4 /* Platform */,
+				7FD7E8A42B795538000BE278 /* Game */,
 			);
 			path = "API Models";
 			sourceTree = "<group>";
 		};
-		7FD7E8A42B795538000BE278 /* Games */ = {
+		7FD7E8A42B795538000BE278 /* Game */ = {
 			isa = PBXGroup;
 			children = (
 				7FD7E8A52B795545000BE278 /* GameAPI.swift */,
 				EF4BEAC72C028B3E00786BAC /* CoverAPI.swift */,
 			);
-			path = Games;
-			sourceTree = "<group>";
-		};
-		7FD7E8AC2B797298000BE278 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
+			path = Game;
 			sourceTree = "<group>";
 		};
 		7FD7E8AD2B7972B1000BE278 /* Collection Cells */ = {
@@ -441,26 +454,21 @@
 			path = "Tab Bar Controller";
 			sourceTree = "<group>";
 		};
+		EF3DDF462C20C7EE0015145E /* Collection Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EF3DDF472C20C8100015145E /* PlatformCollectionViewCell.swift */,
+			);
+			path = "Collection Cells";
+			sourceTree = "<group>";
+		};
 		EF4270C12BEE48A200BACC8E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */,
-				EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */,
-				EF4270C52BEE48B200BACC8E /* ProfileModels.swift */,
-				EF4270C62BEE48B200BACC8E /* ProfileViewController.swift */,
-				EF4270C72BEE48B200BACC8E /* ProfileInteractor.swift */,
-				EF4270C82BEE48B200BACC8E /* ProfileConfigurator.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		EF4270D02BEE498A00BACC8E /* General */ = {
-			isa = PBXGroup;
-			children = (
-				EFCF3DCE2C0D0F5B000E7BD8 /* Game Details */,
+				EFB297BE2C38991300F13B01 /* Main */,
 				EF4270D12BEE499300BACC8E /* HamburgerMenu */,
 			);
-			path = General;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		EF4270D12BEE499300BACC8E /* HamburgerMenu */ = {
@@ -540,6 +548,70 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		EFB297B02C388FCE00F13B01 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				EFB297B12C388FEF00F13B01 /* PlatformPresenter.swift */,
+				EFB297B22C388FEF00F13B01 /* PlatformRouter.swift */,
+				EFB297B32C388FEF00F13B01 /* PlatformModels.swift */,
+				EFB297B42C388FEF00F13B01 /* PlatformViewController.swift */,
+				EFB297B52C388FEF00F13B01 /* PlatformInteractor.swift */,
+				EFB297B62C388FEF00F13B01 /* PlatformConfigurator.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		EFB297BD2C3898C700F13B01 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */,
+				EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */,
+				EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */,
+				EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */,
+				EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */,
+				EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */,
+				7FD7E8AD2B7972B1000BE278 /* Collection Cells */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EFB297BE2C38991300F13B01 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */,
+				EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */,
+				EF4270C52BEE48B200BACC8E /* ProfileModels.swift */,
+				EF4270C62BEE48B200BACC8E /* ProfileViewController.swift */,
+				EF4270C72BEE48B200BACC8E /* ProfileInteractor.swift */,
+				EF4270C82BEE48B200BACC8E /* ProfileConfigurator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EFB297BF2C3899BE00F13B01 /* IGDB Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
+			);
+			path = "IGDB Authentication";
+			sourceTree = "<group>";
+		};
+		EFB403032C381D61009A56B4 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				EFB403042C381D71009A56B4 /* PlatformAPI.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		EFB403062C383891009A56B4 /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				EFB403072C3838AD009A56B4 /* ScreenshotAPI.swift */,
+			);
+			path = Screenshot;
+			sourceTree = "<group>";
+		};
 		EFB6302E2BFA079A00E4E7F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,8 +628,26 @@
 				EFCF3DD22C0D0F7A000E7BD8 /* GameDetailsViewController.swift */,
 				EFCF3DD32C0D0F7A000E7BD8 /* GameDetailsInteractor.swift */,
 				EFCF3DD42C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift */,
+				EF3DDF462C20C7EE0015145E /* Collection Cells */,
 			);
 			path = "Game Details";
+			sourceTree = "<group>";
+		};
+		EFDDB0842C32B24C009998FF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EFDDB0852C32B260009998FF /* Base View Controller */,
+				EF12600A2BF10FDA0097F91E /* Tab Bar Controller */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EFDDB0852C32B260009998FF /* Base View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EFDDB0862C32B289009998FF /* BaseViewController.swift */,
+			);
+			path = "Base View Controller";
 			sourceTree = "<group>";
 		};
 		EFF434C32BEEED6C0095A776 /* Registration */ = {
@@ -576,13 +666,9 @@
 		EFFA34E62BF104B400DE53F7 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */,
-				EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */,
-				EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */,
-				EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */,
-				EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */,
-				EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */,
-				7FD7E8AD2B7972B1000BE278 /* Collection Cells */,
+				EFB297BD2C3898C700F13B01 /* Main */,
+				EFB297B02C388FCE00F13B01 /* Platform */,
+				EFCF3DCE2C0D0F5B000E7BD8 /* Game Details */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -750,10 +836,10 @@
 				EFADD3D72BE9200F002BE61C /* LoginViewController.swift in Sources */,
 				EFADD3D82BE9200F002BE61C /* LoginInteractor.swift in Sources */,
 				EFADD3D92BE9200F002BE61C /* LoginConfigurator.swift in Sources */,
-				EFA7E37E2BF93C8F0054B24B /* UIViewController + Extensions.swift in Sources */,
 				EFF1FBEC2BFA653500D8897D /* JSONSerializable.swift in Sources */,
 				7F434F372B76E9CA007DF271 /* Persistence.swift in Sources */,
-				7F063B682B1CE5B70075B6A7 /* UIView.swift in Sources */,
+				EF3DDF482C20C8100015145E /* PlatformCollectionViewCell.swift in Sources */,
+				7F063B682B1CE5B70075B6A7 /* UIView + Extensions.swift in Sources */,
 				7F3FACC02B1FA82800F47247 /* Process.swift in Sources */,
 				7F434F392B76ED21007DF271 /* Keychains.swift in Sources */,
 				7F434F3C2B76F002007DF271 /* KeychainErrors.swift in Sources */,
@@ -773,12 +859,21 @@
 				EF4270DB2BEE49AA00BACC8E /* HamburgerMenuRouter.swift in Sources */,
 				EF4270DC2BEE49AA00BACC8E /* HamburgerMenuModels.swift in Sources */,
 				EF0CDE132BEEEE270059741F /* RegistrationPresenter.swift in Sources */,
+				EFDDB0872C32B289009998FF /* BaseViewController.swift in Sources */,
 				EF0CDE142BEEEE270059741F /* RegistrationRouter.swift in Sources */,
 				EF0CDE152BEEEE270059741F /* RegistrationModels.swift in Sources */,
 				EF0CDE162BEEEE270059741F /* RegistrationViewController.swift in Sources */,
 				EFFA35072BF1099600DE53F7 /* ThreadsPresenter.swift in Sources */,
+				EFB4030A2C383F46009A56B4 /* Array + Extensions.swift in Sources */,
+				EFB297B72C388FEF00F13B01 /* PlatformPresenter.swift in Sources */,
+				EFB297B82C388FEF00F13B01 /* PlatformRouter.swift in Sources */,
+				EFB297B92C388FEF00F13B01 /* PlatformModels.swift in Sources */,
+				EFB297BA2C388FEF00F13B01 /* PlatformViewController.swift in Sources */,
+				EFB297BB2C388FEF00F13B01 /* PlatformInteractor.swift in Sources */,
+				EFB297BC2C388FEF00F13B01 /* PlatformConfigurator.swift in Sources */,
 				EFFA35082BF1099600DE53F7 /* ThreadsRouter.swift in Sources */,
 				EFFA35092BF1099600DE53F7 /* ThreadsModels.swift in Sources */,
+				EFB403082C3838AD009A56B4 /* ScreenshotAPI.swift in Sources */,
 				EFA7E37C2BF937280054B24B /* GradientView.swift in Sources */,
 				EFFA350A2BF1099600DE53F7 /* ThreadsViewController.swift in Sources */,
 				EFFA350B2BF1099600DE53F7 /* ThreadsInteractor.swift in Sources */,
@@ -791,6 +886,7 @@
 				EFCF3DD62C0D0F7A000E7BD8 /* GameDetailsRouter.swift in Sources */,
 				EFCF3DD72C0D0F7A000E7BD8 /* GameDetailsModels.swift in Sources */,
 				EFCF3DD82C0D0F7A000E7BD8 /* GameDetailsViewController.swift in Sources */,
+				EFB403052C381D71009A56B4 /* PlatformAPI.swift in Sources */,
 				EFCF3DD92C0D0F7A000E7BD8 /* GameDetailsInteractor.swift in Sources */,
 				EFCF3DDA2C0D0F7A000E7BD8 /* GameDetailsConfigurator.swift in Sources */,
 				EF4270DF2BEE49AA00BACC8E /* HamburgerMenuConfigurator.swift in Sources */,
