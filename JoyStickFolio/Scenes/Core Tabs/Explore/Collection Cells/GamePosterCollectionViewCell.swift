@@ -34,7 +34,6 @@ class GamePosterCollectionViewCell: UICollectionViewCell {
     lazy var gameTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Game Title"
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .lightGray
