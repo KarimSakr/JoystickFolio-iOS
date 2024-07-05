@@ -222,7 +222,7 @@ extension GameDetailsViewController {
             gameDescriptionLabel.centerXAnchor.constraint(equalTo: gameInfoContainerView.centerXAnchor),
         ])
         
-        mainStack.setCustomSpacing(50, after: headerView)
+        mainStack.setCustomSpacing(25, after: headerView)
     }
 }
 
