@@ -667,8 +667,8 @@
 			isa = PBXGroup;
 			children = (
 				EFB297BD2C3898C700F13B01 /* Main */,
-				EFB297B02C388FCE00F13B01 /* Platform */,
 				EFCF3DCE2C0D0F5B000E7BD8 /* Game Details */,
+				EFB297B02C388FCE00F13B01 /* Platform */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
