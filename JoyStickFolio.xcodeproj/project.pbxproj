@@ -331,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				EFA7E37A2BF937140054B24B /* GradientView */,
-				7FD7E8AC2B797298000BE278 /* Cells */,
 				7FF328622B40239B00FACB58 /* SnackBar */,
 			);
 			path = "Reusable Views";
@@ -341,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				EFA86A192BEBA641009B0B0D /* Core Tabs */,
-				EF4270D02BEE498A00BACC8E /* General */,
 				EFADD3CA2BE91FEC002BE61C /* Onboarding */,
 			);
 			path = Scenes;
@@ -415,10 +413,10 @@
 		7F6E6FCC2B73C7D100F0D64C /* API Models */ = {
 			isa = PBXGroup;
 			children = (
+				EFB297BF2C3899BE00F13B01 /* IGDB Authentication */,
 				EFB403062C383891009A56B4 /* Screenshot */,
 				EFB403032C381D61009A56B4 /* Platform */,
 				7FD7E8A42B795538000BE278 /* Game */,
-				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
 			);
 			path = "API Models";
 			sourceTree = "<group>";
@@ -430,13 +428,6 @@
 				EF4BEAC72C028B3E00786BAC /* CoverAPI.swift */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		7FD7E8AC2B797298000BE278 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		7FD7E8AD2B7972B1000BE278 /* Collection Cells */ = {
@@ -474,24 +465,10 @@
 		EF4270C12BEE48A200BACC8E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */,
-				EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */,
-				EF4270C52BEE48B200BACC8E /* ProfileModels.swift */,
-				EF4270C62BEE48B200BACC8E /* ProfileViewController.swift */,
-				EF4270C72BEE48B200BACC8E /* ProfileInteractor.swift */,
-				EF4270C82BEE48B200BACC8E /* ProfileConfigurator.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		EF4270D02BEE498A00BACC8E /* General */ = {
-			isa = PBXGroup;
-			children = (
-				EFB297B02C388FCE00F13B01 /* Platform */,
-				EFCF3DCE2C0D0F5B000E7BD8 /* Game Details */,
+				EFB297BE2C38991300F13B01 /* Main */,
 				EF4270D12BEE499300BACC8E /* HamburgerMenu */,
 			);
-			path = General;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		EF4270D12BEE499300BACC8E /* HamburgerMenu */ = {
@@ -584,6 +561,41 @@
 			path = Platform;
 			sourceTree = "<group>";
 		};
+		EFB297BD2C3898C700F13B01 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */,
+				EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */,
+				EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */,
+				EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */,
+				EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */,
+				EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */,
+				7FD7E8AD2B7972B1000BE278 /* Collection Cells */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EFB297BE2C38991300F13B01 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EF4270C32BEE48B200BACC8E /* ProfilePresenter.swift */,
+				EF4270C42BEE48B200BACC8E /* ProfileRouter.swift */,
+				EF4270C52BEE48B200BACC8E /* ProfileModels.swift */,
+				EF4270C62BEE48B200BACC8E /* ProfileViewController.swift */,
+				EF4270C72BEE48B200BACC8E /* ProfileInteractor.swift */,
+				EF4270C82BEE48B200BACC8E /* ProfileConfigurator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EFB297BF2C3899BE00F13B01 /* IGDB Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7F6E6FCD2B73C7F200F0D64C /* IGDBAuth.swift */,
+			);
+			path = "IGDB Authentication";
+			sourceTree = "<group>";
+		};
 		EFB403032C381D61009A56B4 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,13 +666,9 @@
 		EFFA34E62BF104B400DE53F7 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				EFFA34E72BF104C800DE53F7 /* ExplorePresenter.swift */,
-				EFFA34E82BF104C800DE53F7 /* ExploreRouter.swift */,
-				EFFA34E92BF104C800DE53F7 /* ExploreModels.swift */,
-				EFFA34EA2BF104C800DE53F7 /* ExploreViewController.swift */,
-				EFFA34EB2BF104C800DE53F7 /* ExploreInteractor.swift */,
-				EFFA34EC2BF104C800DE53F7 /* ExploreConfigurator.swift */,
-				7FD7E8AD2B7972B1000BE278 /* Collection Cells */,
+				EFB297BD2C3898C700F13B01 /* Main */,
+				EFB297B02C388FCE00F13B01 /* Platform */,
+				EFCF3DCE2C0D0F5B000E7BD8 /* Game Details */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
