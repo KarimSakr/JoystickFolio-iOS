@@ -11,7 +11,9 @@ enum NetworkManager {
     
     case twitchAuth,
          getGames(_ offset: Int),
-         getCovers(_ gameIds: [Int])
+         getCovers(_ gameIds: [Int]),
+         getPlatforms(_ platformIds:[Int]),
+         getScreenshots(_ screenshotIds: [Int])
 }
 
 
@@ -38,6 +40,12 @@ extension NetworkManager: TargetType {
             
         case .getCovers:
             return Constants.Url.Endpoint.igdbEndpoint.covers
+            
+        case .getPlatforms:
+            return Constants.Url.Endpoint.igdbEndpoint.platforms
+            
+        case .getScreenshots:
+            return Constants.Url.Endpoint.igdbEndpoint.screenshots
         }
     }
 
@@ -65,16 +73,20 @@ extension NetworkManager: TargetType {
                 "client_id"     : clientId,
                 "client_secret" : clientSecret,
                 "grant_type"    : "client_credentials",
-            ], encoding: URLEncoding.httpBody)
+            ], encoding: URLEncoding.queryString)
             
         case .getGames(let offset):
-            return .requestData("fields cover, name; limit 10; offset \(offset);".data(using: .utf8)!)
+            return .requestData("fields *; limit 10; offset \(offset);".data(using: .utf8)!)
             
         case .getCovers(let gameIds):
             return .requestData("fields url; where id = (\(gameIds.map({String($0)}).joined(separator: ",")));".data(using: .utf8)!)
             
-//        default:
-//            return .requestPlain
+        case .getPlatforms(let platformsIds):
+            return .requestData("fields *; where id = (\(platformsIds.map({String($0)}).joined(separator: ",")));".data(using: .utf8)!)
+            
+        case .getScreenshots(let screenshotsIds):
+            return .requestData("fields *; where id = (\(screenshotsIds.map({String($0)}).joined(separator: ",")));".data(using: .utf8)!)
+            
         }
     }
     
@@ -120,6 +132,8 @@ extension Constants.Url {
         struct igdbEndpoint {
             static let games = "games"
             static let covers = "covers"
+            static let platforms = "platforms"
+            static let screenshots = "screenshots"
         }
     }
 }

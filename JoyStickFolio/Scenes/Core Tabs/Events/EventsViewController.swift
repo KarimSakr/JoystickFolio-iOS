@@ -13,7 +13,7 @@ protocol EventsViewControllerOutput {
     
 }
 
-class EventsViewController: UIViewController {
+class EventsViewController: BaseViewController {
     
     var interactor: EventsViewControllerOutput?
     var router: EventsRouter?
@@ -35,7 +35,6 @@ extension EventsViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     
 }

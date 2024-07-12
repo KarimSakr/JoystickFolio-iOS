@@ -14,11 +14,10 @@ protocol HomeViewControllerOutput {
     func validateIgdb() -> Single<Void>
 }
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     var interactor: HomeViewControllerOutput?
     var router: HomeRouter?
-    private var disposeBag = DisposeBag()
     var handle: AuthStateDidChangeListenerHandle?
     
     init() {
@@ -38,7 +37,6 @@ extension HomeViewController{
         super.viewDidLoad()
         configureNavigationBar()
         validateIgdb()
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,9 +71,9 @@ extension HomeViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onFailure: { [weak self] error in
                 guard let self = self else { return }
-                self.showSnackBar(message: "Something went wrong: \n\(error.localizedDescription)")
+                self.showSnackBar(with: "Something went wrong: \n\(error.localizedDescription)")
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: self.bag)
 
     }
     

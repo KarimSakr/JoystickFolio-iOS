@@ -17,12 +17,11 @@ protocol LoginViewControllerOutput {
     func checkIfUserIsSignedIn() -> Bool
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     var interactor: LoginViewControllerOutput?
     var router: LoginRouter?
     
-    private var disposeBag = DisposeBag()
     
     private lazy var usernameEmailField: UITextField = {
         let field = UITextField()
@@ -226,10 +225,10 @@ extension LoginViewController {
                     self.dismiss(animated: true, completion: nil)
                 } onFailure: { [weak self] error in
                     guard let self = self else { return }
-                    self.showSnackbar(with: error.localizedDescription)
+                    self.showSnackBar(with: error.localizedDescription)
                     self.stopLoading()
                 }
-                .disposed(by: disposeBag)
+                .disposed(by: bag)
         }
 
     }
@@ -283,12 +282,6 @@ extension LoginViewController {
         titleLabel.text = ""
         TextAnimator.animateTitle(text: "JoystickFolio", timeInterval: 0.1) { letter in
             self.titleLabel.text?.append(letter)
-        }
-    }
-    
-    func showSnackbar(with message: String) {
-        DispatchQueue.main.async {
-            AppSnackBar.make(in: self.view!, message: message, duration: .lengthLong).show()
         }
     }
 }

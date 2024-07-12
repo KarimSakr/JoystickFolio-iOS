@@ -16,15 +16,13 @@ protocol RegistrationViewControllerOutput {
     func resetData()
 }
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: BaseViewController {
     
     var interactor: RegistrationViewControllerOutput?
     var router: RegistrationRouter?
     
     var dismissalCompletion: (() -> Void)?
-    
-    fileprivate var disposeBag = DisposeBag()
-    
+        
     fileprivate var progressValue: Double = 0.0
     fileprivate var index : Int = 0
     
@@ -229,17 +227,17 @@ extension RegistrationViewController {
         var isSuccessful: Bool = false
         
         Task {
-
+            
             if processes.last != processes[index] {
-
+                
                 switch processes[index].process {
-
+                    
                 case .enterFullName:
                     isSuccessful = didEnterFullNameSuccessfully(fullName: mainTextField.text ?? "")
-
+                    
                 case .enterEmail:
                     isSuccessful = didEnterEmailSuccessfully(email: mainTextField.text ?? "")
-
+                    
                 case .enterUsername:
                     isModalInPresentation = true
                     isSuccessful = await didEnterUsernameSuccessfully(username: mainTextField.text ?? "")
@@ -259,9 +257,6 @@ extension RegistrationViewController {
             }
         }
     }
-    
-   
-    
 }
 
 //MARK: - Indicator and SnackBar -
@@ -279,12 +274,6 @@ extension RegistrationViewController {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
     }
-    
-    fileprivate
-    func showError(with message: String) {
-        AppSnackBar.make(in: self.view, message: message, duration: .lengthShort)
-            .show()
-    }
 }
 
 //MARK: - functions -
@@ -293,11 +282,11 @@ extension RegistrationViewController {
     fileprivate
     func didEnterFullNameSuccessfully(fullName: String) -> Bool {
         guard let interactor = interactor else {
-            showError(with: "Something went wrong")
+            self.showSnackBar(with: "Something went wrong")
             return false
         }
         guard fullName.isFullNameValid() else {
-            showError(with: "Invalid name")
+            self.showSnackBar(with: "Invalid name")
             return false
         }
         interactor.addData(to: Constants.Key.Auth.fullName, value: fullName)
@@ -308,11 +297,11 @@ extension RegistrationViewController {
     fileprivate
     func didEnterEmailSuccessfully(email: String) -> Bool {
         guard let interactor = interactor else {
-            showError(with: "Something went wrong")
+            self.showSnackBar(with: "Something went wrong")
             return false
         }
         guard email.isEmail() else {
-            showError(with: "Invalid email")
+            self.showSnackBar(with: "Invalid email")
             return false
         }
         interactor.addData(to: Constants.Key.Auth.email, value: email)
@@ -324,18 +313,18 @@ extension RegistrationViewController {
     func didEnterUsernameSuccessfully(username: String) async -> Bool{
      
         guard let interactor = interactor else {
-            showError(with: "Something went wrong")
+            self.showSnackBar(with: "Something went wrong")
             return false
         }
         guard username.isUsernameValid() else {
-            showError(with: "Invalid username, should be between 4 and 20, no special characters, and no spaces")
+            self.showSnackBar(with: "Invalid username, should be between 4 and 20, no special characters, and no spaces")
             return false
         }
         
         addLoadingIndicator()
         
         guard await interactor.isUsernameAvailable(username: username) else {
-            showError(with: "Username already taken")
+            self.showSnackBar(with: "Username already taken")
             removeLoadingIndicator()
             return false
         }
@@ -347,11 +336,11 @@ extension RegistrationViewController {
     fileprivate
     func didEnterPasswordSuccessfully(password: String, repeatPassword: String) async -> Bool {
         guard let interactor = interactor else {
-            showError(with: "Something went wrong")
+            self.showSnackBar(with: "Something went wrong")
             return false
         }
         guard password.isPasswordValid(), password.isPasswordValid(repeatTextField: repeatPassword) else {
-            showError(with: "Passwords should match and have a minimum length of 6 characters")
+            self.showSnackBar(with: "Passwords should match and have a minimum length of 6 characters")
             return false
         }
         interactor.addData(to: Constants.Key.Auth.password, value: password)
@@ -367,8 +356,8 @@ extension RegistrationViewController {
             } onFailure: { [weak self] error in
                 guard let self = self else { return }
                 resetRegistration()
-                self.showError(with: error.localizedDescription)
-            }.disposed(by: disposeBag)
+                self.showSnackBar(with: error.localizedDescription)
+            }.disposed(by: bag)
 
         
         return false

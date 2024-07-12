@@ -13,7 +13,7 @@ protocol ProfileViewControllerOutput {
     
 }
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     
     var interactor: ProfileViewControllerOutput?
     var router: ProfileRouter?
@@ -34,9 +34,7 @@ extension ProfileViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
-        addBottomGradient(color: .purpleApp, alpha: 0.3)
-        
+        configureNavigationBar()        
     }
     
     override func viewWillAppear(_ animated: Bool) {
