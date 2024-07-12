@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import WebKit
 
 protocol PlatformViewControllerOutput {
     func getPlatform() -> Single<PlatformModels.ViewModels.Platform>
@@ -18,6 +19,19 @@ class PlatformViewController: BaseViewController {
     var interactor: PlatformViewControllerOutput?
     var router: PlatformRouter?
     var platform: PlatformModels.ViewModels.Platform?
+    
+    lazy var rectangleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .purpleApp
+        return view
+    }()
+    
+    lazy var webView : WKWebView = {
+        let view = WKWebView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,18 +46,28 @@ class PlatformViewController: BaseViewController {
 }
 
 //MARK: - View Lifecycle -
-extension PlatformViewController{
+extension PlatformViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.addViews()
+        self.getPlatform()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-
+            
+            rectangleView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            rectangleView.topAnchor.constraint(equalTo: view.topAnchor),
+            rectangleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            rectangleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            webView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            webView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
         ])
     }
     
@@ -69,8 +93,16 @@ extension PlatformViewController {
 
 //MARK: - UI -
 extension PlatformViewController {
+    
+    fileprivate
+    func addViews(){
+        view.addSubview(rectangleView)
+        view.addSubview(webView)
+    }
+    
     fileprivate
     func updateUI() {
-        
+        let url = URL(string: platform?.url ?? "https://www.google.com")!
+        webView.load(URLRequest(url: url))
     }
 }
